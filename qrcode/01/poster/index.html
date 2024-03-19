@@ -35,24 +35,39 @@
         <img id="poster1" src="../../../assets/poster/annasanti_1.jpg" />
         <img id="poster2" src="../../../assets/poster/ASIAlandi_2.jpg" />
         <img id="poster3" src="../../../assets/poster/francescosanti_3.jpg">
+        <img id="manifest1" src="../../../assets/manifesti/1.jpg" />
+        <img id="manifest2" src="../../../assets/manifesti/2.jpg" />
+        <img id="manifest3" src="../../../assets/manifesti/3.jpg">
       </a-assets>
       <a-entity id="example-2" mytarget mindar-image-target="targetIndex: 1">
         <a-entity visible="false" id="portfolio-panel" position="0 0 -0.01">
             <a-entity id="portfolio-item0">
-                <a-plane position="0 0 0" animation="property: position; to: 0 0 0.1; dur: 10000; easing: linear; loop: false" id="example-poster1" class="clickable" src="#poster1" opaciy="1" position="0 0 0" height="1" width="0.7" rotation="0 0 0"></a-plane>
+                <a-plane position="0 0 0" animation="property: position; to: 0 0.05 0; dur: 10000; easing: linear; loop: false" id="example-poster1" class="clickable" src="#poster1" opaciy="1" position="0 0 0" height="1" width="0.7" rotation="0 0 0"></a-plane>
             </a-entity>
             <a-entity id="portfolio-item1">
-                <a-plane position="0 0 0" animation="property: position; to: 0 0 0.1; dur: 10000; easing: linear; loop: false" id="example-poster2" class="clickable" src="#poster2" opaciy="1" position="0 0 0" height="1" width="0.7" rotation="0 0 0"></a-plane>
+                <a-plane position="0 0 0" animation="property: position; to: 0 0.05 0; dur: 10000; easing: linear; loop: false" id="example-poster2" class="clickable" src="#poster2" opaciy="1" position="0 0 0" height="1" width="0.7" rotation="0 0 0"></a-plane>
             </a-entity>
             <a-entity id="portfolio-item2">
-                <a-plane position="0 0 0" animation="property: position; to: 0 0 0.1; dur: 10000; easing: linear; loop: false" id="example-poster3" class="clickable" src="#poster3" opaciy="1" position="0 0 0" height="1" width="0.7" rotation="0 0 0"></a-plane>
+                <a-plane position="0 0 0" animation="property: position; to: 0 0.05 0; dur: 10000; easing: linear; loop: false" id="example-poster3" class="clickable" src="#poster3" opaciy="1" position="0 0 0" height="1" width="0.7" rotation="0 0 0"></a-plane>
             </a-entity>
             <a-image visible="true" id="gallery-left-button" class="clickable" src="#arrow-left" position="-0.5 0 0" height="0.15" width="0.15" ></a-image>
             <a-image visible="true" id="gallery-right-button" class="clickable" src="#arrow-right" position="0.5 0 0" height="0.15" width="0.15" ></a-image>
         </a-entity>  
     </a-entity>
       <a-entity id="example-1" mindar-image-target="targetIndex: 0">
-
+        <a-entity visible="false" id="portfolio-panel" position="0 0 -0.01">
+            <a-entity id="portfolio-item0">
+                <a-plane position="0 0 0" animation="property: position; to: 0 0.05 0; dur: 10000; easing: linear; loop: false" id="example-poster4" class="clickable" src="#manifest1" opaciy="1" position="0 0 0" height="1" width="0.7" rotation="0 0 0"></a-plane>
+            </a-entity>
+            <a-entity id="portfolio-item1">
+                <a-plane position="0 0 0" animation="property: position; to: 0 0.05 0; dur: 10000; easing: linear; loop: false" id="example-poster5" class="clickable" src="#manifest2" opaciy="1" position="0 0 0" height="1" width="0.7" rotation="0 0 0"></a-plane>
+            </a-entity>
+            <a-entity id="portfolio-item2">
+                <a-plane position="0 0 0" animation="property: position; to: 0 0.05 0; dur: 10000; easing: linear; loop: false" id="example-poster6" class="clickable" src="#manifest3" opaciy="1" position="0 0 0" height="1" width="0.7" rotation="0 0 0"></a-plane>
+            </a-entity>
+            <a-image visible="true" id="gallery-left-button" class="clickable" src="#arrow-left" position="-0.5 0 0" height="0.15" width="0.15" ></a-image>
+            <a-image visible="true" id="gallery-right-button" class="clickable" src="#arrow-right" position="0.5 0 0" height="0.15" width="0.15" ></a-image>
+        </a-entity>  
     </a-entity>
     </a-scene>
   </body>
