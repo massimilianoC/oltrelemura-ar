@@ -53,12 +53,17 @@ const showInfo = () => {
     const portfolio = document.querySelector("#portfolio-panel");
     const portfolioLeftButton = document.querySelector("#gallery-left-button");
     const portfolioRightButton = document.querySelector("#gallery-right-button");
-    //const paintandquestPreviewButton = document.querySelector("#paintandquest-preview-button");
+
+    const manifest = document.querySelector("#manifest-panel");
+    const manifestLeftButton = document.querySelector("#manifest-left-button");
+    const manifestRightButton = document.querySelector("#manifest-right-button");
 
     let y = 0;
     let currentItem = 0;
+    let currentManifest = 0;
 
     portfolio.setAttribute("visible", true);
+    manifest.setAttribute("visible", true);
 
     const showPortfolioItem = (item) => {
       for (let i = 0; i <= 2; i++) {
@@ -66,12 +71,21 @@ const showInfo = () => {
       }
     }
 
+    const showManifestItem = (item) => {
+        for (let i = 0; i <= 2; i++) {
+          document.querySelector("#manifest-item" + i).setAttribute("visible", i === item);
+        }
+      }
+
     const id = setInterval(() => {
       y += 0.008;
       if (y >= 0.6) {
         clearInterval(id);
         portfolioLeftButton.setAttribute("visible", true);
         portfolioRightButton.setAttribute("visible", true);
+
+        manifestLeftButton.setAttribute("visible", true);
+        manifestRightButton.setAttribute("visible", true);
        
         portfolioLeftButton.addEventListener('click', () => {
           currentItem = (currentItem + 1) % 3;
@@ -82,6 +96,16 @@ const showInfo = () => {
           currentItem = (currentItem - 1 + 3) % 3;
           showPortfolioItem(currentItem);
         });
+
+        manifestLeftButton.addEventListener('click', () => {
+            currentManifest = (currentManifest + 1) % 3;
+            showManifestItem(currentManifest);
+          });
+  
+          manifestRightButton.addEventListener('click', () => {
+            currentManifest = (currentManifest - 1 + 3) % 3;
+            showManifestItem(currentManifest);
+          });
 
         /*paintandquestPreviewButton.addEventListener('click', () => {
           paintandquestPreviewButton.setAttribute("visible", false);
@@ -101,6 +125,7 @@ const showInfo = () => {
         }, 500);
       }
       portfolio.setAttribute("position", "0 " + y + " -0.01");
+      manifest.setAttribute("position", "0 " + y + " -0.01");
     }, 10);
   }
 
