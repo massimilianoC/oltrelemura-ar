@@ -104,7 +104,8 @@ const showInfo = () => {
     }, 10);
   }
 
-  /*const showAvatar = (onDone) => {
+  const showAvatar = (onDone) => {
+    /*
     const avatar = document.querySelector("#avatar");
     let z = -0.3;
     const id = setInterval(() => {
@@ -115,7 +116,8 @@ const showInfo = () => {
       }
       avatar.setAttribute("position", "0 -0.25 " + z);
     }, 10);
-  }*/
+    */
+  }
 
   AFRAME.registerComponent('mytarget', {
     init: function () {
