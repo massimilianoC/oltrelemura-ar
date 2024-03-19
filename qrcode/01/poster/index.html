@@ -56,16 +56,16 @@
 	example1.addEventListener("targetLost", event => {
 	  console.log("target lost");
 	});
-    
+
 	// detect click event
 	examplePlane1.addEventListener("click", event => {
-      var positionUpdate = document.querySelector('#example-target').object3D.position;
+      var positionUpdate = document.querySelector('#example-1').object3D.position;
 	  console.log(event);
       entityBox.setAttribute('position',positionUpdate)
 	});
     
     examplePlane2.addEventListener("click", event => {
-      var positionUpdate = document.querySelector('#example-target').object3D.position;
+      var positionUpdate = document.querySelector('#example-2').object3D.position;
 	  console.log(event);
       entityBox.setAttribute('position',positionUpdate)
 	});
