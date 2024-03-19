@@ -16,7 +16,8 @@
 
 	const example1 = document.querySelector('#example-1');
     const example2 = document.querySelector('#example-2');
-	const examplePlane = document.querySelector('#example-plane');
+	const examplePlane1 = document.querySelector('#example-plane1');
+    const examplePlane2 = document.querySelector('#example-plane2');
 	const startButton = document.querySelector("#example-start-button");
 	const stopButton = document.querySelector("#example-stop-button");
 	const pauseButton = document.querySelector("#example-pause-button");
@@ -55,8 +56,15 @@
 	example1.addEventListener("targetLost", event => {
 	  console.log("target lost");
 	});
+    
 	// detect click event
-	examplePlane.addEventListener("click", event => {
+	examplePlane1.addEventListener("click", event => {
+      var positionUpdate = document.querySelector('#example-target').object3D.position;
+	  console.log(event);
+      entityBox.setAttribute('position',positionUpdate)
+	});
+    
+    examplePlane2.addEventListener("click", event => {
       var positionUpdate = document.querySelector('#example-target').object3D.position;
 	  console.log(event);
       entityBox.setAttribute('position',positionUpdate)
@@ -78,7 +86,14 @@
       <button id="example-unpause-button">UnPause</button>
       <button id="example-stop-button">Stop</button>
     </div>
-    <a-scene mindar-image="imageTargetSrc: ../../../model/dualTarget.mind; autoStart: true; filterMinCF:0.001; filterBeta: 0.01; warmupTolerance: 1; missTolerance: 1" 
+    <a-scene 
+    mindar-image="imageTargetSrc: ../../../model/dualTarget.mind; 
+                    autoStart: true; 
+                    filterMinCF:0.001; 
+                    filterBeta: 0.01; 
+                    warmupTolerance: 1; 
+                    missTolerance: 1;
+                    maxTrack: 2" 
     color-space="sRGB" 
     renderer="colorManagement: true, physicallyCorrectLights" 
     vr-mode-ui="enabled: false" 
@@ -88,13 +103,13 @@
         <img id="opera-left" src="../../../assets/left.png" />
         <img id="opera-right" src="../../../assets/right.png" />
       </a-assets>
-      <a-entity id="example-2" mindar-image-target="targetIndex: 0">
-        <a-box id="myobject" position="0 0 0"></a-box>
-	  <a-plane position="0 0 0" animation="property: position; to: 0 0 1; dur: 10000; easing: linear; loop: false" id="example-plane" class="clickable" src="#opera-left" opaciy="0.5" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
+      <a-entity id="example-2" mindar-image-target="targetIndex: 1">
+        <a-box id="box1" position="0 0 0"></a-box>
+	  <a-plane position="0 0 0" animation="property: position; to: 0 0 1; dur: 10000; easing: linear; loop: false" id="example-plane1" class="clickable" src="#opera-left" opaciy="0.5" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
       </a-entity>
-      <a-entity id="example-1" mindar-image-target="targetIndex: 1">
-        <a-box id="myobject" position="0 0 0"></a-box>
-	  <a-plane position="0 0 0" animation="property: position; to: 0 0 1; dur: 10000; easing: linear; loop: false" id="example-plane" class="clickable" src="#opera-right" opaciy="0.5" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
+      <a-entity id="example-1" mindar-image-target="targetIndex: 0">
+        <a-box id="box2" position="0 0 0"></a-box>
+	  <a-plane position="0 0 0" animation="property: position; to: 0 0 1; dur: 10000; easing: linear; loop: false" id="example-plane2" class="clickable" src="#opera-right" opaciy="0.5" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
       </a-entity>
     </a-scene>
   </body>
