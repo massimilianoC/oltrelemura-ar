@@ -5,11 +5,15 @@
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
 	const sceneEl = document.querySelector('a-scene');
+    var entityBox = document.querySelector('#myobject');
 	let arSystem;
+
 	sceneEl.addEventListener('loaded', function () {
 	  arSystem = sceneEl.systems["mindar-image-system"];
 	});
+
 	const exampleTarget = document.querySelector('#example-target');
 	const examplePlane = document.querySelector('#example-plane');
 	const startButton = document.querySelector("#example-start-button");
@@ -17,6 +21,7 @@
 	const pauseButton = document.querySelector("#example-pause-button");
 	const pauseKeepVideoButton = document.querySelector("#example-pause-keep-video-button");
 	const unpauseButton = document.querySelector("#example-unpause-button");
+
 	startButton.addEventListener('click', () => {
 	  console.log("start");
 	  arSystem.start(); // start AR 
@@ -51,8 +56,16 @@
 	});
 	// detect click event
 	examplePlane.addEventListener("click", event => {
-	  console.log("plane click");
+      var positionUpdate = document.querySelector('#example-target').object3D.position;
+	  console.log(event);
+      entityBox.setAttribute('position',positionUpdate)
 	});
+
+
+
+
+
+
       });
     </script>
   </head>
@@ -64,14 +77,20 @@
       <button id="example-unpause-button">UnPause</button>
       <button id="example-stop-button">Stop</button>
     </div>
-    <a-scene mindar-image="imageTargetSrc: ../../../model/blur.mind; autoStart: true;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+    <a-scene mindar-image="imageTargetSrc: ../../../model/blur.mind; autoStart: true; filterMinCF:0.001; filterBeta: 0.01; warmupTolerance: 1; missTolerance: 1" 
+    color-space="sRGB" 
+    renderer="colorManagement: true, physicallyCorrectLights" 
+    vr-mode-ui="enabled: false" 
+    device-orientation-permission-ui="enabled: false">
       <a-camera position="0 0 0" look-controls="enabled: false" cursor="fuse: false; rayOrigin: mouse;" raycaster="near: 10; far: 10000; objects: .clickable"></a-camera>
       <a-assets>
         <img id="opera" src="../../../assets/opera.png" />
       </a-assets>
       <a-entity id="example-target" mindar-image-target="targetIndex: 0">
+        <a-box id="myobject" position="0 0 0"></a-box>
 	  <a-plane position="0 0 0" animation="property: position; to: 0 0 1; dur: 10000; easing: linear; loop: false" id="example-plane" class="clickable" src="#opera" opaciy="0.5" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
       </a-entity>
+      <a-plane position="0 0 0" id="fixed-plane" class="clickable" src="#opera" opaciy="0.5" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
     </a-scene>
   </body>
 </html>
