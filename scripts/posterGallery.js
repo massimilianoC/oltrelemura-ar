@@ -50,6 +50,7 @@ const showInfo = () => {
   }
 
   const showPortfolio = (done) => {
+    console.log("showPortfolio");
     const portfolio = document.querySelector("#portfolio-panel");
     const portfolioLeftButton = document.querySelector("#gallery-left-button");
     const portfolioRightButton = document.querySelector("#gallery-right-button");
@@ -78,6 +79,7 @@ const showInfo = () => {
       }
 
     const id = setInterval(() => {
+      console.log("setInterval");
       y += 0.008;
       if (y >= 0.6) {
         clearInterval(id);
@@ -124,8 +126,8 @@ const showInfo = () => {
           done();
         }, 500);
       }
-      portfolio.setAttribute("position", "0 " + y + " -0.01");
-      manifest.setAttribute("position", "0 " + y + " -0.01");
+      //portfolio.setAttribute("position", "0 " + y + " -0.01");
+      //manifest.setAttribute("position", "0 " + y + " -0.01");
     }, 10);
   }
 
@@ -148,11 +150,18 @@ const showInfo = () => {
     init: function () {
       this.el.addEventListener('targetFound', event => {
         console.log("target found");
+        showAvatar(() => {
+          setTimeout(() => {
             showPortfolio(() => {
+              setTimeout(() => {
+                showInfo();
+              }, 300);
             });
+          }, 300);
+        });
       });
       this.el.addEventListener('targetLost', event => {
-        console.log("target found");
+        console.log("target lost");
       });
       //this.el.emit('targetFound');
     }
