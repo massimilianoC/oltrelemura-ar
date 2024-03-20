@@ -50,7 +50,7 @@ const showInfo = () => {
   }
 
   const showPortfolio = (name,done) => {
-    console.log("name");
+    console.log(name);
     const portfolio = document.querySelector("#"+name+"-panel");
     const portfolioLeftButton = document.querySelector("#gallery-left-button");
     const portfolioRightButton = document.querySelector("#gallery-right-button");
