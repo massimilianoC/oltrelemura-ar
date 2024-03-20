@@ -1,7 +1,75 @@
 
 document.addEventListener("DOMContentLoaded", function() {
 
-const showInfo = () => {
+  AFRAME.registerComponent('mygallery',{
+    schema: {
+      name: {type: 'string', default: ''}
+    },
+    init: function () {
+      var data = this.data;
+      this.el.addEventListener('targetFound', event => {
+        console.log("gallery target found");
+        console.log(data.name);
+            showGallery(data.name,() => {
+              setTimeout(() => {
+                showInfo();
+              }, 300);
+            });
+      });
+      this.el.addEventListener('targetLost', event => {
+        console.log("gallery target lost");
+      });
+      //this.el.emit('targetFound');
+    }
+  });
+
+  const showGallery = (name,done) => {
+    console.log(name);
+    const gallery = document.querySelector("#"+name+"-panel");
+    const galleryLeftButton = document.querySelector("#"+name+"-left-button");
+    const galleryRightButton = document.querySelector("#"+name+"-right-button");
+
+    let y = 0;
+    let currentItem = 0;
+
+    gallery.setAttribute("visible", true);
+
+    const showGalleryItem = (item) => {
+      for (let i = 0; i <= 2; i++) {
+        document.querySelector("#"+name+"-item" + i).setAttribute("visible", i === item);
+      }
+    }
+
+    const id = setInterval(() => {
+      console.log("setInterval");
+      y += 0.008;
+      if (y >= 0.6) {
+        clearInterval(id);
+        galleryLeftButton.setAttribute("visible", true);
+        galleryRightButton.setAttribute("visible", true);
+       
+        galleryLeftButton.addEventListener('click', () => {
+          currentItem = (currentItem + 1) % 3;
+          showGalleryItem(currentItem);
+        });
+
+        galleryRightButton.addEventListener('click', () => {
+          currentItem = (currentItem - 1 + 3) % 3;
+          showGalleryItem(currentItem);
+        });
+
+        setTimeout(() => {
+          done();
+        }, 500);
+      }
+
+      //esempio sposta oggetto verso l'lato
+      //gallery.setAttribute("position", "0 " + y + " -0.01");
+
+    }, 10);
+  }
+
+  const showInfo = () => {
     /*
     let y = 0;
     const profileButton = document.querySelector("#profile-button");
@@ -49,71 +117,4 @@ const showInfo = () => {
     */
   }
 
-  const showGallery = (name,done) => {
-    console.log(name);
-    const gallery = document.querySelector("#"+name+"-panel");
-    const galleryLeftButton = document.querySelector("#"+name+"-left-button");
-    const galleryRightButton = document.querySelector("#"+name+"-right-button");
-
-    let y = 0;
-    let currentItem = 0;
-
-    gallery.setAttribute("visible", true);
-
-    const showGalleryItem = (item) => {
-      for (let i = 0; i <= 2; i++) {
-        document.querySelector("#"+name+"-item" + i).setAttribute("visible", i === item);
-      }
-    }
-
-    const id = setInterval(() => {
-      console.log("setInterval");
-      y += 0.008;
-      if (y >= 0.6) {
-        clearInterval(id);
-        galleryLeftButton.setAttribute("visible", true);
-        galleryRightButton.setAttribute("visible", true);
-       
-        galleryLeftButton.addEventListener('click', () => {
-          currentItem = (currentItem + 1) % 3;
-          showGalleryItem(currentItem);
-        });
-
-        galleryRightButton.addEventListener('click', () => {
-          currentItem = (currentItem - 1 + 3) % 3;
-          showGalleryItem(currentItem);
-        });
-
-        setTimeout(() => {
-          done();
-        }, 500);
-      }
-
-      gallery.setAttribute("position", "0 " + y + " -0.01");
-
-    }, 10);
-  }
-
-
-  AFRAME.registerComponent('mygallery',{
-    schema: {
-      name: {type: 'string', default: ''}
-    },
-    init: function () {
-      var data = this.data;
-      this.el.addEventListener('targetFound', event => {
-        console.log("component target found");
-        console.log(data.name);
-            showGallery(data.name,() => {
-              setTimeout(() => {
-                showInfo();
-              }, 300);
-            });
-      });
-      this.el.addEventListener('targetLost', event => {
-        console.log("target lost");
-      });
-      //this.el.emit('targetFound');
-    }
-  });
 });
