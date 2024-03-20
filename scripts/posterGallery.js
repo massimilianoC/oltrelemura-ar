@@ -146,7 +146,7 @@ const showInfo = () => {
     */
   }
 
-  AFRAME.registerComponent('myPoster', {
+  AFRAME.registerComponent('myposter', {
     init: function () {
       this.el.addEventListener('targetFound', event => {
         console.log("component target found");
