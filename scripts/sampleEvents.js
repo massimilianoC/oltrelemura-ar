@@ -53,13 +53,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	// detect click event
 	examplePlane1.addEventListener("click", event => {
-      var positionUpdate = document.querySelector("#example-1").object3D.position;
+      var positionUpdate = document.querySelector("#example-poster1").object3D.position;
 	  console.log(event);
       entityBox.setAttribute("position",positionUpdate)
 	});
     
     examplePlane2.addEventListener("click", event => {
-      var positionUpdate = document.querySelector("#example-2").object3D.position;
+      var positionUpdate = document.querySelector("#example-poster2").object3D.position;
 	  console.log(event);
       entityBox.setAttribute("position",positionUpdate)
 	});
