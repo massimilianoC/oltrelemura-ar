@@ -49,9 +49,9 @@ const showInfo = () => {
     */
   }
 
-  const showPortfolio = (done) => {
-    console.log("showPortfolio");
-    const portfolio = document.querySelector("#portfolio-panel");
+  const showPortfolio = (name,done) => {
+    console.log("name");
+    const portfolio = document.querySelector("#"+name+"-panel");
     const portfolioLeftButton = document.querySelector("#gallery-left-button");
     const portfolioRightButton = document.querySelector("#gallery-right-button");
 
@@ -146,13 +146,16 @@ const showInfo = () => {
     */
   }
 
-  AFRAME.registerComponent('myposter', {
+  AFRAME.registerComponent('mygallery',{
+    schema: {
+      name: {type: 'string', default: ''}
+    },
     init: function () {
       this.el.addEventListener('targetFound', event => {
         console.log("component target found");
         /*showAvatar(() => {
           setTimeout(() => {*/
-            showPortfolio(() => {
+            showPortfolio(this.data.name,() => {
               setTimeout(() => {
                 showInfo();
               }, 300);
