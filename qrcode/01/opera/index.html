@@ -3,6 +3,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+	<script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
 
@@ -30,7 +31,9 @@
       </a-assets>
 
       <a-entity id="ar-target" mindar-image-target="targetIndex: 0">
-	  <a-plane position="0 0 0" animation="property: position; to: 0 0 0.1; dur: 10000; easing: linear; loop: false" id="example-plane" class="clickable" src="#opera" opaciy="0.5" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
+		<a-plane 	position="0 0 0" animation="property: position; to: 0 0 0.1; dur: 10000; easing: linear; loop: false" 
+					material="shader:gif;src:url(../../../assets/opera/emm.gif);color:white;opacity:1"
+					id="example-plane" class="clickable" src="#opera" opaciy="0.5" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
       </a-entity>
 
     </a-scene>
