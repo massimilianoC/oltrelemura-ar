@@ -146,10 +146,10 @@ const showInfo = () => {
     */
   }
 
-  AFRAME.registerComponent('mytarget', {
+  AFRAME.registerComponent('myPoster', {
     init: function () {
       this.el.addEventListener('targetFound', event => {
-        console.log("target found");
+        console.log("component target found");
         showAvatar(() => {
           setTimeout(() => {
             showPortfolio(() => {

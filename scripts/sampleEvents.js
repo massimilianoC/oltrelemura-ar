@@ -44,11 +44,11 @@ document.addEventListener("DOMContentLoaded", function() {
 	});
 	// detect target found
 	example1.addEventListener("targetFound", event => {
-	  console.log("target found");
+	  console.log("event target found");
 	});
 	// detect target lost
 	example1.addEventListener("targetLost", event => {
-	  console.log("target lost");
+	  console.log("event target lost");
 	});
 
 	// detect click event
