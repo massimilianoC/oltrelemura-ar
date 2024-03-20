@@ -158,8 +158,8 @@ const showInfo = () => {
               }, 300);
             });/*
           }, 300);
-        });
-      });*/
+        });*/
+      });
       this.el.addEventListener('targetLost', event => {
         console.log("target lost");
       });
