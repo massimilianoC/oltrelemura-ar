@@ -9,14 +9,14 @@ document.addEventListener("DOMContentLoaded", function() {
 	});
 
 	const example1 = document.querySelector('#example-1');
-    const example2 = document.querySelector('#example-2');
+
 	const examplePlane1 = document.querySelector('#example-poster1');
-    const examplePlane2 = document.querySelector('#example-poster2');
-	const startButton = document.querySelector("#example-start-button");
-	const stopButton = document.querySelector("#example-stop-button");
-	const pauseButton = document.querySelector("#example-pause-button");
-	const pauseKeepVideoButton = document.querySelector("#example-pause-keep-video-button");
-	const unpauseButton = document.querySelector("#example-unpause-button");
+
+	const startButton = document.querySelector("#debug-start-button");
+	const stopButton = document.querySelector("#debug-stop-button");
+	const pauseButton = document.querySelector("#debug-pause-button");
+	const pauseKeepVideoButton = document.querySelector("#debug-pause-keep-video-button");
+	const unpauseButton = document.querySelector("#debug-unpause-button");
 
 	startButton.addEventListener('click', () => {
 	  console.log("start");
@@ -58,11 +58,6 @@ document.addEventListener("DOMContentLoaded", function() {
       entityBox.setAttribute("position",positionUpdate)
 	});
     
-    examplePlane2.addEventListener("click", event => {
-      var positionUpdate = document.querySelector("#example-poster2").object3D.position;
-	  console.log(event);
-      entityBox.setAttribute("position",positionUpdate)
-	});
 
 
 });
