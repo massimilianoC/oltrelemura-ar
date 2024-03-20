@@ -151,11 +151,13 @@ const showInfo = () => {
       name: {type: 'string', default: ''}
     },
     init: function () {
+      var data = this.data;
       this.el.addEventListener('targetFound', event => {
         console.log("component target found");
+        console.log(data.name);
         /*showAvatar(() => {
           setTimeout(() => {*/
-            showPortfolio(this.data.name,() => {
+            showPortfolio(data.name,() => {
               setTimeout(() => {
                 showInfo();
               }, 300);
