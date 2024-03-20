@@ -150,16 +150,16 @@ const showInfo = () => {
     init: function () {
       this.el.addEventListener('targetFound', event => {
         console.log("component target found");
-        showAvatar(() => {
-          setTimeout(() => {
+        /*showAvatar(() => {
+          setTimeout(() => {*/
             showPortfolio(() => {
               setTimeout(() => {
                 showInfo();
               }, 300);
-            });
+            });/*
           }, 300);
         });
-      });
+      });*/
       this.el.addEventListener('targetLost', event => {
         console.log("target lost");
       });
