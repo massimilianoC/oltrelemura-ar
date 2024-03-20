@@ -10,8 +10,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	const example1 = document.querySelector('#example-1');
     const example2 = document.querySelector('#example-2');
-	const examplePlane1 = document.querySelector('#example-plane1');
-    const examplePlane2 = document.querySelector('#example-plane2');
+	const examplePlane1 = document.querySelector('#example-poster1');
+    const examplePlane2 = document.querySelector('#example-poster2');
 	const startButton = document.querySelector("#example-start-button");
 	const stopButton = document.querySelector("#example-stop-button");
 	const pauseButton = document.querySelector("#example-pause-button");
