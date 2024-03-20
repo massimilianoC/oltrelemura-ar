@@ -49,102 +49,51 @@ const showInfo = () => {
     */
   }
 
-  const showPortfolio = (name,done) => {
+  const showGallery = (name,done) => {
     console.log(name);
-    const portfolio = document.querySelector("#"+name+"-panel");
-    const portfolioLeftButton = document.querySelector("#gallery-left-button");
-    const portfolioRightButton = document.querySelector("#gallery-right-button");
-
-    const manifest = document.querySelector("#manifest-panel");
-    const manifestLeftButton = document.querySelector("#manifest-left-button");
-    const manifestRightButton = document.querySelector("#manifest-right-button");
+    const gallery = document.querySelector("#"+name+"-panel");
+    const galleryLeftButton = document.querySelector("#"+name+"-left-button");
+    const galleryRightButton = document.querySelector("#"+name+"-right-button");
 
     let y = 0;
     let currentItem = 0;
-    let currentManifest = 0;
 
     portfolio.setAttribute("visible", true);
-    manifest.setAttribute("visible", true);
 
-    const showPortfolioItem = (item) => {
+    const showGalleryItem = (item) => {
       for (let i = 0; i <= 2; i++) {
-        document.querySelector("#portfolio-item" + i).setAttribute("visible", i === item);
+        document.querySelector("#"+name+"-item" + i).setAttribute("visible", i === item);
       }
     }
-
-    const showManifestItem = (item) => {
-        for (let i = 0; i <= 2; i++) {
-          document.querySelector("#manifest-item" + i).setAttribute("visible", i === item);
-        }
-      }
 
     const id = setInterval(() => {
       console.log("setInterval");
       y += 0.008;
       if (y >= 0.6) {
         clearInterval(id);
-        portfolioLeftButton.setAttribute("visible", true);
-        portfolioRightButton.setAttribute("visible", true);
-
-        manifestLeftButton.setAttribute("visible", true);
-        manifestRightButton.setAttribute("visible", true);
+        galleryLeftButton.setAttribute("visible", true);
+        galleryRightButton.setAttribute("visible", true);
        
-        portfolioLeftButton.addEventListener('click', () => {
+        galleryLeftButton.addEventListener('click', () => {
           currentItem = (currentItem + 1) % 3;
-          showPortfolioItem(currentItem);
+          showGalleryItem(currentItem);
         });
 
-        portfolioRightButton.addEventListener('click', () => {
+        galleryRightButton.addEventListener('click', () => {
           currentItem = (currentItem - 1 + 3) % 3;
-          showPortfolioItem(currentItem);
+          showGalleryItem(currentItem);
         });
-
-        manifestLeftButton.addEventListener('click', () => {
-            currentManifest = (currentManifest + 1) % 3;
-            showManifestItem(currentManifest);
-          });
-  
-          manifestRightButton.addEventListener('click', () => {
-            currentManifest = (currentManifest - 1 + 3) % 3;
-            showManifestItem(currentManifest);
-          });
-
-        /*paintandquestPreviewButton.addEventListener('click', () => {
-          paintandquestPreviewButton.setAttribute("visible", false);
-          const testVideo = document.createElement( "video" );
-          const canplayWebm = testVideo.canPlayType( 'video/webm; codecs="vp8, vorbis"' );
-          if (canplayWebm == "") {
-            document.querySelector("#paintandquest-video-link").setAttribute("src", "#paintandquest-video-mp4");
-            document.querySelector("#paintandquest-video-mp4").play();
-          } else {
-            document.querySelector("#paintandquest-video-link").setAttribute("src", "#paintandquest-video-webm");
-            document.querySelector("#paintandquest-video-webm").play();
-          }
-        });*/
 
         setTimeout(() => {
           done();
         }, 500);
       }
-      //portfolio.setAttribute("position", "0 " + y + " -0.01");
-      //manifest.setAttribute("position", "0 " + y + " -0.01");
+
+      gallery.setAttribute("position", "0 " + y + " -0.01");
+
     }, 10);
   }
 
-  const showAvatar = (onDone) => {
-    /*
-    const avatar = document.querySelector("#avatar");
-    let z = -0.3;
-    const id = setInterval(() => {
-      z += 0.008;
-      if (z >= 0.3) {
-        clearInterval(id);
-        onDone();
-      }
-      avatar.setAttribute("position", "0 -0.25 " + z);
-    }, 10);
-    */
-  }
 
   AFRAME.registerComponent('mygallery',{
     schema: {
@@ -155,15 +104,11 @@ const showInfo = () => {
       this.el.addEventListener('targetFound', event => {
         console.log("component target found");
         console.log(data.name);
-        /*showAvatar(() => {
-          setTimeout(() => {*/
-            showPortfolio(data.name,() => {
+            showGallery(data.name,() => {
               setTimeout(() => {
                 showInfo();
               }, 300);
-            });/*
-          }, 300);
-        });*/
+            });
       });
       this.el.addEventListener('targetLost', event => {
         console.log("target lost");
