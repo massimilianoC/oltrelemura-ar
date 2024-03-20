@@ -58,7 +58,7 @@ const showInfo = () => {
     let y = 0;
     let currentItem = 0;
 
-    portfolio.setAttribute("visible", true);
+    gallery.setAttribute("visible", true);
 
     const showGalleryItem = (item) => {
       for (let i = 0; i <= 2; i++) {
