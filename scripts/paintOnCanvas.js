@@ -20,17 +20,13 @@ document.addEventListener("DOMContentLoaded", function() {
         createCanvas(data.target);
         var parent = document.querySelector(data.target);
         parent.texture = null
-
-        // wait until the element is ready
-        parent.addEventListener('loaded', e => {
-           // create the texture
-           parent.texture = new THREE.CanvasTexture(canvas);
-            console.log(parent);
-           // get the references neccesary to swap the texture
-           let mesh = parent.getObject3D('mesh')
-           mesh.material.map = parent.texture
-           // if there was a map before, you should dispose it
-        })
+        // create the texture
+        parent.texture = new THREE.CanvasTexture(canvas);
+        console.log(parent);
+        // get the references neccesary to swap the texture
+        let mesh = parent.getObject3D('mesh')
+        mesh.material.map = parent.texture
+        // if there was a map before, you should dispose it
       },
       tick: function (){
         var data = this.data;
