@@ -73,7 +73,7 @@ const DIR_MAP_TO_AXIS = {
           z: (axis === 'z' ? 0 : centerCoor.z - block.getAttribute('position').z)
         });
   
-        const oldAnimation = block.getElementsByTagName('a-animation')[0]
+        const oldAnimation = block.getElementsByTagName('a-animation')[0];
         
         if (oldAnimation) {
           block.removeChild(oldAnimation)
