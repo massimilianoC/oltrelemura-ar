@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-    AFRAME.registerComponent('rotatecube',{
+    AFRAME.registerComponent('rotatecube',{ schema: {
+      rotation: {type: 'string', default: ''}
+      },
       update: function (oldData) {
           const rotates = ['U', 'R', 'F', 'L', 'D', 'B'];
           Rotate[rotates[Math.floor(Math.random() * 6)]]();
