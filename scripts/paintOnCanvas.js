@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function() {
         var parent = document.querySelector(target);
 
         setTimeout(() => {
-            parent.setAttribute("material","shader: flat; src: #"+canvas.id);
+            parent.setAttribute("material",{shader: 'flat', src: '#'+canvas.id});
           }, 500);
 
       }
