@@ -23,8 +23,6 @@ AFRAME.registerComponent('pivot-point', {
       const originalGroup = el.object3D
       const outerGroup = new THREE.Group()
   
-
-
       console.log("OriginalPosition");
       console.log(originalPosition);
       console.log(originalRotation);
@@ -52,5 +50,6 @@ AFRAME.registerComponent('pivot-point', {
       // Transfer rotation to outer group.
       outerGroup.rotation.copy(originalGroup.rotation)
       originalGroup.rotation.set(0, 0, 0)
+      console.log("END pivot");
     }
   })

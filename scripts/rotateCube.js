@@ -74,7 +74,9 @@ const DIR_MAP_TO_AXIS = {
         }; 
         console.log("NewCoord");
         console.log(newCoord);
+        console.log("block position");
         console.log(block.getAttribute('position'));
+        console.log("centerCoor");
         console.log(centerCoor);
 
         block.setAttribute('pivot-point', {
