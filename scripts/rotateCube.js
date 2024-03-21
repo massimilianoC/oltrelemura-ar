@@ -53,6 +53,7 @@ const DIR_MAP_TO_AXIS = {
   
   const generateRotation = dir => {
     return () => {
+      console.log("generateRotation");
       const axis = DIR_MAP_TO_AXIS[dir]
       const blocks = getTargetBlocks(dir, axis)
       const deg = axis === 'x'
@@ -81,6 +82,7 @@ const DIR_MAP_TO_AXIS = {
         animation.setAttribute('dur', 1500)
         animation.setAttribute('repeat', 0)
         animation.setAttribute('to', deg)
+        console.log(block);
         block.appendChild(animation)
       })
     }
