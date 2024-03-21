@@ -67,6 +67,14 @@ const DIR_MAP_TO_AXIS = {
           z: 0
         });
   
+        var newCoord = {
+          x: (axis === 'x' ? 0 : centerCoor.x - block.getAttribute('position').x),
+          y: (axis === 'y' ? 0 : centerCoor.y - block.getAttribute('position').y),
+          z: (axis === 'z' ? 0 : centerCoor.z - block.getAttribute('position').z)
+        }; 
+        console.log("NewCoord");
+        console.log(newCoord);
+
         block.setAttribute('pivot-point', {
           x: (axis === 'x' ? 0 : centerCoor.x - block.getAttribute('position').x),
           y: (axis === 'y' ? 0 : centerCoor.y - block.getAttribute('position').y),
