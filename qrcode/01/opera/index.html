@@ -208,5 +208,11 @@
         <a-light type="ambient" color="#dddddd"></a-light>
       </a-entity>
     </a-scene> 
+    <script>
+      const rotates = ['U', 'R', 'F', 'L', 'D', 'B']
+      setInterval(() => {
+        Rotate[rotates[Math.floor(Math.random() * 6)]]()
+      }, 2000)
+    </script>
   </body>
 </html>

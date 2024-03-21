@@ -1,5 +1,3 @@
-document.addEventListener("DOMContentLoaded", function() {
-
     AFRAME.registerComponent('rotatecube',{ schema: {
       rotation: {type: 'string', default: ''}
       },
@@ -93,5 +91,3 @@ const L = generateRotation('l');
 const D = generateRotation('d');
 const B = generateRotation('b');
 const Rotate = { U, R, F, L, D, B }
-
-});
