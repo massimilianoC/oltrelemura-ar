@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
         console.log(oldData);
         console.log(this.el);
         //centerCoor = this.el.position;
-        const rotates = ['U', 'R', 'F', 'L', 'D', 'B']
+        const rotates = ['U', 'R', 'F', 'L', 'D', 'B'];
         Rotate[rotates[Math.floor(Math.random() * 6)]]();
       },
       tick: function (){
@@ -54,46 +54,48 @@ const DIR_MAP_TO_AXIS = {
   const generateRotation = dir => {
     return () => {
       console.log("generateRotation");
-      const axis = DIR_MAP_TO_AXIS[dir]
-      const blocks = getTargetBlocks(dir, axis)
+      const axis = DIR_MAP_TO_AXIS[dir];
+      const blocks = getTargetBlocks(dir, axis);
+      console.log(blocks);
       const deg = axis === 'x'
         ? '360 0 0'
-        : (axis === 'y' ? '0 360 0' : '0 0 360')
+        : (axis === 'y' ? '0 360 0' : '0 0 360');
       blocks.forEach(block => {
         block.setAttribute('rotation', {
           x: 0,
           y: 0,
           z: 0
-        })
+        });
   
         block.setAttribute('pivot-point', {
           x: (axis === 'x' ? 0 : centerCoor.x - block.getAttribute('position').x),
           y: (axis === 'y' ? 0 : centerCoor.y - block.getAttribute('position').y),
           z: (axis === 'z' ? 0 : centerCoor.z - block.getAttribute('position').z)
-        })
+        });
   
         const oldAnimation = block.getElementsByTagName('a-animation')[0]
+        
         if (oldAnimation) {
           block.removeChild(oldAnimation)
         }
   
-        const animation = document.createElement('a-animation')
-        animation.setAttribute('attribute', 'rotation')
-        animation.setAttribute('dur', 1500)
-        animation.setAttribute('repeat', 0)
-        animation.setAttribute('to', deg)
+        const animation = document.createElement('a-animation');
+        animation.setAttribute('attribute', 'rotation');
+        animation.setAttribute('dur', 1500);
+        animation.setAttribute('repeat', 0);
+        animation.setAttribute('to', deg);
         console.log(block);
-        block.appendChild(animation)
+        block.appendChild(animation);
       })
     }
   }
   
-  const U = generateRotation('u')
-  const R = generateRotation('r')
-  const F = generateRotation('f')
-  const L = generateRotation('l')
-  const D = generateRotation('d')
-  const B = generateRotation('b')
-  const Rotate = { U, R, F, L, D, B }
+  const U = generateRotation('u');
+  const R = generateRotation('r');
+  const F = generateRotation('f');
+  const L = generateRotation('l');
+  const D = generateRotation('d');
+  const B = generateRotation('b');
+  const Rotate = { U, R, F, L, D, B };
 
 });
