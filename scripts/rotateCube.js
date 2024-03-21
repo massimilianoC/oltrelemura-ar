@@ -16,18 +16,12 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     });
 
-    /*const centerCoor = {
+    const centerCoor = {
       x: -2,
       y: -6,
       z: -6
     };
-    */
-    const centerCoor = {
-      x: -0.2,
-      y: -0.6,
-      z: -0.6
-    };
-
+    
 // map six sides (directions) to three coordinate axises
 const DIR_MAP_TO_AXIS = {
     'u': 'y',
@@ -87,10 +81,11 @@ const DIR_MAP_TO_AXIS = {
   
         const animation = document.createElement('a-animation');
         animation.setAttribute('attribute', 'rotation');
-        animation.setAttribute('dur', 1500);
+        animation.setAttribute('dur', 20000);
         animation.setAttribute('repeat', 0);
         animation.setAttribute('to', deg);
         console.log(block);
+        console.log(deg);
         block.appendChild(animation);
       })
     }
