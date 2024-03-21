@@ -18,6 +18,7 @@ AFRAME.registerComponent('pivot-point', {
           z: this.data.z - oldData.z
         }
         : this.data
+      
       const el = this.el
       const originalParent = el.object3D.parent
       const originalGroup = el.object3D
@@ -42,6 +43,8 @@ AFRAME.registerComponent('pivot-point', {
   
       console.log("Data");
       console.log(data);
+      console.log(this.data);
+      console.log(oldData);
       // Apply pivot to original group.
       originalGroup.position.set(-1 * data.x, -1 * data.y, -1 * data.z)
   
