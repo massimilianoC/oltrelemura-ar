@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
        
       }
     });
-});
+
 
  // map six sides (directions) to three coordinate axises
 const DIR_MAP_TO_AXIS = {
@@ -93,3 +93,5 @@ const L = generateRotation('l');
 const D = generateRotation('d');
 const B = generateRotation('b');
 const Rotate = { U, R, F, L, D, B }
+
+});
