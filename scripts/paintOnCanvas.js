@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var canvas = document.createElement('canvas');
     var ctx = canvas.getContext('2d');
     var linesArray = [];
-    currentSize = 5;
+    currentSize = 10;
     var currentColor = "rgb(200,20,100)";
     var currentBg = "white";
 
@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", function() {
         canvas.style.zIndex = 8;
         canvas.style.position = "absolute";
         canvas.style.border = "1px solid";
-        canvas.style.opacity = "0.1";
+        canvas.style.opacity = "0.0";
         ctx.fillStyle = currentBg;
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         parent.appendChild(canvas);
