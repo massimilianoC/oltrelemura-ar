@@ -9,9 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
         console.log(this.el);
         //centerCoor = this.el.position;
         const rotates = ['U', 'R', 'F', 'L', 'D', 'B']
-        setInterval(() => {
-          Rotate[rotates[Math.floor(Math.random() * 6)]]()
-        }, 2000)
+        Rotate[rotates[Math.floor(Math.random() * 6)]]();
       },
       tick: function (){
        
