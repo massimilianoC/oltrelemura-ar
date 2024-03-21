@@ -42,10 +42,10 @@ const centerCoor = {
   z: -6
 }
 
-const allblocks = document.querySelectorAll('a-box');
+const blocks = document.querySelectorAll('a-box');
 
 const getTargetBlocks = (dir, axis) => {
-  return Array.prototype.filter.call(allblocks, block => {
+  return Array.prototype.filter.call(blocks, block => {
     const targetCoor = centerCoor[axis] + DIR_OFFSET[dir]
     return block.getAttribute('position')[axis] === targetCoor
   })
@@ -53,7 +53,6 @@ const getTargetBlocks = (dir, axis) => {
 
 const generateRotation = dir => {
   return () => {
-    console.log("generateRotation");
     const axis = DIR_MAP_TO_AXIS[dir];
     const blocks = getTargetBlocks(dir, axis);
     const deg = axis === 'x'
