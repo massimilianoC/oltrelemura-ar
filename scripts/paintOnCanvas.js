@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function() {
         parent.addEventListener('loaded', e => {
            // create the texture
            parent.texture = new THREE.CanvasTexture(canvas);
-      
+            console.log(parent);
            // get the references neccesary to swap the texture
            let mesh = parent.getObject3D('mesh')
            mesh.material.map = parent.texture
