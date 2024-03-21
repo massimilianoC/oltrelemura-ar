@@ -70,8 +70,8 @@ document.addEventListener("DOMContentLoaded", function() {
         canvas.style.position = "absolute";
         canvas.style.border = "1px solid";
         canvas.style.opacity = "0.0";
-        ctx.fillStyle = currentBg;
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        context.fillStyle = currentBg;
+        context.fillRect(0, 0, canvas.width, canvas.height);
         parent.appendChild(canvas);
     }
 
