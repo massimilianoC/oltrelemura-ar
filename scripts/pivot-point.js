@@ -6,6 +6,10 @@ AFRAME.registerComponent('pivot-point', {
     update: function(oldData) {
       const originalPosition = new THREE.Vector3()
       const originalRotation = new THREE.Vector3()
+
+      console.log(this.data);
+      console.log(oldData);
+
       const data = oldData
         ? {
           x: this.data.x - oldData.x,
@@ -18,6 +22,9 @@ AFRAME.registerComponent('pivot-point', {
       const originalGroup = el.object3D
       const outerGroup = new THREE.Group()
   
+
+
+      console.log("OriginalPosition");
       console.log(originalPosition);
       console.log(originalRotation);
 
@@ -34,7 +41,6 @@ AFRAME.registerComponent('pivot-point', {
       // Set outer group as new object3D.
       el.object3D = outerGroup
   
-      console.log(data);
       // Apply pivot to original group.
       originalGroup.position.set(-1 * data.x, -1 * data.y, -1 * data.z)
   
