@@ -5,16 +5,15 @@ document.addEventListener("DOMContentLoaded", function() {
         value: {type: 'string', default: ''}
       },
       update: function (oldData) {
-        const rotates = ['U', 'R', 'F', 'L', 'D', 'B']
-        setInterval(() => {
-          Rotate[rotates[Math.floor(Math.random() * 6)]]()
-        }, 2000)
+        //setInterval(() => {
+          Rotate[value]();
+        //}, 2000)
       },
       tick: function (){
        
       }
     });
-  });
+});
 
  // map six sides (directions) to three coordinate axises
 const DIR_MAP_TO_AXIS = {
@@ -36,7 +35,7 @@ const DIR_OFFSET = {
   'b': -1
 }
 
-const allblocks = document.querySelectorAll('a-box')
+const allblocks = document.querySelectorAll('a-box');
 
 const getTargetBlocks = (dir, axis) => {
   return Array.prototype.filter.call(allblocks, block => {
@@ -47,11 +46,11 @@ const getTargetBlocks = (dir, axis) => {
 
 const generateRotation = dir => {
   return () => {
-    const axis = DIR_MAP_TO_AXIS[dir]
-    const blocks = getTargetBlocks(dir, axis)
+    const axis = DIR_MAP_TO_AXIS[dir];
+    const blocks = getTargetBlocks(dir, axis);
     const deg = axis === 'x'
       ? '360 0 0'
-      : (axis === 'y' ? '0 360 0' : '0 0 360')
+      : (axis === 'y' ? '0 360 0' : '0 0 360');
     blocks.forEach(block => {
       block.setAttribute('rotation', {
         x: 0,
@@ -63,27 +62,27 @@ const generateRotation = dir => {
         x: (axis === 'x' ? 0 : centerCoor.x - block.getAttribute('position').x),
         y: (axis === 'y' ? 0 : centerCoor.y - block.getAttribute('position').y),
         z: (axis === 'z' ? 0 : centerCoor.z - block.getAttribute('position').z)
-      })
+      });
 
       const oldAnimation = block.getElementsByTagName('a-animation')[0]
       if (oldAnimation) {
         block.removeChild(oldAnimation)
       }
 
-      const animation = document.createElement('a-animation')
-      animation.setAttribute('attribute', 'rotation')
-      animation.setAttribute('dur', 1500)
-      animation.setAttribute('repeat', 0)
-      animation.setAttribute('to', deg)
-      block.appendChild(animation)
+      const animation = document.createElement('a-animation');
+      animation.setAttribute('attribute', 'rotation');
+      animation.setAttribute('dur', 1500);
+      animation.setAttribute('repeat', 0);
+      animation.setAttribute('to', deg);
+      block.appendChild(animation);
     })
   }
 }
 
-const U = generateRotation('u')
-const R = generateRotation('r')
-const F = generateRotation('f')
-const L = generateRotation('l')
-const D = generateRotation('d')
-const B = generateRotation('b')
+const U = generateRotation('u');
+const R = generateRotation('r');
+const F = generateRotation('f');
+const L = generateRotation('l');
+const D = generateRotation('d');
+const B = generateRotation('b');
 const Rotate = { U, R, F, L, D, B }
