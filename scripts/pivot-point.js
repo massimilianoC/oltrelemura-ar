@@ -31,6 +31,7 @@ AFRAME.registerComponent('pivot-point', {
       // Set outer group as new object3D.
       el.object3D = outerGroup
   
+      console.log(data);
       // Apply pivot to original group.
       originalGroup.position.set(-1 * data.x, -1 * data.y, -1 * data.z)
   
