@@ -68,14 +68,15 @@ const DIR_MAP_TO_AXIS = {
         });
   
         var newCoord = {
-          x: (axis === 'x' ? 0 : centerCoor.x - block.getAttribute('position').x),
+          x: (axis === 'x' ? 0 : centerCoor.x - block.objec.x),
           y: (axis === 'y' ? 0 : centerCoor.y - block.getAttribute('position').y),
           z: (axis === 'z' ? 0 : centerCoor.z - block.getAttribute('position').z)
         }; 
         console.log("NewCoord");
         console.log(newCoord);
         console.log("block position");
-        console.log(block.getAttribute('position'));
+        console.log(block.getAttribute('position').x,block.getAttribute('position').y,block.getAttribute('position').z);
+        console.log(block.object3D.position.x,block.object3D.position.y,block.object3D.position.z);
         console.log("centerCoor");
         console.log(centerCoor);
 
