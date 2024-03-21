@@ -7,6 +7,7 @@ AFRAME.registerComponent('pivot-point', {
       const originalPosition = new THREE.Vector3()
       const originalRotation = new THREE.Vector3()
 
+      console.log("Data vs old");
       console.log(this.data);
       console.log(oldData);
 
