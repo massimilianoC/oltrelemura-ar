@@ -68,7 +68,7 @@ const DIR_MAP_TO_AXIS = {
         });
   
         var newCoord = {
-          x: (axis === 'x' ? 0 : centerCoor.x - block.objec.x),
+          x: (axis === 'x' ? 0 : centerCoor.x - block.object3D.position.x),
           y: (axis === 'y' ? 0 : centerCoor.y - block.getAttribute('position').y),
           z: (axis === 'z' ? 0 : centerCoor.z - block.getAttribute('position').z)
         }; 
