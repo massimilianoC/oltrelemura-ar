@@ -25,8 +25,17 @@ document.addEventListener("DOMContentLoaded", function() {
         var el = this.el;
         var target = data.target;
         var parent = document.querySelector(target);
-        parent.setAttribute("src","#null");
-        parent.setAttribute("src","#"+canvas.id);
+
+        setTimeout(() => {
+            parent.setAttribute("src","#null");
+            parent.components.material.flushToDOM(true);
+          }, 500);
+
+        setTimeout(() => {
+            parent.setAttribute("src","#"+canvas.id);
+            parent.components.material.flushToDOM(true);
+          }, 500);
+
       }
     });
     
