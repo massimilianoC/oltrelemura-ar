@@ -89,8 +89,8 @@ document.addEventListener("DOMContentLoaded", function() {
     function createCanvas(target) {
         var parent = document.querySelector(target);
         canvas.id = "canvas";
-        canvas.width = 100vw; //parseInt(document.getElementById("sizeX").value);
-        canvas.height = 100vh; //parseInt(document.getElementById("sizeY").value);
+        canvas.width = window.innerWidth; //parseInt(document.getElementById("sizeX").value);
+        canvas.height = window.innerHeight; //parseInt(document.getElementById("sizeY").value);
         canvas.style.zIndex = 8;
         canvas.style.position = "absolute";
         canvas.style.border = "1px solid";
