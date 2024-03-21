@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", function() {
         var parent = document.querySelector(target);
 
         setTimeout(() => {
+            console.log("update");
             parent.setAttribute("src","#"+canvas.id);
           }, 500);
 
