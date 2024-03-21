@@ -27,7 +27,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
         setTimeout(() => {
             parent.setAttribute("src","#"+canvas.id);
-            parent.components.material.flushToDOM(true);
           }, 500);
 
       }
