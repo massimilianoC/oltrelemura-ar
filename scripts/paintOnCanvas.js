@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function() {
       },
       init: function () {
         var data = this.data;
-        createCanvas(target);
+        createCanvas(data.target);
       }
     });
     
