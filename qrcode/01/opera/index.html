@@ -16,9 +16,9 @@
           video.play();
         }
 
-        const rubik = document.querySelector("rubick");
+        const rubik = document.querySelector("#rubick");
         const rotates = ['U', 'R', 'F', 'L', 'D', 'B']
-        
+
         rubik.addEventListener("click", event => {
           rubik.setAttribute("rotateCube",rotates[Math.floor(Math.random() * 6)])
 	      });
