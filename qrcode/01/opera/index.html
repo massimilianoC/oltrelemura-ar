@@ -7,6 +7,7 @@
     <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
     <script src="../../../scripts/pivot-point.js"></script>
     <script src="../../../scripts/sticker.js"></script>
+    <script src="../../../scripts/rotateCube.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
        
@@ -58,7 +59,7 @@
 
       <a-entity  id="ar-target" mindar-image-target="targetIndex: 0">
         <a-video src="#opera-mp4" width="1" height="0.552" position="0 0 0"></a-video>
-        <a-entity position="0.2 0.5 1.2" scale="0.1 0.1 0.1">
+        <a-entity rotateCube position="0.2 0.5 1.2" scale="0.1 0.1 0.1">
           <a-box position="-1 -5 -5" color="black">
             <a-sticker mixin="up"></a-sticker>
             <a-sticker mixin="right"></a-sticker>
@@ -200,19 +201,5 @@
         <a-light type="ambient" color="#dddddd"></a-light>
       </a-entity>
     </a-scene> 
-<script>
-  const centerCoor = {
-    x: 1.1,
-    y: 1.1,
-    z: 1.1
-  }
-</script>
-    <script src="../../../scripts/rotates.js"></script>
-<script>
-  const rotates = ['U', 'R', 'F', 'L', 'D', 'B']
-  setInterval(() => {
-    Rotate[rotates[Math.floor(Math.random() * 6)]]()
-  }, 2000)
-</script>
   </body>
 </html>

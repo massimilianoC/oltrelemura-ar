@@ -1,3 +1,29 @@
+document.addEventListener("DOMContentLoaded", function() {
+
+    AFRAME.registerComponent('rotateCube',{
+      schema: {
+        value: {type: 'string', default: ''}
+      },
+      update: function (oldData) {
+        console.log(oldData);
+        console.log(this.el);
+        centerCoor = this.el.position;
+        const rotates = ['U', 'R', 'F', 'L', 'D', 'B']
+        setInterval(() => {
+          Rotate[rotates[Math.floor(Math.random() * 6)]]()
+        }, 2000)
+      },
+      tick: function (){
+       
+      }
+    });
+
+  var centerCoor = {
+    x: 1.1,
+    y: 1.1,
+    z: 1.1
+  }
+
 // map six sides (directions) to three coordinate axises
 const DIR_MAP_TO_AXIS = {
     'u': 'y',
@@ -69,3 +95,5 @@ const DIR_MAP_TO_AXIS = {
   const D = generateRotation('d')
   const B = generateRotation('b')
   const Rotate = { U, R, F, L, D, B }
+
+});
