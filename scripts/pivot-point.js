@@ -11,7 +11,7 @@ AFRAME.registerComponent('pivot-point', {
       console.log(this.data);
       console.log(oldData);
 
-      const data = oldData
+      const data = oldData.x!=0
         ? {
           x: this.data.x - oldData.x,
           y: this.data.y - oldData.y,
