@@ -22,13 +22,13 @@ document.addEventListener("DOMContentLoaded", function() {
         parent.texture = null
 
         // wait until the element is ready
-        this.el.addEventListener('loaded', e => {
+        parent.el.addEventListener('loaded', e => {
            // create the texture
-           this.texture = new THREE.CanvasTexture(canvas);
+           parent.texture = new THREE.CanvasTexture(canvas);
       
            // get the references neccesary to swap the texture
-           let mesh = this.el.getObject3D('mesh')
-           mesh.material.map = this.texture
+           let mesh = parent.el.getObject3D('mesh')
+           mesh.material.map = parent.texture
            // if there was a map before, you should dispose it
         })
       },
@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function() {
         var target = data.target;
         var parent = document.querySelector(target);
         // if the texture is created - update it
-         if (this.texture) this.texture.needsUpdate = true
+         if (parent.texture) parent.texture.needsUpdate = true
       }
     });
     
