@@ -36,10 +36,10 @@ const DIR_OFFSET = {
   'b': -1
 }
 
-const blocks = document.querySelectorAll('a-box')
+const allblocks = document.querySelectorAll('a-box')
 
 const getTargetBlocks = (dir, axis) => {
-  return Array.prototype.filter.call(blocks, block => {
+  return Array.prototype.filter.call(allblocks, block => {
     const targetCoor = centerCoor[axis] + DIR_OFFSET[dir]
     return block.getAttribute('position')[axis] === targetCoor
   })
