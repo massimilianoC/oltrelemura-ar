@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
       },
       update: function (oldData) {
         //setInterval(() => {
-          Rotate[value]();
+          Rotate[this.data.value]();
         //}, 2000)
       },
       tick: function (){
