@@ -36,6 +36,12 @@ const DIR_OFFSET = {
   'b': -1
 }
 
+const centerCoor = {
+  x: -2,
+  y: -6,
+  z: -6
+}
+
 const allblocks = document.querySelectorAll('a-box');
 
 const getTargetBlocks = (dir, axis) => {
@@ -47,6 +53,7 @@ const getTargetBlocks = (dir, axis) => {
 
 const generateRotation = dir => {
   return () => {
+    console.log("generateRotation");
     const axis = DIR_MAP_TO_AXIS[dir];
     const blocks = getTargetBlocks(dir, axis);
     const deg = axis === 'x'
