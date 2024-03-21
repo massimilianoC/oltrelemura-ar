@@ -24,10 +24,11 @@ document.addEventListener("DOMContentLoaded", function() {
         var el = this.el;
         var target = data.target;
         var parent = document.querySelector(target);
-
-        setTimeout(() => {
-            parent.setAttribute("material",{shader: 'flat', src: '#'+canvas.id});
-          }, 500);
+        parent.setAttribute("material",{shader: 'flat', src: '#'+canvas.id});
+        
+        /*setTimeout(() => {
+            
+          }, 500);*/
 
       }
     });
