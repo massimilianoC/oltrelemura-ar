@@ -16,10 +16,16 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     });
 
-    const centerCoor = {
+    /*const centerCoor = {
       x: -2,
       y: -6,
       z: -6
+    };
+    */
+    const centerCoor = {
+      x: -0.2,
+      y: -0.6,
+      z: -0.6
     };
 
 // map six sides (directions) to three coordinate axises
