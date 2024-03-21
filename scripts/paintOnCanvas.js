@@ -18,9 +18,9 @@ document.addEventListener("DOMContentLoaded", function() {
       init: function () {
         var data = this.data;
         createCanvas(data.target);
-        var parent = document.querySelector(target);
+        var parent = document.querySelector(data.target);
         parent.texture = null
-        
+
         // wait until the element is ready
         this.el.addEventListener('loaded', e => {
            // create the texture
