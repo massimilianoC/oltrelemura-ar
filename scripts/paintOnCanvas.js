@@ -26,8 +26,9 @@ document.addEventListener("DOMContentLoaded", function() {
         var parent = document.querySelector(target);
 
         setTimeout(() => {
-            console.log("update");
+            console.log("update "+parent.src);
             parent.setAttribute("src","#"+canvas.id);
+            console.log("update "+parent.src);
           }, 500);
 
       }
@@ -168,7 +169,7 @@ document.addEventListener("DOMContentLoaded", function() {
         ctx.lineWidth  = currentSize;
         ctx.lineCap = "round";
         ctx.strokeStyle = currentColor;
-        canvas.id = canvas.id+mousePos.x;
+        canvas.id = "canvas"+mousePos.x;
     }
 
     // ON MOUSE MOVE
