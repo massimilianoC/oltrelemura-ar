@@ -46,11 +46,11 @@ AFRAME.registerComponent('pivot-point', {
       console.log(this.data);
       console.log(oldData);
       // Apply pivot to original group.
-      originalGroup.position.set(-1 * data.x, -1 * data.y, -1 * data.z)
+      originalGroup.position.set(-1 * this.data.x, -1 * this.data.y, -1 * this.data.z)
   
       // Offset the pivot so that world position not affected.
       // And restore position onto outer group.
-      outerGroup.position.set(data.x + originalPosition.x, data.y + originalPosition.y, data.z + originalPosition.z)
+      outerGroup.position.set(this.data.x + originalPosition.x, this.data.y + originalPosition.y, this.data.z + originalPosition.z)
   
       // Transfer rotation to outer group.
       outerGroup.rotation.copy(originalGroup.rotation)
