@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
       update: function (oldData) {
         console.log(oldData);
         console.log(this.el);
-        centerCoor = this.el.position;
+        //centerCoor = this.el.position;
         const rotates = ['U', 'R', 'F', 'L', 'D', 'B']
         setInterval(() => {
           Rotate[rotates[Math.floor(Math.random() * 6)]]()
