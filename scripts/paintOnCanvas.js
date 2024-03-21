@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function() {
         var data = this.data;
         createCanvas(data.target);
       },
-      update: function (){
+      tick: function (){
         var data = this.data;
         var el = this.el;
         var target = data.target;
