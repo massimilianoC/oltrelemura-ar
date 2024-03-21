@@ -53,14 +53,6 @@ document.addEventListener("DOMContentLoaded", function() {
          canvas.addEventListener('mouseup', draw, false);
      }
 
-     /*
-    // DRAWING EVENT HANDLERS
-    canvas.addEventListener('mousedown', function() {mousedown(canvas, event);});
-    canvas.addEventListener('mousemove',function() {mousemove(canvas, event);});
-    canvas.addEventListener('mouseup',mouseup);
-    */
-    // CREATE CANVAS
-
     function createCanvas(target) {
         var parent = document.querySelector(target);
         canvas.id = "canvas";
@@ -75,43 +67,7 @@ document.addEventListener("DOMContentLoaded", function() {
         parent.appendChild(canvas);
     }
 
-    /*
  
-    // GET MOUSE POSITION
-
-    function getMousePos(canvas, evt) {
-        var rect = canvas.getBoundingClientRect();
-        return {
-            x: evt.clientX - rect.left,
-            y: evt.clientY - rect.top
-        };
-    }
-
-    // ON MOUSE DOWN
-
-    function mousedown(canvas, evt) {
-        var mousePos = getMousePos(canvas, evt);
-        isMouseDown=true
-        var currentPosition = getMousePos(canvas, evt);
-        ctx.moveTo(currentPosition.x, currentPosition.y)
-        ctx.beginPath();
-        ctx.lineWidth  = currentSize;
-        ctx.lineCap = "round";
-        ctx.strokeStyle = currentColor;
-    }
-
-    // ON MOUSE MOVE
-
-    function mousemove(canvas, evt) {
-
-        if(isMouseDown){
-            var currentPosition = getMousePos(canvas, evt);
-            ctx.lineTo(currentPosition.x, currentPosition.y)
-            ctx.stroke();
-            store(currentPosition.x, currentPosition.y, currentSize, currentColor);
-        }
-    }
-
     // STORE DATA
 
     function store(x, y, s, c) {
@@ -124,13 +80,6 @@ document.addEventListener("DOMContentLoaded", function() {
         linesArray.push(line);
     }
 
-    // ON MOUSE UP
-
-    function mouseup() {
-        isMouseDown=false
-        store()
-    }
-    */
 
      // create a drawer which tracks touch movements
      var drawer = {
@@ -139,6 +88,9 @@ document.addEventListener("DOMContentLoaded", function() {
             context.beginPath();
             context.moveTo(coors.x, coors.y);
             this.isDrawing = true;
+            context.lineWidth  = currentSize;
+            context.lineCap = "round";
+            context.strokeStyle = currentColor;
         },
         touchmove: function (coors) {
             if (this.isDrawing) {
@@ -150,6 +102,7 @@ document.addEventListener("DOMContentLoaded", function() {
             if (this.isDrawing) {
                 this.touchmove(coors);
                 this.isDrawing = false;
+                store();
             }
         }
     };
@@ -241,7 +194,6 @@ document.addEventListener("DOMContentLoaded", function() {
         console.log("Cache cleared!");
     });
    
-
     // REDRAW 
     function redraw() {
             for (var i = 1; i < linesArray.length; i++) {
@@ -257,7 +209,7 @@ document.addEventListener("DOMContentLoaded", function() {
     */
 
     // DOWNLOAD CANVAS
-/*
+    /*
     function downloadCanvas(link, canvas, filename) {
         link.href = document.getElementById(canvas).toDataURL();
         link.download = filename;

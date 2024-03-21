@@ -1,0 +1,79 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+	<script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
+  <script src="../../../scripts/paintOnCanvas.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+       
+        const opera8 = document.querySelector('#plane8');
+
+        function playDefaultVideo(){
+          const video = document.querySelector('#opera-mp4');
+          video.play();
+        }
+
+        opera8.addEventListener('click', () => {
+          playDefaultVideo();
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div style="position: absolute; z-index: 1000; display: none;">
+      <button id="debug-start-button">Start</button>
+      <button id="debug-pause-button">Pause</button>
+      <button id="debug-pause-keep-video-button">Pause (keep video)</button>
+      <button id="debug-unpause-button">UnPause</button>
+      <button id="debug-stop-button">Stop</button>
+    </div>
+    <a-scene mindar-image="imageTargetSrc: ../../../model/blur.mind; autoStart: true; filterMinCF:0.001; filterBeta: 0.01; warmupTolerance: 1; missTolerance: 1" 
+    color-space="sRGB" 
+    renderer="colorManagement: true, physicallyCorrectLights" 
+    vr-mode-ui="enabled: false" 
+    device-orientation-permission-ui="enabled: false">
+      
+	<a-camera position="0 0 0" look-controls="enabled: false" cursor="fuse: false; rayOrigin: mouse;" raycaster="near: 10; far: 10000; objects: .clickable"></a-camera>
+      
+	  <a-assets>
+        <img id="opera" src="../../../assets/opera/emm.gif" />
+        <video id="opera-mp4" autoplay loop="true" src="../../../assets/opera/LoopEMM.mp4"></video>
+        <img id="opera1" src="../../../assets/opera/EMM1.png" />
+        <img id="opera2" src="../../../assets/opera/EMM2.png" />
+        <img id="opera3" src="../../../assets/opera/EMM3.png" />
+        <img id="opera4" src="../../../assets/opera/EMM4.png" />
+        <img id="opera5" src="../../../assets/opera/EMM5.png" />
+        <img id="opera6" src="../../../assets/opera/EMM6.png" />
+        <img id="opera7" src="../../../assets/opera/EMM7.png" />
+        <img id="opera8" src="../../../assets/opera/EMM8.png" />
+      </a-assets>
+
+      <a-entity  paint="target: #paint-target" id="ar-target" mindar-image-target="targetIndex: 0">
+        <a-video src="#opera-mp4" width="1" height="0.552" position="0 0 0"></a-video>
+		    
+        <a-box 	position="0 0 0" id="paint-target" depth="0.001" height="0.552" width="1" opacity="1"></a-plane>
+        
+        <a-plane 	position="0 0 0" src="#opera1" animation="property: position; to: 0 0.1 0.3; dur: 6000; easing: easeInOutQuad; loop: false" 
+        id="plane1" class="clickable" position="0 0 0" height="0.552" width="1" rotation="0 0 0" opacity="0.4"></a-plane>
+        <a-plane 	position="0 0 0" src="#opera2" animation="property: position; to: 0 0.2 0.6; dur: 6000; easing: easeInOutQuad; loop: false" 
+        id="plane2" class="clickable" position="0 0 0" height="0.552" width="1" rotation="0 0 0" opacity="0.4"></a-plane>
+        <a-plane 	position="0 0 0" src="#opera3" animation="property: position; to: 0 0.3 0.9; dur: 6000; easing: easeInOutQuad; loop: false" 
+        id="plane3" class="clickable" position="0 0 0" height="0.552" width="1" rotation="0 0 0" opacity="0.4"></a-plane>
+        <a-plane 	position="0 0 0" src="#opera4" animation="property: position; to: 0 0.4 1.2; dur: 6000; easing: easeInOutQuad; loop: false" 
+        id="plane4" class="clickable" position="0 0 0" height="0.552" width="1" rotation="0 0 0" opacity="0.4"></a-plane>
+        <a-plane 	position="0 0 0" src="#opera5" animation="property: position; to: 0 0.5 1.5; dur: 6000; easing: easeInOutQuad; loop: false" 
+        id="plane5" class="clickable" position="0 0 0" height="0.552" width="1" rotation="0 0 0" opacity="0.4"></a-plane>
+        <a-plane 	position="0 0 0" src="#opera6" animation="property: position; to: 0 0.6 1.8; dur: 6000; easing: easeInOutQuad; loop: false" 
+        id="plane6" class="clickable" position="0 0 0" height="0.552" width="1" rotation="0 0 0" opacity="0.4"></a-plane>
+        <a-plane 	position="0 0 0" src="#opera7" animation="property: position; to: 0 0.7 2.1; dur: 6000; easing: easeInOutQuad; loop: false" 
+        id="plane7" class="clickable" position="0 0 0" height="0.552" width="1" rotation="0 0 0" opacity="0.4"></a-plane>
+        <a-plane	position="0 0 0" src="#opera8" animation="property: position; to: 0 0.8 2.4; dur: 6000; easing: easeInOutQuad; loop: false" 
+        id="plane8" class="clickable paint" position="0 0 0" height="0.552" width="1" rotation="0 0 0" opacity="0.4"></a-plane>
+      </a-entity>
+
+    </a-scene>
+  </body>
+</html>
