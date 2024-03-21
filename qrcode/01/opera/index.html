@@ -11,22 +11,10 @@
     <script>
       document.addEventListener("DOMContentLoaded", function() {
        
-        const centerCoor = {
-        x: -2,
-        y: -6,
-        z: -6
-      }
-
         function playDefaultVideo(){
           const video = document.querySelector('#opera-mp4');
           video.play();
         }
-
-
-        const rotates = ['U', 'R', 'F', 'L', 'D', 'B']
-        setInterval(() => {
-          Rotate[rotates[Math.floor(Math.random() * 6)]]()
-        }, 2000)
 
       });
     </script>
@@ -213,5 +201,12 @@
         <a-light type="ambient" color="#dddddd"></a-light>
       </a-entity>
     </a-scene>
+    <script src="./rotates.js"></script>
+<script>
+  const rotates = ['U', 'R', 'F', 'L', 'D', 'B']
+  setInterval(() => {
+    Rotate[rotates[Math.floor(Math.random() * 6)]]()
+  }, 2000)
+</script>
   </body>
 </html>
