@@ -53,6 +53,7 @@ const generateRotation = dir => {
     console.log("generateRotation");
     const axis = DIR_MAP_TO_AXIS[dir];
     const blocks = getTargetBlocks(dir, axis);
+    console.log(blocks);
     const deg = axis === 'x'
       ? '360 0 0'
       : (axis === 'y' ? '0 360 0' : '0 0 360');
