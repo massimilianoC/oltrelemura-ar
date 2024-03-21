@@ -6,7 +6,8 @@ document.addEventListener("DOMContentLoaded", function() {
       },
       update: function (oldData) {
         //setInterval(() => {
-          Rotate[this.data.value]();
+          const rotates = ['U', 'R', 'F', 'L', 'D', 'B'];
+          Rotate[rotates[Math.floor(Math.random() * 6)]]();
         //}, 2000)
       },
       tick: function (){
