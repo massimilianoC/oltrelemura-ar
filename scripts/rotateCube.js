@@ -1,14 +1,9 @@
 document.addEventListener("DOMContentLoaded", function() {
 
     AFRAME.registerComponent('rotatecube',{
-      schema: {
-        value: {type: 'string', default: ''}
-      },
       update: function (oldData) {
-        //setInterval(() => {
           const rotates = ['U', 'R', 'F', 'L', 'D', 'B'];
           Rotate[rotates[Math.floor(Math.random() * 6)]]();
-        //}, 2000)
       },
       tick: function (){
        
