@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
     var isMouseDown=false;
     var canvas = document.createElement('canvas');
-    //var body = document.getElementsByTagName("body")[0];
     var ctx = canvas.getContext('2d');
     var linesArray = [];
     currentSize = 5;
@@ -25,11 +24,6 @@ document.addEventListener("DOMContentLoaded", function() {
         var el = this.el;
         var target = data.target;
         var parent = document.querySelector(target);
-
-        setTimeout(() => {
-            parent.setAttribute("src","#null");
-            parent.components.material.flushToDOM(true);
-          }, 500);
 
         setTimeout(() => {
             parent.setAttribute("src","#"+canvas.id);
