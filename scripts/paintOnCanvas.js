@@ -18,18 +18,27 @@ document.addEventListener("DOMContentLoaded", function() {
       init: function () {
         var data = this.data;
         createCanvas(data.target);
+        var parent = document.querySelector(target);
+        parent.texture = null
+        
+        // wait until the element is ready
+        this.el.addEventListener('loaded', e => {
+           // create the texture
+           this.texture = new THREE.CanvasTexture(canvas);
+      
+           // get the references neccesary to swap the texture
+           let mesh = this.el.getObject3D('mesh')
+           mesh.material.map = this.texture
+           // if there was a map before, you should dispose it
+        })
       },
       tick: function (){
         var data = this.data;
         var el = this.el;
         var target = data.target;
         var parent = document.querySelector(target);
-        parent.setAttribute("material",{shader: 'flat', src: '#'+canvas.id});
-        
-        /*setTimeout(() => {
-            
-          }, 500);*/
-
+        // if the texture is created - update it
+         if (this.texture) this.texture.needsUpdate = true
       }
     });
     
