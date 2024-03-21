@@ -94,11 +94,13 @@ const DIR_MAP_TO_AXIS = {
   
         const animation = document.createElement('a-animation');
         animation.setAttribute('attribute', 'rotation');
-        animation.setAttribute('dur', 20000);
+        animation.setAttribute('dur', 1500);
         animation.setAttribute('repeat', 0);
         animation.setAttribute('to', deg);
+
         console.log(block);
         console.log(deg);
+
         block.appendChild(animation);
       })
     }
