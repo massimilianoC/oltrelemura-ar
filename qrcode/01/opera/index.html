@@ -7,8 +7,17 @@
 	<script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
-        const video = document.querySelector('#opera-mp4');
-        video.play();
+       
+        const opera8 = document.querySelector('#opera8');
+
+        function playDefaultVideo(){
+          const video = document.querySelector('#opera-mp4');
+          video.play();
+        }
+
+        opera8.addEventListener('click', () => {
+          playDefaultVideo();
+        });
       });
     </script>
   </head>
