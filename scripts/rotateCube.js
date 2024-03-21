@@ -17,9 +17,9 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
   const centerCoor = {
-    x: 1.1,
-    y: 1.1,
-    z: 1.1
+    x: 5,
+    y: 6,
+    z: -3
   }
 
 // map six sides (directions) to three coordinate axises
