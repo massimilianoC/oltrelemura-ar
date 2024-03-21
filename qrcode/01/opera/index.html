@@ -7,7 +7,6 @@
     <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
     <script src="../../../scripts/pivot-point.js"></script>
     <script src="../../../scripts/sticker.js"></script>
-    <script src="../../../scripts/rotateCube.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
        
@@ -208,11 +207,6 @@
         <a-light type="ambient" color="#dddddd"></a-light>
       </a-entity>
     </a-scene> 
-    <script>
-      const rotates = ['U', 'R', 'F', 'L', 'D', 'B']
-      setInterval(() => {
-        Rotate[rotates[Math.floor(Math.random() * 6)]]()
-      }, 2000)
-    </script>
+    <script src="../../../scripts/rotateCube.js"></script>
   </body>
 </html>
