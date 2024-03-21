@@ -22,12 +22,12 @@ document.addEventListener("DOMContentLoaded", function() {
         parent.texture = null
 
         // wait until the element is ready
-        parent.el.addEventListener('loaded', e => {
+        parent.addEventListener('loaded', e => {
            // create the texture
            parent.texture = new THREE.CanvasTexture(canvas);
       
            // get the references neccesary to swap the texture
-           let mesh = parent.el.getObject3D('mesh')
+           let mesh = parent.getObject3D('mesh')
            mesh.material.map = parent.texture
            // if there was a map before, you should dispose it
         })
