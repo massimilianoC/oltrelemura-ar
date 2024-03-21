@@ -177,7 +177,6 @@ document.addEventListener("DOMContentLoaded", function() {
         ctx.lineWidth  = currentSize;
         ctx.lineCap = "round";
         ctx.strokeStyle = currentColor;
-        canvas.id = "canvas"+mousePos.x;
     }
 
     // ON MOUSE MOVE
