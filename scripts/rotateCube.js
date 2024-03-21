@@ -16,11 +16,11 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     });
 
-  const centerCoor = {
-    x: 5,
-    y: 6,
-    z: -3
-  }
+    const centerCoor = {
+      x: -2,
+      y: -6,
+      z: -6
+    };
 
 // map six sides (directions) to three coordinate axises
 const DIR_MAP_TO_AXIS = {
@@ -42,10 +42,10 @@ const DIR_MAP_TO_AXIS = {
     'b': -1
   }
   
-  const blocks = document.querySelectorAll('a-box');
+  const allBlocks = document.querySelectorAll('a-box');
   
   const getTargetBlocks = (dir, axis) => {
-    return Array.prototype.filter.call(blocks, block => {
+    return Array.prototype.filter.call(allBlocks, block => {
       const targetCoor = centerCoor[axis] + DIR_OFFSET[dir]
       return block.getAttribute('position')[axis] === targetCoor
     });
