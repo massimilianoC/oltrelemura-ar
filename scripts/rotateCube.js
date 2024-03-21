@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-    AFRAME.registerComponent('rotateCube',{
+    AFRAME.registerComponent('rotatecube',{
       schema: {
         value: {type: 'string', default: ''}
       },
