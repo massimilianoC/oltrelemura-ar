@@ -1,3 +1,5 @@
+document.addEventListener("DOMContentLoaded", function() {
+
 AFRAME.registerComponent('pivot-point', {
   schema: {
     cx: {type: 'float', default: 0},
@@ -54,3 +56,5 @@ AFRAME.registerComponent('pivot-point', {
     originalGroup.rotation.set(0, 0, 0);
   }
 })
+
+});

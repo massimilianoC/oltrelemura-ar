@@ -1,3 +1,5 @@
+document.addEventListener("DOMContentLoaded", function() {
+
 const extendDeep = AFRAME.utils.extendDeep
 const meshMixin = AFRAME.primitives.getMeshMixin()
 
@@ -13,3 +15,5 @@ AFRAME.registerPrimitive('a-sticker', extendDeep({}, meshMixin, {
     }
   }
 }));
+
+});
