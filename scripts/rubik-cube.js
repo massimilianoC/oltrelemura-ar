@@ -1,6 +1,6 @@
 AFRAME.registerComponent('rubik-cube',{
     schema: {
-        seed: {type: int, default: ''}
+        seed: {type: int, default: 0}
       },
     init: function () {
       var el = this.el;
