@@ -30,6 +30,7 @@ AFRAME.registerComponent('cube-face',{
             newBlock.setAttribute('scale',"0.1 0.1 0.1");
             el.appendChild(newBlock);
             console.log(newBlock);
+            console.log(positionx+" "+positiony+ " 0");
         }
       }
     }
