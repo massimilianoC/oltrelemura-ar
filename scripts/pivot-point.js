@@ -21,12 +21,20 @@ AFRAME.registerComponent('pivot-point', {
       : this.data
     const el = this.el;
     const originalParent = el.object3D.parent;
-    const originalGroup = el.object3D;
-    originalGroup.position.set(this.data.ox, this.data.oy, this.data.oz);
-    const outerGroup = new THREE.Group();
-
+    console.log("originalParent before");
     console.log(originalParent);
+
+    const originalGroup = el.object3D;
+    console.log("originalGroup before");
     console.log(originalGroup);
+    originalGroup.position.set(this.data.ox, this.data.oy, this.data.oz);
+    originalGroup.el.setAttribute('position', {x: this.data.ox, y: this.data.oy, z: this.data.oz});
+    originalGroup = el.object3D;
+    console.log("originalGroup after");
+    console.log(originalGroup);
+
+
+    const outerGroup = new THREE.Group();
     console.log(outerGroup);
 
     originalPosition.copy(originalGroup.position);
