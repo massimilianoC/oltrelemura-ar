@@ -8,7 +8,7 @@
     <script src="../../../scripts/pivot-point.js"></script>
     <script src="../../../scripts/sticker.js"></script>
     <script>
-     // document.addEventListener("DOMContentLoaded", function() {
+      document.addEventListener("DOMContentLoaded", function() {
        
         function playDefaultVideo(){
           const video = document.querySelector('#opera-mp4');
@@ -16,13 +16,12 @@
         }
 
         const rubick = document.querySelector("#rubick");
-        const rotates = ['U', 'R', 'F', 'L', 'D', 'B']
 
         rubick.addEventListener("click", event => {
           rubick.setAttribute("rotateCube","U");
 	      });
 
-     // });
+      });
     </script>
   </head>
   <body>
