@@ -8,6 +8,7 @@ AFRAME.registerComponent('cube-face',{
       for (let i = 0; i < 3; i++) {
         for (let j = 0; j < 3; j++) {
             var newBlock = document.createElement('a-entity');
+            var faceSrcIndex = getRandomInt(3,8);
             for (let c = 0; c < 3; c++) {
                 for (let p = 0; p < 2; p++) {
                     var newPlane = document.createElement('a-plane');
@@ -18,7 +19,7 @@ AFRAME.registerComponent('cube-face',{
                     newPlane.setAttribute('material','side: double');
                     newPlane.setAttribute('position',position);
                     newPlane.setAttribute('rotation',rotation);
-                    newPlane.setAttribute('src','#opera'+(i+j-(i+j)%8));
+                    newPlane.setAttribute('src','#opera'+faceSrcIndex);
                     newBlock.appendChild(newPlane);
                     console.log(newPlane);
                 }           
