@@ -18,6 +18,7 @@ AFRAME.registerComponent('pivot-point', {
     const originalGroup = el.object3D;
     const outerGroup = new THREE.Group();
 
+    console.log(this.data);
     console.log(originalParent);
     console.log(originalGroup);
     console.log(outerGroup);

@@ -64,6 +64,10 @@ const generateRotation = dir => {
         z: 0
       })
 
+      console.log("A-Box");
+      console.log(block);
+      console.log(block.getAttribute('position'));
+      console.log(block.object3D.position);
       block.setAttribute('pivot-point', {
         x: (axis === 'x' ? 0 : centerCoor.x - block.getAttribute('position').x),
         y: (axis === 'y' ? 0 : centerCoor.y - block.getAttribute('position').y),
