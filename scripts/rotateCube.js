@@ -65,13 +65,11 @@ const generateRotation = dir => {
       })
 
       console.log("A-Box");
-      console.log(block);
-      console.log(block.getAttribute('position').x);
-      console.log(block.object3D.position.x);
+      console.log(block.object3D);
       block.setAttribute('pivot-point', {
-        x: (axis === 'x' ? 0 : centerCoor.x - block.getAttribute('position').x),
-        y: (axis === 'y' ? 0 : centerCoor.y - block.getAttribute('position').y),
-        z: (axis === 'z' ? 0 : centerCoor.z - block.getAttribute('position').z)
+        x: (axis === 'x' ? 0 : centerCoor.x - block.object3D.position.x),
+        y: (axis === 'y' ? 0 : centerCoor.y - block.object3D.positiony.y),
+        z: (axis === 'z' ? 0 : centerCoor.z - block.object3D.position.z)
       });
 
       const oldAnimation = block.getElementsByTagName('a-animation')[0]
@@ -85,7 +83,7 @@ const generateRotation = dir => {
       animation.setAttribute('repeat', 0);
       animation.setAttribute('to', deg);
       block.appendChild(animation);
-      console.log(block);
+      console.log(block.object3D);
     })
   }
 }

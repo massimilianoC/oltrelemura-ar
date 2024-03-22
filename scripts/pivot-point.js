@@ -1,9 +1,11 @@
 AFRAME.registerComponent('pivot-point', {
-  dependencies: ['position'],
-
-  schema: { type: 'vec3' },
-
+  schema: {
+    x: {type: 'int', default: 0},
+    y: {type: 'int', default: 0},
+    z: {type: 'int', default: 0},
+  },
   update: function(oldData) {
+    console.log(this.data);
     const originalPosition = new THREE.Vector3();
     const originalRotation = new THREE.Vector3();
     const data = oldData
@@ -18,7 +20,6 @@ AFRAME.registerComponent('pivot-point', {
     const originalGroup = el.object3D;
     const outerGroup = new THREE.Group();
 
-    console.log(this.data);
     console.log(originalParent);
     console.log(originalGroup);
     console.log(outerGroup);
