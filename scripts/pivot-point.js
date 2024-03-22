@@ -1,4 +1,3 @@
-document.addEventListener("DOMContentLoaded", function() {
 
 AFRAME.registerComponent('pivot-point', {
   schema: {
@@ -56,5 +55,3 @@ AFRAME.registerComponent('pivot-point', {
     originalGroup.rotation.set(0, 0, 0);
   }
 })
-
-});
