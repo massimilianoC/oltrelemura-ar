@@ -20,6 +20,7 @@ AFRAME.registerComponent('pivot-point', {
 
     console.log(originalParent);
     console.log(originalGroup);
+    console.log(outerGroup);
 
     originalPosition.copy(originalGroup.position);
     originalRotation.copy(originalGroup.rotation);
