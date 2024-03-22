@@ -2,9 +2,7 @@ AFRAME.registerComponent('rubik-cube',{
     init: function () {
       var el = this.el;
       buildCubeFaces(el);
-        }
     }
-  }
   });
 
   function buildCubeFaces(el){
@@ -41,6 +39,8 @@ AFRAME.registerComponent('rubik-cube',{
             console.log(newBlock);
             console.log(positionx+" "+positiony+ " 0");
         }
+      }
+    }
   }
 
   function getRandomInt(min, max) {
