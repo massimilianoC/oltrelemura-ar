@@ -24,7 +24,7 @@ AFRAME.registerComponent('cube-face',{
                 }           
             }
             var positionx = j==0 ? "0" : j==1 ? "0.105" :"-0.105" ;
-            var positiony = i==0 ? "0" : j==1 ? "0.105" :"-0.105" ;
+            var positiony = i==0 ? "0" : i==1 ? "0.105" :"-0.105" ;
             newBlock.setAttribute('id','block'+idx+'-'+i+'_'+j);
             newBlock.setAttribute('position',positionx+" "+positiony+ " 0");
             newBlock.setAttribute('scale',"0.1 0.1 0.1");
