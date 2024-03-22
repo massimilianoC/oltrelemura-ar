@@ -21,14 +21,15 @@ AFRAME.registerComponent('pivot-point', {
     const el = this.el;
     const originalParent = el.object3D.parent;
     const originalGroup = el.object3D;
+    originalGroup.position = new THREE.Vector3(data.ox, data.oy, data.oz);
     const outerGroup = new THREE.Group();
 
     console.log(originalParent);
     console.log(originalGroup);
     console.log(outerGroup);
 
-    //originalPosition.copy(originalGroup.position);
-    originalPosition.copy(new THREE.Vector3(data.ox, data.oy, data.oz));
+    originalPosition.copy(originalGroup.position);
+    //originalPosition.copy(new THREE.Vector3(data.ox, data.oy, data.oz));
     originalRotation.copy(originalGroup.rotation);
 
     // Detach current group from parent.
