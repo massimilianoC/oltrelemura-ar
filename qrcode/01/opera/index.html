@@ -33,7 +33,7 @@
     </div>
     <a-scene 
     webxr="optionalFeatures: hit-test, local-floor;" ar-hit-test="target:#dice;"
-    mindar-image="imageTargetSrc: ../../../model/blur.mind; autoStart: true; filterMinCF:0.001; filterBeta: 0.01; warmupTolerance: 1; missTolerance: 1" 
+    mindar-image="imageTargetSrc: ../../../model/blur.mind; autoStart: true; filterMinCF:0.0005; filterBeta: 0.005; warmupTolerance: 1; missTolerance: 1" 
     color-space="sRGB" 
     renderer="colorManagement: true, physicallyCorrectLights" 
     vr-mode-ui="enabled: false" 
@@ -58,22 +58,11 @@
       </a-assets>
 
       <a-entity id="ar-target" mindar-image-target="targetIndex: 0">
-
-        <a-entity id="dice"  position="0 0.1 0.4"  mixin="dice_animation">
+        <a-entity id="dice"  position="0 0.5 1.5"  scale="3 3 3" mixin="dice_animation">
           <a-entity id="layer1" cube-face="idx:1" position="0 0 0.105"  mixin="layer1_animation"> </a-entity>
           <a-entity id="layer2" cube-face="idx:2" position="0 0 0"></a-entity>
           <a-entity id="layer3" cube-face="idx:3" position="0 0 -0.105"  mixin="layer3_animation" >  </a-entity>
         </a-entity>
-
-        <a-video src="#opera-mp4" width="1" height="0.552" position="0 0 0"></a-video>        
-        <a-plane material="side: double"  	position="0 0 0" src="#opera2" animation="property: position; to: 0 0.3 0.5; dur: 6000; easing: easeInOutQuad; loop: false" 
-        id="plane2" class="clickable" position="0 0 0" height="0.552" width="1" rotation="0 0 0" opacity="0.5"></a-plane material="side: double" >
-        <a-plane material="side: double"  	position="0 0 0" src="#opera4" animation="property: position; to: 0 0.6 1.0; dur: 6000; easing: easeInOutQuad; loop: false" 
-        id="plane4" class="clickable" position="0 0 0" height="0.552" width="1" rotation="0 0 0" opacity="0.5" scale="1.2 1.2 1.2"></a-plane material="side: double" >
-        <a-plane material="side: double"  	position="0 0 0" src="#opera6" animation="property: position; to: 0 0.9 1.5; dur: 6000; easing: easeInOutQuad; loop: false" 
-        id="plane6" class="clickable" position="0 0 0" height="0.552" width="1" rotation="0 0 0" opacity="0.5" scale="1.4 1.4 1.4"></a-plane material="side: double" >
-        <a-plane material="side: double" 	position="0 0 0" src="#opera8" animation="property: position; to: 0 1.2 2.0; dur: 6000; easing: easeInOutQuad; loop: false" 
-        id="plane8" class="clickable paint" position="0 0 0" height="0.552" width="1" rotation="0 0 0" scale="1.7 1.7 1.7" opacity="0.5"></a-plane material="side: double" >
       </a-entity>
     </a-scene>
   </body>
