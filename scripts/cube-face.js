@@ -19,7 +19,7 @@ AFRAME.registerComponent('cube-face',{
                     newPlane.setAttribute('position',position);
                     newPlane.setAttribute('rotation',rotation);
                     newPlane.setAttribute('src','#opera'+(p+c+1));
-                    newBlock.appendChild(planeB);
+                    newBlock.appendChild(newPlane);
                 }           
             }
             var positionx = j==0 ? "0" : j==1 ? "0.105" :"-0.105" ;
