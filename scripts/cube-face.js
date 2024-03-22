@@ -18,7 +18,7 @@ AFRAME.registerComponent('cube-face',{
                     newPlane.setAttribute('material','side: double');
                     newPlane.setAttribute('position',position);
                     newPlane.setAttribute('rotation',rotation);
-                    newPlane.setAttribute('src','#opera'+getRandomInt(1,8));
+                    newPlane.setAttribute('src','#opera'+(i+j-(i+j%8)));
                     newBlock.appendChild(newPlane);
                     console.log(newPlane);
                 }           
