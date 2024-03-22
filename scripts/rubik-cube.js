@@ -74,7 +74,7 @@ AFRAME.registerComponent('rubik-cube',{
   }
 
   //TODO ->
-  function buildCubeStructure(el){
+  function buildCubePivot(el){
     var newElement = document.createElement('a-entity');
     for (let r = 0; r < 3; r++) {
       for (let i = 0; i < 3; i++) {
