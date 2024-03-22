@@ -1,8 +1,11 @@
 AFRAME.registerComponent('pivot-point', {
   schema: {
-    x: {type: 'int', default: 0},
-    y: {type: 'int', default: 0},
-    z: {type: 'int', default: 0},
+    cx: {type: 'float', default: 0},
+    cy: {type: 'float', default: 0},
+    cz: {type: 'float', default: 0},
+    ox: {type: 'float', default: 0},
+    oy: {type: 'float', default: 0},
+    oz: {type: 'float', default: 0},
   },
   update: function(oldData) {
     console.log(this.data);
@@ -10,9 +13,9 @@ AFRAME.registerComponent('pivot-point', {
     const originalRotation = new THREE.Vector3();
     const data = oldData
       ? {
-        x: this.data.x - oldData.x,
-        y: this.data.y - oldData.y,
-        z: this.data.z - oldData.z
+        cx: this.data.cx - oldData.cx,
+        cy: this.data.cy - oldData.cy,
+        cz: this.data.cz - oldData.cz
       }
       : this.data
     const el = this.el;
@@ -24,7 +27,8 @@ AFRAME.registerComponent('pivot-point', {
     console.log(originalGroup);
     console.log(outerGroup);
 
-    originalPosition.copy(originalGroup.position);
+    //originalPosition.copy(originalGroup.position);
+    originalPosition.copy(new THREE.Vector3(data.ox, data.oy, data.oz));
     originalRotation.copy(originalGroup.rotation);
 
     // Detach current group from parent.
@@ -38,11 +42,11 @@ AFRAME.registerComponent('pivot-point', {
     el.object3D = outerGroup;
 
     // Apply pivot to original group.
-    originalGroup.position.set(-1 * data.x, -1 * data.y, -1 * data.z);
+    originalGroup.position.set(-1 * data.cx, -1 * data.cy, -1 * data.cz);
 
     // Offset the pivot so that world position not affected.
     // And restore position onto outer group.
-    outerGroup.position.set(data.x + originalPosition.x, data.y + originalPosition.y, data.z + originalPosition.z);
+    outerGroup.position.set(data.cx + originalPosition.x, data.cy + originalPosition.y, data.cz + originalPosition.z);
 
     // Transfer rotation to outer group.
     outerGroup.rotation.copy(originalGroup.rotation);
