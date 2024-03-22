@@ -1,10 +1,6 @@
 AFRAME.registerComponent('rubik-cube',{
-    schema: {
-        seed: {type: float, default: 0}
-      },
     init: function () {
       var el = this.el;
-      var idx = this.data.idx;
       for (let r = 0; r < 3; r++) {
         for (let i = 0; i < 3; i++) {
           for (let j = 0; j < 3; j++) {
@@ -28,7 +24,7 @@ AFRAME.registerComponent('rubik-cube',{
               var positionx = j==0 ? "0" : j==1 ? "0.105" :"-0.105" ;
               var positiony = i==0 ? "0" : i==1 ? "0.105" :"-0.105" ;
               var positiony = r==0 ? "0" : r==1 ? "0.105" :"-0.105" ;
-              newBlock.setAttribute('id','block'+idx+'-'+i+'_'+j);
+              newBlock.setAttribute('id','block_'+r+'_'+i+'_'+j);
               newBlock.setAttribute('position',positionx+" "+positiony+ " "+positiony);
               newBlock.setAttribute('scale',"0.1 0.1 0.1");
               el.appendChild(newBlock);
