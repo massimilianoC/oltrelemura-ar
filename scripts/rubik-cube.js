@@ -73,7 +73,9 @@ AFRAME.registerComponent('rubik-cube',{
     el.appendChild(newElement);
   }
 
-  //TODO ->
+  // TODO -> pivot devev contenere le posizioni da ruotare
+  // Alla rotazione, Pivot "prende" i block che matchano con posizioni come suoi figli 
+  // A fine di ogni rotazione, tutti i Block tornano figli di faces
   function buildCubePivot(el){
     var newElement = document.createElement('a-entity');
     for (let r = 0; r < 3; r++) {
