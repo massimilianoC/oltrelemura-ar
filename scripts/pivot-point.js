@@ -54,6 +54,7 @@ AFRAME.registerComponent('pivot-point', {
 
     // Apply pivot to original group.
     originalGroup.position.set(-1 * data.cx, -1 * data.cy, -1 * data.cz);
+    originalGroup.el.setAttribute('position', -1 * data.cx + " " +  -1 * data.cy + " " + -1 * data.cz);
 
     // Offset the pivot so that world position not affected.
     // And restore position onto outer group.
