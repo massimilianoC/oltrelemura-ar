@@ -2,10 +2,13 @@ AFRAME.registerComponent('rubik-cube',{
     init: function () {
       var el = this.el;
       buildCubeFaces(el);
+      buildCubeStructure(el);
+      buildCubePivot(el);
     }
   });
 
   function buildCubeFaces(el){
+    var newElement = document.createElement('a-entity');
     for (let r = 0; r < 3; r++) {
       for (let i = 0; i < 3; i++) {
         for (let j = 0; j < 3; j++) {
@@ -35,12 +38,65 @@ AFRAME.registerComponent('rubik-cube',{
             newBlock.setAttribute('width',"0.1");
             newBlock.setAttribute('height',"0.1");
             newBlock.setAttribute('depth',"0.1");
-            el.appendChild(newBlock);
+            newElement.appendChild(newBlock);
             console.log(newBlock);
             console.log(positionx+" "+positiony+ " 0");
         }
       }
     }
+    newElement.setAttribute('id','faces');
+    el.appendChild(newElement);
+  }
+
+  function buildCubeStructure(el){
+    var newElement = document.createElement('a-entity');
+    for (let r = 0; r < 3; r++) {
+      for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 3; j++) {
+            var newBlock = document.createElement('a-box');
+            var positionx = j==0 ? "0" : j==1 ? "0.105" :"-0.105" ;
+            var positiony = i==0 ? "0" : i==1 ? "0.105" :"-0.105" ;
+            var positionz = r==0 ? "0" : r==1 ? "0.105" :"-0.105" ;
+            newBlock.setAttribute('id','struct_'+r+'_'+i+'_'+j);
+            newBlock.setAttribute('position',positionx+" "+positiony+ " "+positionz);
+            newBlock.setAttribute('scale',"0.1 0.1 0.1");
+            newBlock.setAttribute('width',"0.1");
+            newBlock.setAttribute('height',"0.1");
+            newBlock.setAttribute('depth',"0.1");
+            newElement.appendChild(newBlock);
+            console.log(newBlock);
+            console.log(positionx+" "+positiony+ " 0");
+        }
+      }
+    }
+    newElement.setAttribute('id','structure');
+    el.appendChild(newElement);
+  }
+
+  //TODO ->
+  function buildCubeStructure(el){
+    var newElement = document.createElement('a-entity');
+    for (let r = 0; r < 3; r++) {
+      for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 3; j++) {
+            var newBlock = document.createElement('a-box');
+            var positionx = j==0 ? "0" : j==1 ? "0.105" :"-0.105" ;
+            var positiony = i==0 ? "0" : i==1 ? "0.105" :"-0.105" ;
+            var positionz = r==0 ? "0" : r==1 ? "0.105" :"-0.105" ;
+            newBlock.setAttribute('id','pivot_'+r+'_'+i+'_'+j);
+            newBlock.setAttribute('position',positionx+" "+positiony+ " "+positionz);
+            newBlock.setAttribute('scale',"0.1 0.1 0.1");
+            newBlock.setAttribute('width',"0.1");
+            newBlock.setAttribute('height',"0.1");
+            newBlock.setAttribute('depth',"0.1");
+            newElement.appendChild(newBlock);
+            console.log(newBlock);
+            console.log(positionx+" "+positiony+ " 0");
+        }
+      }
+    }
+    newElement.setAttribute('id','pivot');
+    el.appendChild(newElement);
   }
 
   function getRandomInt(min, max) {
