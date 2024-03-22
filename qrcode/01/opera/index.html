@@ -30,7 +30,9 @@
       <button id="debug-unpause-button">UnPause</button>
       <button id="debug-stop-button">Stop</button>
     </div>
-    <a-scene mindar-image="imageTargetSrc: ../../../model/blur.mind; autoStart: true; filterMinCF:0.001; filterBeta: 0.01; warmupTolerance: 1; missTolerance: 1" 
+    <a-scene 
+    webxr="optionalFeatures: hit-test, local-floor;" ar-hit-test="target:#dice;"
+    mindar-image="imageTargetSrc: ../../../model/blur.mind; autoStart: true; filterMinCF:0.001; filterBeta: 0.01; warmupTolerance: 1; missTolerance: 1" 
     color-space="sRGB" 
     renderer="colorManagement: true, physicallyCorrectLights" 
     vr-mode-ui="enabled: false" 
@@ -53,14 +55,32 @@
 
       <a-entity id="ar-target" mindar-image-target="targetIndex: 0">
 
-        <a-entity id="dice" scale="0.2 0.2 0.2" position="1 2 1.2"
-          animation__rotation="property: rotation; to: 360 360 360; dur: 10000; easing: easeInOutQuad; loop: true">
-          <a-plane position="-0.5 0 0" src="#opera2" rotation="0 -90 0"></a-plane>
-          <a-plane position="0.5 0 0" src="#opera4" rotation="0 90 0"></a-plane>
-          <a-plane position="0 0.5 0" src="#opera6" rotation="-90 0 0"></a-plane>
-          <a-plane position="0 -0.5 0" src="#opera8" rotation="90 0 0"></a-plane>
-          <a-plane position="0 0 0.5" src="#opera5" rotation="0 0 -90"></a-plane>
-          <a-plane position="0 0 -0.5" src="#opera7" rotation="0 0 90"></a-plane>
+        <a-entity id="dice" position="0 0.1 0"
+          animation__rotation="property: rotation; to: 0 0 0; dur: 0; easing: easeInOutQuad; loop: false">
+          <a-entity id="block" scale="0.1 0.1 0.1" position="0 0 0">
+            <a-plane position="-0.5 0 0" src="#opera2" rotation="0 -90 0"></a-plane>
+            <a-plane position="0.5 0 0" src="#opera4" rotation="0 90 0"></a-plane>
+            <a-plane position="0 0.5 0" src="#opera6" rotation="-90 0 0"></a-plane>
+            <a-plane position="0 -0.5 0" src="#opera8" rotation="90 0 0"></a-plane>
+            <a-plane position="0 0 0.5" src="#opera2" rotation="0 0 -90"></a-plane>
+            <a-plane position="0 0 -0.5" src="#opera6" rotation="0 0 90"></a-plane>
+          </a-entity>
+          <a-entity id="block" scale="0.1 0.1 0.1" position="0.1 0 0">
+            <a-plane position="-0.5 0 0" src="#opera2" rotation="0 -90 0"></a-plane>
+            <a-plane position="0.5 0 0" src="#opera4" rotation="0 90 0"></a-plane>
+            <a-plane position="0 0.5 0" src="#opera6" rotation="-90 0 0"></a-plane>
+            <a-plane position="0 -0.5 0" src="#opera8" rotation="90 0 0"></a-plane>
+            <a-plane position="0 0 0.5" src="#opera2" rotation="0 0 -90"></a-plane>
+            <a-plane position="0 0 -0.5" src="#opera6" rotation="0 0 90"></a-plane>
+          </a-entity>
+          <a-entity id="block" scale="0.1 0.1 0.1" position="-0.1 0 0">
+            <a-plane position="-0.5 0 0" src="#opera2" rotation="0 -90 0"></a-plane>
+            <a-plane position="0.5 0 0" src="#opera4" rotation="0 90 0"></a-plane>
+            <a-plane position="0 0.5 0" src="#opera6" rotation="-90 0 0"></a-plane>
+            <a-plane position="0 -0.5 0" src="#opera8" rotation="90 0 0"></a-plane>
+            <a-plane position="0 0 0.5" src="#opera2" rotation="0 0 -90"></a-plane>
+            <a-plane position="0 0 -0.5" src="#opera6" rotation="0 0 90"></a-plane>
+          </a-entity>
         </a-entity>
 
         <a-video src="#opera-mp4" width="1" height="0.552" position="0 0 0"></a-video>        
