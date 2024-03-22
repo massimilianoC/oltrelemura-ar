@@ -18,8 +18,9 @@ AFRAME.registerComponent('cube-face',{
                     newPlane.setAttribute('material','side: double');
                     newPlane.setAttribute('position',position);
                     newPlane.setAttribute('rotation',rotation);
-                    newPlane.setAttribute('src','#opera'+(p+c+1));
+                    newPlane.setAttribute('src','#opera'+getRandomInt(1,8));
                     newBlock.appendChild(newPlane);
+                    console.log(newPlane);
                 }           
             }
             var positionx = j==0 ? "0" : j==1 ? "0.105" :"-0.105" ;
@@ -28,7 +29,14 @@ AFRAME.registerComponent('cube-face',{
             newBlock.setAttribute('position',positionx+" "+positiony+ " 0");
             newBlock.setAttribute('scale',"0.1 0.1 0.1");
             el.appendChild(newBlock);
+            console.log(newBlock);
         }
       }
     }
   });
+
+  function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
