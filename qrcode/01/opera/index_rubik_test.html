@@ -1,0 +1,213 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+    <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
+    <script src="../../../scripts/pivot-point.js"></script>
+    <script src="../../../scripts/sticker.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+       
+        function playDefaultVideo(){
+          const video = document.querySelector('#opera-mp4');
+          video.play();
+        }
+
+        const rubick = document.querySelector("#rubick");
+
+        rubick.addEventListener("click", event => {
+          rubick.setAttribute("rotateCube","U");
+	      });
+
+      });
+    </script>
+  </head>
+  <body>
+    <div style="position: absolute; z-index: 1000; display: none;">
+      <button id="debug-start-button">Start</button>
+      <button id="debug-pause-button">Pause</button>
+      <button id="debug-pause-keep-video-button">Pause (keep video)</button>
+      <button id="debug-unpause-button">UnPause</button>
+      <button id="debug-stop-button">Stop</button>
+    </div>
+    <a-scene mindar-image="imageTargetSrc: ../../../model/blur.mind; autoStart: true; filterMinCF:0.001; filterBeta: 0.01; warmupTolerance: 1; missTolerance: 1" 
+    color-space="sRGB" 
+    renderer="colorManagement: true, physicallyCorrectLights" 
+    vr-mode-ui="enabled: false" 
+    device-orientation-permission-ui="enabled: false">
+      
+	<a-camera position="0 0 0" look-controls="enabled: false" cursor="fuse: false; rayOrigin: mouse;" raycaster="near: 10; far: 10000; objects: .clickable">
+    <a-cursor color="#FAFAFA"></a-cursor>
+  </a-camera>
+      
+	  <a-assets>
+        <img id="opera" src="../../../assets/opera/emm.gif" />
+        <video id="opera-mp4" autoplay loop="true" src="../../../assets/opera/LoopEMM.mp4"></video>
+        <img id="opera1" src="../../../assets/opera/EMM1.png" />
+        <img id="opera2" src="../../../assets/opera/EMM2.png" />
+        <img id="opera3" src="../../../assets/opera/EMM3.png" />
+        <img id="opera4" src="../../../assets/opera/EMM4.png" />
+        <img id="opera5" src="../../../assets/opera/EMM5.png" />
+        <img id="opera6" src="../../../assets/opera/EMM6.png" />
+        <img id="opera7" src="../../../assets/opera/EMM7.png" />
+        <img id="opera8" src="../../../assets/opera/EMM8.png" />
+        <a-mixin id="up" position="0 0.51 0" rotation="-90 0 0" material="color: #F9E300"></a-mixin>
+        <a-mixin id="down" position="0 -0.51 0" rotation="-90 0 0" material="color: #F6FBFD"></a-mixin>
+        <a-mixin id="left" position="-0.51 0 0" rotation="0 90 0" material="color: #F97203"></a-mixin>
+        <a-mixin id="right" position="0.51 0 0" rotation="0 90 0" material="color: #D51B1C"></a-mixin>
+        <a-mixin id="front" position="0 0 0.51" rotation="0 0 0" material="color: #1B2DAB"></a-mixin>
+        <a-mixin id="back" position="0 0 -0.51" rotation="0 0 0" material="color: #0CBE03"></a-mixin>
+        <a-mixin id="animation" attribute="rotation" easing="linear" dur="1500" repeat="0" to="0 0 0"></a-mixin>
+      </a-assets>
+
+      <a-entity  id="ar-target" mindar-image-target="targetIndex: 0">
+        <a-video src="#opera-mp4" width="1" height="0.552" position="0 0 0"></a-video>
+        <a-entity class="clickable" id="rubick"  position="0.2 0.6 1.1" scale="0.1 0.1 0.1">
+          
+      <a-box position="-1 -5 -5" color="black">
+        <a-sticker mixin="up"></a-sticker>
+        <a-sticker mixin="right"></a-sticker>
+        <a-sticker mixin="front"></a-sticker>
+        <a-animation mixin="animation"></a-animation>
+      </a-box>
+      <a-box position="-1 -6 -5" color="black">
+        <a-sticker mixin="front"></a-sticker>
+        <a-sticker mixin="right"></a-sticker>
+        <a-animation mixin="animation"></a-animation>
+      </a-box>
+      <a-box position="-1 -7 -5" color="black">
+        <a-sticker mixin="front"></a-sticker>
+        <a-sticker mixin="right"></a-sticker>
+        <a-sticker mixin="down"></a-sticker>
+        <a-animation mixin="animation"></a-animation>
+      </a-box>
+      <a-box position="-2 -5 -5" color="black">
+        <a-sticker mixin="up"></a-sticker>
+        <a-sticker mixin="front"></a-sticker>
+        <a-animation mixin="animation"></a-animation>
+      </a-box>
+      <a-box position="-2 -6 -5" color="black">
+        <a-sticker mixin="front"></a-sticker>
+        <a-animation mixin="animation"></a-animation>
+      </a-box>
+      <a-box position="-2 -7 -5" color="black">
+        <a-sticker mixin="front"></a-sticker>
+        <a-sticker mixin="down"></a-sticker>
+        <a-animation mixin="animation"></a-animation>
+      </a-box>
+      <a-box position="-3 -5 -5" color="black">
+        <a-sticker mixin="up"></a-sticker>
+        <a-sticker mixin="front"></a-sticker>
+        <a-sticker mixin="left"></a-sticker>
+        <a-animation mixin="animation"></a-animation>
+      </a-box>
+      <a-box position="-3 -6 -5" color="black">
+        <a-sticker mixin="front"></a-sticker>
+        <a-sticker mixin="left"></a-sticker>
+        <a-animation mixin="animation"></a-animation>
+      </a-box>
+      <a-box position="-3 -7 -5" color="black">
+        <a-sticker mixin="front"></a-sticker>
+        <a-sticker mixin="left"></a-sticker>
+        <a-sticker mixin="down"></a-sticker>
+        <a-animation mixin="animation"></a-animation>
+      </a-box>
+      
+      <a-box position="-1 -5 -6" color="black">
+        <a-sticker mixin="up"></a-sticker>
+        <a-sticker mixin="right"></a-sticker>
+        <a-animation mixin="animation"></a-animation>
+      </a-box>
+      <a-box position="-1 -6 -6" color="black">
+        <a-sticker mixin="right"></a-sticker>
+        <a-animation mixin="animation"></a-animation>
+      </a-box>
+      <a-box position="-1 -7 -6" color="black">
+        <a-sticker mixin="right"></a-sticker>
+        <a-sticker mixin="down"></a-sticker>
+        <a-animation mixin="animation"></a-animation>
+      </a-box>
+      <a-box position="-2 -5 -6" color="black">
+        <a-sticker mixin="up"></a-sticker>
+        <a-animation mixin="animation"></a-animation>
+      </a-box>
+      <a-box position="-2 -6 -6" color="black">
+        <a-animation mixin="animation"></a-animation>
+      </a-box>
+      <a-box position="-2 -7 -6" color="black">
+        <a-sticker mixin="down"></a-sticker>
+        <a-animation mixin="animation"></a-animation>
+      </a-box>
+      <a-box position="-3 -5 -6" color="black">
+        <a-sticker mixin="up"></a-sticker>
+        <a-sticker mixin="left"></a-sticker>
+        <a-animation mixin="animation"></a-animation>
+      </a-box>
+      <a-box position="-3 -6 -6" color="black">
+        <a-sticker mixin="left"></a-sticker>
+        <a-animation mixin="animation"></a-animation>
+      </a-box>
+      <a-box position="-3 -7 -6" color="black">
+        <a-sticker mixin="left"></a-sticker>
+        <a-sticker mixin="down"></a-sticker>
+        <a-animation mixin="animation"></a-animation>
+      </a-box>
+      
+      <a-box position="-1 -5 -7" color="black">
+        <a-sticker mixin="up"></a-sticker>
+        <a-sticker mixin="right"></a-sticker>
+        <a-sticker mixin="back"></a-sticker>
+        <a-animation mixin="animation"></a-animation>
+      </a-box>
+      <a-box position="-1 -6 -7" color="black">
+        <a-sticker mixin="right"></a-sticker>
+        <a-sticker mixin="back"></a-sticker>
+        <a-animation mixin="animation"></a-animation>
+      </a-box>
+      <a-box position="-1 -7 -7" color="black">
+        <a-sticker mixin="down"></a-sticker>
+        <a-sticker mixin="right"></a-sticker>
+        <a-sticker mixin="back"></a-sticker>
+        <a-animation mixin="animation"></a-animation>
+      </a-box>
+      <a-box position="-2 -5 -7" color="black">
+        <a-sticker mixin="up"></a-sticker>
+        <a-sticker mixin="back"></a-sticker>
+        <a-animation mixin="animation"></a-animation>
+      </a-box>
+      <a-box position="-2 -6 -7" color="black">
+        <a-sticker mixin="back"></a-sticker>
+        <a-animation mixin="animation"></a-animation>
+      </a-box>
+      <a-box position="-2 -7 -7" color="black">
+        <a-sticker mixin="down"></a-sticker>
+        <a-sticker mixin="back"></a-sticker>
+        <a-animation mixin="animation"></a-animation>
+      </a-box>
+      <a-box position="-3 -5 -7" color="black">
+        <a-sticker mixin="up"></a-sticker>
+        <a-sticker mixin="left"></a-sticker>
+        <a-sticker mixin="back"></a-sticker>
+        <a-animation mixin="animation"></a-animation>
+      </a-box>
+      <a-box position="-3 -6 -7" color="black">
+        <a-sticker mixin="left"></a-sticker>
+        <a-sticker mixin="back"></a-sticker>
+        <a-animation mixin="animation"></a-animation>
+      </a-box>
+      <a-box position="-3 -7 -7" color="black">
+        <a-sticker mixin="left"></a-sticker>
+        <a-sticker mixin="back"></a-sticker>
+        <a-sticker mixin="down"></a-sticker>
+        <a-animation mixin="animation"></a-animation>
+      </a-box>
+        </a-entity>
+        <a-light type="ambient" color="#dddddd"></a-light>
+      </a-entity>
+
+    </a-scene> 
+    <script src="../../../scripts/rotateCube.js"></script>
+  </body>
+</html>
