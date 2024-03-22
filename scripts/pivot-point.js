@@ -24,7 +24,7 @@ AFRAME.registerComponent('pivot-point', {
     console.log("originalParent before");
     console.log(originalParent);
 
-    const originalGroup = el.object3D;
+    var originalGroup = el.object3D;
     console.log("originalGroup before");
     console.log(originalGroup);
     originalGroup.position.set(this.data.ox, this.data.oy, this.data.oz);
