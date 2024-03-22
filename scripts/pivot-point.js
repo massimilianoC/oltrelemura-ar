@@ -9,7 +9,6 @@ AFRAME.registerComponent('pivot-point', {
     oz: {type: 'float', default: 0},
   },
   update: function(oldData) {
-    console.log(this.data);
     const originalPosition = new THREE.Vector3();
     const originalRotation = new THREE.Vector3();
     const data = oldData
@@ -28,6 +27,8 @@ AFRAME.registerComponent('pivot-point', {
     console.log("originalGroup before");
     console.log(originalGroup);
     originalGroup.position.set(this.data.ox, this.data.oy, this.data.oz);
+    console.log(this.data);
+    console.log(originalGroup.el);
     originalGroup.el.setAttribute('position', this.data.ox + " " + this.data.oy + " " + this.data.oz);
     originalGroup = el.object3D;
     console.log("originalGroup after");
