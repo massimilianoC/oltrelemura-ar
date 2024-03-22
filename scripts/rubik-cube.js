@@ -17,7 +17,7 @@ AFRAME.registerComponent('rubik-cube',{
                       newPlane.setAttribute('position',position);
                       newPlane.setAttribute('rotation',rotation);
                       newPlane.setAttribute('src','#opera'+(8-c-p));
-                      newBlock.appendChild(newPlane);
+                      //newBlock.appendChild(newPlane);
                       console.log(newPlane);
                   }           
               }
