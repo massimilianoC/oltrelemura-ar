@@ -3,14 +3,15 @@ document.addEventListener("DOMContentLoaded", function() {
 
   AFRAME.registerComponent('mygallery',{
     schema: {
-      name: {type: 'string', default: ''}
+      name: {type: 'string', default: ''},
+      itemCount: {type: 'int', default: 2}
     },
     init: function () {
       var data = this.data;
       this.el.addEventListener('targetFound', event => {
         console.log("gallery target found");
         console.log(data.name);
-            showGallery(data.name,() => {
+            showGallery(data.name,data.itemCount,() => {
               setTimeout(() => {
                 showInfo();
               }, 300);
@@ -23,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 
-  const showGallery = (name,done) => {
+  const showGallery = (name,itemCount,done) => {
     console.log(name);
     const gallery = document.querySelector("#"+name+"-panel");
     const galleryLeftButton = document.querySelector("#"+name+"-left-button");
@@ -35,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function() {
     gallery.setAttribute("visible", true);
 
     const showGalleryItem = (item) => {
-      for (let i = 0; i <= 2; i++) {
+      for (let i = 0; i < itemCount; i++) {
         document.querySelector("#"+name+"-item" + i).setAttribute("visible", i === item);
       }
     }
@@ -49,12 +50,12 @@ document.addEventListener("DOMContentLoaded", function() {
         galleryRightButton.setAttribute("visible", true);
        
         galleryLeftButton.addEventListener('click', () => {
-          currentItem = (currentItem + 1) % 3;
+          currentItem = (currentItem + 1) % itemCount;
           showGalleryItem(currentItem);
         });
 
         galleryRightButton.addEventListener('click', () => {
-          currentItem = (currentItem - 1 + 3) % 3;
+          currentItem = (currentItem - 1 + 3) % itemCount;
           showGalleryItem(currentItem);
         });
 
