@@ -26,7 +26,7 @@ AFRAME.registerComponent('rubik-cube',{
                     var positionSign = ((direction==0 && axis==0) || (direction==1 && axis > 0)) ? '-' : '';
                     var rotationSing = direction==0 ? '-' : '';
                     var position = axis==0 ? positionSign+"0.5 0 0" : axis==1 ? "0 "+ positionSign+"0.5 0" : "0 0 "+positionSign+"0.5";
-                    var rotation = axis==0 ? rotationSing+"90 0 0" : axis==1 ? "0 "+ rotationSing+"90 0" : "0 0 "+rotationSing+"90";
+                    var rotation = axis==1 ? rotationSing+"90 0 0" : axis==0 ? "0 "+ rotationSing+"90 0" : "0 0 "+rotationSing+"90";
                     newPlane.setAttribute('position',position);
                     newPlane.setAttribute('rotation',rotation);
                     newBlock.appendChild(newPlane);
