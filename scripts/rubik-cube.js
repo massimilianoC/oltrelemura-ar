@@ -34,7 +34,7 @@ AFRAME.registerComponent('rubik-cube',{
                     var position = axis==0 ? positionSign+"0.5 0 0" : axis==1 ? "0 "+ positionSign+"0.5 0" : "0 0 "+positionSign+"0.5";
                     var rotation = axis==1 ? rotationSing+"90 0 0" : axis==0 ? "0 "+ rotationSing+"90 0" : "0 0 "+rotationSing+"90";
                     newPlane.setAttribute('position',position);
-                    newPlane.setAttribute('rotation',rotation);
+                   
                     //newPlane.setAttribute('material','shader:flat ;side: double');
                     //newPlane.setAttribute('src','#opera'+(8-axis-direction));
                     
@@ -67,6 +67,7 @@ AFRAME.registerComponent('rubik-cube',{
                     if(r==2 && axis==2 && direction==0) 
                     {
                       newPlane.setAttribute('material','shader:flat ; src: url(../../../assets/texture/tileA_'+i+'_'+j+'.png)');
+                      rotation = "0 0 0";
                       console.log(groupCounter+'_'+rowCounter+'_'+columnCounter+'_'+faceCounter);
                     }
 
@@ -78,7 +79,7 @@ AFRAME.registerComponent('rubik-cube',{
                     }
                     */
 
-                    
+                    newPlane.setAttribute('rotation',rotation);
                     newBlock.appendChild(newPlane);
                     faceCounter++;
                 }           
