@@ -7,6 +7,8 @@ AFRAME.registerComponent('rubik-cube',{
     }
   });
 
+  var faceA, faceB, faceC, faceD, faceE, faceF;
+
   function buildCubeFaces(el){
     var newElement = document.createElement('a-entity');
     let groupCounter = 0;
@@ -18,20 +20,25 @@ AFRAME.registerComponent('rubik-cube',{
             var newBlock = document.createElement('a-box');
             var faceSrcIndex = getRandomInt(3,8);
             let faceCounter = 0;
-            for (let c = 0; c < 3; c++) {
-                for (let p = 0; p < 2; p++) {
+            for (let axis = 0; axis < 3; axis++) {
+                for (let direction = 0; direction < 2; direction++) {
                     var newPlane = document.createElement('a-plane');
-                    var positionSign = ((p==0 && c==0) || (p==1 && c > 0)) ? '-0.5' : '0.5';
-                    var rotationSing = p==0 ? '-90' : '90';
-                    var position = c==0 ? positionSign+" 0 0" : c==1 ? "0 "+ positionSign+" 0" : "0 0 "+positionSign;
-                    var rotation = c==1 ? rotationSing+" 0 0" : c==0 ? "0 "+ rotationSing+" 0" : "0 0 "+rotationSing;
-                    if(c==0 && p==0) newPlane.setAttribute('material','shader:flat ;side: double; src: url(../../../assets/texture/tileA_'+i+'_'+j+'.png)')
-                    //else newPlane.setAttribute('src','#opera'+(8-c-p));
+                    var positionSign = ((direction==0 && axis==0) || (direction==1 && axis > 0)) ? '-' : '';
+                    var rotationSing = direction==0 ? '-' : '';
+                    var position = axis==0 ? positionSign+"0.5 0 0" : axis==1 ? "0 "+ positionSign+"0.5 0" : "0 0 "+positionSign+"0.5";
+                    var rotation = axis==0 ? rotationSing+"90 0 0" : axis==1 ? "0 "+ rotationSing+"90 0" : "0 0 "+rotationSing+"90";
                     newPlane.setAttribute('position',position);
                     newPlane.setAttribute('rotation',rotation);
                     newBlock.appendChild(newPlane);
                     console.log(groupCounter+'_'+rowCounter+'_'+columnCounter+'_'+faceCounter);
                     console.log('src: url(../../../assets/texture/tileA_'+i+'_'+j+'.png)')
+
+                    newPlane.setAttribute('material','shader:flat ;side: double');
+                    newPlane.setAttribute('src','#opera'+(8-c-p));
+
+                    //if(c==0 && p==0) newPlane.setAttribute('material','shader:flat ;side: double; src: url(../../../assets/texture/tileA_'+i+'_'+j+'.png)')
+                    //else newPlane.setAttribute('src','#opera'+(8-c-p));
+
                     faceCounter++;
                 }           
             }
