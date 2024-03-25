@@ -7,7 +7,12 @@ AFRAME.registerComponent('rubik-cube',{
     }
   });
 
-  var faceA, faceB, faceC, faceD, faceE, faceF;
+  const UP=[]; //i==0, c==2, p==0
+  const DOWN=[]; //i==2, c==2, p==1
+  const LEFT=[]; //j==0, c==1, p==1
+  const RIGHT=[]; //j==2,c==2, p==0
+  const FRONT=[]; //r==2, c==0, p==0
+  const BACK=[]; //r==0, c==0, p==1
 
   function buildCubeFaces(el){
     var newElement = document.createElement('a-entity');
@@ -30,17 +35,45 @@ AFRAME.registerComponent('rubik-cube',{
                     var rotation = axis==1 ? rotationSing+"90 0 0" : axis==0 ? "0 "+ rotationSing+"90 0" : "0 0 "+rotationSing+"90";
                     newPlane.setAttribute('position',position);
                     newPlane.setAttribute('rotation',rotation);
-                    newBlock.appendChild(newPlane);
-                    
-                    console.log(groupCounter+'_'+rowCounter+'_'+columnCounter+'_'+faceCounter);
-                    console.log('src: url(../../../assets/texture/tileA_'+i+'_'+j+'.png)')
-
                     newPlane.setAttribute('material','shader:flat ;side: double');
-                    newPlane.setAttribute('src','#opera'+(8-axis-direction));
+                    //newPlane.setAttribute('src','#opera'+(8-axis-direction));
+                    
+                    //UP
+                    if(i==0, axis==2, direction==0) 
+                    {
+                      newPlane.setAttribute('material','shader:flat ;side: double; src: url(../../../assets/texture/tileA_'+r+'_'+j+'.png)');
+                    }
 
-                    if(r==0 && axis==0 && direction==0) newPlane.setAttribute('material','shader:flat ;side: double; src: url(../../../assets/texture/tileA_'+i+'_'+j+'.png)')
-                    //else newPlane.setAttribute('src','#opera'+(8-c-p));
+                    //DOWN
+                    if(i==2, axis==2, direction==1) 
+                    {
+                      newPlane.setAttribute('material','shader:flat ;side: double; src: url(../../../assets/texture/tileA_'+r+'_'+j+'.png)');
+                    }
 
+                    //LEFT
+                    if(j==0, axis==1, direction==1) 
+                    {
+                      newPlane.setAttribute('material','shader:flat ;side: double; src: url(../../../assets/texture/tileA_'+r+'_'+i+'.png)');
+                    }
+
+                    //RIGHT
+                    if(j==0, axis==1, direction==1) 
+                    {
+                      newPlane.setAttribute('material','shader:flat ;side: double; src: url(../../../assets/texture/tileA_'+r+'_'+i+'.png)');
+                    }
+                    //FRONT
+                    if(r==2, axis==0, direction==0) 
+                    {
+                      newPlane.setAttribute('material','shader:flat ;side: double; src: url(../../../assets/texture/tileA_'+i+'_'+j+'.png)');
+                    }
+                    //BACK
+                    if(r==0, axis==0, direction=1) 
+                    {
+                      newPlane.setAttribute('material','shader:flat ;side: double; src: url(../../../assets/texture/tileA_'+i+'_'+j+'.png)');
+                    }
+
+                    console.log(groupCounter+'_'+rowCounter+'_'+columnCounter+'_'+faceCounter);
+                    newBlock.appendChild(newPlane);
                     faceCounter++;
                 }           
             }
