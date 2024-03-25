@@ -25,7 +25,7 @@ AFRAME.registerComponent('rubik-cube',{
                     var rotationSing = p==0 ? '-90' : '90';
                     var position = c==0 ? positionSign+" 0 0" : c==1 ? "0 "+ positionSign+" 0" : "0 0 "+positionSign;
                     var rotation = c==1 ? rotationSing+" 0 0" : c==0 ? "0 "+ rotationSing+" 0" : "0 0 "+rotationSing;
-                    if(c==0) newPlane.setAttribute('material','shader:flat ;side: double; src: url(../../../assets/texture/tileA_'+j+'_'+i+'.png)')
+                    if(c==0) newPlane.setAttribute('material','shader:flat ;side: double; src: url(../../../assets/texture/tileA_'+i+'_'+j+'.png)')
                     else newPlane.setAttribute('src','#opera'+(8-c-p));
                     newPlane.setAttribute('position',position);
                     newPlane.setAttribute('rotation',rotation);
@@ -34,9 +34,9 @@ AFRAME.registerComponent('rubik-cube',{
                     faceCounter++;
                 }           
             }
-            var positionx = j==0 ? "0" : j==1 ? "0.105" :"-0.105" ;
-            var positiony = i==0 ? "0" : i==1 ? "0.105" :"-0.105" ;
-            var positionz = r==0 ? "0" : r==1 ? "0.105" :"-0.105" ;
+            var positionx = j==0 ? "-0.105" : j==1 ? "0" :"0.105" ;
+            var positiony = i==0 ? "-0.105" : i==1 ? "0" :"0.105" ;
+            var positionz = r==0 ? "-0.105" : r==1 ? "0" :"0.105" ;
             newBlock.setAttribute('id','block_'+r+'_'+i+'_'+j);
             newBlock.setAttribute('position',positionx+" "+positiony+ " "+positionz);
             newBlock.setAttribute('scale',"0.1 0.1 0.1");
