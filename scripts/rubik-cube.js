@@ -64,7 +64,7 @@ AFRAME.registerComponent('rubik-cube',{
                     }*/
 
                     //FRONT
-                    if(r==2 && axis==0 && direction==0) 
+                    if(r==2 && axis==1 && direction==0) 
                     {
                       newPlane.setAttribute('material','shader:flat ; src: url(../../../assets/texture/tileA_'+i+'_'+j+'.png)');
                       console.log(groupCounter+'_'+rowCounter+'_'+columnCounter+'_'+faceCounter);
