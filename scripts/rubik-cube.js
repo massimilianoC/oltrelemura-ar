@@ -20,7 +20,7 @@ AFRAME.registerComponent('rubik-cube',{
             var newBlock = document.createElement('a-box');
             var faceSrcIndex = getRandomInt(3,8);
             let faceCounter = 0;
-            /*
+            
             for (let axis = 0; axis < 3; axis++) {
                 for (let direction = 0; direction < 2; direction++) {
                     var newPlane = document.createElement('a-plane');
@@ -37,26 +37,21 @@ AFRAME.registerComponent('rubik-cube',{
                     newPlane.setAttribute('material','shader:flat ;side: double');
                     newPlane.setAttribute('src','#opera'+(8-axis-direction));
 
-                    //if(c==0 && p==0) newPlane.setAttribute('material','shader:flat ;side: double; src: ')
+                    if(r==0 && c==0 && p==0) newPlane.setAttribute('material','shader:flat ;side: double; src: url(../../../assets/texture/tileA_'+i+'_'+j+'.png)')
                     //else newPlane.setAttribute('src','#opera'+(8-c-p));
 
                     faceCounter++;
                 }           
             }
-            */
             var positionx = j==0 ? "-0.105" : j==1 ? "0" :"0.105" ;
             var positiony = i==0 ? "-0.105" : i==1 ? "0" :"0.105" ;
             var positionz = r==0 ? "-0.105" : r==1 ? "0" :"0.105" ;
-
-            var envMapSrc = 'url(../../../assets/texture/tileA_'+i+'_'+j+'.png)';
-
             newBlock.setAttribute('id','block_'+r+'_'+i+'_'+j);
             newBlock.setAttribute('position',positionx+" "+positiony+ " "+positionz);
             newBlock.setAttribute('scale',"0.1 0.1 0.1");
             newBlock.setAttribute('width',"1");
             newBlock.setAttribute('height',"1");
             newBlock.setAttribute('depth',"1");
-            newBlock.setAttribute('material','envMap:'+ envMapSrc+','+envMapSrc+', '+envMapSrc+','+ envMapSrc+','+envMapSrc+', '+envMapSrc+'; roughness: 0');
             newElement.appendChild(newBlock);
             console.log(newBlock);
             console.log(positionx+" "+positiony+ " 0");
