@@ -57,18 +57,11 @@
         <a-mixin id="layer1_animation" animation__rotation="property: rotation; to: 0 0 360; dur: 5000; easing: easeInOutQuad; loop: true"></a-mixin>
         <a-mixin id="layer3_animation" animation__rotation="property: rotation; to: 0 0 -360; dur: 6000; easing: easeInOutQuad; loop: true"></a-mixin>
         <a-mixin id="dice_animation" animation__rotation="property: rotation; to: 360 360 360; dur: 50000; easing: easeInOutQuad; loop: true"></a-mixin>
-        <a-cubemap id="cube0_0">
-          <img src="../../../assets/texture/tileA_0_0.png">
-          <img src="../../../assets/texture/tileA_0_1.png">
-          <img src="../../../assets/texture/tileA_0_2.png">
-          <img src="../../../assets/texture/tileA_1_0.png">
-          <img src="../../../assets/texture/tileA_1_1.png">
-          <img src="../../../assets/texture/tileA_1_2.png">
-        </a-cubemap>
+        
       </a-assets>
 
       <a-entity id="ar-target" mindar-image-target="targetIndex: 0">
-        <a-entity id="root"  position="0 0.5 0.5"  scale="3 3 3" mixin="dice_animation">
+        <a-entity id="root"  position="0 0.5 0.5"  scale="3 3 3" >
           <a-entity id="rubik" rubik-cube position="0 0 0"> </a-entity>
         </a-entity>
       </a-entity>
