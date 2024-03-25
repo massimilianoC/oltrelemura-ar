@@ -53,7 +53,7 @@ AFRAME.registerComponent('rubik-cube',{
             newBlock.setAttribute('width',"1");
             newBlock.setAttribute('height',"1");
             newBlock.setAttribute('depth',"1");
-            newBlock.setAttribute('material','shader:flat; envMap:#cube0_0');
+            newBlock.setAttribute('material','shader:standard; envMap:#cube0_0');
             newElement.appendChild(newBlock);
             console.log(newBlock);
             console.log(positionx+" "+positiony+ " 0");
