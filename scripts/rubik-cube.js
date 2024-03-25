@@ -37,7 +37,7 @@ AFRAME.registerComponent('rubik-cube',{
                     newPlane.setAttribute('material','shader:flat ;side: double');
                     newPlane.setAttribute('src','#opera'+(8-axis-direction));
 
-                    if(r==0 && c==0 && p==0) newPlane.setAttribute('material','shader:flat ;side: double; src: url(../../../assets/texture/tileA_'+i+'_'+j+'.png)')
+                    if(r==0 && axis==0 && direction==0) newPlane.setAttribute('material','shader:flat ;side: double; src: url(../../../assets/texture/tileA_'+i+'_'+j+'.png)')
                     //else newPlane.setAttribute('src','#opera'+(8-c-p));
 
                     faceCounter++;
