@@ -50,9 +50,9 @@ AFRAME.registerComponent('rubik-cube',{
             newBlock.setAttribute('id','block_'+r+'_'+i+'_'+j);
             newBlock.setAttribute('position',positionx+" "+positiony+ " "+positionz);
             newBlock.setAttribute('scale',"0.1 0.1 0.1");
-            newBlock.setAttribute('width',"0.1");
-            newBlock.setAttribute('height',"0.1");
-            newBlock.setAttribute('depth',"0.1");
+            newBlock.setAttribute('width',"1");
+            newBlock.setAttribute('height',"1");
+            newBlock.setAttribute('depth',"1");
             newBlock.setAttribute('material','shader:flat; envMap:#cube0_0');
             newElement.appendChild(newBlock);
             console.log(newBlock);
