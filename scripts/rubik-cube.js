@@ -26,11 +26,12 @@ AFRAME.registerComponent('rubik-cube',{
                     var position = c==0 ? positionSign+" 0 0" : c==1 ? "0 "+ positionSign+" 0" : "0 0 "+positionSign;
                     var rotation = c==1 ? rotationSing+" 0 0" : c==0 ? "0 "+ rotationSing+" 0" : "0 0 "+rotationSing;
                     if(c==0) newPlane.setAttribute('material','shader:flat ;side: double; src: url(../../../assets/texture/tileA_'+i+'_'+j+'.png)')
-                    else newPlane.setAttribute('src','#opera'+(8-c-p));
+                    //else newPlane.setAttribute('src','#opera'+(8-c-p));
                     newPlane.setAttribute('position',position);
                     newPlane.setAttribute('rotation',rotation);
                     newBlock.appendChild(newPlane);
                     console.log(groupCounter+'_'+rowCounter+'_'+columnCounter+'_'+faceCounter);
+                    console.log('src: url(../../../assets/texture/tileA_'+i+'_'+j+'.png)')
                     faceCounter++;
                 }           
             }
