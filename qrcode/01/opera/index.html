@@ -7,6 +7,7 @@
 	<script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
   <script src="../../../scripts/paintOnCanvas.js"></script>
   <script src="../../../scripts/cube-face.js"></script>
+  <link rel="stylesheet" type="text/css" href="../../../css/global.css" />
     <script>
       document.addEventListener("DOMContentLoaded", function() {
        
@@ -33,7 +34,7 @@
     </div>
     <a-scene 
     webxr="optionalFeatures: hit-test, local-floor;" ar-hit-test="target:#dice;"
-    mindar-image="imageTargetSrc: ../../../model/blur.mind; autoStart: true; filterMinCF:0.0005; filterBeta: 0.005; warmupTolerance: 1; missTolerance: 1" 
+    mindar-image="imageTargetSrc: ../../../model/full_blur.mind; autoStart: true; filterMinCF:0.0005; filterBeta: 0.005; warmupTolerance: 1; missTolerance: 1" 
     color-space="sRGB" 
     renderer="colorManagement: true, physicallyCorrectLights" 
     vr-mode-ui="enabled: false" 
