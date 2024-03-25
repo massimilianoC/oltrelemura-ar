@@ -9,11 +9,15 @@ AFRAME.registerComponent('rubik-cube',{
 
   function buildCubeFaces(el){
     var newElement = document.createElement('a-entity');
+    let groupCounter = 0;
     for (let r = 0; r < 3; r++) {
+      let rowCounter = 0;
       for (let i = 0; i < 3; i++) {
+        let columnCounter = 0;
         for (let j = 0; j < 3; j++) {
             var newBlock = document.createElement('a-box');
             var faceSrcIndex = getRandomInt(3,8);
+            let faceCounter = 0;
             for (let c = 0; c < 3; c++) {
                 for (let p = 0; p < 2; p++) {
                     var newPlane = document.createElement('a-plane');
@@ -21,12 +25,13 @@ AFRAME.registerComponent('rubik-cube',{
                     var rotationSing = p==0 ? '-90' : '90';
                     var position = c==0 ? positionSign+" 0 0" : c==1 ? "0 "+ positionSign+" 0" : "0 0 "+positionSign;
                     var rotation = c==1 ? rotationSing+" 0 0" : c==0 ? "0 "+ rotationSing+" 0" : "0 0 "+rotationSing;
-                    newPlane.setAttribute('material','side: double');
+                    newPlane.setAttribute('material','side: double;src: ../assets/texture/tileA_'+i+'_'+j);
                     newPlane.setAttribute('position',position);
                     newPlane.setAttribute('rotation',rotation);
-                    newPlane.setAttribute('src','#opera'+(8-c-p));
+                    //newPlane.setAttribute('src','#opera'+(8-c-p));
                     newBlock.appendChild(newPlane);
-                    console.log(newPlane);
+                    console.log(groupCounter+'_'+rowCounter+'_'+columnCounter+'_'+faceCounter);
+                    faceCounter++;
                 }           
             }
             var positionx = j==0 ? "0" : j==1 ? "0.105" :"-0.105" ;
@@ -41,8 +46,11 @@ AFRAME.registerComponent('rubik-cube',{
             newElement.appendChild(newBlock);
             console.log(newBlock);
             console.log(positionx+" "+positiony+ " 0");
+            columnCounter++;
         }
+        rowCounter++;
       }
+      groupCounter++;
     }
     newElement.setAttribute('id','faces');
     el.appendChild(newElement);
