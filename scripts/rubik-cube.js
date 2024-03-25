@@ -31,6 +31,7 @@ AFRAME.registerComponent('rubik-cube',{
                     newPlane.setAttribute('position',position);
                     newPlane.setAttribute('rotation',rotation);
                     newBlock.appendChild(newPlane);
+                    
                     console.log(groupCounter+'_'+rowCounter+'_'+columnCounter+'_'+faceCounter);
                     console.log('src: url(../../../assets/texture/tileA_'+i+'_'+j+'.png)')
 
@@ -49,9 +50,9 @@ AFRAME.registerComponent('rubik-cube',{
             newBlock.setAttribute('id','block_'+r+'_'+i+'_'+j);
             newBlock.setAttribute('position',positionx+" "+positiony+ " "+positionz);
             newBlock.setAttribute('scale',"0.1 0.1 0.1");
-            newBlock.setAttribute('width',"1");
-            newBlock.setAttribute('height',"1");
-            newBlock.setAttribute('depth',"1");
+            newBlock.setAttribute('width',"0.1");
+            newBlock.setAttribute('height',"0.1");
+            newBlock.setAttribute('depth',"0.1");
             newElement.appendChild(newBlock);
             console.log(newBlock);
             console.log(positionx+" "+positiony+ " 0");
