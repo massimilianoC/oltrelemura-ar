@@ -21,7 +21,7 @@ AFRAME.registerComponent('rubik-cube',{
                     var rotationSing = p==0 ? '-90' : '90';
                     var position = c==0 ? positionSign+" 0 0" : c==1 ? "0 "+ positionSign+" 0" : "0 0 "+positionSign;
                     var rotation = c==1 ? rotationSing+" 0 0" : c==0 ? "0 "+ rotationSing+" 0" : "0 0 "+rotationSing;
-                    newPlane.setAttribute('material','side: double; width:100px; height:100px; offset: [10,10]');
+                    newPlane.setAttribute('material','side: double');
                     newPlane.setAttribute('position',position);
                     newPlane.setAttribute('rotation',rotation);
                     newPlane.setAttribute('src','#opera'+(8-c-p));
