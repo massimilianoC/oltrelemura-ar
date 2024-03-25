@@ -67,6 +67,7 @@ AFRAME.registerComponent('rubik-cube',{
                     if(r==2, axis==0, direction==0) 
                     {
                       newPlane.setAttribute('material','shader:flat ; src: url(../../../assets/texture/tileA_'+i+'_'+j+'.png)');
+                      console.log(groupCounter+'_'+rowCounter+'_'+columnCounter+'_'+faceCounter);
                     }
 
                     /*
@@ -77,7 +78,7 @@ AFRAME.registerComponent('rubik-cube',{
                     }
                     */
 
-                    console.log(groupCounter+'_'+rowCounter+'_'+columnCounter+'_'+faceCounter);
+                    
                     newBlock.appendChild(newPlane);
                     faceCounter++;
                 }           
