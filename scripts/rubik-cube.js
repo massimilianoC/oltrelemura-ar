@@ -34,7 +34,7 @@ AFRAME.registerComponent('rubik-cube',{
                     console.log('src: url(../../../assets/texture/tileA_'+i+'_'+j+'.png)')
 
                     newPlane.setAttribute('material','shader:flat ;side: double');
-                    newPlane.setAttribute('src','#opera'+(8-c-p));
+                    newPlane.setAttribute('src','#opera'+(8-axis-direction));
 
                     //if(c==0 && p==0) newPlane.setAttribute('material','shader:flat ;side: double; src: url(../../../assets/texture/tileA_'+i+'_'+j+'.png)')
                     //else newPlane.setAttribute('src','#opera'+(8-c-p));
