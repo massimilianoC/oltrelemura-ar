@@ -37,7 +37,7 @@ AFRAME.registerComponent('rubik-cube',{
                     newPlane.setAttribute('material','shader:flat ;side: double');
                     newPlane.setAttribute('src','#opera'+(8-axis-direction));
 
-                    //if(c==0 && p==0) newPlane.setAttribute('material','shader:flat ;side: double; src: url(../../../assets/texture/tileA_'+i+'_'+j+'.png)')
+                    //if(c==0 && p==0) newPlane.setAttribute('material','shader:flat ;side: double; src: ')
                     //else newPlane.setAttribute('src','#opera'+(8-c-p));
 
                     faceCounter++;
@@ -47,13 +47,16 @@ AFRAME.registerComponent('rubik-cube',{
             var positionx = j==0 ? "-0.105" : j==1 ? "0" :"0.105" ;
             var positiony = i==0 ? "-0.105" : i==1 ? "0" :"0.105" ;
             var positionz = r==0 ? "-0.105" : r==1 ? "0" :"0.105" ;
+
+            var envMapSrc = 'url(../../../assets/texture/tileA_'+i+'_'+j+'.png)';
+
             newBlock.setAttribute('id','block_'+r+'_'+i+'_'+j);
             newBlock.setAttribute('position',positionx+" "+positiony+ " "+positionz);
             newBlock.setAttribute('scale',"0.1 0.1 0.1");
             newBlock.setAttribute('width',"1");
             newBlock.setAttribute('height',"1");
             newBlock.setAttribute('depth',"1");
-            newBlock.setAttribute('material','envMap:#cube0_0');
+            newBlock.setAttribute('material','envMap:'+ envMapSrc+','+envMapSrc+', '+envMapSrc+','+ envMapSrc+','+envMapSrc+', '+envMapSrc+'; roughness: 0');
             newElement.appendChild(newBlock);
             console.log(newBlock);
             console.log(positionx+" "+positiony+ " 0");
