@@ -30,15 +30,12 @@ AFRAME.registerComponent('rubik-animation',{
                             el.object3D.position.z == ve.z )
                         {
                             console.log("MATCH");
-                            var child = el;
-                            //var parent = el.parentElement;
-                            //parent.removeChild(el);
-                            console.log(child);
-                            console.log(child.object3D);
-                            //el.flushToDom();
-                            var newParent = document.querySelector("#pivot");
-                            child.object3D.setParent(newParent);
-                            newParent.appendChild(child);
+                            var entity = el;
+                            var newParent = document.querySelector('#pivot');
+                            entity.flushToDom();
+                            var copy = entity.cloneNode();
+                            newParent.appendChild(copy);
+                            entity.parentNode.removeChild(entity);
                         }
                     });
                 });
