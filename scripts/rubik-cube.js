@@ -178,9 +178,9 @@ AFRAME.registerComponent('rubik-cube',{
       for (let i = 0; i < 3; i++) {
         for (let j = 0; j < 3; j++) {
             var newBlock = document.createElement('a-box');
-            var positionx = j==0 ? "0" : j==1 ? "0.105" :"-0.105" ;
-            var positiony = i==0 ? "0" : i==1 ? "0.105" :"-0.105" ;
-            var positionz = r==0 ? "0" : r==1 ? "0.105" :"-0.105" ;
+            var positionx = j==0 ? "-0.105" : j==1 ? "0" :"0.105" ;
+            var positiony = i==0 ? "-0.105" : i==1 ? "0" :"0.105" ;
+            var positionz = r==0 ? "-0.105" : r==1 ? "0" :"0.105" ;
             newBlock.setAttribute('id','struct_'+r+'_'+i+'_'+j);
             newBlock.setAttribute('position',positionx+" "+positiony+ " "+positionz);
             newBlock.setAttribute('scale',"0.1 0.1 0.1");
@@ -206,9 +206,9 @@ AFRAME.registerComponent('rubik-cube',{
       for (let i = 0; i < 3; i++) {
         for (let j = 0; j < 3; j++) {
             var newBlock = document.createElement('a-box');
-            var positionx = j==0 ? "0" : j==1 ? "0.105" :"-0.105" ;
-            var positiony = i==0 ? "0" : i==1 ? "0.105" :"-0.105" ;
-            var positionz = r==0 ? "0" : r==1 ? "0.105" :"-0.105" ;
+            var positionx = j==0 ? "-0.105" : j==1 ? "0" :"0.105" ;
+            var positiony = i==0 ? "-0.105" : i==1 ? "0" :"0.105" ;
+            var positionz = r==0 ? "-0.105" : r==1 ? "0" :"0.105" ;
             newBlock.setAttribute('id','pivot_'+r+'_'+i+'_'+j);
             newBlock.setAttribute('position',positionx+" "+positiony+ " "+positionz);
             newBlock.setAttribute('scale',"0.1 0.1 0.1");
