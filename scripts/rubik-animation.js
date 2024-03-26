@@ -31,6 +31,7 @@ AFRAME.registerComponent('rubik-animation',{
                         {
                             console.log("MATCH");
                             el.parentElement.removeChild(el);
+                            el.flushToDom();
                             PIVOT_FRONT[0].appendChild(el);
                         }
                     });
