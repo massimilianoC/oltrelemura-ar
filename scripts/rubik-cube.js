@@ -7,20 +7,20 @@ AFRAME.registerComponent('rubik-cube',{
     }
   });
 
-  const FACE_UP=[]; //i==2 && axis==1 && direction==0
-  const FACE_DOWN=[]; //i==0 && axis==1 && direction==1
-  const FACE_LEFT=[]; //j==0 && axis==0 && direction==0
-  const FACE_RIGHT=[]; //j==2 && axis==0 && direction==1
-  const FACE_FRONT=[]; //r==2 && axis==2 && direction==0
-  const FACE_BACK=[]; //r==0 && axis==2 && direction==1
+  const INIT_FACE_UP=[]; //i==2 && axis==1 && direction==0
+  const INIT_FACE_DOWN=[]; //i==0 && axis==1 && direction==1
+  const INIT_FACE_LEFT=[]; //j==0 && axis==0 && direction==0
+  const INIT_FACE_RIGHT=[]; //j==2 && axis==0 && direction==1
+  const INIT_FACE_FRONT=[]; //r==2 && axis==2 && direction==0
+  const INIT_FACE_BACK=[]; //r==0 && axis==2 && direction==1
 
-  const BLOCK_UP=[]; //i==2 && axis==1 && direction==0
-  const BLOCK_DOWN=[]; //i==0 && axis==1 && direction==1
-  const BLOCK_LEFT=[]; //j==0 && axis==0 && direction==0
-  const BLOCK_RIGHT=[]; //j==2 && axis==0 && direction==1
-  const BLOCK_FRONT=[]; //r==2 && axis==2 && direction==0
-  const BLOCK_BACK=[]; //r==0 && axis==2 && direction==1
-  const BLOCK_CORE = [];
+  const INIT_BLOCK_UP=[]; //i==2 && axis==1 && direction==0
+  const INIT_BLOCK_DOWN=[]; //i==0 && axis==1 && direction==1
+  const INIT_BLOCK_LEFT=[]; //j==0 && axis==0 && direction==0
+  const INIT_BLOCK_RIGHT=[]; //j==2 && axis==0 && direction==1
+  const INIT_BLOCK_FRONT=[]; //r==2 && axis==2 && direction==0
+  const INIT_BLOCK_BACK=[]; //r==0 && axis==2 && direction==1
+  const INIT_BLOCK_CORE = [];
 
   const VECTORS_FACE_UP = [];
   const VECTORS_FACE_DOWN = [];
@@ -28,6 +28,13 @@ AFRAME.registerComponent('rubik-cube',{
   const VECTORS_FACE_LEFT = [];
   const VECTORS_FACE_FRONT = [];
   const VECTORS_FACE_BACK = [];
+
+  const PIVOT_UP = [];
+  const PIVOT_DOWN = [];
+  const PIVOT_RIGHT = [];
+  const PIVOT_LEFT = [];
+  const PIVOT_FRONT = [];
+  const PIVOT_BACK = [];
 
   function buildCubeFaces(el){
     var newElement = document.createElement('a-entity');
@@ -54,41 +61,41 @@ AFRAME.registerComponent('rubik-cube',{
                     if(i==2 && axis==1 && direction==0) 
                     {
                       newPlane.setAttribute('material','shader:flat ; src: url(../../../assets/texture/tileA_'+r+'_'+j+'.png)');
-                      FACE_UP.push(newPlane);
+                      INIT_FACE_UP.push(newPlane);
                     }
                     //DOWN
                     else if(i==0 && axis==1 && direction==1) 
                     {
                       newPlane.setAttribute('material','shader:flat ; src: url(../../../assets/texture/tileA_'+(2-r)+'_'+j+'.png)');
-                      FACE_DOWN.push(newPlane);
+                      INIT_FACE_DOWN.push(newPlane);
                     }
                      //LEFT
                     else if(j==0 && axis==0 && direction==0) 
                     {
                       newPlane.setAttribute('material','shader:flat ; src: url(../../../assets/texture/tileA_'+(2-i)+'_'+r+'.png)');
                       rotation = "0 -90 0";
-                      FACE_LEFT.push(newPlane);
+                      INIT_FACE_LEFT.push(newPlane);
                     }
                      //RIGHT
                     else if(j==2 && axis==0 && direction==1) 
                     {
                       newPlane.setAttribute('material','shader:flat ; src: url(../../../assets/texture/tileA_'+(2-i)+'_'+(2-r)+'.png)');
                       rotation = "0 90 0";
-                      FACE_RIGHT.push(newPlane);
+                      INIT_FACE_RIGHT.push(newPlane);
                     }
                     //FRONT
                     else if(r==2 && axis==2 && direction==0) 
                     {
                       newPlane.setAttribute('material','shader:flat ; src: url(../../../assets/texture/tileA_'+(2-i)+'_'+j+'.png)');
                       rotation = "0 0 0";
-                      FACE_FRONT.push(newPlane);
+                      INIT_FACE_FRONT.push(newPlane);
                     }
                     //BACK
                     else if(r==0 && axis==2 && direction==1) 
                     {
                       newPlane.setAttribute('material','shader:flat; side: double ; src: url(../../../assets/texture/tileA_'+(2-i)+'_'+j+'.png)');
                       rotation = "0 0 0";
-                      FACE_BACK.push(newPlane);
+                      INIT_FACE_BACK.push(newPlane);
                     }
                     else {
                     newPlane.setAttribute('material','shader:flat ;side: double; color: #000');
@@ -118,41 +125,41 @@ AFRAME.registerComponent('rubik-cube',{
              //UP
              if(i==2) 
              {
-              BLOCK_UP.push(newBlock);
+              INIT_BLOCK_UP.push(newBlock);
               VECTORS_FACE_UP.push(refVector);
              }
              //DOWN
              else if(i==0) 
              {
-              BLOCK_DOWN.push(newBlock);
+              INIT_BLOCK_DOWN.push(newBlock);
               VECTORS_FACE_DOWN.push(refVector);
              }
               //LEFT
              else if(j==0) 
              {
-               BLOCK_LEFT.push(newBlock);
+               INIT_BLOCK_LEFT.push(newBlock);
                VECTORS_FACE_LEFT.push(refVector);
              }
               //RIGHT
              else if(j==2) 
              {
-               BLOCK_RIGHT.push(newBlock);
+               INIT_BLOCK_RIGHT.push(newBlock);
                VECTORS_FACE_RIGHT.push(refVector);
              }
              //FRONT
              else if(r==2) 
              {
-               BLOCK_FRONT.push(newBlock);
+               INIT_BLOCK_FRONT.push(newBlock);
                VECTORS_FACE_FRONT.push(refVector);
              }
              //BACK
              else if(r==0) 
              {
-               BLOCK_BACK.push(newBlock);
+               INIT_BLOCK_BACK.push(newBlock);
                VECTORS_FACE_BACK.push(refVector);
              }
              else {
-              BLOCK_CORE.push(newBlock);
+              INIT_BLOCK_CORE.push(newBlock);
              }
 
             columnCounter++;
@@ -208,9 +215,44 @@ AFRAME.registerComponent('rubik-cube',{
             newBlock.setAttribute('width',"0.1");
             newBlock.setAttribute('height',"0.1");
             newBlock.setAttribute('depth',"0.1");
-            newElement.appendChild(newBlock);
-            console.log(newBlock);
-            console.log(positionx+" "+positiony+ " 0");
+            
+            //UP
+            if(i==2 && r==1 && j==1) 
+            {
+              PIVOT_UP.push(newBlock);
+              newElement.appendChild(newBlock);
+            }
+            //DOWN
+            else if(i==0 && r==1 && j==1) 
+            {
+              PIVOT_DOWN.push(newBlock);
+              newElement.appendChild(newBlock);
+            }
+             //LEFT
+            else if(j==0 && r==1 && i==1) 
+            {
+              PIVOT_LEFT.push(newBlock);
+              newElement.appendChild(newBlock);
+            }
+             //RIGHT
+            else if(j==2 && r==1 && i==1) 
+            {
+              PIVOT_RIGHT.push(newBlock);
+              newElement.appendChild(newBlock);
+            }
+            //FRONT
+            else if(r==2 && i==1 && j==1) 
+            {
+              PIVOT_FRONT.push(newBlock);
+              newElement.appendChild(newBlock);
+            }
+            //BACK
+            else if(r==0 && i==1 && j==1) 
+            {
+              PIVOT_BACK.push(newBlock);
+              newElement.appendChild(newBlock);
+            }
+
         }
       }
     }
