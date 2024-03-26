@@ -59,7 +59,7 @@ AFRAME.registerComponent('rubik-animation',{
     var children= src.children;
     console.log(children);
     for (let i = 0; i < children.length; i++) {
-        copy.appendChild(copyBlock(ch));
+        copy.appendChild(copyBlock(children[i]));
       }
     console.log(copy);
     return copy;
