@@ -110,35 +110,35 @@ AFRAME.registerComponent('rubik-cube',{
              //UP
              if(i==2) 
              {
-              BLOCK_UP.push(newElement);
+              BLOCK_UP.push(newBlock);
              }
              //DOWN
              else if(i==0) 
              {
-              BLOCK_DOWN.push(newElement);
+              BLOCK_DOWN.push(newBlock);
              }
               //LEFT
              else if(j==0) 
              {
-               BLOCK_LEFT.push(newElement);
+               BLOCK_LEFT.push(newBlock);
              }
               //RIGHT
              else if(j==2) 
              {
-               BLOCK_RIGHT.push(newElement);
+               BLOCK_RIGHT.push(newBlock);
              }
              //FRONT
              else if(r==2) 
              {
-               BLOCK_FRONT.push(newElement);
+               BLOCK_FRONT.push(newBlock);
              }
              //BACK
              else if(r==0) 
              {
-               BLOCK_BACK.push(newElement);
+               BLOCK_BACK.push(newBlock);
              }
              else {
-              BLOCK_CORE.push(newElement);
+              BLOCK_CORE.push(newBlock);
              }
 
             columnCounter++;
