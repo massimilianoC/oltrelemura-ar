@@ -212,9 +212,9 @@ AFRAME.registerComponent('rubik-cube',{
             newBlock.setAttribute('id','pivot_'+r+'_'+i+'_'+j);
             newBlock.setAttribute('position',positionx+" "+positiony+ " "+positionz);
             newBlock.setAttribute('scale',"0.1 0.1 0.1");
-            newBlock.setAttribute('width',"0.1");
-            newBlock.setAttribute('height',"0.1");
-            newBlock.setAttribute('depth',"0.1");
+            newBlock.setAttribute('width',"0.2");
+            newBlock.setAttribute('height',"0.2");
+            newBlock.setAttribute('depth',"0.2");
             
             //UP
             if(i==2 && r==1 && j==1) 
