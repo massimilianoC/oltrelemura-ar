@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const showGalleryItem = (item) => {
       for (let i = 0; i < itemCount; i++) {
         console.log(item,i);
-        document.querySelector("#"+name+"-item" + i).setAttribute("visible", i === item);
+        document.querySelector("#"+name+"-item" + i).setAttribute("visible", i === Math.abs(item));
       }
     }
 
