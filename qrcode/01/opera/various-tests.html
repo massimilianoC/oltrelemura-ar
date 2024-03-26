@@ -64,25 +64,28 @@
 
         <a-plane material="side: double"  	position=" 0 0.3 0.5" src="#opera2"
         animation="property: position; to:0 0 0; delay:2000; dur: 6000; easing: easeInOutQuad; loop: false" 
-        animation__scale="property: scale; to:1 1 1; dur: 6000; easing: easeInOutQuad; loop: false" 
+        animation__scale="property: scale; to:1 1 1; delay:2000; dur: 6000; easing: easeInOutQuad; loop: false" 
         id="plane2" position="0 0 0" height="0.552" width="1" rotation="0 0 0" opacity="0.5"></a-plane material="side: double" >
 
         <a-plane material="side: double"  	position="0 0.6 1.0" src="#opera4" 
         animation="property: position; to: 0 0 0;delay:2000; dur: 6000; easing: easeInOutQuad; loop: false" 
-        animation__scale="property: scale; to:1 1 1; dur: 6000; easing: easeInOutQuad; loop: false" 
+        animation__scale="property: scale; to:1 1 1; delay:2000; dur: 6000; easing: easeInOutQuad; loop: false" 
         id="plane4" position="0 0 0" height="0.552" width="1" rotation="0 0 0" opacity="0.5" scale="1.2 1.2 1.2"></a-plane material="side: double" >
 
         <a-plane material="side: double"  	position="0 0.9 1.5" src="#opera6" 
         animation="property: position; to: 0 0 0; delay:2000; dur: 6000; easing: easeInOutQuad; loop: false" 
-        animation__scale="property: scale; to:1 1 1; dur: 6000; easing: easeInOutQuad; loop: false" 
+        animation__scale="property: scale; to:1 1 1; delay:2000; dur: 6000; easing: easeInOutQuad; loop: false" 
         id="plane6" position="0 0 0" height="0.552" width="1" rotation="0 0 0" opacity="0.5" scale="1.4 1.4 1.4"></a-plane material="side: double" >
 
         <a-plane material="side: double" 	position="0 1.2 2.0" src="#opera8" 
         animation="property: position; to: 0 0 0; delay:2000; dur: 6000; easing: easeInOutQuad; loop: false" 
-        animation__scale="property: scale; to:1 1 1; dur: 6000; easing: easeInOutQuad; loop: false" 
+        animation__scale="property: scale; to:1 1 1; delay:2000; dur: 6000; easing: easeInOutQuad; loop: false" 
         id="plane8" position="0 0 0" height="0.552" width="1" rotation="0 0 0" scale="1.7 1.7 1.7" opacity="0.5"></a-plane material="side: double" >
 
-        <a-entity id="root"  position="0 0.5 0.5"  scale="2 2 2" mixin="dice_animation">
+        <a-entity id="root"  position="0 -3 0"  
+        animation="property: position; to: 0 0 0; delay:10000; dur: 6000; easing: easeInOutQuad; loop: false"  scale="0 0 0" 
+        animation__scale="property: scale; to:2 2 2; delay:10000; dur: 6000; easing: easeInOutQuad; loop: false" 
+        mixin="dice_animation">
           <a-entity id="rubik0" rubik-cube-param="idx:0" position="0 0 0" mixin="layer1_animation"> </a-entity>
           <a-entity id="rubik1" rubik-cube-param="idx:1" position="0 0 0"> </a-entity>
           <a-entity id="rubik2" rubik-cube-param="idx:2" position="0 0 0" mixin="layer3_animation"> </a-entity>
