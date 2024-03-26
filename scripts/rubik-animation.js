@@ -56,7 +56,9 @@ AFRAME.registerComponent('rubik-animation',{
     copy.setAttribute("position",src.position);
     copy.setAttribute("rotation",src.rotation);
     copy.setAttribute("material",src.material);
-    src.children.forEach(ch => {
+    var children= src.children;
+    console.log(children);
+    children.forEach(ch => {
         copy.appendChild(copyBlock(ch));
     });
     console.log(copy);
