@@ -35,7 +35,7 @@ AFRAME.registerComponent('rubik-cube',{
                     var rotation = axis==1 ? rotationSing+"90 0 0" : axis==0 ? "0 "+ rotationSing+"90 0" : "0 0 "+rotationSing+"90";
                     newPlane.setAttribute('position',position);
                    
-                    newPlane.setAttribute('material','shader:flat ;side: double; color: #000');
+                    
                     //newPlane.setAttribute('src','#opera'+(8-axis-direction));
                     
                     //UP
@@ -43,16 +43,13 @@ AFRAME.registerComponent('rubik-cube',{
                     {
                       newPlane.setAttribute('material','shader:flat ; src: url(../../../assets/texture/tileA_'+r+'_'+j+'.png)');
                     }
-
                      //DOWN
-                     if(i==0 && axis==1 && direction==1) 
+                     else if(i==0 && axis==1 && direction==1) 
                      {
                        newPlane.setAttribute('material','shader:flat ; src: url(../../../assets/texture/tileA_'+(2-r)+'_'+j+'.png)');
                      }
- 
-                    
                     //LEFT
-                    if(j==0 && axis==0 && direction==0) 
+                    else if(j==0 && axis==0 && direction==0) 
                     {
                       newPlane.setAttribute('material','shader:flat ; src: url(../../../assets/texture/tileA_'+r+'_'+i+'.png)');
                     }
@@ -64,18 +61,20 @@ AFRAME.registerComponent('rubik-cube',{
                     }
 */
                     //FRONT
-                    if(r==2 && axis==2 && direction==0) 
+                    else if(r==2 && axis==2 && direction==0) 
                     {
                       newPlane.setAttribute('material','shader:flat ; src: url(../../../assets/texture/tileA_'+(2-i)+'_'+j+'.png)');
                       rotation = "0 0 0";
                       
                     }
-
                      //BACK
-                     if(r==0 && axis==2 && direction==1) 
+                     else if(r==0 && axis==2 && direction==1) 
                      {
                        newPlane.setAttribute('material','shader:flat; side: double ; src: url(../../../assets/texture/tileA_'+(2-i)+'_'+j+'.png)');
                        rotation = "0 0 0";
+                     }
+                     else {
+                      newPlane.setAttribute('material','shader:flat ;side: double; color: #000');
                      }
 
                     console.log(groupCounter+'_'+rowCounter+'_'+columnCounter+'_'+faceCounter);
