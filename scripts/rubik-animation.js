@@ -13,11 +13,13 @@ AFRAME.registerComponent('rubik-animation',{
   const BLOCKS = document.querySelectorAll(".block");
 
   function rotateFace(data){
-    console.log("rotateFace: " + data);
+    console.log(BLOCKS);
     switch(data.face){
         case "FRONT":
             console.log("FRONT");
             BLOCKS.forEach(el => {
+                console.log(el);
+                console.log(VECTORS_FACE_FRONT);
                 VECTORS_FACE_FRONT.forEach(ve => {
                     console.log(el.object3D.position);
                     console.log(ve);

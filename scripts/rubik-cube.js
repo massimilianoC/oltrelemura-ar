@@ -119,8 +119,8 @@ AFRAME.registerComponent('rubik-cube',{
             newBlock.setAttribute('height',"0.1");
             newBlock.setAttribute('depth',"0.1");
             newElement.appendChild(newBlock);
-            console.log(newBlock);
-            console.log(positionx+" "+positiony+ " 0");
+            //console.log(newBlock);
+            //console.log(positionx+" "+positiony+ " 0");
 
             var refVector= new THREE.Vector3(positionx,positiony,positionz);
              //UP
@@ -189,8 +189,6 @@ AFRAME.registerComponent('rubik-cube',{
             newBlock.setAttribute('height',"0.1");
             newBlock.setAttribute('depth',"0.1");
             newElement.appendChild(newBlock);
-            console.log(newBlock);
-            console.log(positionx+" "+positiony+ " 0");
         }
       }
     }
