@@ -4,6 +4,7 @@
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
     <script src="../../../scripts/posterGallery.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../css/global.css" />
   </head>
   <body>
     <div style="position: absolute; z-index: 1000; display: none;">
@@ -14,7 +15,7 @@
       <button id="example-stop-button">Stop</button>
     </div>
     <a-scene 
-    mindar-image="imageTargetSrc: ../../../model/dualTarget.mind; 
+    mindar-image="imageTargetSrc: ../../../model/full_blur.mind; 
                     autoStart: true; 
                     filterMinCF:0.001; 
                     filterBeta: 0.01; 
@@ -45,7 +46,6 @@
         <img id="poster10" src="../../../assets/poster/SaraMazzali_10.jpg" />
         <img id="poster11" src="../../../assets/poster/tHOMASFATTORINI_11.jpg" />
         <img id="poster12" src="../../../assets/poster/vittoriamartini_12.jpg">
-        
         <img id="manifest1" src="../../../assets/manifesti/1.jpg" />
         <img id="manifest2" src="../../../assets/manifesti/2.jpg" />
         <img id="manifest3" src="../../../assets/manifesti/3.jpg">
@@ -57,56 +57,10 @@
         <img id="manifest9" src="../../../assets/manifesti/9.jpg">
         <img id="manifest10" src="../../../assets/manifesti/10.jpg" />
       </a-assets>
-      <a-entity id="example-2" mygallery="name: poster; itemCount: 12" mindar-image-target="targetIndex: 1">
-        <a-entity visible="false" id="poster-panel" position="0 0 -0.01" scale="0.8 0.8 0.8">
-            <a-entity id="poster-item0">
-                <a-plane animation="property: position; to: 0 0.05 0; dur: 10000; easing: linear; loop: false" id="example-poster1" class="clickable" src="#poster1" opaciy="1" position="0 0 0" height="1" width="0.7" rotation="0 0 0"></a-plane>
-            </a-entity>
-            <a-entity id="poster-item1">
-                <a-plane animation="property: position; to: 0 0.05 0; dur: 10000; easing: linear; loop: false" id="example-poster2" class="clickable" src="#poster2" opaciy="1" position="0 0 0" height="1" width="0.7" rotation="0 0 0"></a-plane>
-            </a-entity>
-            <a-entity id="poster-item2">
-                <a-plane animation="property: position; to: 0 0.05 0; dur: 10000; easing: linear; loop: false" id="example-poster3" class="clickable" src="#poster3" opaciy="1" position="0 0 0" height="1" width="0.7" rotation="0 0 0"></a-plane>
-            </a-entity>
+      <a-entity id="posterGallery" mygallery="name: poster;itemCount:12" mindar-image-target="targetIndex: 0">
+        <a-entity visible="false" id="poster-panel" position="0 0.5 0" scale="0.8 0.8 0.8">
             <a-image visible="true" id="poster-left-button" class="clickable" src="#arrow-left" position="-0.5 0 0" height="0.15" width="0.15" ></a-image>
             <a-image visible="true" id="poster-right-button" class="clickable" src="#arrow-right" position="0.5 0 0" height="0.15" width="0.15" ></a-image>
-        </a-entity>  
-    </a-entity>
-      <a-entity id="example-1" mygallery="name: manifest; itemCount: 10" mindar-image-target="targetIndex: 0">
-        <a-entity visible="false" id="manifest-panel" position="0 0 -0.01" scale="0.8 0.8 0.8">
-            <a-entity id="manifest-item0">
-                <a-plane animation="property: position; to: 0 0.05 0; dur: 10000; easing: linear; loop: false" id="example-poster4" class="clickable" src="#manifest1" opaciy="1" position="0 0 0" height="1" width="0.7" rotation="0 0 0"></a-plane>
-            </a-entity>
-            <a-entity id="manifest-item1">
-                <a-plane animation="property: position; to: 0 0.05 0; dur: 10000; easing: linear; loop: false" id="example-poster5" class="clickable" src="#manifest2" opaciy="1" position="0 0 0" height="1" width="0.7" rotation="0 0 0"></a-plane>
-            </a-entity>
-            <a-entity id="manifest-item2">
-                <a-plane animation="property: position; to: 0 0.05 0; dur: 10000; easing: linear; loop: false" id="example-poster6" class="clickable" src="#manifest3" opaciy="1" position="0 0 0" height="1" width="0.7" rotation="0 0 0"></a-plane>
-            </a-entity>
-            <a-entity id="manifest-item3">
-              <a-plane animation="property: position; to: 0 0.05 0; dur: 10000; easing: linear; loop: false" id="example-poster6" class="clickable" src="#manifest4" opaciy="1" position="0 0 0" height="1" width="0.7" rotation="0 0 0"></a-plane>
-          </a-entity>
-          <a-entity id="manifest-item4">
-            <a-plane animation="property: position; to: 0 0.05 0; dur: 10000; easing: linear; loop: false" id="example-poster6" class="clickable" src="#manifest5" opaciy="1" position="0 0 0" height="1" width="0.7" rotation="0 0 0"></a-plane>
-        </a-entity>
-        <a-entity id="manifest-item5">
-          <a-plane animation="property: position; to: 0 0.05 0; dur: 10000; easing: linear; loop: false" id="example-poster6" class="clickable" src="#manifest6" opaciy="1" position="0 0 0" height="1" width="0.7" rotation="0 0 0"></a-plane>
-      </a-entity>
-      <a-entity id="manifest-item6">
-        <a-plane animation="property: position; to: 0 0.05 0; dur: 10000; easing: linear; loop: false" id="example-poster6" class="clickable" src="#manifest7" opaciy="1" position="0 0 0" height="1" width="0.7" rotation="0 0 0"></a-plane>
-    </a-entity>
-    <a-entity id="manifest-item7">
-      <a-plane animation="property: position; to: 0 0.05 0; dur: 10000; easing: linear; loop: false" id="example-poster6" class="clickable" src="#manifest8" opaciy="1" position="0 0 0" height="1" width="0.7" rotation="0 0 0"></a-plane>
-  </a-entity>
-  <a-entity id="manifest-item8">
-    <a-plane animation="property: position; to: 0 0.05 0; dur: 10000; easing: linear; loop: false" id="example-poster6" class="clickable" src="#manifest9" opaciy="1" position="0 0 0" height="1" width="0.7" rotation="0 0 0"></a-plane>
-</a-entity>
-<a-entity id="manifest-item9">
-  <a-plane animation="property: position; to: 0 0.05 0; dur: 10000; easing: linear; loop: false" id="example-poster6" class="clickable" src="#manifest10" opaciy="1" position="0 0 0" height="1" width="0.7" rotation="0 0 0"></a-plane>
-</a-entity>
-
-            <a-image visible="true" id="manifest-left-button" class="clickable" src="#arrow-left" position="-0.5 0 0" height="0.15" width="0.15" ></a-image>
-            <a-image visible="true" id="manifest-right-button" class="clickable" src="#arrow-right" position="0.5 0 0" height="0.15" width="0.15" ></a-image>
         </a-entity>  
     </a-entity>
     </a-scene>
