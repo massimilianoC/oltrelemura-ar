@@ -1,7 +1,7 @@
 AFRAME.registerComponent('rubik-cube',{
     init: function () {
       var el = this.el;
-      //buildCubeFaces(el);
+      buildCubeFaces(el);
       buildCubeStructure(el);
       buildCubePivot(el);
     }
@@ -215,7 +215,7 @@ AFRAME.registerComponent('rubik-cube',{
             newBlock.setAttribute('width',"0.2");
             newBlock.setAttribute('height',"0.2");
             newBlock.setAttribute('depth',"0.2");
-            
+            newBlock.setAttribute('material','color:#00FF00');
             //UP
             if(i==2 && r==1 && j==1) 
             {
