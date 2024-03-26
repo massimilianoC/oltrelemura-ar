@@ -29,7 +29,7 @@ AFRAME.registerComponent('rubik-animation',{
                             el.object3D.position.y == ve.y && 
                             el.object3D.position.z == ve.z )
                         {
-                            console.log(MATCH);
+                            console.log("MATCH");
                             el.parentElement.removeChild(el);
                             PIVOT_FRONT[0].appendChild(el);
                         }
