@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let y = 0;
     let currentItem = 0;
 
-    if(gallery.childNodes.length<=2) buildGallery(gallery,name,itemCount);
+    if(gallery.childElementCount<=2) buildGallery(gallery,name,itemCount);
     gallery.setAttribute("visible", true);
 
     const showGalleryItem = (item) => {
