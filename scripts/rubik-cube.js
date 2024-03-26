@@ -57,7 +57,7 @@ AFRAME.registerComponent('rubik-cube',{
                     }
 
                      //RIGHT
-                    else if(j==0 && axis==0 && direction==1) 
+                    else if(j==2 && axis==0 && direction==1) 
                     {
                       newPlane.setAttribute('material','shader:flat ; src: url(../../../assets/texture/tileA_'+r+'_'+i+'.png)');
                       rotation = "0 90 90";
