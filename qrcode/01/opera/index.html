@@ -5,22 +5,23 @@
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
 	<script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
-  <script src="../../../scripts/paintOnCanvas.js"></script>
-  <script src="../../../scripts/cube-face.js"></script>
+  <script src="../../../scripts/rubik-cube-param.js"></script>
   <link rel="stylesheet" type="text/css" href="../../../css/global.css" />
     <script>
       document.addEventListener("DOMContentLoaded", function() {
        
-        const opera8 = document.querySelector('#plane8');
+        //const opera8 = document.querySelector('#plane8');
 
         function playDefaultVideo(){
           const video = document.querySelector('#opera-mp4');
           video.play();
         }
 
-        opera8.addEventListener('click', () => {
+       /*opera8.addEventListener('click', () => {
           playDefaultVideo();
-        });
+        });*/
+
+        const face_0_0_2 = document.querySelectorAll('[id*="block_0_1"]');
       });
     </script>
   </head>
@@ -33,7 +34,7 @@
       <button id="debug-stop-button">Stop</button>
     </div>
     <a-scene 
-    webxr="optionalFeatures: hit-test, local-floor;" ar-hit-test="target:#dice;"
+    webxr="optionalFeatures: hit-test, local-floor;" ar-hit-test="target:#root;"
     mindar-image="imageTargetSrc: ../../../model/full_blur.mind; autoStart: true; filterMinCF:0.0005; filterBeta: 0.005; warmupTolerance: 1; missTolerance: 1" 
     color-space="sRGB" 
     renderer="colorManagement: true, physicallyCorrectLights" 
@@ -53,16 +54,17 @@
         <img id="opera6" src="../../../assets/opera/EMM6.png" />
         <img id="opera7" src="../../../assets/opera/EMM7.png" />
         <img id="opera8" src="../../../assets/opera/EMM8.png" />
-        <a-mixin id="layer1_animation" animation__rotation="property: rotation; to: 0 0 360; dur: 5000; easing: easeInOutQuad; loop: true"></a-mixin>
-        <a-mixin id="layer3_animation" animation__rotation="property: rotation; to: 0 0 -360; dur: 6000; easing: easeInOutQuad; loop: true"></a-mixin>
-        <a-mixin id="dice_animation" animation__rotation="property: rotation; to: 360 360 360; dur: 50000; easing: easeInOutQuad; loop: true"></a-mixin>
+        <a-mixin id="layer1_animation" animation__rotation="property: rotation; to: 0 0 360; delay: 7000; dur: 7000; easing: easeInOutQuad; loop: true"></a-mixin>
+        <a-mixin id="layer3_animation" animation__rotation="property: rotation; to: 0 0 -360; delay: 5000; dur: 12000; easing: easeInOutQuad; loop: true"></a-mixin>
+        <a-mixin id="dice_animation" animation__rotation="property: rotation; to: 360 360 360; dur: 60000; easing: easeInOutQuad; loop: true"></a-mixin>
+        
       </a-assets>
 
       <a-entity id="ar-target" mindar-image-target="targetIndex: 0">
-        <a-entity id="dice"  position="0 0.5 1.5"  scale="3 3 3" mixin="dice_animation">
-          <a-entity id="layer1" cube-face="idx:1" position="0 0 0.105"  mixin="layer1_animation"> </a-entity>
-          <a-entity id="layer2" cube-face="idx:2" position="0 0 0"></a-entity>
-          <a-entity id="layer3" cube-face="idx:3" position="0 0 -0.105"  mixin="layer3_animation" >  </a-entity>
+        <a-entity id="root"  position="0 0.5 0.5"  scale="3 3 3" mixin="dice_animation">
+          <a-entity id="rubik0" rubik-cube-param="idx:0" position="0 0 0" mixin="layer1_animation"> </a-entity>
+          <a-entity id="rubik1" rubik-cube-param="idx:1" position="0 0 0"> </a-entity>
+          <a-entity id="rubik2" rubik-cube-param="idx:2" position="0 0 0" mixin="layer3_animation"> </a-entity>
         </a-entity>
       </a-entity>
     </a-scene>
