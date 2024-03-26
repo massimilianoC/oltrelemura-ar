@@ -1,3 +1,6 @@
+document.addEventListener("DOMContentLoaded", function() {
+
+
 AFRAME.registerComponent('rubik-animation',{
     schema: {
         face: {type: 'string', default: ''},
@@ -31,8 +34,9 @@ AFRAME.registerComponent('rubik-animation',{
                         {
                             console.log("MATCH");
                             var newParent = document.querySelector('#pivot');
+                            console.log(el.object3D);
                             //el.flushToDom();
-                            el.object3D.setParent(newParent, { convertToLocal: true });
+                            el.setParent(newParent, { convertToLocal: true });
                         }
                     });
                 });
@@ -45,4 +49,4 @@ AFRAME.registerComponent('rubik-animation',{
     }, "1000");
   }
 
- 
+});
