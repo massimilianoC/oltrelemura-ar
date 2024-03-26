@@ -33,7 +33,7 @@ AFRAME.registerComponent('rubik-animation',{
                             var entity = el;
                             console.log(el);
                             var newParent = document.querySelector('#pivot');
-                            entity.flushToDom();
+                            //entity.flushToDom();
                             var copy = entity.cloneNode();
                             newParent.appendChild(copy);
                             entity.parentNode.removeChild(entity);
