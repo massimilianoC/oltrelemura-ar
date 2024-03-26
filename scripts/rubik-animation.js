@@ -49,13 +49,24 @@ AFRAME.registerComponent('rubik-animation',{
 
   function copyBlock(src){
     var copy = src.cloneNode();
+    
     console.log(src.id);
-    console.log(src.position);
-    console.log(src.rotation);
-    console.log(src.material);
-    copy.setAttribute("position",src.position);
-    copy.setAttribute("rotation",src.rotation);
-    copy.setAttribute("material",src.material);
+    console.log(src.object3D.position);
+    console.log(src.object3D.rotation);
+    console.log(src.object3D.material);
+    
+    //Copy position
+    copy.object3D.position.set(src.object3D.position.x,src.object3D.position.y,src.object3D.position.z);
+    //Copy rotation
+    el.object3D.rotation.set(
+        THREE.MathUtils.degToRad(src.object3D.rotation.x),
+        THREE.MathUtils.degToRad(src.object3D.rotation.y),
+        THREE.MathUtils.degToRad(src.object3D.rotation.z)
+      );
+      el.object3D.rotation.x += Math.PI;
+    //Copy material
+    copy.object3D.material.set(src.object3D.material);
+
     var children= src.children;
     console.log(children);
     for (let i = 0; i < children.length; i++) {
