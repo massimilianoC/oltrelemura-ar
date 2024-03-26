@@ -13,29 +13,31 @@ AFRAME.registerComponent('rubik-animation',{
   var BLOCKS = [];
 
   function rotateFace(data){
-    BLOCKS = document.querySelectorAll(".block");
-    console.log(BLOCKS);
-    switch(data.face){
-        case "FRONT":
-            console.log("FRONT");
-            BLOCKS.forEach(el => {
-                console.log(el);
-                console.log(VECTORS_FACE_FRONT);
-                VECTORS_FACE_FRONT.forEach(ve => {
-                    console.log(el.object3D.position);
-                    console.log(ve);
-                    if(el.object3D.position == ve)
-                    {
-                        console.log(MATCH);
-                        el.parentElement.removeChild(el);
-                        PIVOT_FRONT[0].appendChild(el);
-                    }
+    setTimeout(()  => {
+        BLOCKS = document.querySelectorAll(".block");
+        console.log(BLOCKS);
+        switch(data.face){
+            case "FRONT":
+                console.log("FRONT");
+                BLOCKS.forEach(el => {
+                    console.log(el);
+                    console.log(VECTORS_FACE_FRONT);
+                    VECTORS_FACE_FRONT.forEach(ve => {
+                        console.log(el.object3D.position);
+                        console.log(ve);
+                        if(el.object3D.position == ve)
+                        {
+                            console.log(MATCH);
+                            el.parentElement.removeChild(el);
+                            PIVOT_FRONT[0].appendChild(el);
+                        }
+                    });
                 });
-            });
+                break;
+            default:
             break;
-        default:
-        break;
-    }
-    //if(data.direction == 0)
-    PIVOT_FRONT[0].setAttribute("animation",animation="property: rotation; to: 0 360 0; loop: true; dur: 10000");
+        }
+        //if(data.direction == 0)
+        PIVOT_FRONT[0].setAttribute("animation",animation="property: rotation; to: 0 360 0; loop: true; dur: 10000");
+    }, "1000");
   }
