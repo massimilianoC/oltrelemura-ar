@@ -31,10 +31,11 @@ AFRAME.registerComponent('rubik-animation',{
                         {
                             console.log("MATCH");
                             var entity = el;
-                            console.log(el);
+                            console.log(entity);
                             var newParent = document.querySelector('#pivot');
                             //entity.flushToDom();
                             var copy = entity.cloneNode();
+                            console.log(copy);
                             newParent.appendChild(copy);
                             entity.parentNode.removeChild(entity);
                         }
