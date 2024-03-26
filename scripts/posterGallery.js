@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 
-  const showGallery = (name,itemCount,done) => {
+  const showGallery = (name,itemCount,done) =>{
     console.log(name);
     const gallery = document.querySelector("#"+name+"-panel");
     const galleryLeftButton = document.querySelector("#"+name+"-left-button");
@@ -34,6 +34,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const showGalleryItem = (item) => {
       for (let i = 0; i < itemCount; i++) {
+        console.log(item,i);
         document.querySelector("#"+name+"-item" + i).setAttribute("visible", i === item);
       }
     }
