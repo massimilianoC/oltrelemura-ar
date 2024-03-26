@@ -12,15 +12,11 @@ document.addEventListener("DOMContentLoaded", function() {
         console.log("gallery target found");
         console.log(data.name);
             showGallery(data.name,data.itemCount,() => {
-              setTimeout(() => {
-                showInfo();
-              }, 300);
             });
       });
       this.el.addEventListener('targetLost', event => {
         console.log("gallery target lost");
       });
-      //this.el.emit('targetFound');
     }
   });
 
@@ -33,6 +29,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let y = 0;
     let currentItem = 0;
 
+    buildGallery(gallery,name,itemCount);
     gallery.setAttribute("visible", true);
 
     const showGalleryItem = (item) => {
@@ -64,58 +61,23 @@ document.addEventListener("DOMContentLoaded", function() {
         }, 500);
       }
 
-      //esempio sposta oggetto verso l'lato
-      //gallery.setAttribute("position", "0 " + y + " -0.01");
-
     }, 10);
   }
 
-  const showInfo = () => {
-    /*
-    let y = 0;
-    const profileButton = document.querySelector("#profile-button");
-    const webButton = document.querySelector("#web-button");
-    const emailButton = document.querySelector("#email-button");
-    const locationButton = document.querySelector("#location-button");
-    const text = document.querySelector("#text");
-
-    
-    profileButton.setAttribute("visible", true);
-    setTimeout(() => {
-      webButton.setAttribute("visible", true);
-    }, 300);
-    setTimeout(() => {
-      emailButton.setAttribute("visible", true);
-    }, 600);
-    setTimeout(() => {
-      locationButton.setAttribute("visible", true);
-    }, 900);
-
-    let currentTab = '';
-    webButton.addEventListener('click', function (evt) {
-      text.setAttribute("value", "https://softmind.tech");
-      currentTab = 'web';
-    });
-    emailButton.addEventListener('click', function (evt) {
-      text.setAttribute("value", "hello@softmind.tech");
-      currentTab = 'email';
-    });
-    profileButton.addEventListener('click', function (evt) {
-      text.setAttribute("value", "AR, VR solutions and consultation");
-      currentTab = 'profile';
-    });
-    locationButton.addEventListener('click', function (evt) {
-      console.log("loc");
-      text.setAttribute("value", "Vancouver, Canada | Hong Kong");
-      currentTab = 'location';
-    });
-
-    text.addEventListener('click', function (evt) {
-      if (currentTab === 'web') {
-        window.location.href="https://softmind.tech";
-      }
-    });
-    */
+  function buildGallery(parent,tag,itemCount){
+    for (let index = 0; index < itemCount; index++) {
+      var item = document.createElement('a-entity');
+      item.setAttribute("id",tag+"-item"+itemCount);
+      var plane = document.createElement('a-plane');
+      plane.setAttribute("class","clickable");
+      plane.setAttribute("src","#"+tag+itemCount);
+      plane.setAttribute("position","0 0 0");
+      plane.setAttribute("height","1");
+      plane.setAttribute("width","0.7");
+      plane.setAttribute("rotation","0 0 0");
+      item.appendChild(plane)
+      parent.appendChild(item)
+    }
   }
 
 });
