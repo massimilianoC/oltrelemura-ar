@@ -13,6 +13,7 @@ AFRAME.registerComponent('rubik-animation',{
   const BLOCKS = document.querySelectorAll(".block");
 
   function rotateFace(data){
+    console.log("rotateFace: " + data);
     switch(data.face){
         case "FRONT":
             console.log("FRONT");
@@ -32,5 +33,6 @@ AFRAME.registerComponent('rubik-animation',{
         default:
         break;
     }
+    //if(data.direction == 0)
     PIVOT_FRONT[0].setAttribute("animation",animation="property: rotation; to: 0 360 0; loop: true; dur: 10000");
   }
