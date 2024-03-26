@@ -31,10 +31,13 @@ AFRAME.registerComponent('rubik-animation',{
                         {
                             console.log("MATCH");
                             var child = el;
-                            var parent = el.parentElement;
-                            parent.removeChild(el);
+                            //var parent = el.parentElement;
+                            //parent.removeChild(el);
+                            console.log(child);
+                            console.log(child.object3D);
                             child.flushToDom();
                             var newParent = document.querySelector("#pivot");
+                            child.object3D.setParent(newParent);
                             newParent.appendChild(child);
                         }
                     });
