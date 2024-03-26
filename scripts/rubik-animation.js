@@ -30,11 +30,9 @@ AFRAME.registerComponent('rubik-animation',{
                             el.object3D.position.z == ve.z )
                         {
                             console.log("MATCH");
-                            var entity = el;
-                            console.log(entity);
                             var newParent = document.querySelector('#pivot');
-                            PIVOT_FRONT[0].appendChild(copyBlock(entity));
-                            entity.parentNode.removeChild(entity);
+                            el.flushToDom();
+                            el.object3D.setParent(newParent, { convertToLocal: true });
                         }
                     });
                 });
@@ -47,31 +45,4 @@ AFRAME.registerComponent('rubik-animation',{
     }, "1000");
   }
 
-  function copyBlock(src){
-    var copy = src.cloneNode();
-
-    console.log(src.id);
-    console.log(src.object3D.position);
-    console.log(src.object3D.rotation);
-    console.log(src.object3D);
-    
-    //Copy position
-    copy.object3D.position.set(src.object3D.position.x,src.object3D.position.y,src.object3D.position.z);
-    //Copy rotation
-    copy.object3D.rotation.set(
-        THREE.MathUtils.degToRad(src.object3D.rotation.x),
-        THREE.MathUtils.degToRad(src.object3D.rotation.y),
-        THREE.MathUtils.degToRad(src.object3D.rotation.z)
-      );
-    copy.object3D.rotation.x += Math.PI;
-    //Copy material
-    //copy.object3D.material.set(src.object3D.material);
-
-    var children= src.children;
-    console.log(children);
-    for (let i = 0; i < children.length; i++) {
-        copy.appendChild(copyBlock(children[i]));
-      }
-    console.log(copy);
-    return copy;
-  }
+ 
