@@ -17,11 +17,11 @@
     <a-scene 
     mindar-image="imageTargetSrc: ../../../model/full_blur.mind; 
                     autoStart: true; 
-                    filterMinCF:0.001; 
-                    filterBeta: 0.01; 
-                    warmupTolerance: 1; 
-                    missTolerance: 1;
-                    maxTrack: 2" 
+                    filterMinCF:0.0001; 
+                    filterBeta: 0.001; 
+                    warmupTolerance: 2; 
+                    missTolerance: 10;
+                    maxTrack: 1" 
     color-space="sRGB" 
     renderer="colorManagement: true, physicallyCorrectLights" 
     vr-mode-ui="enabled: false" 
