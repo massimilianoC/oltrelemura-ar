@@ -66,7 +66,8 @@ AFRAME.registerComponent('rubik-cube',{
                     //FRONT
                     if(r==2 && axis==2 && direction==0) 
                     {
-                      newPlane.setAttribute('material','shader:flat ; color: #FF0000; src: url(../../../assets/texture/tileA_'+(2-i)+'_'+j+'.png)');
+                      newPlane.setAttribute('material','shader:flat ; src: url(../../../assets/texture/tileA_'+(2-i)+'_'+j+'.png)');
+                      newPlane.setAttribute('color','#FF0000');
                       rotation = "0 0 0";
                       console.log(groupCounter+'_'+rowCounter+'_'+columnCounter+'_'+faceCounter);
                     }
