@@ -112,6 +112,7 @@ AFRAME.registerComponent('rubik-cube',{
             var positiony = i==0 ? "-0.105" : i==1 ? "0" :"0.105" ;
             var positionz = r==0 ? "-0.105" : r==1 ? "0" :"0.105" ;
             newBlock.setAttribute('id','block_'+r+'_'+i+'_'+j);
+            newBlock.setAttribute('class',"block");
             newBlock.setAttribute('position',positionx+" "+positiony+ " "+positionz);
             newBlock.setAttribute('scale',"0.1 0.1 0.1");
             newBlock.setAttribute('width',"0.1");
