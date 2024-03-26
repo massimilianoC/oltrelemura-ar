@@ -35,7 +35,7 @@ AFRAME.registerComponent('rubik-animation',{
                             //parent.removeChild(el);
                             console.log(child);
                             console.log(child.object3D);
-                            child.flushToDom();
+                            //el.flushToDom();
                             var newParent = document.querySelector("#pivot");
                             child.object3D.setParent(newParent);
                             newParent.appendChild(child);
