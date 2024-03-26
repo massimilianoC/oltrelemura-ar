@@ -10,9 +10,10 @@ AFRAME.registerComponent('rubik-animation',{
     }
   });
 
-  const BLOCKS = document.querySelectorAll(".block");
+  var BLOCKS = [];
 
   function rotateFace(data){
+    BLOCKS = document.querySelectorAll(".block");
     console.log(BLOCKS);
     switch(data.face){
         case "FRONT":
