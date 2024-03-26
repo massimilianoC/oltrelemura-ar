@@ -25,7 +25,9 @@ AFRAME.registerComponent('rubik-animation',{
                     VECTORS_FACE_FRONT.forEach(ve => {
                         console.log(el.object3D.position);
                         console.log(ve);
-                        if(el.object3D.position == ve)
+                        if(el.object3D.position.x == ve.x && 
+                            el.object3D.position.y == ve.y && 
+                            el.object3D.position.z == ve.z )
                         {
                             console.log(MATCH);
                             el.parentElement.removeChild(el);
