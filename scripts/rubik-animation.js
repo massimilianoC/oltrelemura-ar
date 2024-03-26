@@ -33,10 +33,7 @@ AFRAME.registerComponent('rubik-animation',{
                             var entity = el;
                             console.log(entity);
                             var newParent = document.querySelector('#pivot');
-                            //entity.flushToDom();
-                            var copy = entity.cloneNode();
-                            console.log(copy);
-                            newParent.appendChild(copy);
+                            newParent.appendChild(copyBlock(entity));
                             entity.parentNode.removeChild(entity);
                         }
                     });
@@ -48,4 +45,20 @@ AFRAME.registerComponent('rubik-animation',{
         //if(data.direction == 0)
         PIVOT_FRONT[0].setAttribute("animation",animation="property: rotation; to: 360 0 0; loop: true; dur: 10000");
     }, "1000");
+  }
+
+  function copyBlock(src){
+    var copy = src.cloneNode();
+    console.log(src.id);
+    console.log(src.position);
+    console.log(src.rotation);
+    console.log(src.material);
+    copy.setAttribute("position",src.position);
+    copy.setAttribute("rotation",src.rotation);
+    copy.setAttribute("material",src.material);
+    src.children.forEach(ch => {
+        copy.appendChild(copyBlock(ch));
+    });
+    console.log(copy);
+    return copy;
   }
