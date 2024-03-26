@@ -152,8 +152,6 @@ AFRAME.registerComponent('rubik-cube',{
              {
                INIT_BLOCK_FRONT.push(newBlock);
                VECTORS_FACE_FRONT.push(refVector);
-               newBlock.setAttribute("animation__send"," property: position; to:"+position.x+" "+position.y+" "+(position.z+1)+ "}; dur: 3000; easing: easeInOutQuad; loop: false")
-               newBlock.setAttribute("animation__ret"," property: position; to:"+position.x+" "+position.y+" "+(position.z-1)+ "}; delay: 3000; dur: 3000; easing: easeInOutQuad; loop: false")
              }
              //BACK
              else if(r==0) 
