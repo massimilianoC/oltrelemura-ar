@@ -1,7 +1,7 @@
 AFRAME.registerComponent('rubik-cube',{
     init: function () {
       var el = this.el;
-      buildCubeFaces(el);
+      //buildCubeFaces(el);
       buildCubeStructure(el);
       buildCubePivot(el);
     }
