@@ -70,7 +70,6 @@ document.addEventListener("DOMContentLoaded", function() {
       var item = document.createElement('a-entity');
       item.setAttribute("id",tag+"-item"+index);
       var plane = document.createElement('a-plane');
-      plane.setAttribute("class","clickable");
       plane.setAttribute("src","#"+tag+index);
       plane.setAttribute("position","0 0 0");
       plane.setAttribute("height","1");
