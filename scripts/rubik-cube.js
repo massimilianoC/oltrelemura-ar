@@ -210,10 +210,10 @@ AFRAME.registerComponent('rubik-cube',{
             var positionz = r==0 ? "-0.105" : r==1 ? "0" :"0.105" ;
             newBlock.setAttribute('id','pivot_'+r+'_'+i+'_'+j);
             newBlock.setAttribute('position',positionx+" "+positiony+ " "+positionz);
-            newBlock.setAttribute('scale',"0.1 0.1 0.1");
-            newBlock.setAttribute('width',"0.2");
-            newBlock.setAttribute('height',"0.2");
-            newBlock.setAttribute('depth',"0.2");
+            newBlock.setAttribute('scale',"1 1 1");
+            newBlock.setAttribute('width',"0.02");
+            newBlock.setAttribute('height',"0.02");
+            newBlock.setAttribute('depth',"0.02");
             newBlock.setAttribute('material','color:#00FF00');
             //UP
             if(i==2 && r==1 && j==1) 

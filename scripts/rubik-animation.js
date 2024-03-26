@@ -40,6 +40,6 @@ AFRAME.registerComponent('rubik-animation',{
             break;
         }
         //if(data.direction == 0)
-        PIVOT_FRONT[0].setAttribute("animation",animation="property: rotation; to: 0 360 0; loop: true; dur: 10000");
+        PIVOT_FRONT[0].setAttribute("animation",animation="property: rotation; to: 360 0 0; loop: true; dur: 10000");
     }, "1000");
   }
