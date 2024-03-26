@@ -33,7 +33,7 @@ AFRAME.registerComponent('rubik-animation',{
                             var entity = el;
                             console.log(entity);
                             var newParent = document.querySelector('#pivot');
-                            newParent.appendChild(copyBlock(entity));
+                            PIVOT_FRONT[0].appendChild(copyBlock(entity));
                             entity.parentNode.removeChild(entity);
                         }
                     });
