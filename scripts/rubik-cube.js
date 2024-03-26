@@ -48,19 +48,21 @@ AFRAME.registerComponent('rubik-cube',{
                      {
                        newPlane.setAttribute('material','shader:flat ; src: url(../../../assets/texture/tileA_'+(2-r)+'_'+j+'.png)');
                      }
-                    //LEFT
+                    
+                     //LEFT
                     else if(j==0 && axis==0 && direction==0) 
                     {
                       newPlane.setAttribute('material','shader:flat ; src: url(../../../assets/texture/tileA_'+r+'_'+i+'.png)');
                       rotation = "0 -90 90";
                     }
-/*
-                    //RIGHT
-                    if(j==0 && axis==0 && direction==1) 
+
+                     //RIGHT
+                    else if(j==0 && axis==0 && direction==1) 
                     {
                       newPlane.setAttribute('material','shader:flat ; src: url(../../../assets/texture/tileA_'+r+'_'+i+'.png)');
+                      rotation = "0 90 90";
                     }
-*/
+
                     //FRONT
                     else if(r==2 && axis==2 && direction==0) 
                     {
