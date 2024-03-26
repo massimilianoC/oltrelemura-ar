@@ -65,7 +65,7 @@ AFRAME.registerComponent('rubik-animation',{
       );
     copy.object3D.rotation.x += Math.PI;
     //Copy material
-    copy.object3D.material.set(src.object3D.material);
+    //copy.object3D.material.set(src.object3D.material);
 
     var children= src.children;
     console.log(children);
