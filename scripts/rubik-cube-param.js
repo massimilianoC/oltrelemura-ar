@@ -4,9 +4,9 @@ AFRAME.registerComponent('rubik-cube-param',{
       },
     init: function () {
       var el = this.el;
-      buildCubeFaces(el);
-      buildCubeStructure(el);
-      buildCubePivot(el);
+      buildCubeFaces(this.data.idx,el);
+      //buildCubeStructure(el);
+      //buildCubePivot(el);
     }
   });
 
@@ -39,7 +39,7 @@ AFRAME.registerComponent('rubik-cube-param',{
   const PIVOT_FRONT = [];
   const PIVOT_BACK = [];
 
-  function buildCubeFaces(el){
+  function buildCubeFaces(idx,el){
     var newElement = document.createElement('a-entity');
     let groupCounter = 0;
     var r = idx;
