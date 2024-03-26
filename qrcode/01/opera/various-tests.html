@@ -6,7 +6,8 @@
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
 	<script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
   <script src="../../../scripts/paintOnCanvas.js"></script>
-  <script src="../../../scripts/cube-face.js"></script>
+  <script src="../../../scripts/rubik-cube-param.js"></script>
+  <link rel="stylesheet" type="text/css" href="../../../css/global.css" />
     <script>
       document.addEventListener("DOMContentLoaded", function() {
        
@@ -59,12 +60,6 @@
 
       <a-entity id="ar-target" mindar-image-target="targetIndex: 0">
 
-        <a-entity id="dice"  position="0 0.1 0.4"  mixin="dice_animation">
-          <a-entity id="layer1" cube-face="idx:1" position="0 0 0.105"  mixin="layer1_animation"> </a-entity>
-          <a-entity id="layer2" cube-face="idx:2" position="0 0 0"></a-entity>
-          <a-entity id="layer3" cube-face="idx:3" position="0 0 -0.105"  mixin="layer3_animation" >  </a-entity>
-        </a-entity>
-
         <a-video src="#opera-mp4" class="clickable video" width="1" height="0.552" position="0 0 0.001" scale="1.001 1.001 1.001"></a-video>  
 
         <a-plane material="side: double"  	position=" 0 0.3 0.5" src="#opera2"
@@ -86,6 +81,12 @@
         animation="property: position; to: 0 0 0; delay:2000; dur: 6000; easing: easeInOutQuad; loop: false" 
         animation__scale="property: scale; to:1 1 1; dur: 6000; easing: easeInOutQuad; loop: false" 
         id="plane8" position="0 0 0" height="0.552" width="1" rotation="0 0 0" scale="1.7 1.7 1.7" opacity="0.5"></a-plane material="side: double" >
+
+        <a-entity id="root"  position="0 0.3 0.3"  scale="3.5 3.5 3.5" mixin="dice_animation">
+          <a-entity id="rubik0" rubik-cube-param="idx:0" position="0 0 0" mixin="layer1_animation"> </a-entity>
+          <a-entity id="rubik1" rubik-cube-param="idx:1" position="0 0 0"> </a-entity>
+          <a-entity id="rubik2" rubik-cube-param="idx:2" position="0 0 0" mixin="layer3_animation"> </a-entity>
+        </a-entity>
       </a-entity>
     </a-scene>
   </body>
