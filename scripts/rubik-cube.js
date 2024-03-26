@@ -204,7 +204,7 @@ AFRAME.registerComponent('rubik-cube',{
     for (let r = 0; r < 3; r++) {
       for (let i = 0; i < 3; i++) {
         for (let j = 0; j < 3; j++) {
-            var newBlock = document.createElement('a-box');
+            var newBlock = document.createElement('a-entity');
             var positionx = j==0 ? "-0.105" : j==1 ? "0" :"0.105" ;
             var positiony = i==0 ? "-0.105" : i==1 ? "0" :"0.105" ;
             var positionz = r==0 ? "-0.105" : r==1 ? "0" :"0.105" ;
@@ -214,7 +214,7 @@ AFRAME.registerComponent('rubik-cube',{
             newBlock.setAttribute('width',"0.02");
             newBlock.setAttribute('height',"0.02");
             newBlock.setAttribute('depth',"0.02");
-            newBlock.setAttribute('material','color:#00FF00');
+            //newBlock.setAttribute('material','color:#00FF00');
             //UP
             if(i==2 && r==1 && j==1) 
             {
