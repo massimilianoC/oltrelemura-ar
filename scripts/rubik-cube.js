@@ -222,7 +222,7 @@ AFRAME.registerComponent('rubik-cube',{
               PIVOT_UP.push(newBlock);
               newElement.appendChild(newBlock);
             }
-           /* //DOWN
+            //DOWN
             else if(i==0 && r==1 && j==1) 
             {
               PIVOT_DOWN.push(newBlock);
@@ -251,7 +251,7 @@ AFRAME.registerComponent('rubik-cube',{
             {
               PIVOT_BACK.push(newBlock);
               newElement.appendChild(newBlock);
-            }*/
+            }
 
         }
       }
