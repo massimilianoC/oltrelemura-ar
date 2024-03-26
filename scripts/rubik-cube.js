@@ -114,42 +114,42 @@ AFRAME.registerComponent('rubik-cube',{
             console.log(newBlock);
             console.log(positionx+" "+positiony+ " 0");
 
-            var refVector= new THREE.Vector3();
+            var refVector= new THREE.Vector3(positionx,positiony,positionz);
              //UP
              if(i==2) 
              {
               BLOCK_UP.push(newBlock);
-              VECTORS_FACE_UP.push(refVector.copy(newBlock.object3D.position));
+              VECTORS_FACE_UP.push(refVector);
              }
              //DOWN
              else if(i==0) 
              {
               BLOCK_DOWN.push(newBlock);
-              VECTORS_FACE_DOWN.push(refVector.copy(newBlock.object3D.position));
+              VECTORS_FACE_DOWN.push(refVector);
              }
               //LEFT
              else if(j==0) 
              {
                BLOCK_LEFT.push(newBlock);
-               VECTORS_FACE_LEFT.push(refVector.copy(newBlock.object3D.position));
+               VECTORS_FACE_LEFT.push(refVector);
              }
               //RIGHT
              else if(j==2) 
              {
                BLOCK_RIGHT.push(newBlock);
-               VECTORS_FACE_RIGHT.push(refVector.copy(newBlock.object3D.position));
+               VECTORS_FACE_RIGHT.push(refVector);
              }
              //FRONT
              else if(r==2) 
              {
                BLOCK_FRONT.push(newBlock);
-               VECTORS_FACE_FRONT.push(refVector.copy(newBlock.object3D.position));
+               VECTORS_FACE_FRONT.push(refVector));
              }
              //BACK
              else if(r==0) 
              {
                BLOCK_BACK.push(newBlock);
-               VECTORS_FACE_BACK.push(refVector.copy(newBlock.object3D.position));
+               VECTORS_FACE_BACK.push(refVector);
              }
              else {
               BLOCK_CORE.push(newBlock);
