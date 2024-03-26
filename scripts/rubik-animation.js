@@ -31,7 +31,7 @@ AFRAME.registerComponent('rubik-animation',{
                         {
                             console.log("MATCH");
                             var newParent = document.querySelector('#pivot');
-                            el.flushToDom();
+                            //el.flushToDom();
                             el.object3D.setParent(newParent, { convertToLocal: true });
                         }
                     });
