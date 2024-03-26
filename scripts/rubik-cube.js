@@ -45,6 +45,13 @@ AFRAME.registerComponent('rubik-cube',{
                       newPlane.setAttribute('material','shader:flat ; src: url(../../../assets/texture/tileA_'+r+'_'+j+'.png)');
                     }
 
+                     //DOWN
+                     if(i==0 && axis==1 && direction==1) 
+                     {
+                       newPlane.setAttribute('material','shader:flat ; src: url(../../../assets/texture/tileA_'+r+'_'+j+'.png)');
+                     }
+ 
+
                     /*
                     //LEFT
                     if(j==0 && axis==1 && direction==1) 
