@@ -24,7 +24,7 @@ AFRAME.registerComponent('rubik-animation',{
                     {
                         console.log(MATCH);
                         el.parentElement.removeChild(el);
-                        PIVOT_FRONT.appendChild(el);
+                        PIVOT_FRONT[0].appendChild(el);
                     }
                 });
             });
@@ -32,5 +32,5 @@ AFRAME.registerComponent('rubik-animation',{
         default:
         break;
     }
-    PIVOT_FRONT.setAttribute("animation",animation="property: rotation; to: 0 360 0; loop: true; dur: 10000");
+    PIVOT_FRONT[0].setAttribute("animation",animation="property: rotation; to: 0 360 0; loop: true; dur: 10000");
   }
