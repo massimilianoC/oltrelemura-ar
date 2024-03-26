@@ -35,7 +35,6 @@ AFRAME.registerComponent('rubik-animation',{
                             console.log("MATCH");
                             var newParent = document.querySelector('#pivot');
                             console.log(el.object3D);
-                            changeParent(el,newParent);
                         }
                     });
                 });
@@ -46,54 +45,6 @@ AFRAME.registerComponent('rubik-animation',{
         //if(data.direction == 0)
         PIVOT_FRONT[0].setAttribute("animation",animation="property: rotation; to: 0 0 360; loop: true; dur: 5000");
     }, "1000");
-  }
-
-  function changeParent(child,newParent){
-    const el = child;
-    const parent = newParent;
-
-    if (el.parentElement == parent) {
-      // We're already a child of the intended parent, do nothing
-      return;
-    };
-
-    // Reparent, once object3D is ready
-    reparent = function() {
-      // Attach the object3D to the new parent, to get position, rotation, scale
-      parent.object3D.attach(el.object3D);
-      let position = el.object3D.position;
-      let rotation = el.object3D.rotation;
-      let scale = el.object3D.scale;
-
-      // Create new element, copy the current one on it
-      let newEl = document.createElement(el.tagName);
-      if (el.hasAttributes()) {
-        let attrs = el.attributes;
-        for(var i = attrs.length - 1; i >= 0; i--) {
-          let attrName = attrs[i].name;
-          let attrVal = el.getAttribute(attrName);
-          newEl.setAttribute(attrName, attrVal);
-        };
-      };
-
-      // Listener for location, rotation,... when the new el is laded
-      relocate = function() {
-        newEl.object3D.location = location;
-        newEl.object3D.rotation = rotation;
-        newEl.object3D.scale = scale;
-      };
-
-      newEl.addEventListener('loaded', relocate, {'once': true});
-      // Attach the new element, and remove this one
-      parent.appendChild(newEl);
-      el.parentElement.removeChild(el);
-    };
-
-    if (el.getObject3D('mesh')) {
-      reparent();
-    } else {
-      el.sceneEl.addEventListener('object3dset', reparent, {'once': true});
-    };
   }
 
 });
