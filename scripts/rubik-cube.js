@@ -101,7 +101,7 @@ AFRAME.registerComponent('rubik-cube',{
                     newPlane.setAttribute('material','shader:flat ;side: double; color: #000');
                     }
 
-                    console.log(groupCounter+'_'+rowCounter+'_'+columnCounter+'_'+faceCounter);
+                    //console.log(groupCounter+'_'+rowCounter+'_'+columnCounter+'_'+faceCounter);
 
                     newPlane.setAttribute('rotation',rotation);
                     newBlock.appendChild(newPlane);
