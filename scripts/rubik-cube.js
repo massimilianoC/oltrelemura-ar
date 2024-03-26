@@ -143,7 +143,7 @@ AFRAME.registerComponent('rubik-cube',{
              else if(r==2) 
              {
                BLOCK_FRONT.push(newBlock);
-               VECTORS_FACE_FRONT.push(refVector));
+               VECTORS_FACE_FRONT.push(refVector);
              }
              //BACK
              else if(r==0) 
