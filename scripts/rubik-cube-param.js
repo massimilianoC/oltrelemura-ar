@@ -106,7 +106,8 @@ AFRAME.registerComponent('rubik-cube-param',{
                     }
 
                     //console.log(groupCounter+'_'+rowCounter+'_'+columnCounter+'_'+faceCounter);
-
+                    newPlane.setAttribute("id","face_"+idx+"_"+i+"_"+j+"_"+axis+"_"+direction);
+                    newPlane.setAttribute("class","clickable face");
                     newPlane.setAttribute('rotation',rotation);
                     newBlock.appendChild(newPlane);
                     faceCounter++;
