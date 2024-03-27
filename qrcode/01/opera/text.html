@@ -48,7 +48,7 @@
 	  <a-assets>
         <img id="opera" src="../../../assets/opera/emm.gif" />
         <video id="opera-mp4" autoplay loop="true" src="../../../assets/opera/LoopEMM.mp4"></video>
-        <video id="particle" autoplay loop="true" src="../../../assets/video/pureblack.mp4"></video>
+        <video id="particle" autoplay loop="true" src="../../../assets/video/cubtrasp4444-vp9-chrome.webm"></video>
         <img id="opera1" src="../../../assets/opera/EMM1.png" />
         <img id="opera2" src="../../../assets/opera/EMM2.png" />
         <img id="opera3" src="../../../assets/opera/EMM3.png" />
@@ -100,8 +100,7 @@
             <a-text position="0 0 0.01"   
             value="LIBERTA'" align="center" text="width: 2.5" font="../../../assets/fonts/Montserrat-SemiBold-msdf.json" 
             negate="false" font-image="../../../assets/fonts/Montserrat-SemiBold.png"></a-text>
-            <a-entity position="0 0 0" particle-system="color: #EF0000,#44CC00; texture: ../../../components/particle/dist/images/star.png"></a-entity>
-            <a-plane visible="false" width="0.3" height="0.3" material="blending: subtractive; src: #particle" transparent="true" ></a-video>
+            <a-plane width="0.3" height="0.3" material="src: #particle" transparent="true" ></a-video>
           </a-entity>
           <a-text position="0 0 0" animation="property: position; to: 0 0 5; delay:18000; dur: 10000; easing: easeInQuad; loop: false"  
           value="INDIPENDENZA" align="center" text="width: 2.5; font: roboto" ></a-text>
