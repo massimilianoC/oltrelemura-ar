@@ -126,8 +126,6 @@
         <a-timeline-animation select="#text8" name="toggleon"></a-timeline-animation>
         <a-timeline-animation select="#text8" name="fadein"></a-timeline-animation>
         <a-timeline-animation select="#text8" name="delay1"></a-timeline-animation>
-        <a-timeline-animation select="#text8" name="fadeout"></a-timeline-animation>
-        <a-timeline-animation select="#text8" name="toggleoff"></a-timeline-animation>
         <!-- -->
 
         <!--#text9-->
@@ -135,7 +133,14 @@
         <a-timeline-animation select="#text9" name="fadein"></a-timeline-animation>
         <a-timeline-animation select="#text9" name="delay1"></a-timeline-animation>
         <a-timeline-animation select="#text9" name="delay1"></a-timeline-animation>
-        <a-timeline-animation select="#text9" name="fadeout"></a-timeline-animation>
+        <!-- -->
+
+        <!--#text8-9-->
+        <a-timeline-group>
+          <a-timeline-animation select="#text8" name="fadeout"></a-timeline-animation>
+          <a-timeline-animation select="#text9" name="fadeout"></a-timeline-animation>
+        </a-timeline-group>
+        <a-timeline-animation select="#text8" name="toggleoff"></a-timeline-animation>
         <a-timeline-animation select="#text9" name="toggleoff"></a-timeline-animation>
         <!-- -->
 
@@ -173,7 +178,7 @@
 
       <a-mixin id="layer1animation" animation__layer1="property: rotation; to: 0 0 360; dur: 6000; easing: easeInOutQuad; loop: true; autoplay: false"></a-mixin>
       <a-mixin id="layer3animation" animation__layer3="property: rotation; to: 0 0 -360; dur: 7000; easing: easeInOutQuad; loop: true; autoplay: false"></a-mixin>
-      <a-mixin id="diceposition" animation__diceposition="property: position; to: 0 0.3 0.35; dur: 5000; easing: easeInOutQuad; loop: false; autoplay: false"></a-mixin>
+      <a-mixin id="diceposition" animation__diceposition="property: position; to: 0 0.3 0.6; dur: 5000; easing: easeInOutQuad; loop: false; autoplay: false"></a-mixin>
       <a-mixin id="dicescale" animation__dicescale="property: scale; to:2 2 2; dur: 5000; easing: easeInOutQuad; loop: false; autoplay: false" ></a-mixin>
       <a-mixin id="diceanimation" animation__diceanimation="property: rotation; to: 180 180 180; dur: 10000; easing: easeInOutQuad; loop: true; autoplay: false"></a-mixin>
 
@@ -223,31 +228,31 @@
         </a-entity>
 
         <a-entity id="text-container" position="0 0 0">
-            <a-text id="text1" value="LIBERTA' DI VIAGGIARE"  mixin="textanimations visibility textDefault delay" position="0.2 0.2 0.1" >
+            <a-text id="text1" value="LIBERTA' DI VIAGGIARE"  mixin="textanimations visibility textDefault delay" position="0.1 0.2 0.1" >
               <a-text id="text1" value="LIBERTA' DI VIAGGIARE"  mixin="textanimations visibility textShadow delay"></a-text>
             </a-text>
             <a-text id="text2" value="SPERIMENTARE" mixin="textanimations visibility textDefault delay" position="-0.2 -0.2 0.1">
               <a-text id="text2" value="SPERIMENTARE"  mixin="textanimations visibility textShadow delay"></a-text>
             </a-text>
-            <a-text id="text3" value="LIBERTA' DI AMARE" mixin="textanimations visibility textDefault delay" position="-0.2 0.2 0.1">
+            <a-text id="text3" value="LIBERTA' DI AMARE" mixin="textanimations visibility textDefault delay" position="-0.1 0.2 0.1">
               <a-text id="text3" value="LIBERTA' DI AMARE"  mixin="textanimations visibility textShadow delay"></a-text>
             </a-text>
-            <a-text id="text4" value="DI SOGNARE IN GRANDE" mixin="textanimations visibility textDefault delay" position="0.2 -0.2 0.1">
+            <a-text id="text4" value="DI SOGNARE IN GRANDE" mixin="textanimations visibility textDefault delay" position="0.1 -0.2 0.1">
               <a-text id="text4" value="DI SOGNARE IN GRANDE"  mixin="textanimations visibility textShadow delay"></a-text>
             </a-text>
             <a-text id="text5" value="SENZA PAURA" mixin="textanimations visibility textDefault delay" position="-0.3 0.25 0.1">
               <a-text id="text5" value="SENZA PAURA"  mixin="textanimations visibility textShadow delay"></a-text>
             </a-text>
-            <a-text id="text6" value="ESSERE PADRONE" mixin="textanimations visibility textDefault delay" position="-0.3 -0.3 0.1">
+            <a-text id="text6" value="ESSERE PADRONE" mixin="textanimations visibility textDefault delay" position="0.2 0.2 0.1">
               <a-text id="text6" value="ESSERE PADRONE"  mixin="textanimations visibility textShadow delay"></a-text>
             </a-text>
-            <a-text id="text7" value="DELLA NOSTA NARRAZIONE" mixin="textanimations visibility textDefault delay" position="0.2 -0.3 0.1">
+            <a-text id="text7" value="DELLA NOSTA NARRAZIONE" mixin="textanimations visibility textDefault delay" position="-0.2 -0.2 0.1">
               <a-text id="text7" value="DELLA NOSTA NARRAZIONE"  mixin="textanimations visibility textShadow delay"></a-text>
             </a-text>
-            <a-text id="text8" value="LIBERE DI PERSEGUIRE" mixin="textanimations visibility textDefault delay" position="-0.3 0.2 0.1">
+            <a-text id="text8" value="LIBERE DI PERSEGUIRE" mixin="textanimations visibility textDefault delay" position="0.1 0.2 0.1">
               <a-text id="text8" value="LIBERE DI PERSEGUIRE"  mixin="textanimations visibility textShadow delay"></a-text>
             </a-text>
-            <a-text id="text9" value="I PROPRI SOGNI" mixin="textanimations visibility textDefault delay" position="0.0 0.0 0.1">
+            <a-text id="text9" value="I PROPRI SOGNI" mixin="textanimations visibility textDefault delay" position="0.2 -0.2 0.1">
               <a-text id="text9" value="I PROPRI SOGNI"  mixin="textanimations visibility textShadow delay"></a-text>
             </a-text>
         </a-entity>
