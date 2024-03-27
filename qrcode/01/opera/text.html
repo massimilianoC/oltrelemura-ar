@@ -50,9 +50,11 @@
 	  <a-assets timeout="10000">
       <!-- Animation Timeline -->
       <a-timeline id="animationTimeline">
+
+        <a-timeline-animation select="#plane1" name="delay1"></a-timeline-animation>
+        <a-timeline-animation select="#plane1" name="delay1"></a-timeline-animation>
+        
         <a-timeline-group>
-          <a-timeline-animation select="#text5" name="delay1"></a-timeline-animation>
-          <a-timeline-animation select="#text5" name="delay1"></a-timeline-animation>
           <a-timeline-animation select="a-plane[mixin~=imagepanel]" name="scaledown"></a-timeline-animation>
           <a-timeline-animation select="a-plane[mixin~=imagepanel]" name="reposition"></a-timeline-animation>
         </a-timeline-group>
@@ -131,6 +133,7 @@
         <!--#text9-->
         <a-timeline-animation select="#text9" name="toggleon"></a-timeline-animation>
         <a-timeline-animation select="#text9" name="fadein"></a-timeline-animation>
+        <a-timeline-animation select="#text9" name="delay1"></a-timeline-animation>
         <a-timeline-animation select="#text9" name="delay1"></a-timeline-animation>
         <a-timeline-animation select="#text9" name="fadeout"></a-timeline-animation>
         <a-timeline-animation select="#text9" name="toggleoff"></a-timeline-animation>
