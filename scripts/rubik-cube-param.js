@@ -113,12 +113,13 @@ AFRAME.registerComponent('rubik-cube-param',{
                     //events
                     newBlock.addEventListener("click", (e) => {
                       e.stopPropagation();
+                      e.preventDefault()
                       console.log(this);
                       console.log(e);
                       var cube = document.querySelector('#rubik0');
                       console.log(cube);
                       cube.emit('layer1'); 
-                    });
+                    },false);
                     faceCounter++;
                 }           
             }
