@@ -66,13 +66,15 @@
         <a-timeline-animation select="#text1" name="toggleon"></a-timeline-animation>
         <a-timeline-animation select="#text1" name="fadein"></a-timeline-animation>
         <a-timeline-animation select="#text2" name="delay1"></a-timeline-animation>
+        <a-timeline-animation select="#text2" name="delay1"></a-timeline-animation>
         <a-timeline-animation select="#text1" name="fadeout"></a-timeline-animation>
         <a-timeline-animation select="#text1" name="toggleoff"></a-timeline-animation>
         <!-- -->
 
-        <!--#text1-->
+        <!--#text2-->
         <a-timeline-animation select="#text2" name="toggleon"></a-timeline-animation>
         <a-timeline-animation select="#text2" name="fadein"></a-timeline-animation>
+        <a-timeline-animation select="#text2" name="delay1"></a-timeline-animation>
         <a-timeline-animation select="#text2" name="delay1"></a-timeline-animation>
         <a-timeline-animation select="#text2" name="fadeout"></a-timeline-animation>
         <a-timeline-animation select="#text2" name="toggleoff"></a-timeline-animation>
@@ -83,8 +85,8 @@
       <!-- Animations Mixin -->
 
       <a-mixin id="textanimations"
-          animation__fadein="property: text.opacity; from: 0; to: 1; dur: 2000; easing: linear; autoplay: false"
-          animation__fadeout="property: text.opacity; from: 1; to: 0; dur: 2000; easing: linear; autoplay: false">
+          animation__fadein="property: text.opacity; from: 0; to: 1; dur: 1000; easing: linear; autoplay: false"
+          animation__fadeout="property: text.opacity; from: 1; to: 0; dur: 1000; easing: linear; autoplay: false">
       </a-mixin>
 
       <a-mixin id="visibility"
@@ -112,7 +114,7 @@
                text="align: center; color: #fff; width: 2.5; opacity: 0" visible="false"></a-mixin>
       <a-mixin id="textShadow" font="../../../assets/fonts/Montserrat-SemiBold-msdf.json" negate="false" 
                font-image="../../../assets/fonts/Montserrat-SemiBold.png"
-               text="align: center; color: #000; width: 2.5; opacity: 0" visible="false" position="0.001 0.001 -0.001"></a-mixin>
+               text="align: center; color: #000; width: 2.5; opacity: 0" opacity="0.8" visible="false" position="-0.005 -0.005 -0.005"></a-mixin>
       <!-- -->
       <!-- Assets -->
         <img id="opera" src="../../../assets/opera/emm.gif" />
