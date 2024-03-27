@@ -65,6 +65,7 @@
         <!--#text1-->
         <a-timeline-animation select="#text1" name="toggleon"></a-timeline-animation>
         <a-timeline-animation select="#text1" name="fadein"></a-timeline-animation>
+        <a-timeline-animation select="#text2" name="delay1"></a-timeline-animation>
         <a-timeline-animation select="#text1" name="fadeout"></a-timeline-animation>
         <a-timeline-animation select="#text1" name="toggleoff"></a-timeline-animation>
         <!-- -->
@@ -72,6 +73,7 @@
         <!--#text1-->
         <a-timeline-animation select="#text2" name="toggleon"></a-timeline-animation>
         <a-timeline-animation select="#text2" name="fadein"></a-timeline-animation>
+        <a-timeline-animation select="#text2" name="delay1"></a-timeline-animation>
         <a-timeline-animation select="#text2" name="fadeout"></a-timeline-animation>
         <a-timeline-animation select="#text2" name="toggleoff"></a-timeline-animation>
         <!-- -->
@@ -91,6 +93,8 @@
           animation__opacityon="property: opacity; to: 1; dur: 1000; autoplay: false" 
           animation__opacityoff="property: opacity; to: 0; dur: 1000; autoplay: false">
       </a-mixin>
+
+      <a-mixin id="delay" animation__delay1="property: visible; dur: 1000; autoplay: false"></a-mixin>
 
       <a-mixin id="scaledown" animation__scaledown="property: scale; to:1 1 1; delay:2000; dur: 3000; easing: easeInOutQuad; loop: false; autoplay: false" ></a-mixin>
       <a-mixin id="reposition" animation__reposition="property: position; to:0 0 0; delay:2000; dur: 3000; easing: easeInOutQuad; loop: false; autoplay: false" ></a-mixin>
@@ -143,8 +147,8 @@
         </a-entity>
 
         <a-entity id="text-container" position="0 0 0">
-            <a-text id="text1" value="LIBERTA'"  mixin="textanimations visibility textDefault" position="0.2 0.2 0.05" ></a-text>
-            <a-text id="text2" value="INDIPENDENZA" mixin="textanimations visibility textDefault" position="-0.2 -0.2 0.05"></a-text>
+            <a-text id="text1" value="LIBERTA'"  mixin="textanimations visibility textDefault delay" position="0.2 0.2 0.1" ></a-text>
+            <a-text id="text2" value="INDIPENDENZA" mixin="textanimations visibility textDefault delay" position="-0.2 -0.2 0.1"></a-text>
         </a-entity>
 
       </a-entity>
