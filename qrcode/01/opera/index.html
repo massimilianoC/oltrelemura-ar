@@ -23,12 +23,14 @@
         }
 
         console.log(faces);
+
         for (let i = 0; i < faces.length; i++) {
           console.log(faces[i]);
           faces[i].addEventListener("click", (e) => {
             console.log(e);
             document.querySelector('#rubik0').emit('layer1'); 
         });
+      }
 
         btn.addEventListener('click', () => {
           playDefaultVideo();
