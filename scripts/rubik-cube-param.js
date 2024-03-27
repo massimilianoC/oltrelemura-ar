@@ -119,7 +119,7 @@ AFRAME.registerComponent('rubik-cube-param',{
                       console.log(e);
                       var cube = document.querySelector('#rubik0');
                       console.log(cube);
-                      cube.emit(`layer1`, null, false); 
+                      cube.emit('layer1', null, false); 
                     },false);
                     faceCounter++;
                 }           
