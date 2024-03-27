@@ -80,13 +80,49 @@
         <a-timeline-animation select="#text2" name="toggleoff"></a-timeline-animation>
         <!-- -->
 
+        <!--#text3-->
+        <a-timeline-animation select="#text3" name="toggleon"></a-timeline-animation>
+        <a-timeline-animation select="#text3" name="fadein"></a-timeline-animation>
+        <a-timeline-animation select="#text3" name="delay1"></a-timeline-animation>
+        <a-timeline-animation select="#text3" name="delay1"></a-timeline-animation>
+        <a-timeline-animation select="#text3" name="fadeout"></a-timeline-animation>
+        <a-timeline-animation select="#text3" name="toggleoff"></a-timeline-animation>
+        <!-- -->
+
+        <!--#text4-->
+        <a-timeline-animation select="#text4" name="toggleon"></a-timeline-animation>
+        <a-timeline-animation select="#text4" name="fadein"></a-timeline-animation>
+        <a-timeline-animation select="#text4" name="delay1"></a-timeline-animation>
+        <a-timeline-animation select="#text4" name="delay1"></a-timeline-animation>
+        <a-timeline-animation select="#text4" name="fadeout"></a-timeline-animation>
+        <a-timeline-animation select="#text4" name="toggleoff"></a-timeline-animation>
+        <!-- -->
+
+        <!--#text5-->
+        <a-timeline-animation select="#text5" name="toggleon"></a-timeline-animation>
+        <a-timeline-animation select="#text5" name="fadein"></a-timeline-animation>
+        <a-timeline-animation select="#text5" name="delay1"></a-timeline-animation>
+        <a-timeline-animation select="#text5" name="delay1"></a-timeline-animation>
+        <a-timeline-animation select="#text5" name="fadeout"></a-timeline-animation>
+        <a-timeline-animation select="#text5" name="toggleoff"></a-timeline-animation>
+        <!-- -->
+
+        <!--#text6-->
+        <a-timeline-animation select="#text6" name="toggleon"></a-timeline-animation>
+        <a-timeline-animation select="#text6" name="fadein"></a-timeline-animation>
+        <a-timeline-animation select="#text6" name="delay1"></a-timeline-animation>
+        <a-timeline-animation select="#text6" name="delay1"></a-timeline-animation>
+        <a-timeline-animation select="#text6" name="fadeout"></a-timeline-animation>
+        <a-timeline-animation select="#text6" name="toggleoff"></a-timeline-animation>
+        <!-- -->
+
       </a-timeline>
       <!-- -->
       <!-- Animations Mixin -->
 
       <a-mixin id="textanimations"
           animation__fadein="property: text.opacity; from: 0; to: 1; dur: 1000; easing: linear; autoplay: false"
-          animation__fadeout="property: text.opacity; from: 1; to: 0; dur: 1000; easing: linear; autoplay: false">
+          animation__fadeout="property: text.opacity; from: 1; to: 0; dur: 500; easing: linear; autoplay: false">
       </a-mixin>
 
       <a-mixin id="visibility"
@@ -157,6 +193,18 @@
             </a-text>
             <a-text id="text2" value="INDIPENDENZA" mixin="textanimations visibility textDefault delay" position="-0.2 -0.2 0.1">
               <a-text id="text2" value="INDIPENDENZA"  mixin="textanimations visibility textShadow delay"></a-text>
+            </a-text>
+            <a-text id="text3" value="CORAGGIO" mixin="textanimations visibility textDefault delay" position="-0.2 0.2 0.1">
+              <a-text id="text3" value="CORAGGIO"  mixin="textanimations visibility textShadow delay"></a-text>
+            </a-text>
+            <a-text id="text4" value="SICUREZZA" mixin="textanimations visibility textDefault delay" position="0.2 -0.2 0.1">
+              <a-text id="text4" value="SICUREZZA"  mixin="textanimations visibility textShadow delay"></a-text>
+            </a-text>
+            <a-text id="text5" value="RISPETTO" mixin="textanimations visibility textDefault delay" position="-0.3 0.3 0.1">
+              <a-text id="text4" value="RISPETTO"  mixin="textanimations visibility textShadow delay"></a-text>
+            </a-text>
+            <a-text id="text6" value="EDUCAZIONE" mixin="textanimations visibility textDefault delay" position="-0.3 -0.3 0.1">
+              <a-text id="text4" value="EDUCAZIONE"  mixin="textanimations visibility textShadow delay"></a-text>
             </a-text>
         </a-entity>
 
