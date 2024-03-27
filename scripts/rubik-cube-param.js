@@ -112,8 +112,12 @@ AFRAME.registerComponent('rubik-cube-param',{
                     newBlock.appendChild(newPlane);
                     //events
                     newBlock.addEventListener("click", (e) => {
+                      e.stopPropagation();
+                      console.log(this);
                       console.log(e);
-                      document.querySelector('#rubik0').emit('layer1'); 
+                      var cube = document.querySelector('#rubik0');
+                      console.log(cube);
+                      cube.emit('layer1'); 
                     });
                     faceCounter++;
                 }           
