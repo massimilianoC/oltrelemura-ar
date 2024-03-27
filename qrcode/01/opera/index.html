@@ -13,7 +13,7 @@
       document.addEventListener("DOMContentLoaded", function() {
        
         const btn = document.querySelector('.clickable.video');
-        const face = document.querySelector('.clickable.face');
+        const faces = document.querySelectorAll('.clickable.face');
 
         function playDefaultVideo(){
           const video = document.querySelector('#opera-mp4');
@@ -22,8 +22,10 @@
           videoParticle.play();
         }
 
-        face.addEventListener('click', () => {
-          document.querySelector('#rubik0').emit('layer1'); 
+        for (let i = 0; i < faces.length; i++) {
+          faces[i].addEventListener("click", function() {
+            console.log(e);
+            document.querySelector('#rubik0').emit('layer1'); 
         });
 
         btn.addEventListener('click', () => {
