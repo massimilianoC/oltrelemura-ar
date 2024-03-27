@@ -1,76 +1,258 @@
 <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+    <script src="../../../scripts/rubik-cube-param.js"></script>
+    <script src="../../../components/particle/dist/aframe-particle-system-component.js"></script>
+    <script src="../../../components/animation-timeline/dist/aframe-animation-timeline-component.js"></script>
+    <script src="../../../components/randomizer/dist/aframe-randomizer-components.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../css/global.css" />
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+       
+        const btn = document.querySelector('.clickable.video');
 
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
-  <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
-  <script src="../../../scripts/rubik-cube-param.js"></script>
-  <link rel="stylesheet" type="text/css" href="../../../css/global.css" />
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
+        function playDefaultVideo(){
+          const video = document.querySelector('#opera-mp4');
+          const videoParticle = document.querySelector('#particle');
+          video.play();
+          videoParticle.play();
+        }
 
-      //const opera8 = document.querySelector('#plane8');
-
-      function playDefaultVideo() {
-        const video = document.querySelector('#opera-mp4');
-        video.play();
-      }
-
-      /*opera8.addEventListener('click', () => {
-         playDefaultVideo();
-       });*/
-
-      const face_0_0_2 = document.querySelectorAll('[id*="block_0_1"]');
-    });
-  </script>
-</head>
-
-<body>
-  <div style="position: absolute; z-index: 1000; display: none;">
-    <button id="debug-start-button">Start</button>
-    <button id="debug-pause-button">Pause</button>
-    <button id="debug-pause-keep-video-button">Pause (keep video)</button>
-    <button id="debug-unpause-button">UnPause</button>
-    <button id="debug-stop-button">Stop</button>
-  </div>
-  <a-scene webxr="optionalFeatures: hit-test, local-floor;" ar-hit-test="target:#root;"
-    mindar-image="imageTargetSrc: ../../../model/full_blur.mind; autoStart: true; filterMinCF:0.0001; filterBeta: 0.001; warmupTolerance: 2; missTolerance: 10"
-    color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false"
+        btn.addEventListener('click', () => {
+          playDefaultVideo();
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div style="position: absolute; z-index: 1000; display: none;">
+      <button id="debug-start-button">Start</button>
+      <button id="debug-pause-button">Pause</button>
+      <button id="debug-pause-keep-video-button">Pause (keep video)</button>
+      <button id="debug-unpause-button">UnPause</button>
+      <button id="debug-stop-button">Stop</button>
+    </div>
+    
+    <a-scene 
+    animation-timeline__1="timeline: #animationTimeline; loop: false"
+    webxr="optionalFeatures: hit-test, local-floor;" ar-hit-test="target:#dice;"
+    mindar-image="imageTargetSrc: ../../../model/blur.mind; autoStart: true; filterMinCF:0.001; filterBeta: 0.01; warmupTolerance: 1; missTolerance: 1" 
+    color-space="sRGB" 
+    renderer="colorManagement: true, physicallyCorrectLights" 
+    vr-mode-ui="enabled: false" 
     device-orientation-permission-ui="enabled: false">
+      
+	  <a-camera position="0 0 0" look-controls="enabled: false" cursor="fuse: false; rayOrigin: mouse;" raycaster="near: 10; far: 10000; objects: .clickable"></a-camera>
+      
+	  <a-assets timeout="10000">
+      <!-- Animation Timeline -->
+      <a-timeline id="animationTimeline">
 
-    <a-camera position="0 0 0" look-controls="enabled: false" cursor="fuse: false; rayOrigin: mouse;"
-      raycaster="near: 10; far: 10000; objects: .clickable"></a-camera>
+        <a-timeline-animation select="#plane1" name="delay1"></a-timeline-animation>
+        <a-timeline-animation select="#plane1" name="delay1"></a-timeline-animation>
 
-    <a-assets>
-      <img id="opera" src="../../../assets/opera/emm.gif" />
-      <video id="opera-mp4" autoplay loop="true" src="../../../assets/opera/LoopEMM.mp4"></video>
-      <img id="opera1" src="../../../assets/opera/EMM1.png" />
-      <img id="opera2" src="../../../assets/opera/EMM2.png" />
-      <img id="opera3" src="../../../assets/opera/EMM3.png" />
-      <img id="opera4" src="../../../assets/opera/EMM4.png" />
-      <img id="opera5" src="../../../assets/opera/EMM5.png" />
-      <img id="opera6" src="../../../assets/opera/EMM6.png" />
-      <img id="opera7" src="../../../assets/opera/EMM7.png" />
-      <img id="opera8" src="../../../assets/opera/EMM8.png" />
-      <a-mixin id="layer1_animation"
-        animation__rotation="property: rotation; to: 0 0 360; delay: 1000; dur: 7000; easing: easeInOutQuad; loop: true"></a-mixin>
-      <a-mixin id="layer3_animation"
-        animation__rotation="property: rotation; to: 0 0 -360; delay: 2000; dur: 9000; easing: easeInOutQuad; loop: true"></a-mixin>
-      <a-mixin id="dice_animation"
-        animation__rotation="property: rotation; to: 360 360 360; delay: 5000; dur: 40000; easing: easeInOutQuad; loop: true"></a-mixin>
+        <a-timeline-group>
+          <a-timeline-animation select="a-plane[mixin~=imagepanel]" name="scaledown"></a-timeline-animation>
+          <a-timeline-animation select="a-plane[mixin~=imagepanel]" name="reposition"></a-timeline-animation>
+        </a-timeline-group>
 
-    </a-assets>
+        <a-timeline-group>
+          <a-timeline-animation select="#plane4" name="opacityon"></a-timeline-animation>
+          <a-timeline-animation select="#plane3" name="opacityoff"></a-timeline-animation>
+          <a-timeline-animation select="#plane2" name="opacityoff"></a-timeline-animation>
+          <a-timeline-animation select="#plane1" name="opacityoff"></a-timeline-animation>
+        </a-timeline-group>
 
-    <a-entity id="ar-target" mindar-image-target="targetIndex: 0">
-      <a-entity id="root" position="0 0.3 0.3" scale="3.5 3.5 3.5" mixin="dice_animation">
-        <a-entity id="rubik0" rubik-cube-param="idx:0" position="0 0 0" mixin="layer1_animation"> </a-entity>
-        <a-entity id="rubik1" rubik-cube-param="idx:1" position="0 0 0"> </a-entity>
-        <a-entity id="rubik2" rubik-cube-param="idx:2" position="0 0 0" mixin="layer3_animation"> </a-entity>
+        <!--#text1-->
+        <a-timeline-animation select="#text1" name="toggleon"></a-timeline-animation>
+        <a-timeline-animation select="#text1" name="fadein"></a-timeline-animation>
+        <a-timeline-animation select="#text2" name="delay1"></a-timeline-animation>
+        <a-timeline-animation select="#text1" name="fadeout"></a-timeline-animation>
+        <a-timeline-animation select="#text1" name="toggleoff"></a-timeline-animation>
+        <!-- -->
+
+        <!--#text2-->
+        <a-timeline-animation select="#text2" name="toggleon"></a-timeline-animation>
+        <a-timeline-animation select="#text2" name="fadein"></a-timeline-animation>
+        <a-timeline-animation select="#text2" name="delay1"></a-timeline-animation>
+        <a-timeline-animation select="#text2" name="fadeout"></a-timeline-animation>
+        <a-timeline-animation select="#text2" name="toggleoff"></a-timeline-animation>
+        <!-- -->
+
+        <!--#text3-->
+        <a-timeline-animation select="#text3" name="toggleon"></a-timeline-animation>
+        <a-timeline-animation select="#text3" name="fadein"></a-timeline-animation>
+        <a-timeline-animation select="#text3" name="delay1"></a-timeline-animation>
+        <a-timeline-animation select="#text3" name="fadeout"></a-timeline-animation>
+        <a-timeline-animation select="#text3" name="toggleoff"></a-timeline-animation>
+        <!-- -->
+
+        <!--#text4-->
+        <a-timeline-animation select="#text4" name="toggleon"></a-timeline-animation>
+        <a-timeline-animation select="#text4" name="fadein"></a-timeline-animation>
+        <a-timeline-animation select="#text4" name="delay1"></a-timeline-animation>
+        <a-timeline-animation select="#text4" name="fadeout"></a-timeline-animation>
+        <a-timeline-animation select="#text4" name="toggleoff"></a-timeline-animation>
+        <!-- -->
+
+        <!--#text5-->
+        <a-timeline-animation select="#text5" name="toggleon"></a-timeline-animation>
+        <a-timeline-animation select="#text5" name="fadein"></a-timeline-animation>
+        <a-timeline-animation select="#text5" name="delay1"></a-timeline-animation>
+        <a-timeline-animation select="#text5" name="fadeout"></a-timeline-animation>
+        <a-timeline-animation select="#text5" name="toggleoff"></a-timeline-animation>
+        <!-- -->
+
+        <!--#text6-->
+        <a-timeline-animation select="#text6" name="toggleon"></a-timeline-animation>
+        <a-timeline-animation select="#text6" name="fadein"></a-timeline-animation>
+        <a-timeline-animation select="#text6" name="delay1"></a-timeline-animation>
+        <a-timeline-animation select="#text6" name="fadeout"></a-timeline-animation>
+        <a-timeline-animation select="#text6" name="toggleoff"></a-timeline-animation>
+        <!-- -->
+
+        <!--#text7-->
+        <a-timeline-animation select="#text7" name="toggleon"></a-timeline-animation>
+        <a-timeline-animation select="#text7" name="fadein"></a-timeline-animation>
+        <a-timeline-animation select="#text7" name="delay1"></a-timeline-animation>
+        <a-timeline-animation select="#text7" name="fadeout"></a-timeline-animation>
+        <a-timeline-animation select="#text7" name="toggleoff"></a-timeline-animation>
+        <!-- -->
+
+        <!--#text8-->
+        <a-timeline-animation select="#text8" name="toggleon"></a-timeline-animation>
+        <a-timeline-animation select="#text8" name="fadein"></a-timeline-animation>
+        <a-timeline-animation select="#text8" name="delay1"></a-timeline-animation>
+        <a-timeline-animation select="#text8" name="fadeout"></a-timeline-animation>
+        <a-timeline-animation select="#text8" name="toggleoff"></a-timeline-animation>
+        <!-- -->
+
+        <!--#text9-->
+        <a-timeline-animation select="#text9" name="toggleon"></a-timeline-animation>
+        <a-timeline-animation select="#text9" name="fadein"></a-timeline-animation>
+        <a-timeline-animation select="#text9" name="delay1"></a-timeline-animation>
+        <a-timeline-animation select="#text9" name="delay1"></a-timeline-animation>
+        <a-timeline-animation select="#text9" name="fadeout"></a-timeline-animation>
+        <a-timeline-animation select="#text9" name="toggleoff"></a-timeline-animation>
+        <!-- -->
+
+        <!--rubik-->
+        <a-timeline-group>
+          <a-timeline-animation select="#diceRoot" name="toggleon"></a-timeline-animation>
+          <a-timeline-animation select="#diceRoot" name="diceposition"></a-timeline-animation>
+          <a-timeline-animation select="#diceRoot" name="dicescale"></a-timeline-animation>
+          <a-timeline-animation select="#rubik0" name="layer1"></a-timeline-animation>
+          <a-timeline-animation select="#rubik2" name="layer3"></a-timeline-animation>
+          <a-timeline-animation select="#diceRoot" name="diceanimation"></a-timeline-animation>     
+        </a-timeline-group>
+        <!--rubik-->
+
+      </a-timeline>
+      <!-- -->
+      <!-- Animations Mixin -->
+
+      <a-mixin id="textanimations"
+          animation__fadein="property: text.opacity; from: 0; to: 1; dur: 1000; easing: linear; autoplay: false"
+          animation__fadeout="property: text.opacity; from: 1; to: 0; dur: 500; easing: linear; autoplay: false">
+      </a-mixin>
+
+      <a-mixin id="visibility"
+          animation__toggleon="property: visible; from: false; to: true; dur: 1; autoplay: false"
+          animation__toggleoff="property: visible; from: true; to: false; dur: 1; autoplay: false" 
+          animation__opacityon="property: opacity; to: 1; dur: 1000; autoplay: false" 
+          animation__opacityoff="property: opacity; to: 0; dur: 1000; autoplay: false">
+      </a-mixin>
+
+      <a-mixin id="delay" animation__delay1="property: visible; dur: 1000; autoplay: false"></a-mixin>
+
+      <a-mixin id="scaledown" animation__scaledown="property: scale; to:1 1 1; dur: 3000; easing: easeInOutQuad; loop: false; autoplay: false" ></a-mixin>
+      <a-mixin id="reposition" animation__reposition="property: position; to:0 0 0; dur: 3000; easing: easeInOutQuad; loop: false; autoplay: false" ></a-mixin>
+
+      <a-mixin id="layer1animation" animation__layer1="property: rotation; to: 0 0 360; dur: 6000; easing: easeInOutQuad; loop: true; autoplay: false"></a-mixin>
+      <a-mixin id="layer3animation" animation__layer3="property: rotation; to: 0 0 -360; dur: 7000; easing: easeInOutQuad; loop: true; autoplay: false"></a-mixin>
+      <a-mixin id="diceposition" animation__diceposition="property: position; to: 0 0.5 0.5; dur: 5000; easing: easeInOutQuad; loop: false; autoplay: false"></a-mixin>
+      <a-mixin id="dicescale" animation__dicescale="property: scale; to:2 2 2; dur: 5000; easing: easeInOutQuad; loop: false; autoplay: false" ></a-mixin>
+      <a-mixin id="diceanimation" animation__diceanimation="property: rotation; to: 180 180 180; dur: 10000; easing: easeInOutQuad; loop: true; autoplay: false"></a-mixin>
+
+      <!-- -->
+      <!-- Properties Mixin -->
+      <a-mixin id="imagepanel" material="side: double" ></a-mixin>
+      <a-mixin id="textDefault" font="../../../assets/fonts/Montserrat-SemiBold-msdf.json" negate="false" 
+               font-image="../../../assets/fonts/Montserrat-SemiBold.png"
+               text="align: center; color: #fff; width: 2.5; opacity: 0" visible="false"></a-mixin>
+      <a-mixin id="textShadow" font="../../../assets/fonts/Montserrat-SemiBold-msdf.json" negate="false" 
+               font-image="../../../assets/fonts/Montserrat-SemiBold.png"
+               text="align: center; color: #3f3f3f; width: 2.5; opacity: 0" visible="false" position="-0.003 -0.003 -0.003"></a-mixin>
+      <!-- -->
+      <!-- Assets -->
+        <img id="opera" src="../../../assets/opera/emm.gif" />
+        <video id="opera-mp4" autoplay loop="true" src="../../../assets/opera/LoopEMM.mp4">
+        </video>
+        <video id="particle" autoplay loop="true" webkit-playsinline playsinline crossorigin="anonymous">
+          <source src="../../../assets/video/cubtrasp4444-hevc-safari.mp4" type='video/mp4'>
+          <source src="../../../assets/video/cubtrasp4444-vp9-chrome.webm" type='video/webm'>
+        </video>
+        <img id="opera1" src="../../../assets/opera/EMM1.png" />
+        <img id="opera2" src="../../../assets/opera/EMM2.png" />
+        <img id="opera3" src="../../../assets/opera/EMM3.png" />
+        <img id="opera4" src="../../../assets/opera/EMM4.png" />
+        <img id="opera5" src="../../../assets/opera/EMM5.png" />
+        <img id="opera6" src="../../../assets/opera/EMM6.png" />
+        <img id="opera7" src="../../../assets/opera/EMM7.png" />
+        <img id="opera8" src="../../../assets/opera/EMM8.png" />
+
+
+      </a-assets>
+
+      <a-entity id="ar-target" mindar-image-target="targetIndex: 0">
+
+        <a-video id="video1" src="#opera-mp4" visible="false" class="clickable video" width="1" height="0.552" position="0 0 0.001" scale="1.001 1.001 1.001"></a-video>  
+
+        <a-plane id="plane1" mixin="imagepanel scaledown reposition visibility delay" position=" 0 0.3 1" height="0.552" width="1" opacity="0.6" src="#opera2"></a-plane>
+        <a-plane id="plane2" mixin="imagepanel scaledown reposition visibility delay" position="0 0.6 1.5" height="0.552" width="1" opacity="0.6" src="#opera4"   scale="1.2 1.2 1.2"></a-plane>
+        <a-plane id="plane3" mixin="imagepanel scaledown reposition visibility delay" position="0 0.9 2" height="0.552" width="1" opacity="0.6" src="#opera6"  scale="1.4 1.4 1.4"></a-plane>
+        <a-plane id="plane4" mixin="imagepanel scaledown reposition visibility delay" position="0 1.2 2.5" height="0.552" width="1" opacity="0.6" src="#opera8" scale="1.7 1.7 1.7" ></a-plane>
+
+        <a-entity id="diceRoot" visible="false" position="0 -0.2 -0.2" scale="0 0 0" mixin="diceposition diceanimation dicescale visibility">
+          <a-entity id="rubik0" rubik-cube-param="idx:0" position="0 0 0" mixin="layer1animation"> </a-entity>
+          <a-entity id="rubik1" rubik-cube-param="idx:1" position="0 0 0"> </a-entity>
+          <a-entity id="rubik2" rubik-cube-param="idx:2" position="0 0 0" mixin="layer3animation"> </a-entity>
+        </a-entity>
+
+        <a-entity id="text-container" position="0 0 0">
+            <a-text id="text1" value="LIBERTA'"  mixin="textanimations visibility textDefault delay" position="0.2 0.2 0.1" >
+              <a-text id="text1" value="LIBERTA'"  mixin="textanimations visibility textShadow delay"></a-text>
+            </a-text>
+            <a-text id="text2" value="INDIPENDENZA" mixin="textanimations visibility textDefault delay" position="-0.2 -0.2 0.1">
+              <a-text id="text2" value="INDIPENDENZA"  mixin="textanimations visibility textShadow delay"></a-text>
+            </a-text>
+            <a-text id="text3" value="CORAGGIO" mixin="textanimations visibility textDefault delay" position="-0.2 0.2 0.1">
+              <a-text id="text3" value="CORAGGIO"  mixin="textanimations visibility textShadow delay"></a-text>
+            </a-text>
+            <a-text id="text4" value="SICUREZZA" mixin="textanimations visibility textDefault delay" position="0.2 -0.2 0.1">
+              <a-text id="text4" value="SICUREZZA"  mixin="textanimations visibility textShadow delay"></a-text>
+            </a-text>
+            <a-text id="text5" value="RISPETTO" mixin="textanimations visibility textDefault delay" position="-0.3 0.25 0.1">
+              <a-text id="text5" value="RISPETTO"  mixin="textanimations visibility textShadow delay"></a-text>
+            </a-text>
+            <a-text id="text6" value="EDUCAZIONE" mixin="textanimations visibility textDefault delay" position="-0.3 -0.3 0.1">
+              <a-text id="text6" value="EDUCAZIONE"  mixin="textanimations visibility textShadow delay"></a-text>
+            </a-text>
+            <a-text id="text7" value="PARITA' CON L'UOMO" mixin="textanimations visibility textDefault delay" position="0.2 -0.3 0.1">
+              <a-text id="text7" value="PARITA' CON L'UOMO"  mixin="textanimations visibility textShadow delay"></a-text>
+            </a-text>
+            <a-text id="text8" value="EMANCIPAZIONE" mixin="textanimations visibility textDefault delay" position="-0.3 0.2 0.1">
+              <a-text id="text8" value="EMANCIPAZIONE"  mixin="textanimations visibility textShadow delay"></a-text>
+            </a-text>
+            <a-text id="text9" value="UNIONE TRA DONNE" mixin="textanimations visibility textDefault delay" position="0.0 0.0 0.1">
+              <a-text id="text9" value="UNIONE TRA DONNE"  mixin="textanimations visibility textShadow delay"></a-text>
+            </a-text>
+        </a-entity>
+
       </a-entity>
-    </a-entity>
-  </a-scene>
-</body>
-
+    </a-scene>
+  </body>
 </html>
