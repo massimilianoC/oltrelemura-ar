@@ -48,7 +48,7 @@
 	  <a-assets>
         <img id="opera" src="../../../assets/opera/emm.gif" />
         <video id="opera-mp4" autoplay loop="true" src="../../../assets/opera/LoopEMM.mp4"></video>
-        <video id="particle" autoplay loop="true" src="../../../assets/video/particle_cube.mp4"></video>
+        <video id="particle" autoplay loop="true" src="../../../assets/video/pureblack.mp4"></video>
         <img id="opera1" src="../../../assets/opera/EMM1.png" />
         <img id="opera2" src="../../../assets/opera/EMM2.png" />
         <img id="opera3" src="../../../assets/opera/EMM3.png" />
@@ -86,7 +86,7 @@
         animation__scale="property: scale; to:1 1 1; delay:2000; dur: 6000; easing: easeInOutQuad; loop: false" 
         id="plane8" position="0 0 0" height="0.552" width="1" rotation="0 0 0" scale="1.7 1.7 1.7" opacity="0.5"></a-plane material="side: double" >
 
-        <a-entity id="root"  position="0 -0.2 -0.2"  scale="0 0 0" 
+        <a-entity id="root" visible="false" position="0 -0.2 -0.2"  scale="0 0 0" 
         animation="property: position; to: 0 0.5 0.5; delay:8000; dur: 6000; easing: easeInOutQuad; loop: false"  
         animation__scale="property: scale; to:2 2 2; delay:8000; dur: 6000; easing: easeInOutQuad; loop: false" 
         mixin="dice_animation">
@@ -96,7 +96,7 @@
         </a-entity>
 
         <a-entity position="0 0.25 -0.1">
-          <a-entity position="0 0 0" animation="property: position; to: 0 0 0.3; delay:15000; dur: 1000; easing: easeInQuad; loop: false">
+          <a-entity position="0 0 0" animation="property: position; to: 0 0 0.3; delay:0; dur: 1000; easing: easeInQuad; loop: false">
             <a-text position="0 0 0.01"   
             value="LIBERTA'" align="center" text="width: 2.5" font="../../../assets/fonts/Montserrat-SemiBold-msdf.json" 
             negate="false" font-image="../../../assets/fonts/Montserrat-SemiBold.png"></a-text>
