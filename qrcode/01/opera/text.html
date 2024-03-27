@@ -77,8 +77,8 @@
           animation__togglevisibleoff="property: visible; from: true; to: false; dur: 1; autoplay: false" >
       </a-mixin>
 
-      <a-mixin id="scaleDown" animation__scaledown="property: scale; to:1 1 1; delay:2000; dur: 6000; easing: easeInOutQuad; loop: false; autoplay: false" ></a-mixin>
-      <a-mixin id="reposition" animation__reposition="property: position; to:0 0 0; delay:1000; dur: 7000; easing: easeInOutQuad; loop: false; autoplay: false" ></a-mixin>
+      <a-mixin id="scaledown" animation__scaledown="property: scale; to:1 1 1; delay:1000; dur: 3000; easing: easeInOutQuad; loop: false; autoplay: false" ></a-mixin>
+      <a-mixin id="reposition" animation__reposition="property: position; to:0 0 0; delay:1000; dur: 3000; easing: easeInOutQuad; loop: false; autoplay: false" ></a-mixin>
 
       <a-mixin id="layer1_animation" animation__layer1="property: rotation; to: 0 0 360; dur: 5000; easing: easeInOutQuad; loop: true; autoplay: false"></a-mixin>
       <a-mixin id="layer3_animation" animation__layer3="property: rotation; to: 0 0 -360; dur: 6000; easing: easeInOutQuad; loop: true; autoplay: false"></a-mixin>
@@ -87,7 +87,7 @@
       <a-mixin id="dice_rotation" animation__scaleDice="property: scale; to:2 2 2; delay:8000; dur: 6000; easing: easeInOutQuad; loop: false; autoplay: false" ></a-mixin>
       <!-- -->
       <!-- Properties Mixin -->
-      <a-mixin id="imagePanel" height="0.552" width="1" rotation="0 0 0" opacity="0.6"  material="side: double" ></a-mixin>
+      <a-mixin id="imagepanel" height="0.552" width="1" rotation="0 0 0" opacity="0.6"  material="side: double" ></a-mixin>
       <a-mixin id="textDefault" font="../../../assets/fonts/Montserrat-SemiBold-msdf.json" negate="false" 
                font-image="../../../assets/fonts/Montserrat-SemiBold.png"
                text="align: center; color: #fff; width: 2.5; opacity: 0" visible="false"></a-mixin>
@@ -116,10 +116,10 @@
 
         <a-video id="video1" src="#opera-mp4" visible="false" class="clickable video" width="1" height="0.552" position="0 0 0.001" scale="1.001 1.001 1.001"></a-video>  
 
-        <a-plane id="plane1" mixin="scaleDown reposition imagePanel" position=" 0 0.3 0.5" src="#opera2"  ></a-plane>
-        <a-plane id="plane2" mixin="scaleDown reposition imagePanel"  position="0 0.6 1.0" src="#opera4"   scale="1.2 1.2 1.2"></a-plane>
-        <a-plane id="plane3" mixin="scaleDown reposition imagePanel"  position="0 0.9 1.5" src="#opera6"  scale="1.4 1.4 1.4"></a-plane>
-        <a-plane id="plane4" mixin="scaleDown reposition imagePanel"  position="0 1.2 2.0" src="#opera8" scale="1.7 1.7 1.7" ></a-plane>
+        <a-plane id="plane1" mixin="imagepanel scaledown reposition" position=" 0 0.3 0.5" src="#opera2"></a-plane>
+        <a-plane id="plane2" mixin="imagepanel scaledown reposition"  position="0 0.6 1.0" src="#opera4"   scale="1.2 1.2 1.2"></a-plane>
+        <a-plane id="plane3" mixin="imagepanel scaledown reposition" position="0 0.9 1.5" src="#opera6"  scale="1.4 1.4 1.4"></a-plane>
+        <a-plane id="plane4" mixin="imagepanel scaledown reposition "  position="0 1.2 2.0" src="#opera8" scale="1.7 1.7 1.7" ></a-plane>
 
         <a-entity id="root" visible="false" position="0 -0.2 -0.2"  scale="0 0 0" mixin="dice_animation dice_position dice_rotation">
           <a-entity id="rubik0" rubik-cube-param="idx:0" position="0 0 0" mixin="layer1_animation"> </a-entity>
