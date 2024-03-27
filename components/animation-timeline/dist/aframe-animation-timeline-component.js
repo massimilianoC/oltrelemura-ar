@@ -44,9 +44,9 @@
 /* 0 */
 /***/ (function(module, exports) {
 
-	document.registerElement('a-timeline');
-	document.registerElement('a-timeline-group');
-	document.registerElement('a-timeline-animation');
+	//document.registerElement('a-timeline');
+	//document.registerElement('a-timeline-group');
+	//document.registerElement('a-timeline-animation');
 
 	AFRAME.registerComponent('animation-timeline', {
 	  schema: {
