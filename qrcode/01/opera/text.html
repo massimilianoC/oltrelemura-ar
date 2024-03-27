@@ -93,12 +93,12 @@
           <a-entity id="rubik2" rubik-cube-param="idx:2" position="0 0 0" mixin="layer3_animation"> </a-entity>
         </a-entity>
 
-        <a-entity position="0 0.25 -0.5">
-          <a-entity position="0 0 0" animation="property: position; to: 0 0 0.1; delay:15000; dur: 10000; easing: easeInQuad; loop: false">
+        <a-entity position="0 0.25 -0.1">
+          <a-entity position="0 0 0" animation="property: position; to: 0 0 0.3; delay:15000; dur: 10000; easing: easeInQuad; loop: false">
             <a-text position="0 0 0.1"   
             value="LIBERTA'" align="center" text="width: 2.5" font="../../../assets/fonts/Montserrat-SemiBold-msdf.json" 
             negate="false" font-image="../../../assets/fonts/Montserrat-SemiBold.png"></a-text>
-            <a-video src="#particle"></a-video>
+            <a-plane src="#particle" width="0.3" height="0.3" material="blending: additive"></a-video>
           </a-entity>
           <a-text position="0 0 0" animation="property: position; to: 0 0 5; delay:18000; dur: 10000; easing: easeInQuad; loop: false"  
           value="INDIPENDENZA" align="center" text="width: 2.5; font: roboto" ></a-text>
