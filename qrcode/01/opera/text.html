@@ -4,11 +4,11 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
-	<script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
-  <script src="../../../scripts/paintOnCanvas.js"></script>
-  <script src="../../../scripts/rubik-cube-param.js"></script>
-  <script src="../../../components/particle/dist/aframe-particle-system-component.js"></script>
-  <link rel="stylesheet" type="text/css" href="../../../css/global.css" />
+    <script src="../../../scripts/rubik-cube-param.js"></script>
+    <script src="../../../components/particle/dist/aframe-particle-system-component.js"></script>
+    <script src="../../../components/animation-timeline/dist/aframe-animation-timeline-component.js"></script>
+    <script src="../../../components/randomizer/dist/aframe-randomizer-components.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../css/global.css" />
     <script>
       document.addEventListener("DOMContentLoaded", function() {
        
@@ -35,7 +35,9 @@
       <button id="debug-unpause-button">UnPause</button>
       <button id="debug-stop-button">Stop</button>
     </div>
+    
     <a-scene 
+    animation-timeline__1="timeline: #animationTimeline; loop: false"
     webxr="optionalFeatures: hit-test, local-floor;" ar-hit-test="target:#dice;"
     mindar-image="imageTargetSrc: ../../../model/blur.mind; autoStart: true; filterMinCF:0.001; filterBeta: 0.01; warmupTolerance: 1; missTolerance: 1" 
     color-space="sRGB" 
@@ -43,15 +45,60 @@
     vr-mode-ui="enabled: false" 
     device-orientation-permission-ui="enabled: false">
       
-	<a-camera position="0 0 0" look-controls="enabled: false" cursor="fuse: false; rayOrigin: mouse;" raycaster="near: 10; far: 10000; objects: .clickable"></a-camera>
+	  <a-camera position="0 0 0" look-controls="enabled: false" cursor="fuse: false; rayOrigin: mouse;" raycaster="near: 10; far: 10000; objects: .clickable"></a-camera>
       
-	  <a-assets>
+	  <a-assets timeout="10000">
+      <!-- Animation Timeline -->
+      <a-timeline id="animationTimeline">
+        <a-timeline-group>
+          <a-timeline-animation select="a-plane[mixin~=box]" name="scaleDown"></a-timeline-animation>
+          <a-timeline-animation select="a-plane[mixin~=box]" name="reposition"></a-timeline-animation>
+        </a-timeline-group>
+<!--
+        <a-timeline-group>
+          <a-timeline-animation select="a-entity[mixin~=box]" name="fadein"></a-timeline-animation>
+          <a-timeline-animation select="a-entity[mixin~=box]" name="scale"></a-timeline-animation>
+          <a-timeline-animation select="a-entity[mixin~=box]" name="color"></a-timeline-animation>
+        </a-timeline-group>
+
+        <a-timeline-animation select="#text1" name="togglevisible"></a-timeline-animation>
+        <a-timeline-animation select="#text1" name="fadein"></a-timeline-animation>
+        <a-timeline-animation select="#text1" name="fadeout"></a-timeline-animation>
+        <a-timeline-animation select="#text1" name="togglevisibleoff"></a-timeline-animation>
+      </a-timeline>
+-->
+      <!-- -->
+      <!-- Animations Mixin -->
+
+      <a-mixin id="text-animations"
+          animation__fadein="property: text.opacity; from: 0; to: 1; dur: 3000; easing: linear; autoplay: false"
+          animation__fadeout="property: text.opacity; from: 1; to: 0; dur: 3000; easing: linear; autoplay: false"
+          animation__togglevisible="property: visible; from: false; to: true; dur: 1; autoplay: false"
+          animation__togglevisibleoff="property: visible; from: true; to: false; dur: 1; autoplay: false" >
+      </a-mixin>
+
+      <a-mixin id="scaleDown" animation__scaleDown="property: scale; to:1 1 1; delay:2000; dur: 6000; easing: easeInOutQuad; loop: false; autoplay: false" ></a-mixin>
+      <a-mixin id="reposition" animation__reposition="property: position; to:0 0 0; delay:1000; dur: 7000; easing: easeInOutQuad; loop: false; autoplay: false" ></a-mixin>
+
+      <a-mixin id="layer1_animation" animation__layer1="property: rotation; to: 0 0 360; dur: 5000; easing: easeInOutQuad; loop: true; autoplay: false"></a-mixin>
+      <a-mixin id="layer3_animation" animation__layer3="property: rotation; to: 0 0 -360; dur: 6000; easing: easeInOutQuad; loop: true; autoplay: false"></a-mixin>
+      <a-mixin id="dice_animation" animation__dice="property: rotation; to: 360 360 360; dur: 50000; easing: easeInOutQuad; loop: true; autoplay: false"></a-mixin>
+      <a-mixin id="dice_position"  animation_positionDice="property: position; to: 0 0.5 0.5; delay:8000; dur: 6000; easing: easeInOutQuad; loop: false; autoplay: false"></a-mixin>
+      <a-mixin id="dice_rotation" animation__scaleDice="property: scale; to:2 2 2; delay:8000; dur: 6000; easing: easeInOutQuad; loop: false; autoplay: false" ></a-mixin>
+      <!-- -->
+      <!-- Properties Mixin -->
+      <a-mixin id="imagePanel" height="0.552" width="1" rotation="0 0 0" opacity="0.6"  material="side: double" ></a-mixin>
+      <a-mixin id="textDefault" font="../../../assets/fonts/Montserrat-SemiBold-msdf.json" negate="false" 
+               font-image="../../../assets/fonts/Montserrat-SemiBold.png"
+               text="align: center; color: #fff; width: 2.5; opacity: 0" visible="false"></a-mixin>
+      <!-- -->
+      <!-- Assets -->
         <img id="opera" src="../../../assets/opera/emm.gif" />
         <video id="opera-mp4" autoplay loop="true" src="../../../assets/opera/LoopEMM.mp4">
         </video>
         <video id="particle" autoplay loop="true" webkit-playsinline playsinline crossorigin="anonymous">
-          <source src="../../../assets/video/cubtrasp4444-hevc-safari.mp4" type='video/mp4; codecs="avc1.4D401E, mp4a.40.2"'>
-          <source src="../../../assets/video/cubtrasp4444-vp9-chrome.webm" type='video/webm; codecs="vp8.0, vorbis"'>
+          <source src="../../../assets/video/cubtrasp4444-hevc-safari.mp4" type='video/mp4'>
+          <source src="../../../assets/video/cubtrasp4444-vp9-chrome.webm" type='video/webm'>
         </video>
         <img id="opera1" src="../../../assets/opera/EMM1.png" />
         <img id="opera2" src="../../../assets/opera/EMM2.png" />
@@ -61,54 +108,30 @@
         <img id="opera6" src="../../../assets/opera/EMM6.png" />
         <img id="opera7" src="../../../assets/opera/EMM7.png" />
         <img id="opera8" src="../../../assets/opera/EMM8.png" />
-        <a-mixin id="layer1_animation" animation__rotation="property: rotation; to: 0 0 360; dur: 5000; easing: easeInOutQuad; loop: true"></a-mixin>
-        <a-mixin id="layer3_animation" animation__rotation="property: rotation; to: 0 0 -360; dur: 6000; easing: easeInOutQuad; loop: true"></a-mixin>
-        <a-mixin id="dice_animation" animation__rotation="property: rotation; to: 360 360 360; dur: 50000; easing: easeInOutQuad; loop: true"></a-mixin>
+
+
       </a-assets>
 
       <a-entity id="ar-target" mindar-image-target="targetIndex: 0">
 
-        <a-video src="#opera-mp4" class="clickable video" width="1" height="0.552" position="0 0 0.001" scale="1.001 1.001 1.001"></a-video>  
+        <a-video id="video1" src="#opera-mp4" visible="false" class="clickable video" width="1" height="0.552" position="0 0 0.001" scale="1.001 1.001 1.001"></a-video>  
 
-        <a-plane material="side: double"  	position=" 0 0.3 0.5" src="#opera2"
-        animation="property: position; to:0 0 0; delay:1000; dur: 7000; easing: easeInOutQuad; loop: false" 
-        animation__scale="property: scale; to:1 1 1; delay:2000; dur: 6000; easing: easeInOutQuad; loop: false" 
-        id="plane2" position="0 0 0" height="0.552" width="1" rotation="0 0 0" opacity="0.5"></a-plane material="side: double" >
+        <a-plane id="plane1" mixin="scaleDown reposition imagePanel" position=" 0 0.3 0.5" src="#opera2"  ></a-plane>
+        <a-plane id="plane2" mixin="scaleDown reposition imagePanel"  position="0 0.6 1.0" src="#opera4"   scale="1.2 1.2 1.2"></a-plane>
+        <a-plane id="plane3" mixin="scaleDown reposition imagePanel"  position="0 0.9 1.5" src="#opera6"  scale="1.4 1.4 1.4"></a-plane>
+        <a-plane id="plane4" mixin="scaleDown reposition imagePanel"  position="0 1.2 2.0" src="#opera8" scale="1.7 1.7 1.7" ></a-plane>
 
-        <a-plane material="side: double"  	position="0 0.6 1.0" src="#opera4" 
-        animation="property: position; to: 0 0 0;delay:1000; dur: 7000; easing: easeInOutQuad; loop: false" 
-        animation__scale="property: scale; to:1 1 1; delay:2000; dur: 6000; easing: easeInOutQuad; loop: false" 
-        id="plane4" position="0 0 0" height="0.552" width="1" rotation="0 0 0" opacity="0.5" scale="1.2 1.2 1.2"></a-plane material="side: double" >
-
-        <a-plane material="side: double"  	position="0 0.9 1.5" src="#opera6" 
-        animation="property: position; to: 0 0 0; delay:1000; dur: 7000; easing: easeInOutQuad; loop: false" 
-        animation__scale="property: scale; to:1 1 1; delay:2000; dur: 6000; easing: easeInOutQuad; loop: false" 
-        id="plane6" position="0 0 0" height="0.552" width="1" rotation="0 0 0" opacity="0.5" scale="1.4 1.4 1.4"></a-plane material="side: double" >
-
-        <a-plane material="side: double" 	position="0 1.2 2.0" src="#opera8" 
-        animation="property: position; to: 0 0 0; delay:1000; dur: 7000; easing: easeInOutQuad; loop: false" 
-        animation__scale="property: scale; to:1 1 1; delay:2000; dur: 6000; easing: easeInOutQuad; loop: false" 
-        id="plane8" position="0 0 0" height="0.552" width="1" rotation="0 0 0" scale="1.7 1.7 1.7" opacity="0.5"></a-plane material="side: double" >
-
-        <a-entity id="root" visible="false" position="0 -0.2 -0.2"  scale="0 0 0" 
-        animation="property: position; to: 0 0.5 0.5; delay:8000; dur: 6000; easing: easeInOutQuad; loop: false"  
-        animation__scale="property: scale; to:2 2 2; delay:8000; dur: 6000; easing: easeInOutQuad; loop: false" 
-        mixin="dice_animation">
+        <a-entity id="root" visible="false" position="0 -0.2 -0.2"  scale="0 0 0" mixin="dice_animation dice_position dice_rotation">
           <a-entity id="rubik0" rubik-cube-param="idx:0" position="0 0 0" mixin="layer1_animation"> </a-entity>
           <a-entity id="rubik1" rubik-cube-param="idx:1" position="0 0 0"> </a-entity>
           <a-entity id="rubik2" rubik-cube-param="idx:2" position="0 0 0" mixin="layer3_animation"> </a-entity>
         </a-entity>
 
-        <a-entity position="0 0.25 -0.1">
-          <a-entity position="0 0 0" animation="property: position; to: 0 0 0.3; delay:0; dur: 1000; easing: easeInQuad; loop: false">
-            <a-text position="0 0 0.01"   
-            value="LIBERTA'" align="center" text="width: 2.5" font="../../../assets/fonts/Montserrat-SemiBold-msdf.json" 
-            negate="false" font-image="../../../assets/fonts/Montserrat-SemiBold.png"></a-text>
-            <a-video width="0.3" height="0.3" src="#particle" transparent="true"></a-video>
-          </a-entity>
-          <a-text position="0 0 0" animation="property: position; to: 0 0 5; delay:18000; dur: 10000; easing: easeInQuad; loop: false"  
-          value="INDIPENDENZA" align="center" text="width: 2.5; font: roboto" ></a-text>
+        <a-entity id="text-container" position="0 0.2 -0.1">
+            <a-text id="text1" value="LIBERTA'"  mixin="text textDefault" position="0 0 0.01" ></a-text>
+            <a-text id="text2" value="INDIPENDENZA" mixin="text textDefault" position="-0.5 -0.5 0.01"></a-text>
         </a-entity>
+
       </a-entity>
     </a-scene>
   </body>
