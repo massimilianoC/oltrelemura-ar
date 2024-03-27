@@ -66,7 +66,6 @@
         <a-timeline-animation select="#text1" name="toggleon"></a-timeline-animation>
         <a-timeline-animation select="#text1" name="fadein"></a-timeline-animation>
         <a-timeline-animation select="#text2" name="delay1"></a-timeline-animation>
-        <a-timeline-animation select="#text2" name="delay1"></a-timeline-animation>
         <a-timeline-animation select="#text1" name="fadeout"></a-timeline-animation>
         <a-timeline-animation select="#text1" name="toggleoff"></a-timeline-animation>
         <!-- -->
@@ -74,7 +73,6 @@
         <!--#text2-->
         <a-timeline-animation select="#text2" name="toggleon"></a-timeline-animation>
         <a-timeline-animation select="#text2" name="fadein"></a-timeline-animation>
-        <a-timeline-animation select="#text2" name="delay1"></a-timeline-animation>
         <a-timeline-animation select="#text2" name="delay1"></a-timeline-animation>
         <a-timeline-animation select="#text2" name="fadeout"></a-timeline-animation>
         <a-timeline-animation select="#text2" name="toggleoff"></a-timeline-animation>
@@ -84,7 +82,6 @@
         <a-timeline-animation select="#text3" name="toggleon"></a-timeline-animation>
         <a-timeline-animation select="#text3" name="fadein"></a-timeline-animation>
         <a-timeline-animation select="#text3" name="delay1"></a-timeline-animation>
-        <a-timeline-animation select="#text3" name="delay1"></a-timeline-animation>
         <a-timeline-animation select="#text3" name="fadeout"></a-timeline-animation>
         <a-timeline-animation select="#text3" name="toggleoff"></a-timeline-animation>
         <!-- -->
@@ -92,7 +89,6 @@
         <!--#text4-->
         <a-timeline-animation select="#text4" name="toggleon"></a-timeline-animation>
         <a-timeline-animation select="#text4" name="fadein"></a-timeline-animation>
-        <a-timeline-animation select="#text4" name="delay1"></a-timeline-animation>
         <a-timeline-animation select="#text4" name="delay1"></a-timeline-animation>
         <a-timeline-animation select="#text4" name="fadeout"></a-timeline-animation>
         <a-timeline-animation select="#text4" name="toggleoff"></a-timeline-animation>
@@ -102,7 +98,6 @@
         <a-timeline-animation select="#text5" name="toggleon"></a-timeline-animation>
         <a-timeline-animation select="#text5" name="fadein"></a-timeline-animation>
         <a-timeline-animation select="#text5" name="delay1"></a-timeline-animation>
-        <a-timeline-animation select="#text5" name="delay1"></a-timeline-animation>
         <a-timeline-animation select="#text5" name="fadeout"></a-timeline-animation>
         <a-timeline-animation select="#text5" name="toggleoff"></a-timeline-animation>
         <!-- -->
@@ -111,10 +106,43 @@
         <a-timeline-animation select="#text6" name="toggleon"></a-timeline-animation>
         <a-timeline-animation select="#text6" name="fadein"></a-timeline-animation>
         <a-timeline-animation select="#text6" name="delay1"></a-timeline-animation>
-        <a-timeline-animation select="#text6" name="delay1"></a-timeline-animation>
         <a-timeline-animation select="#text6" name="fadeout"></a-timeline-animation>
         <a-timeline-animation select="#text6" name="toggleoff"></a-timeline-animation>
         <!-- -->
+
+        <!--#text7-->
+        <a-timeline-animation select="#text7" name="toggleon"></a-timeline-animation>
+        <a-timeline-animation select="#text7" name="fadein"></a-timeline-animation>
+        <a-timeline-animation select="#text7" name="delay1"></a-timeline-animation>
+        <a-timeline-animation select="#text7" name="fadeout"></a-timeline-animation>
+        <a-timeline-animation select="#text7" name="toggleoff"></a-timeline-animation>
+        <!-- -->
+
+        <!--#text8-->
+        <a-timeline-animation select="#text8" name="toggleon"></a-timeline-animation>
+        <a-timeline-animation select="#text8" name="fadein"></a-timeline-animation>
+        <a-timeline-animation select="#text8" name="delay1"></a-timeline-animation>
+        <a-timeline-animation select="#text8" name="fadeout"></a-timeline-animation>
+        <a-timeline-animation select="#text8" name="toggleoff"></a-timeline-animation>
+        <!-- -->
+
+        <!--#text9-->
+        <a-timeline-animation select="#text9" name="toggleon"></a-timeline-animation>
+        <a-timeline-animation select="#text9" name="fadein"></a-timeline-animation>
+        <a-timeline-animation select="#text9" name="delay1"></a-timeline-animation>
+        <a-timeline-animation select="#text9" name="fadeout"></a-timeline-animation>
+        <a-timeline-animation select="#text9" name="toggleoff"></a-timeline-animation>
+        <!-- -->
+
+        <!--rubik-->
+        <a-timeline-group>
+          <a-timeline-animation select="#diceRoot" name="diceposition"></a-timeline-animation>
+          <a-timeline-animation select="#diceRoot" name="dicescale"></a-timeline-animation>
+          <a-timeline-animation select="#diceRoot" name="dicerotation"></a-timeline-animation>
+          <a-timeline-animation select="#rubik0" name="layer1"></a-timeline-animation>
+          <a-timeline-animation select="#rubik2" name="layer3"></a-timeline-animation>
+        </a-timeline-group>
+        <!--rubik-->
 
       </a-timeline>
       <!-- -->
@@ -140,7 +168,7 @@
       <a-mixin id="layer1_animation" animation__layer1="property: rotation; to: 0 0 360; dur: 5000; easing: easeInOutQuad; loop: true; autoplay: false"></a-mixin>
       <a-mixin id="layer3_animation" animation__layer3="property: rotation; to: 0 0 -360; dur: 6000; easing: easeInOutQuad; loop: true; autoplay: false"></a-mixin>
       <a-mixin id="dice_animation" animation__dicerotation="property: rotation; to: 360 360 360; dur: 50000; easing: easeInOutQuad; loop: true; autoplay: false"></a-mixin>
-      <a-mixin id="dice_position"  animation_dicpositione="property: position; to: 0 0.5 0.5; delay:8000; dur: 6000; easing: easeInOutQuad; loop: false; autoplay: false"></a-mixin>
+      <a-mixin id="dice_position"  animation_diceposition="property: position; to: 0 0.5 0.5; delay:8000; dur: 6000; easing: easeInOutQuad; loop: false; autoplay: false"></a-mixin>
       <a-mixin id="dice_rotation" animation__dicescale="property: scale; to:2 2 2; delay:8000; dur: 6000; easing: easeInOutQuad; loop: false; autoplay: false" ></a-mixin>
       <!-- -->
       <!-- Properties Mixin -->
@@ -181,7 +209,7 @@
         <a-plane id="plane3" mixin="imagepanel scaledown reposition visibility" position="0 0.9 2" height="0.552" width="1" opacity="0.6" src="#opera6"  scale="1.4 1.4 1.4"></a-plane>
         <a-plane id="plane4" mixin="imagepanel scaledown reposition visibility"  position="0 1.2 2.5" height="0.552" width="1" opacity="0.6" src="#opera8" scale="1.7 1.7 1.7" ></a-plane>
 
-        <a-entity id="root" visible="false" position="0 -0.2 -0.2"  scale="0 0 0" mixin="dice_animation dice_position dice_rotation">
+        <a-entity id="diceRoot" visible="false" position="0 -0.2 -0.2"  scale="0 0 0" mixin="dice_animation dice_position dice_rotation">
           <a-entity id="rubik0" rubik-cube-param="idx:0" position="0 0 0" mixin="layer1_animation"> </a-entity>
           <a-entity id="rubik1" rubik-cube-param="idx:1" position="0 0 0"> </a-entity>
           <a-entity id="rubik2" rubik-cube-param="idx:2" position="0 0 0" mixin="layer3_animation"> </a-entity>
@@ -201,10 +229,19 @@
               <a-text id="text4" value="SICUREZZA"  mixin="textanimations visibility textShadow delay"></a-text>
             </a-text>
             <a-text id="text5" value="RISPETTO" mixin="textanimations visibility textDefault delay" position="-0.3 0.3 0.1">
-              <a-text id="text4" value="RISPETTO"  mixin="textanimations visibility textShadow delay"></a-text>
+              <a-text id="text5" value="RISPETTO"  mixin="textanimations visibility textShadow delay"></a-text>
             </a-text>
             <a-text id="text6" value="EDUCAZIONE" mixin="textanimations visibility textDefault delay" position="-0.3 -0.3 0.1">
-              <a-text id="text4" value="EDUCAZIONE"  mixin="textanimations visibility textShadow delay"></a-text>
+              <a-text id="text6" value="EDUCAZIONE"  mixin="textanimations visibility textShadow delay"></a-text>
+            </a-text>
+            <a-text id="text7" value="PARITA' CON L'UOMO" mixin="textanimations visibility textDefault delay" position="0.2 -0.3 0.1">
+              <a-text id="text7" value="PARITA' CON L'UOMO"  mixin="textanimations visibility textShadow delay"></a-text>
+            </a-text>
+            <a-text id="text8" value="EMANCIPAZIONE" mixin="textanimations visibility textDefault delay" position="-0.3 0.2 0.1">
+              <a-text id="text8" value="EMANCIPAZIONE"  mixin="textanimations visibility textShadow delay"></a-text>
+            </a-text>
+            <a-text id="text9" value="UNIONE TRA DONNE" mixin="textanimations visibility textDefault delay" position="0.3 0.3 0.1">
+              <a-text id="text9" value="UNIONE TRA DONNE"  mixin="textanimations visibility textShadow delay"></a-text>
             </a-text>
         </a-entity>
 
