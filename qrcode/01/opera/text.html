@@ -51,7 +51,7 @@
       <!-- Animation Timeline -->
       <a-timeline id="animationTimeline">
         <a-timeline-group>
-          <a-timeline-animation select="a-plane[mixin~=scaleDown]" name="scaleDown"></a-timeline-animation>
+          <a-timeline-animation select="a-plane[mixin~=scaleDown]" name="scaledown"></a-timeline-animation>
           <a-timeline-animation select="a-plane[mixin~=scaleDown]" name="reposition"></a-timeline-animation>
         </a-timeline-group>
 <!--
@@ -77,7 +77,7 @@
           animation__togglevisibleoff="property: visible; from: true; to: false; dur: 1; autoplay: false" >
       </a-mixin>
 
-      <a-mixin id="scaleDown" animation__scaleDown="property: scale; to:1 1 1; delay:2000; dur: 6000; easing: easeInOutQuad; loop: false; autoplay: false" ></a-mixin>
+      <a-mixin id="scaleDown" animation__scaledown="property: scale; to:1 1 1; delay:2000; dur: 6000; easing: easeInOutQuad; loop: false; autoplay: false" ></a-mixin>
       <a-mixin id="reposition" animation__reposition="property: position; to:0 0 0; delay:1000; dur: 7000; easing: easeInOutQuad; loop: false; autoplay: false" ></a-mixin>
 
       <a-mixin id="layer1_animation" animation__layer1="property: rotation; to: 0 0 360; dur: 5000; easing: easeInOutQuad; loop: true; autoplay: false"></a-mixin>
