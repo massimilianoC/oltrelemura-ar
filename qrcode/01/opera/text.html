@@ -61,31 +61,32 @@
           <a-timeline-animation select="#plane2" name="opacityoff"></a-timeline-animation>
           <a-timeline-animation select="#plane1" name="opacityoff"></a-timeline-animation>
         </a-timeline-group>
-<!--
+
+        <!--#text1-->
         <a-timeline-animation select="#text1" name="togglevisible"></a-timeline-animation>
         <a-timeline-animation select="#text1" name="fadein"></a-timeline-animation>
         <a-timeline-animation select="#text1" name="fadeout"></a-timeline-animation>
         <a-timeline-animation select="#text1" name="togglevisibleoff"></a-timeline-animation>
+        <!-- -->
+
       </a-timeline>
--->
       <!-- -->
       <!-- Animations Mixin -->
 
-      <a-mixin id="text-animations"
-          animation__fadein="property: text.opacity; from: 0; to: 1; dur: 3000; easing: linear; autoplay: false"
-          animation__fadeout="property: text.opacity; from: 1; to: 0; dur: 3000; easing: linear; autoplay: false">
+      <a-mixin id="textanimations"
+          animation__fadein="property: text.opacity; from: 0; to: 1; dur: 2000; easing: linear; autoplay: false"
+          animation__fadeout="property: text.opacity; from: 1; to: 0; dur: 2000; easing: linear; autoplay: false">
       </a-mixin>
 
       <a-mixin id="visibility"
           animation__toggleon="property: visible; from: false; to: true; dur: 1; autoplay: false"
           animation__toggleoff="property: visible; from: true; to: false; dur: 1; autoplay: false" 
           animation__opacityon="property: opacity; to: 1; dur: 1000; autoplay: false" 
-          animation__opacityoff="property: opacity; to: 0; dur: 1000; autoplay: false" 
-          >
+          animation__opacityoff="property: opacity; to: 0; dur: 1000; autoplay: false">
       </a-mixin>
 
-      <a-mixin id="scaledown" animation__scaledown="property: scale; to:1 1 1; delay:1000; dur: 3000; easing: easeInOutQuad; loop: false; autoplay: false" ></a-mixin>
-      <a-mixin id="reposition" animation__reposition="property: position; to:0 0 0; delay:1000; dur: 3000; easing: easeInOutQuad; loop: false; autoplay: false" ></a-mixin>
+      <a-mixin id="scaledown" animation__scaledown="property: scale; to:1 1 1; delay:2000; dur: 3000; easing: easeInOutQuad; loop: false; autoplay: false" ></a-mixin>
+      <a-mixin id="reposition" animation__reposition="property: position; to:0 0 0; delay:2000; dur: 3000; easing: easeInOutQuad; loop: false; autoplay: false" ></a-mixin>
 
       <a-mixin id="layer1_animation" animation__layer1="property: rotation; to: 0 0 360; dur: 5000; easing: easeInOutQuad; loop: true; autoplay: false"></a-mixin>
       <a-mixin id="layer3_animation" animation__layer3="property: rotation; to: 0 0 -360; dur: 6000; easing: easeInOutQuad; loop: true; autoplay: false"></a-mixin>
@@ -135,8 +136,8 @@
         </a-entity>
 
         <a-entity id="text-container" position="0 0.2 -0.1">
-            <a-text id="text1" value="LIBERTA'"  mixin="text textDefault" position="0 0 0.01" ></a-text>
-            <a-text id="text2" value="INDIPENDENZA" mixin="text textDefault" position="0 0 0.01"></a-text>
+            <a-text id="text1" value="LIBERTA'"  mixin="textanimations visibility textDefault" position="0 0 0.01" ></a-text>
+            <a-text id="text2" value="INDIPENDENZA" mixin="textanimations visibility textDefault" position="0 0 0.01"></a-text>
         </a-entity>
 
       </a-entity>
