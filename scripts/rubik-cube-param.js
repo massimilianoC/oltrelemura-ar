@@ -110,6 +110,11 @@ AFRAME.registerComponent('rubik-cube-param',{
                     newPlane.setAttribute("class","clickable face");
                     newPlane.setAttribute('rotation',rotation);
                     newBlock.appendChild(newPlane);
+                    //events
+                    newBlock.addEventListener("click", (e) => {
+                      console.log(e);
+                      document.querySelector('#rubik0').emit('layer1'); 
+                    });
                     faceCounter++;
                 }           
             }
