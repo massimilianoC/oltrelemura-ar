@@ -114,12 +114,12 @@ AFRAME.registerComponent('rubik-cube-param',{
                     //events
                     newBlock.addEventListener("click", (e) => {
                       var cube = document.querySelector('#rubik0');
-                      cube.emit('layer1', null, false); 
+                      cube.setAttribute("animation","property:rotation; to: 0 0 0");
                       e.stopPropagation();
                       e.preventDefault()
                       console.log(this);
                     },false);
-                    
+
                     faceCounter++;
                 }           
             }
