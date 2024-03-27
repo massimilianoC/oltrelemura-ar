@@ -47,8 +47,12 @@
       
 	  <a-assets>
         <img id="opera" src="../../../assets/opera/emm.gif" />
-        <video id="opera-mp4" autoplay loop="true" src="../../../assets/opera/LoopEMM.mp4"></video>
-        <video id="particle" autoplay loop="true" src="../../../assets/video/cubtrasp4444-vp9-chrome.webm" webkit-playsinline playsinline crossorigin="anonymous"></video>
+        <video id="opera-mp4" autoplay loop="true" src="../../../assets/opera/LoopEMM.mp4">
+        </video>
+        <video id="particle" autoplay loop="true" webkit-playsinline playsinline crossorigin="anonymous">
+          <source src="../../../assets/video/cubtrasp4444-vp9-chrome.webm" type='video/webm; codecs="vp8.0, vorbis"'>
+          <source src="../../../assets/video/cubtrasp4444-hevc-safari.mp4" type='video/mp4; codecs="avc1.4D401E, mp4a.40.2"'>
+        </video>
         <img id="opera1" src="../../../assets/opera/EMM1.png" />
         <img id="opera2" src="../../../assets/opera/EMM2.png" />
         <img id="opera3" src="../../../assets/opera/EMM3.png" />
