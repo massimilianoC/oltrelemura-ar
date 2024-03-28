@@ -200,8 +200,8 @@ function rotateFace(block){
     var newZ= oldZ;
 
     var targetX = pivot.getAttribute("axisX");
-    var targetY = pivot.getAttribute("axisX");
-    var targetZ = pivot.getAttribute("axisX");
+    var targetY = pivot.getAttribute("axisY");
+    var targetZ = pivot.getAttribute("axisZ");
 
     //ruota asse X
     if(rotationFace.trim()==labelLEFT || rotationFace.trim()==labelRIGHT)
