@@ -287,7 +287,7 @@ function rotateFace(block){
     el.setAttribute("faceY",rotationDir.y);
     el.setAttribute("faceZ",rotationDir.z);
 
-    newBlock.setAttribute("face",newBlock.getAttribute("faceX")+" "+newBlock.getAttribute("faceY")+" "+newBlock.getAttribute("faceZ"));
+    el.setAttribute("face",el.getAttribute("faceX")+" "+el.getAttribute("faceY")+" "+el.getAttribute("faceZ"));
     console.log("END",el.id,el.getAttribute("face"),rotationDir.x,rotationDir.y,rotationDir.z);
     pivot.addEventListener("animationcomplete__dynamic"+pivot.id,function(){
       //animation ended
