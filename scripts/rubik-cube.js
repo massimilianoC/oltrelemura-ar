@@ -169,13 +169,13 @@ function rotateFace(block){
   var siblings = document.querySelectorAll("a-box[face*='"+rotationFace+"']");
   console.log("BLOCK IN "+currentFaces);
   console.log("ROTATE "+rotationFace);
-  console.log("SIBLINGS "+siblings.length);
+  //console.log("SIBLINGS "+siblings.length);
   var direction = 0;
 
   siblings.forEach(el => {
     var pivot = el.parentElement;
-    console.log(el.id);
-    console.log(pivot.id);
+    //console.log(el.id);
+    //console.log(pivot.id);
 
     if(!ROTATIONS[pivot.id]){
       ROTATIONS[pivot.id]={x:0,y:0,z:0}
@@ -186,9 +186,9 @@ function rotateFace(block){
     var oldZ = ROTATIONS[pivot.id].z;
     var oldX = ROTATIONS[pivot.id].x;
     var oldY = ROTATIONS[pivot.id].y;
-    var newX = (oldX + ((rotationFace.trim()==labelLEFT)? 90 : 0))%360;
-    var newY = (oldY + ((rotationFace.trim()==labelDOWN)? 90 : 0))%360;
-    var newZ = (oldZ + ((rotationFace.trim()==labelFRONT)? 90 : 0))%360;
+    var newX = (oldX + ((rotationFace.trim()==labelLEFT)? 90 : 0));
+    var newY = (oldY + ((rotationFace.trim()==labelDOWN)? 90 : 0));
+    var newZ = (oldZ + ((rotationFace.trim()==labelFRONT)? 90 : 0));
     
     pivot.setAttribute("animation__dynamic"+pivot.id,"property:rotation; enabled:true;elasticity:200;dur: 1000; from:"+oldX+" "+oldY+" "+oldZ+"; to: "+newX+" "+newY+" "+newZ);
   
@@ -197,7 +197,7 @@ function rotateFace(block){
     ROTATIONS[pivot.id].y=newY;
 
     pivot.addEventListener("animationcomplete__dynamic"+pivot.id,function(){
-      console.log(ROTATIONS[pivot.id]);
+      //console.log(ROTATIONS[pivot.id]);
       //TODO -> rebuildFaces
     },false);
   }); 
