@@ -119,7 +119,8 @@ function rotateParent(idx){
     }
     var cube = document.querySelector('#rubik'+idx);
     cube.removeAttribute("animation__dynamic"+idx);
-    var newZ= LAST_ROTATION[idx].z+90;
+    var dir = idx==1 ? -1 : 1;
+    var newZ= LAST_ROTATION[idx].z+(dir*90);
     var oldZ = LAST_ROTATION[idx].z;
     var oldX = LAST_ROTATION[idx].x;
     var oldY = LAST_ROTATION[idx].y;
