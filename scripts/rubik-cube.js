@@ -189,7 +189,6 @@ function rotateFace(block){
       ROTATIONS[pivot.id]={x:0,y:0,z:0}}
 
     pivot.removeAttribute("animation__dynamic"+pivot.id);
-    if(el.id=="block_2_0_0") console.log(ROTATIONS[pivot.id].x,ROTATIONS[pivot.id].y,ROTATIONS[pivot.id].z)
     
     var oldZ = ROTATIONS[pivot.id].z;
     var oldX = ROTATIONS[pivot.id].x;
@@ -207,36 +206,34 @@ function rotateFace(block){
     //ruota asse X
     if(rotationFace.trim()==labelLEFT || rotationFace.trim()==labelRIGHT)
     {
-      console.log(targetX);
       if(targetX=="X"){
-        newX +=  90;
+        newX = oldX + 90;
       }else if(targetX=="Y"){
-        newY +=  90;
+        newY = oldY + 90;
       }else if(targetX=="Z"){
-        newZ +=  90;
+        newZ = oldZ + 90;
       }
     }else
     //ruota asse Y
     if(rotationFace.trim()==labelDOWN || rotationFace.trim()==labelUP)
     {
       if(targetY=="Y"){
-        newY +=  90;
+        newY = oldY + 90;
       }else if(targetY=="X"){
-        newX +=  90;
+        newX = oldX + 90;
       }else if(targetY=="Z"){
-        newZ +=  90;
+        newZ = oldZ+ 90;
       }
     }else    
     //ruota asse Z
     if(rotationFace.trim()==labelFRONT || rotationFace.trim()==labelBACK)
     {
       if(targetZ=="Z"){
-        newZ +=  90;
+        newZ = oldZ + 90;
       }else if(targetZ=="X"){
-        console.log(pivot);
-        newX +=  90;
+        newX = oldX+ 90;
       }else if(targetZ=="Y"){
-        newY +=  90;
+        newY =  oldY + 90;
       }
     }
     
@@ -248,10 +245,7 @@ function rotateFace(block){
     ROTATIONS[pivot.id].x=newX;
     ROTATIONS[pivot.id].y=newY;
 
-    if(el.id=="block_2_0_0") console.log(ROTATIONS[pivot.id].x,ROTATIONS[pivot.id].y,ROTATIONS[pivot.id].z)
-
     var rotationDir = {x:el.getAttribute("faceX"),y:el.getAttribute("faceY"),z:el.getAttribute("faceZ")}
-    if(el.id=="block_2_0_0") console.log("START",el.id,el.getAttribute("face"));
     el.setAttribute("face","");
 
     if(rotationFace.trim()==labelDOWN || rotationFace.trim()==labelUP)
@@ -263,39 +257,31 @@ function rotateFace(block){
       if(rotationDir.y == labelLEFT && rotationDir.z == "") {
         rotationDir.y = "";
         rotationDir.z = labelFRONT;
-        console.log("UP/DOWN");
       } else 
       if(rotationDir.y == labelRIGHT && rotationDir.z == "") {
         rotationDir.y = "";
         rotationDir.z = labelBACK;
-        console.log("UP/DOWN");
       } else
       if(rotationDir.y == "" && rotationDir.z == labelFRONT) {
         rotationDir.y = labelRIGHT;
         rotationDir.z = "";
-        console.log("UP/DOWN");
       } else
       if(rotationDir.y == "" && rotationDir.z == labelBACK) {
         rotationDir.y = labelLEFT;
         rotationDir.z = "";
-        console.log("UP/DOWN");
       } else
       //corners
       if(rotationDir.y == labelLEFT && rotationDir.z == labelFRONT) {
         rotationDir.y = labelRIGHT;
-        console.log("CORNER UP/DOWN");
       } else
       if(rotationDir.y == labelLEFT && rotationDir.z == labelBACK) {
         rotationDir.z = labelFRONT;
-        console.log("CORNER UP/DOWN");
       } else
       if(rotationDir.y == labelRIGHT && rotationDir.z == labelFRONT) {
         rotationDir.z = labelBACK;
-        console.log("CORNER UP/DOWN");
       } else 
       if(rotationDir.y == labelRIGHT && rotationDir.z == labelBACK) {
         rotationDir.y = labelLEFT;
-        console.log("CORNER UP/DOWN");
       }
     }
 
@@ -379,7 +365,6 @@ function rotateFace(block){
 
     el.setAttribute("face",el.getAttribute("faceX")+" "+el.getAttribute("faceY")+" "+el.getAttribute("faceZ"));
 
-    if(el.id=="block_2_0_0") console.log("END",el.id,el.getAttribute("face"));
     pivot.addEventListener("animationcomplete__dynamic"+pivot.id,function(){
       //animation ended
     },false);
