@@ -154,7 +154,15 @@ function buildCubeFaces(el){
           }
           
           newBlock.setAttribute("face",newBlock.getAttribute("faceX")+" "+newBlock.getAttribute("faceY")+" "+newBlock.getAttribute("faceZ"));
-          newPivot.appendChild(newBlock);
+
+          
+          let newPivotX = document.createElement('a-entity');
+          let newPivotY = document.createElement('a-entity');
+          let newPivotZ = document.createElement('a-entity');
+          newPivotX.appendChild(newBlock);
+          newPivotY.appendChild(newPivotX);
+          newPivotZ.appendChild(newPivotY);
+          newPivot.appendChild(newPivotZ);
           newElement.appendChild(newPivot);
           columnCounter++;
       }
@@ -183,13 +191,18 @@ function rotateFace(block){
   siblings.forEach(el => {
     if(el.id=="block_0_0_0") console.log(el.getAttribute("face"));
 
-    var pivot = el.parentElement;
+    var pivotX = el.parentElement;
+    var pivotY = pivotX.parentElement;
+    var pivotZ = pivotY.parentElement;
+    var pivot = pivotZ.parentElement;
 
     if(!ROTATIONS[pivot.id]){
       ROTATIONS[pivot.id]={x:0,y:0,z:0}}
 
-    pivot.removeAttribute("animation__dynamic"+pivot.id);
-    
+    pivotX.removeAttribute("animation__dynamicx"+pivot.id);
+    pivotY.removeAttribute("animation__dynamicy"+pivot.id);
+    pivotZ.removeAttribute("animation__dynamicz"+pivot.id);
+
     var oldZ = ROTATIONS[pivot.id].z;
     var oldX = ROTATIONS[pivot.id].x;
     var oldY = ROTATIONS[pivot.id].y;   
@@ -239,7 +252,10 @@ function rotateFace(block){
     
     if(el.id=="block_0_0_0") console.log(oldX,oldY,oldZ);
     if(el.id=="block_0_0_0") console.log(newX,newY,newZ);
-    pivot.setAttribute("animation__dynamic"+pivot.id,"property:rotation;dur: 1000; from:"+oldX+" "+oldY+" "+oldZ+"; to: "+newX+" "+newY+" "+newZ);
+    
+    pivotX.setAttribute("animation__dynamicx"+pivot.id,"property:rotation;dur: 1000; from:"+oldX+" 0 0; to: "+newX+" 0 0");
+    pivotY.setAttribute("animation__dynamicy"+pivot.id,"property:rotation;dur: 1000; from:0 "+oldY+" 0; to: 0 "+newY+" 0");
+    pivotZ.setAttribute("animation__dynamicz"+pivot.id,"property:rotation;dur: 1000; from:0 0 "+oldZ+"; to: 0 0 "+newZ);
   
     ROTATIONS[pivot.id].z=newZ;
     ROTATIONS[pivot.id].x=newX;
