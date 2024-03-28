@@ -119,7 +119,7 @@ AFRAME.registerComponent('rubik-cube-param',{
                       var oldZ = cube.object3D.rotation.z;
                       var oldX = cube.object3D.rotation.x;
                       var oldY = cube.object3D.rotation.y;
-                      console.log(cube.object3D.rotation.z);
+                      console.log(cube.object3D.rotation);
                       console.log(newZ);
                       cube.setAttribute("animation__dynamic","property:rotation; enabled:true;elasticity:200;dur: 1000; from:"+oldX+" "+oldY+" "+oldZ+"; to: "+oldX+" "+oldY+" "+newZ);
                       e.stopPropagation();
