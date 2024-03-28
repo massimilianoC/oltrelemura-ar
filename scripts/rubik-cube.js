@@ -205,7 +205,7 @@ function rotateFace(block){
     ROTATIONS[pivot.id].x=newX;
     ROTATIONS[pivot.id].y=newY;
 
-    var rotationDir = {x:e.getAttribute("faceX"),y:e.getAttribute("faceY"),z:e.getAttribute("faceZ")}
+    var rotationDir = {x:el.getAttribute("faceX"),y:el.getAttribute("faceY"),z:el.getAttribute("faceZ")}
     console.log(el.id,el.getAttribute("face"),rotationDir.x,rotationDir.y,rotationDir.z);
     el.setAttribute("face","");
 
