@@ -141,11 +141,11 @@ function rotateFace(block,direction){
   var newY = oldY + 90;
   var newZ = oldZ + 90;
   pivot.setAttribute("animation__dynamic"+pivot.id,"property:rotation; enabled:true;elasticity:200;dur: 1000; from:"+oldX+" "+oldY+" "+oldZ+"; to: "+newX+" "+newY+" "+newZ);
-  ROTATIONS[r].z=newZ;
-  ROTATIONS[r].x=newX;
-  ROTATIONS[r].y=newY;
+  ROTATIONS[pivot.id].z=newZ;
+  ROTATIONS[pivot.id].x=newX;
+  ROTATIONS[pivot.id].y=newY;
   pivot.addEventListener("animationcomplete__dynamic"+pivot.id,function(){
     console.log("END animationcomplete__dynamic"+pivot.id);
-    console.log(ROTATIONS[r]);
+    console.log(ROTATIONS[pivot.id]);
   },{once:true});
 }
