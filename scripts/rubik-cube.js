@@ -177,7 +177,7 @@ function rotateFace(block){
   console.log("ROTATE "+rotationFace);
 
   siblings.forEach(el => {
-    console.log(el.id)
+    console.log(el.getAttribute(face));
 
     var pivot = el.parentElement;
 
