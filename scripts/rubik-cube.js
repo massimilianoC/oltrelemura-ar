@@ -141,12 +141,12 @@ function buildCubeFaces(el){
           //FRONT
           if(r==2) 
           {
-            newBlock.setAttribute("faceZ",labelUP);
+            newBlock.setAttribute("faceZ",labelFRONT);
           }
           //BACK
           if(r==0) 
           {
-            newBlock.setAttribute("faceZ",labelDOWN);
+            newBlock.setAttribute("faceZ",labelBACK);
           }
           
           newBlock.setAttribute("face",newBlock.getAttribute("faceX")+" "+newBlock.getAttribute("faceY")+" "+newBlock.getAttribute("faceZ"));
