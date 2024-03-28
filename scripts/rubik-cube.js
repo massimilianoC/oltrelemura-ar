@@ -10,16 +10,15 @@ const VECTORS = [];
 const ROTATIONS = [];
 
 function buildCubeFaces(el){
-  var newElement = document.createElement('a-entity');
+  let newElement = document.createElement('a-entity');
   let groupCounter = 0;
   for (let r = 0; r < 3; r++) {
     let rowCounter = 0;
     for (let i = 0; i < 3; i++) {
       let columnCounter = 0;
       for (let j = 0; j < 3; j++) {
-          var newPivot = document.createElement('a-entity');
-          var newBlock = document.createElement('a-box');
-          var faceSrcIndex = getRandomInt(3,8);
+          let newPivot = document.createElement('a-entity');
+          let newBlock = document.createElement('a-box');
           let faceCounter = 0;
           for (let axis = 0; axis < 3; axis++) {
               for (let direction = 0; direction < 2; direction++) {
@@ -102,6 +101,7 @@ function buildCubeFaces(el){
                   
                   //rotation events
                   newPlane.addEventListener("click", (e) => {
+                    console.log(newPlane.id);
                     rotateFace(newBlock,direction);
                     e.stopPropagation();
                     e.preventDefault()
