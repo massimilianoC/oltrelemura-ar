@@ -111,7 +111,7 @@ function buildCubeFaces(el){
                     rotateFace(newBlock,mouseEvent.detail);
                     mouseEvent.stopPropagation();
                     mouseEvent.preventDefault()
-                  },{once:true});
+                  },false);
                   faceCounter++;
               }           
           }
