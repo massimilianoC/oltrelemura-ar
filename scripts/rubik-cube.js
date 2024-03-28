@@ -254,8 +254,8 @@ function rotateFace(block){
     if(rotationFace.trim()==labelDOWN || rotationFace.trim()==labelUP)
     {
       //swap Axis
-      pivot.setAttribute("axisX", pivot.getAttribute("axisZ"));
-      pivot.setAttribute("axisZ",pivot.getAttribute("axisX"));
+      pivot.setAttribute("axisX", targetZ);
+      pivot.setAttribute("axisZ",targetX);
 
       if(rotationDir.y == labelLEFT && rotationDir.z == "") {
         rotationDir.y = "";
@@ -299,8 +299,8 @@ function rotateFace(block){
     if(rotationFace.trim()==labelLEFT || rotationFace.trim()==labelRIGHT)
     {
       //swap Axis
-      pivot.setAttribute("axisY", pivot.getAttribute("axisZ"));
-      pivot.setAttribute("axisZ",pivot.getAttribute("axisY"));
+      pivot.setAttribute("axisY", targetZ);
+      pivot.setAttribute("axisZ",targetY);
 
       if(rotationDir.x == labelDOWN && rotationDir.z == "") {
         rotationDir.x = "";
@@ -336,8 +336,8 @@ function rotateFace(block){
     if(rotationFace.trim()==labelFRONT || rotationFace.trim()==labelBACK)
     {
       //swap Axis
-      pivot.setAttribute("axisY", pivot.getAttribute("axisX"));
-      pivot.setAttribute("axisX",pivot.getAttribute("axisY"));
+      pivot.setAttribute("axisY", targetX);
+      pivot.setAttribute("axisX",targetY);
 
       if(rotationDir.x == labelDOWN && rotationDir.y == "") {
         rotationDir.x = "";
