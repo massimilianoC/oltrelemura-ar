@@ -233,7 +233,7 @@ function rotateFace(block){
       if(targetZ=="Z"){
         newZ +=  90;
       }else if(targetZ=="X"){
-        console.log(el);
+        console.log(pivot);
         newX +=  90;
       }else if(targetZ=="Y"){
         newY +=  90;
