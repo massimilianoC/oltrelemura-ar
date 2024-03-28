@@ -185,7 +185,7 @@ function rotateFace(block){
       ROTATIONS[pivot.id]={x:0,y:0,z:0}}
 
     pivot.removeAttribute("animation__dynamic"+pivot.id);
-
+    if(el.id=="block_2_0_0") console.log(ROTATIONS[pivot.id].x,ROTATIONS[pivot.id].y,ROTATIONS[pivot.id].z)
     var oldZ = ROTATIONS[pivot.id].z;
     var oldX = ROTATIONS[pivot.id].x;
     var oldY = ROTATIONS[pivot.id].y;   
@@ -198,6 +198,8 @@ function rotateFace(block){
     ROTATIONS[pivot.id].z=newZ;
     ROTATIONS[pivot.id].x=newX;
     ROTATIONS[pivot.id].y=newY;
+
+    if(el.id=="block_2_0_0") console.log(ROTATIONS[pivot.id].x,ROTATIONS[pivot.id].y,ROTATIONS[pivot.id].z)
 
     var rotationDir = {x:el.getAttribute("faceX"),y:el.getAttribute("faceY"),z:el.getAttribute("faceZ")}
     if(el.id=="block_2_0_0") console.log("START",el.id,el.getAttribute("face"));
