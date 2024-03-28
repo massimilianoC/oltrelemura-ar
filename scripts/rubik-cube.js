@@ -201,33 +201,33 @@ function rotateFace(block){
     ROTATIONS[pivot.id].x=newX;
     ROTATIONS[pivot.id].y=newY;
 
-    var rotationDir = block.getAttribute("faceDir");
-    block.setAttribute("face","");
+    var rotationDir = el.getAttribute("faceDir");
+    el.setAttribute("face","");
 
     if(rotationFace.trim()==labelDOWN || rotationFace.trim()==labelUP)
     {
       if(rotationDir.y == -1 && rotationDir.z == 0) {
         rotationDir.y = 0;
         rotationDir.z = 1;
-        newBlock.setAttribute("face",(newBlock.getAttribute("face")+" "+labelFRONT).trim());
+        el.setAttribute("face",(el.getAttribute("face")+" "+labelFRONT).trim());
       }
 
       if(rotationDir.y == 1 && rotationDir.z == 0) {
         rotationDir.y = 0;
         rotationDir.z = -1;
-        newBlock.setAttribute("face",(newBlock.getAttribute("face")+" "+labelBACK).trim());
+        el.setAttribute("face",(el.getAttribute("face")+" "+labelBACK).trim());
       }
 
       if(rotationDir.y == 0 && rotationDir.z == 1) {
         rotationDir.y = 1;
         rotationDir.z = 0;
-        newBlock.setAttribute("face",(newBlock.getAttribute("face")+" "+labelRIGHT).trim());
+        el.setAttribute("face",(el.getAttribute("face")+" "+labelRIGHT).trim());
       }
 
       if(rotationDir.y == 0 && rotationDir.z == -1) {
         rotationDir.y = -1;
         rotationDir.z = 0;
-        newBlock.setAttribute("face",(newBlock.getAttribute("face")+" "+labelLEFT).trim());
+        el.setAttribute("face",(el.getAttribute("face")+" "+labelLEFT).trim());
       }
     }
 
@@ -236,25 +236,25 @@ function rotateFace(block){
       if(rotationDir.x == -1 && rotationDir.z == 0) {
         rotationDir.x = 0;
         rotationDir.z = -1;
-        newBlock.setAttribute("face",(newBlock.getAttribute("face")+" "+labelBACK).trim());
+        el.setAttribute("face",(el.getAttribute("face")+" "+labelBACK).trim());
       }
 
       if(rotationDir.x == 1 && rotationDir.z == 0) {
         rotationDir.x = 0;
         rotationDir.z = 1;
-        newBlock.setAttribute("face",(newBlock.getAttribute("face")+" "+labelFRONT).trim());
+        el.setAttribute("face",(el.getAttribute("face")+" "+labelFRONT).trim());
       }
 
       if(rotationDir.x == 0 && rotationDir.z == 1) {
         rotationDir.x = -1;
         rotationDir.z = 0;
-        newBlock.setAttribute("face",(newBlock.getAttribute("face")+" "+labelDOWN).trim());
+        el.setAttribute("face",(el.getAttribute("face")+" "+labelDOWN).trim());
       }
 
       if(rotationDir.x == 0 && rotationDir.z == -1) {
         rotationDir.x = 1;
         rotationDir.z = 0;
-        newBlock.setAttribute("face",(newBlock.getAttribute("face")+" "+labelUP).trim());
+        el.setAttribute("face",(el.getAttribute("face")+" "+labelUP).trim());
       }
     }
 
@@ -263,25 +263,25 @@ function rotateFace(block){
       if(rotationDir.x == -1 && rotationDir.y == 0) {
         rotationDir.x = 0;
         rotationDir.y = 1;
-        newBlock.setAttribute("face",(newBlock.getAttribute("face")+" "+labelRIGHT).trim());
+        el.setAttribute("face",(el.getAttribute("face")+" "+labelRIGHT).trim());
       }
 
       if(rotationDir.x == 1 && rotationDir.y == 0) {
         rotationDir.x = 0;
         rotationDir.y = -1;
-        newBlock.setAttribute("face",(newBlock.getAttribute("face")+" "+labelLEFT).trim());
+        el.setAttribute("face",(el.getAttribute("face")+" "+labelLEFT).trim());
       }
 
       if(rotationDir.x == 0 && rotationDir.y == 1) {
         rotationDir.x = 1;
         rotationDir.y = 0;
-        newBlock.setAttribute("face",(newBlock.getAttribute("face")+" "+labelUP).trim());
+        el.setAttribute("face",(el.getAttribute("face")+" "+labelUP).trim());
       }
 
       if(rotationDir.x == 0 && rotationDir.y == -1) {
         rotationDir.x = -1;
         rotationDir.y = 0;
-        newBlock.setAttribute("face",(newBlock.getAttribute("face")+" "+labelDOWN).trim());
+        el.setAttribute("face",(el.getAttribute("face")+" "+labelDOWN).trim());
       }
     }
 
