@@ -57,21 +57,18 @@ function buildCubeFaces(el){
                   {
                     newPlane.setAttribute('material','shader:flat ; src: url(../../../assets/texture/tileA_'+r+'_'+j+'.png)');
                     newPlane.setAttribute("face",labelUP);
-                    newBlock.setAttribute("face",newBlock.getAttribute("face")+" "+labelUP);
                   }
                   //DOWN
                   else if(i==0 && axis==1 && direction==1) 
                   {
                     newPlane.setAttribute('material','shader:flat ; src: url(../../../assets/texture/tileA_'+(2-r)+'_'+j+'.png)');
                     newPlane.setAttribute("face",labelDOWN);
-                    newBlock.setAttribute("face",newBlock.getAttribute("face")+" "+labelDOWN);
                   }
                    //LEFT
                   else if(j==0 && axis==0 && direction==0) 
                   {
                     newPlane.setAttribute('material','shader:flat ; src: url(../../../assets/texture/tileA_'+(2-i)+'_'+r+'.png)');
                     newPlane.setAttribute("face",labelLEFT);
-                    newBlock.setAttribute("face",newBlock.getAttribute("face")+" "+labelLEFT);
                     rotation = "0 -90 0";
                   }
                    //RIGHT
@@ -79,7 +76,6 @@ function buildCubeFaces(el){
                   {
                     newPlane.setAttribute('material','shader:flat ; src: url(../../../assets/texture/tileA_'+(2-i)+'_'+(2-r)+'.png)');
                     newPlane.setAttribute("face",labelRIGHT);
-                    newBlock.setAttribute("face",newBlock.getAttribute("face")+" "+labelRIGHT);
                     rotation = "0 90 0";
                   }
                   //FRONT
@@ -87,7 +83,6 @@ function buildCubeFaces(el){
                   {
                     newPlane.setAttribute('material','shader:flat ; src: url(../../../assets/texture/tileA_'+(2-i)+'_'+j+'.png)');
                     newPlane.setAttribute("face",labelFRONT);
-                    newBlock.setAttribute("face",newBlock.getAttribute("face")+" "+labelFRONT);
                     rotation = "0 0 0";
                   }
                   //BACK
@@ -95,7 +90,6 @@ function buildCubeFaces(el){
                   {
                     newPlane.setAttribute('material','shader:flat; side: double ; src: url(../../../assets/texture/tileA_'+(2-i)+'_'+j+'.png)');
                     newPlane.setAttribute("face",labelBACK);
-                    newBlock.setAttribute("face",newBlock.getAttribute("face")+" "+labelBACK);
                     rotation = "0 0 0";
                   }
                   else {
@@ -122,32 +116,32 @@ function buildCubeFaces(el){
           //UP
           if(i==2) 
           {
-            newBlock.setAttribute("face",newBlock.getAttribute("face")+" "+labelUP);
+            newBlock.setAttribute("face",(newBlock.getAttribute("face")+" "+labelUP).trim());
           }
           //DOWN
           if(i==0) 
           {
-            newBlock.setAttribute("face",newBlock.getAttribute("face")+" "+labelDOWN);
+            newBlock.setAttribute("face",(newBlock.getAttribute("face")+" "+labelDOWN).trim());
           }
            //LEFT
           if(j==0) 
           {
-            newBlock.setAttribute("face",newBlock.getAttribute("face")+" "+labelLEFT);
+            newBlock.setAttribute("face",(newBlock.getAttribute("face")+" "+labelLEFT).trim());
           }
            //RIGHT
           if(j==2) 
           {
-            newBlock.setAttribute("face",newBlock.getAttribute("face")+" "+labelRIGHT);
+            newBlock.setAttribute("face",(newBlock.getAttribute("face")+" "+labelRIGHT).trim());
           }
           //FRONT
           if(r==2) 
           {
-            newBlock.setAttribute("face",newBlock.getAttribute("face")+" "+labelFRONT);
+            newBlock.setAttribute("face",(newBlock.getAttribute("face")+" "+labelFRONT).trim());
           }
           //BACK
           if(r==0) 
           {
-            newBlock.setAttribute("face",newBlock.getAttribute("face")+" "+labelBACK);
+            newBlock.setAttribute("face",(newBlock.getAttribute("face")+" "+labelBACK).trim());
           }
           
           newPivot.appendChild(newBlock);
