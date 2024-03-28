@@ -209,42 +209,35 @@ function rotateFace(block){
         rotationDir.y = "";
         rotationDir.z = labelFRONT;
         console.log("DOWN");
-      }
-
+      } else 
       if(rotationDir.y == labelRIGHT && rotationDir.z == "") {
         rotationDir.y = "";
         rotationDir.z = labelBACK;
         console.log("DOWN");
-      }
-
+      } else
       if(rotationDir.y == "" && rotationDir.z == labelFRONT) {
         rotationDir.y = labelRIGHT;
         rotationDir.z = "";
         console.log("DOWN");
-      }
-
+      } else
       if(rotationDir.y == "" && rotationDir.z == labelBACK) {
         rotationDir.y = labelLEFT;
         rotationDir.z = "";
         console.log("DOWN");
-      }
-
+      } else
       //corners
       if(rotationDir.y == labelLEFT && rotationDir.z == labelFRONT) {
         rotationDir.y = labelRIGHT;
         console.log("CORNER DOWN");
-      }
-
+      } else
       if(rotationDir.y == labelLEFT && rotationDir.z == labelBACK) {
         rotationDir.z = labelFRONT;
         console.log("CORNER DOWN");
-      }
-
+      } else
       if(rotationDir.y == labelRIGHT && rotationDir.z == labelFRONT) {
         rotationDir.z = labelBACK;
         console.log("CORNER DOWN");
-      }
-
+      } else 
       if(rotationDir.y == labelRIGHT && rotationDir.z == labelBACK) {
         rotationDir.y = labelLEFT;
         console.log("CORNER DOWN");
@@ -256,36 +249,29 @@ function rotateFace(block){
       if(rotationDir.x == labelDOWN && rotationDir.z == "") {
         rotationDir.x = "";
         rotationDir.z = labelBACK;
-      }
-
+      } else
       if(rotationDir.x == labelUP && rotationDir.z == "") {
         rotationDir.x = "";
         rotationDir.z = labelFRONT;
-      }
-
+      } else
       if(rotationDir.x == " "&& rotationDir.z == labelFRONT) {
         rotationDir.x = labelDOWN;
         rotationDir.z = "";
-      }
-
+      } else
       if(rotationDir.x == "" && rotationDir.z == labelBACK) {
         rotationDir.x = labelUP;
         rotationDir.z = "";
-      }
-
+      } else
       //corners
       if(rotationDir.x == labelDOWN && rotationDir.z == labelFRONT) {
         rotationDir.x = labelUP;
-      }
-
+      } else
       if(rotationDir.x == labelDOWN && rotationDir.z == labelBACK) {
         rotationDir.z = labelFRONT;
-      }
-
+      } else
       if(rotationDir.x == labelUP && rotationDir.z == labelFRONT) {
         rotationDir.z = labelBACK;
-      }
-
+      } else
       if(rotationDir.x == labelUP && rotationDir.z == labelBACK) {
         rotationDir.x = labelDOWN;
       }
@@ -296,39 +282,35 @@ function rotateFace(block){
       if(rotationDir.x == labelDOWN && rotationDir.y == "") {
         rotationDir.x = "";
         rotationDir.y = labelRIGHT;
-      }
+      } else
 
       if(rotationDir.x == labelUP && rotationDir.y == "") {
         rotationDir.x = "";
         rotationDir.y = labelLEFT;
-      }
+      } else
 
       if(rotationDir.x == "" && rotationDir.y == labelRIGHT) {
         rotationDir.x = labelUP;
         rotationDir.y = "";
-      }
+      } else
 
       if(rotationDir.x == "" && rotationDir.y == labelLEFT) {
         rotationDir.x = labelDOWN;
         rotationDir.y = "";
-      }
-
+      } else
       //corners
       if(rotationDir.y == labelLEFT && rotationDir.x == labelDOWN) {
         rotationDir.y = labelRIGHT;
-      }
-
+      } else
       if(rotationDir.y == labelLEFT && rotationDir.x == labelUP) {
         rotationDir.x = labelDOWN;
-      }
-
+      } else
       if(rotationDir.y == labelRIGHT && rotationDir.x == labelDOWN) {
         rotationDir.x = labelUP;
-      }
-
+      } else
       if(rotationDir.y == labelRIGHT && rotationDir.x == labelUP) {
         rotationDir.y = labelLEFT;
-      }
+      } else
     }
 
     el.setAttribute("faceX",rotationDir.x);
