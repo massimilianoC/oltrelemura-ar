@@ -101,9 +101,9 @@ function buildCubeFaces(el){
                   
                   //rotation events
                   newPlane.addEventListener("click", (e) => {
+                    var mouseEvent = e.detail.mouseEvent;
                     mouseEvent.stopPropagation();
                     mouseEvent.preventDefault()
-                    var mouseEvent = e.detail.mouseEvent;
                     if (mouseEvent.detail === 1) {
                       setTimeout(() => {
                         console.log("1 click " + e.detail);
