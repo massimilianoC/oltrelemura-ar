@@ -227,12 +227,13 @@ function rotateFace(block){
         newZ +=  90;
       }
     }else    
-    //ruota asse Y
+    //ruota asse Z
     if(rotationFace.trim()==labelFRONT || rotationFace.trim()==labelBACK)
     {
       if(targetZ=="Z"){
         newZ +=  90;
       }else if(targetZ=="X"){
+        console.log(el);
         newX +=  90;
       }else if(targetZ=="Y"){
         newY +=  90;
