@@ -203,7 +203,7 @@ function rotateFace(block){
     var targetY = pivot.getAttribute("axisY");
     var targetZ = pivot.getAttribute("axisZ");
     console.log(targetX,targetY,targetZ);
-    
+
     //ruota asse X
     if(rotationFace.trim()==labelLEFT || rotationFace.trim()==labelRIGHT)
     {
@@ -214,8 +214,7 @@ function rotateFace(block){
       }else if(targetX=="Z"){
         newZ +=  90;
       }
-    }
-     
+    }else
     //ruota asse Y
     if(rotationFace.trim()==labelDOWN || rotationFace.trim()==labelUP)
     {
@@ -226,8 +225,7 @@ function rotateFace(block){
       }else if(targetY=="Z"){
         newZ +=  90;
       }
-    }
-    
+    }else    
     //ruota asse Y
     if(rotationFace.trim()==labelFRONT || rotationFace.trim()==labelBACK)
     {
