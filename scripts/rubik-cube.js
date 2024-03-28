@@ -9,6 +9,13 @@ const FACES = [];
 const VECTORS = [];
 const ROTATIONS = [];
 
+const labelUP = "UP";
+const labelDOWN = "DONW";
+const labelFRONT = "FRONT";
+const labelBACK = "BACK";
+const labelLEFT = "LEFT";
+const labelRIGHT = "RIGHT";
+
 function buildCubeFaces(el){
   let newElement = document.createElement('a-entity');
   let groupCounter = 0;
@@ -32,7 +39,7 @@ function buildCubeFaces(el){
                   var positionz = r==0 ? "-0.105" : r==1 ? "0" :"0.105" ;
                   
                   newPivot.setAttribute('id','pivot_'+r+'_'+i+'_'+j);
-
+                  newBlock.setAttribute("face","");
                   newBlock.setAttribute('id','block_'+r+'_'+i+'_'+j);
                   newBlock.setAttribute('class',"block");
                   newBlock.setAttribute('position',positionx+" "+positiony+ " "+positionz);
@@ -49,47 +56,47 @@ function buildCubeFaces(el){
                   if(i==2 && axis==1 && direction==0) 
                   {
                     newPlane.setAttribute('material','shader:flat ; src: url(../../../assets/texture/tileA_'+r+'_'+j+'.png)');
-                    newPlane.setAttribute("face","up");
-                    FACES["UP"] = {x:positionx,y:positiony,z:positionz};
+                    newPlane.setAttribute("face",labelUP);
+                    newBlock.setAttribute("face",newBlock.getAttribute("face")+" "+labelUP);
                   }
                   //DOWN
                   else if(i==0 && axis==1 && direction==1) 
                   {
                     newPlane.setAttribute('material','shader:flat ; src: url(../../../assets/texture/tileA_'+(2-r)+'_'+j+'.png)');
-                    newPlane.setAttribute("face","down");
-                    FACES["DOWN"] = {x:positionx,y:positiony,z:positionz};
+                    newPlane.setAttribute("face",labelDOWN);
+                    newBlock.setAttribute("face",newBlock.getAttribute("face")+" "+labelDOWN);
                   }
                    //LEFT
                   else if(j==0 && axis==0 && direction==0) 
                   {
                     newPlane.setAttribute('material','shader:flat ; src: url(../../../assets/texture/tileA_'+(2-i)+'_'+r+'.png)');
-                    newPlane.setAttribute("face","left");
+                    newPlane.setAttribute("face",labelLEFT);
+                    newBlock.setAttribute("face",newBlock.getAttribute("face")+" "+labelLEFT);
                     rotation = "0 -90 0";
-                    FACES["LEFT"] = {x:positionx,y:positiony,z:positionz};
                   }
                    //RIGHT
                   else if(j==2 && axis==0 && direction==1) 
                   {
                     newPlane.setAttribute('material','shader:flat ; src: url(../../../assets/texture/tileA_'+(2-i)+'_'+(2-r)+'.png)');
-                    newPlane.setAttribute("face","right");
+                    newPlane.setAttribute("face",labelRIGHT);
+                    newBlock.setAttribute("face",newBlock.getAttribute("face")+" "+labelRIGHT);
                     rotation = "0 90 0";
-                    FACES["RIGHT"] = {x:positionx,y:positiony,z:positionz};
                   }
                   //FRONT
                   else if(r==2 && axis==2 && direction==0) 
                   {
                     newPlane.setAttribute('material','shader:flat ; src: url(../../../assets/texture/tileA_'+(2-i)+'_'+j+'.png)');
-                    newPlane.setAttribute("face","front");
+                    newPlane.setAttribute("face",labelFRONT);
+                    newBlock.setAttribute("face",newBlock.getAttribute("face")+" "+labelFRONT);
                     rotation = "0 0 0";
-                    FACES["FRONT"] = {x:positionx,y:positiony,z:positionz};
                   }
                   //BACK
                   else if(r==0 && axis==2 && direction==1) 
                   {
                     newPlane.setAttribute('material','shader:flat; side: double ; src: url(../../../assets/texture/tileA_'+(2-i)+'_'+j+'.png)');
-                    newPlane.setAttribute("face","back");
+                    newPlane.setAttribute("face",labelBACK);
+                    newBlock.setAttribute("face",newBlock.getAttribute("face")+" "+labelBACK);
                     rotation = "0 0 0";
-                    FACES["BACK"] = {x:positionx,y:positiony,z:positionz};
                   }
                   else {
                   newPlane.setAttribute('material','shader:flat ;side: double; color: #000');
@@ -99,24 +106,50 @@ function buildCubeFaces(el){
                   newPlane.setAttribute('rotation',rotation);
                   newBlock.appendChild(newPlane);
                   
-                  //rotation events
+                  //click events
                   newPlane.addEventListener("click", (e) => {
                     var mouseEvent = e.detail.mouseEvent;
-                    mouseEvent.stopPropagation();
-                    mouseEvent.preventDefault()
+                    e.stopPropagation();
+                    e.preventDefault()
                     if (mouseEvent.detail === 1) {
-                      setTimeout(() => {
-                        console.log("1 click " + e.detail);
-                      rotateFace(newBlock,mouseEvent.detail);
-                      }, 500);
-                    } else if (mouseEvent.detail === 2) {
-                      console.log("2 click " + e.detail);
                       rotateFace(newBlock,mouseEvent.detail);
                     }
                     console.log(newPlane.id);
                   },false);
                   faceCounter++;
               }           
+          }
+
+          //FACES VECTORS
+          //UP
+          if(i==2) 
+          {
+            newBlock.setAttribute("face",newBlock.getAttribute("face")+" "+labelUP);
+          }
+          //DOWN
+          else if(i==0) 
+          {
+            newBlock.setAttribute("face",newBlock.getAttribute("face")+" "+labelDOWN);
+          }
+           //LEFT
+          else if(j==0) 
+          {
+            newBlock.setAttribute("face",newBlock.getAttribute("face")+" "+labelLEFT);
+          }
+           //RIGHT
+          else if(j==2) 
+          {
+            newBlock.setAttribute("face",newBlock.getAttribute("face")+" "+labelRIGHT);
+          }
+          //FRONT
+          else if(r==2) 
+          {
+            newBlock.setAttribute("face",newBlock.getAttribute("face")+" "+labelFRONT);
+          }
+          //BACK
+          else if(r==0) 
+          {
+            newBlock.setAttribute("face",newBlock.getAttribute("face")+" "+labelBACK);
           }
           
           newPivot.appendChild(newBlock);
@@ -143,6 +176,11 @@ function rotateFace(block,direction){
   console.log(block.id);
   console.log(pivot.id);
 
+  var currentFaces = str.split(' ')(block.getAttribute("face"));
+  console.log(currentFaces);
+  var sibling  = document.querySelectorAll("a-box[face*="+currentFaces[0]+"]");
+  console.log(sibling);
+
   if(!ROTATIONS[pivot.id]){
     ROTATIONS[pivot.id]={x:0,y:0,z:0}
   }
@@ -152,9 +190,9 @@ function rotateFace(block,direction){
   var oldZ = ROTATIONS[pivot.id].z;
   var oldX = ROTATIONS[pivot.id].x;
   var oldY = ROTATIONS[pivot.id].y;
-  var newX = oldX + (direction==2? 90 : 0);
+  var newX = (oldX + (direction==2? 90 : 0))%360;
   var newY = oldY;
-  var newZ = oldZ + (direction==1? 90 : 0);
+  var newZ = (oldZ + (direction==1? 90 : 0))%360;
   
   pivot.setAttribute("animation__dynamic"+pivot.id,"property:rotation; enabled:true;elasticity:200;dur: 1000; from:"+oldX+" "+oldY+" "+oldZ+"; to: "+newX+" "+newY+" "+newZ);
  
@@ -163,6 +201,7 @@ function rotateFace(block,direction){
   ROTATIONS[pivot.id].y=newY;
 
   pivot.addEventListener("animationcomplete__dynamic"+pivot.id,function(){
+    console.log(ROTATIONS[pivot.id]);
     //rebuildFaces
   },{once:true});
 }
