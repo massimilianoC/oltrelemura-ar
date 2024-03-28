@@ -10,7 +10,7 @@ const VECTORS = [];
 const ROTATIONS = [];
 
 const labelUP = "UP";
-const labelDOWN = "DONW";
+const labelDOWN = "DOWN";
 const labelFRONT = "FRONT";
 const labelBACK = "BACK";
 const labelLEFT = "LEFT";
@@ -41,9 +41,9 @@ function buildCubeFaces(el){
                   newPivot.setAttribute('id','pivot_'+r+'_'+i+'_'+j);
                   newBlock.setAttribute("face","");
 
-                  newBlock.setAttribute("faceX","0");
-                  newBlock.setAttribute("faceY","0");
-                  newBlock.setAttribute("faceZ","0");
+                  newBlock.setAttribute("faceX","");
+                  newBlock.setAttribute("faceY","");
+                  newBlock.setAttribute("faceZ","");
 
                   newBlock.setAttribute('id','block_'+r+'_'+i+'_'+j);
                   newBlock.setAttribute('class',"block");
@@ -121,40 +121,35 @@ function buildCubeFaces(el){
           //UP
           if(i==2) 
           {
-            newBlock.setAttribute("face",(newBlock.getAttribute("face")+" "+labelUP).trim());
-            newBlock.setAttribute("faceX","1");
+            newBlock.setAttribute("faceX",labelUP);
           }
           //DOWN
           if(i==0) 
           {
-            newBlock.setAttribute("face",(newBlock.getAttribute("face")+" "+labelDOWN).trim());
-            newBlock.setAttribute("faceX","-1");
+            newBlock.setAttribute("faceX",labelDOWN);
           }
            //LEFT
           if(j==0) 
           {
-            newBlock.setAttribute("face",(newBlock.getAttribute("face")+" "+labelLEFT).trim());
-            newBlock.setAttribute("faceY","-1");
+            newBlock.setAttribute("faceY",labelLEFT);
           }
            //RIGHT
           if(j==2) 
           {
-            newBlock.setAttribute("face",(newBlock.getAttribute("face")+" "+labelRIGHT).trim());
-            newBlock.setAttribute("faceY","1");
+            newBlock.setAttribute("faceY",labelRIGHT);
           }
           //FRONT
           if(r==2) 
           {
-            newBlock.setAttribute("face",(newBlock.getAttribute("face")+" "+labelFRONT).trim());
-            newBlock.setAttribute("faceZ","1");
+            newBlock.setAttribute("faceZ",labelUP);
           }
           //BACK
           if(r==0) 
           {
-            newBlock.setAttribute("face",(newBlock.getAttribute("face")+" "+labelBACK).trim());
-            newBlock.setAttribute("faceZ","-1");
+            newBlock.setAttribute("faceZ",labelDOWN);
           }
           
+          newBlock.setAttribute("face",newBlock.getAttribute("faceX")+" "+newBlock.getAttribute("faceY")+" "+newBlock.getAttribute("faceZ"));
           newPivot.appendChild(newBlock);
           newElement.appendChild(newPivot);
           columnCounter++;
@@ -174,7 +169,6 @@ function getRandomInt(min, max) {
 }
 
 function rotateFace(block){
-
   var currentFaces = block.getAttribute("face").trim().split(' ');
   var rotationFace = currentFaces[0];
   var siblings = document.querySelectorAll("a-box[face*='"+rotationFace+"']");
@@ -207,7 +201,6 @@ function rotateFace(block){
 
     var rotationDir = {x:el.getAttribute("faceX"),y:el.getAttribute("faceY"),z:el.getAttribute("faceZ")}
     console.log("START",el.id,el.getAttribute("face"),rotationDir.x,rotationDir.y,rotationDir.z);
-    el.setAttribute("face",rotationFace);
 
     if(rotationFace.trim()==labelDOWN || rotationFace.trim()==labelUP)
     {
@@ -306,6 +299,7 @@ function rotateFace(block){
     el.setAttribute("faceY",rotationDir.y);
     el.setAttribute("faceZ",rotationDir.z);
 
+    newBlock.setAttribute("face",newBlock.getAttribute("faceX")+" "+newBlock.getAttribute("faceY")+" "+newBlock.getAttribute("faceZ"));
     console.log("END",el.id,el.getAttribute("face"),rotationDir.x,rotationDir.y,rotationDir.z);
     pivot.addEventListener("animationcomplete__dynamic"+pivot.id,function(){
       //animation ended
