@@ -109,7 +109,7 @@ function buildCubeFaces(el){
                   //click events
                   newPlane.addEventListener("click", (e) => {
                     var mouseEvent = e.detail.mouseEvent;
-                    rotateFace(newBlock,mouseEvent.detail);
+                    rotateFace(newBlock);
                     e.stopPropagation();
                     e.preventDefault();
                     console.log(newPlane.id);
@@ -125,27 +125,27 @@ function buildCubeFaces(el){
             newBlock.setAttribute("face",newBlock.getAttribute("face")+" "+labelUP);
           }
           //DOWN
-          else if(i==0) 
+          if(i==0) 
           {
             newBlock.setAttribute("face",newBlock.getAttribute("face")+" "+labelDOWN);
           }
            //LEFT
-          else if(j==0) 
+          if(j==0) 
           {
             newBlock.setAttribute("face",newBlock.getAttribute("face")+" "+labelLEFT);
           }
            //RIGHT
-          else if(j==2) 
+          if(j==2) 
           {
             newBlock.setAttribute("face",newBlock.getAttribute("face")+" "+labelRIGHT);
           }
           //FRONT
-          else if(r==2) 
+          if(r==2) 
           {
             newBlock.setAttribute("face",newBlock.getAttribute("face")+" "+labelFRONT);
           }
           //BACK
-          else if(r==0) 
+          if(r==0) 
           {
             newBlock.setAttribute("face",newBlock.getAttribute("face")+" "+labelBACK);
           }
@@ -168,37 +168,41 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-//direction 1 -> Z // direction 2 -> X
-function rotateFace(block,direction){
-  var pivot = block.parentElement;
-  console.log(block.id);
-  console.log(pivot.id);
+function rotateFace(block){
+
   var currentFaces = block.getAttribute("face").trim().split(' ');
   console.log(currentFaces);
-  var sibling  = document.querySelectorAll("a-box[face*='"+currentFaces[0]+"']");
-  console.log(sibling);
+  var siblings = document.querySelectorAll("a-box[face*='"+currentFaces[0]+"']");
+  console.log(siblings);
+  var direction = 0;
 
-  if(!ROTATIONS[pivot.id]){
-    ROTATIONS[pivot.id]={x:0,y:0,z:0}
-  }
- 
-  pivot.removeAttribute("animation__dynamic"+pivot.id);
-  
-  var oldZ = ROTATIONS[pivot.id].z;
-  var oldX = ROTATIONS[pivot.id].x;
-  var oldY = ROTATIONS[pivot.id].y;
-  var newX = (oldX + (direction==2? 90 : 0))%360;
-  var newY = oldY;
-  var newZ = (oldZ + (direction==1? 90 : 0))%360;
-  
-  pivot.setAttribute("animation__dynamic"+pivot.id,"property:rotation; enabled:true;elasticity:200;dur: 1000; from:"+oldX+" "+oldY+" "+oldZ+"; to: "+newX+" "+newY+" "+newZ);
- 
-  ROTATIONS[pivot.id].z=newZ;
-  ROTATIONS[pivot.id].x=newX;
-  ROTATIONS[pivot.id].y=newY;
+  siblings.forEach(el => {
+    var pivot = el.parentElement;
+    console.log(el.id);
+    console.log(pivot.id);
 
-  pivot.addEventListener("animationcomplete__dynamic"+pivot.id,function(){
-    console.log(ROTATIONS[pivot.id]);
-    //rebuildFaces
-  },{once:true});
+    if(!ROTATIONS[pivot.id]){
+      ROTATIONS[pivot.id]={x:0,y:0,z:0}
+    }
+  
+    pivot.removeAttribute("animation__dynamic"+pivot.id);
+    
+    var oldZ = ROTATIONS[pivot.id].z;
+    var oldX = ROTATIONS[pivot.id].x;
+    var oldY = ROTATIONS[pivot.id].y;
+    var newX = (oldX + (direction==0? 90 : 0))%360;
+    var newY = oldY;
+    var newZ = (oldZ + (direction==1? 90 : 0))%360;
+    
+    pivot.setAttribute("animation__dynamic"+pivot.id,"property:rotation; enabled:true;elasticity:200;dur: 1000; from:"+oldX+" "+oldY+" "+oldZ+"; to: "+newX+" "+newY+" "+newZ);
+  
+    ROTATIONS[pivot.id].z=newZ;
+    ROTATIONS[pivot.id].x=newX;
+    ROTATIONS[pivot.id].y=newY;
+
+    pivot.addEventListener("animationcomplete__dynamic"+pivot.id,function(){
+      console.log(ROTATIONS[pivot.id]);
+      //TODO -> rebuildFaces
+    },{once:true});
+  }); 
 }
