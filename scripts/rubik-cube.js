@@ -307,7 +307,7 @@ function rotateFace(block){
       } else
       if(rotationDir.y == labelRIGHT && rotationDir.x == labelUP) {
         rotationDir.y = labelLEFT;
-      } else
+      } 
     }
 
     el.setAttribute("faceX",rotationDir.x);
