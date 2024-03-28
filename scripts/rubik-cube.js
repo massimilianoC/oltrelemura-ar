@@ -40,8 +40,11 @@ function buildCubeFaces(el){
                   
                   newPivot.setAttribute('id','pivot_'+r+'_'+i+'_'+j);
                   newBlock.setAttribute("face","");
-                  newBlock.setAttribute("faceDir",{x:0,y:0,z:0});
-                  console.log(newBlock.getAttribute("faceDir").x);
+
+                  newBlock.setAttribute("faceX","0");
+                  newBlock.setAttribute("faceY","0");
+                  newBlock.setAttribute("faceZ","0");
+
                   newBlock.setAttribute('id','block_'+r+'_'+i+'_'+j);
                   newBlock.setAttribute('class',"block");
                   newBlock.setAttribute('position',positionx+" "+positiony+ " "+positionz);
@@ -119,43 +122,37 @@ function buildCubeFaces(el){
           if(i==2) 
           {
             newBlock.setAttribute("face",(newBlock.getAttribute("face")+" "+labelUP).trim());
-            var currentDir = newBlock.getAttribute("faceDir");
-            newBlock.setAttribute("faceDir",{x:1,y:currentDir.y,z:currentDir.z});
+            newBlock.setAttribute("faceX","1");
           }
           //DOWN
           if(i==0) 
           {
             newBlock.setAttribute("face",(newBlock.getAttribute("face")+" "+labelDOWN).trim());
-            var currentDir = newBlock.getAttribute("faceDir");
-            newBlock.setAttribute("faceDir",{x:-1,y:currentDir.y,z:currentDir.z});
+            newBlock.setAttribute("faceX","-1");
           }
            //LEFT
           if(j==0) 
           {
             newBlock.setAttribute("face",(newBlock.getAttribute("face")+" "+labelLEFT).trim());
-            var currentDir = newBlock.getAttribute("faceDir");
-            newBlock.setAttribute("faceDir",{x:currentDir.x,y:-1,z:currentDir.z});
+            newBlock.setAttribute("faceY","-1");
           }
            //RIGHT
           if(j==2) 
           {
             newBlock.setAttribute("face",(newBlock.getAttribute("face")+" "+labelRIGHT).trim());
-            var currentDir = newBlock.getAttribute("faceDir");
-            newBlock.setAttribute("faceDir",{x:currentDir.x,y:1,z:currentDir.z});
+            newBlock.setAttribute("faceY","1");
           }
           //FRONT
           if(r==2) 
           {
             newBlock.setAttribute("face",(newBlock.getAttribute("face")+" "+labelFRONT).trim());
-            var currentDir = newBlock.getAttribute("faceDir");
-            newBlock.setAttribute("faceDir",{x:currentDir.x,y:currentDir.y,z:1});
+            newBlock.setAttribute("faceZ","1");
           }
           //BACK
           if(r==0) 
           {
             newBlock.setAttribute("face",(newBlock.getAttribute("face")+" "+labelBACK).trim());
-            var currentDir = newBlock.getAttribute("faceDir");
-            newBlock.setAttribute("faceDir",{x:currentDir.x,y:currentDir.y,z:-1});
+            newBlock.setAttribute("faceZ","-1");
           }
           
           newPivot.appendChild(newBlock);
@@ -208,7 +205,7 @@ function rotateFace(block){
     ROTATIONS[pivot.id].x=newX;
     ROTATIONS[pivot.id].y=newY;
 
-    var rotationDir = el.getAttribute("faceDir");
+    var rotationDir = {x:e.getAttribute("faceX"),y:e.getAttribute("faceY"),z:e.getAttribute("faceZ")}
     console.log(el.id,el.getAttribute("face"),rotationDir.x,rotationDir.y,rotationDir.z);
     el.setAttribute("face","");
 
@@ -293,7 +290,9 @@ function rotateFace(block){
       }
     }
 
-    el.setAttribute("faceDir",rotationDir);
+    el.setAttribute("faceX",rotationDir.x);
+    el.setAttribute("faceY",rotationDir.y);
+    el.setAttribute("faceZ",rotationDir.z);
 
     console.log(el.id,el.getAttribute("face"),rotationDir.x,rotationDir.y,rotationDir.z);
     pivot.addEventListener("animationcomplete__dynamic"+pivot.id,function(){
