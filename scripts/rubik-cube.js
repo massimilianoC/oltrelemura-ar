@@ -207,7 +207,7 @@ function rotateFace(block){
 
     var rotationDir = {x:el.getAttribute("faceX"),y:el.getAttribute("faceY"),z:el.getAttribute("faceZ")}
     console.log("START",el.id,el.getAttribute("face"),rotationDir.x,rotationDir.y,rotationDir.z);
-    el.setAttribute("face","");
+    el.setAttribute("face",rotationFace);
 
     if(rotationFace.trim()==labelDOWN || rotationFace.trim()==labelUP)
     {
