@@ -206,7 +206,7 @@ function rotateFace(block){
     ROTATIONS[pivot.id].y=newY;
 
     var rotationDir = {x:el.getAttribute("faceX"),y:el.getAttribute("faceY"),z:el.getAttribute("faceZ")}
-    console.log(el.id,el.getAttribute("face"),rotationDir.x,rotationDir.y,rotationDir.z);
+    console.log("START",el.id,el.getAttribute("face"),rotationDir.x,rotationDir.y,rotationDir.z);
     el.setAttribute("face","");
 
     if(rotationFace.trim()==labelDOWN || rotationFace.trim()==labelUP)
@@ -306,7 +306,7 @@ function rotateFace(block){
     el.setAttribute("faceY",rotationDir.y);
     el.setAttribute("faceZ",rotationDir.z);
 
-    console.log(el.id,el.getAttribute("face"),rotationDir.x,rotationDir.y,rotationDir.z);
+    console.log("END",el.id,el.getAttribute("face"),rotationDir.x,rotationDir.y,rotationDir.z);
     pivot.addEventListener("animationcomplete__dynamic"+pivot.id,function(){
       //animation ended
     },false);
