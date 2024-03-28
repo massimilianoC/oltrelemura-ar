@@ -256,7 +256,7 @@ function rotateFace(block){
         rotationDir.x = "";
         rotationDir.z = labelFRONT;
       } else
-      if(rotationDir.x == " "&& rotationDir.z == labelFRONT) {
+      if(rotationDir.x == "" && rotationDir.z == labelFRONT) {
         rotationDir.x = labelDOWN;
         rotationDir.z = "";
       } else
