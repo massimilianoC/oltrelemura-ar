@@ -173,8 +173,7 @@ function rotateFace(block,direction){
   var pivot = block.parentElement;
   console.log(block.id);
   console.log(pivot.id);
-
-  var currentFaces = str.split(' ')(block.getAttribute("face"));
+  var currentFaces = block.getAttribute("face").split(' ');
   console.log(currentFaces);
   var sibling  = document.querySelectorAll("a-box[face*="+currentFaces[0]+"]");
   console.log(sibling);
