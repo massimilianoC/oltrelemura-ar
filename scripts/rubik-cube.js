@@ -108,7 +108,7 @@ function buildCubeFaces(el){
                       setTimeout(() => {
                         console.log("1 click " + e.detail);
                       rotateFace(newBlock,mouseEvent.detail);
-                      }, 300);
+                      }, 500);
                     } else if (mouseEvent.detail === 2) {
                       console.log("2 click " + e.detail);
                       rotateFace(newBlock,mouseEvent.detail);
