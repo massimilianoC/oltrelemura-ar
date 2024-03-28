@@ -231,7 +231,7 @@ function rotateFace(block){
       if(targetZ=="Z"){
         newZ = oldZ + 90;
       }else if(targetZ=="X"){
-        newX = oldX+ 90;
+        newZ = oldZ+ 90;
       }else if(targetZ=="Y"){
         newY =  oldY + 90;
       }
