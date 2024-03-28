@@ -130,22 +130,29 @@ function getRandomInt(min, max) {
 
 function rotateFace(block,direction){
   var pivot = block.parentElement;
+  console.log(block.id);
+  console.log(pivot.id);
+
   if(!ROTATIONS[pivot.id]){
     ROTATIONS[pivot.id]={x:0,y:0,z:0}
   }
+ 
   pivot.removeAttribute("animation__dynamic"+pivot.id);
+  
   var oldZ = ROTATIONS[pivot.id].z;
   var oldX = ROTATIONS[pivot.id].x;
   var oldY = ROTATIONS[pivot.id].y;
   var newX = oldX + 90;
   var newY = oldY + 90;
   var newZ = oldZ + 90;
+  
   pivot.setAttribute("animation__dynamic"+pivot.id,"property:rotation; enabled:true;elasticity:200;dur: 1000; from:"+oldX+" "+oldY+" "+oldZ+"; to: "+newX+" "+newY+" "+newZ);
+ 
   ROTATIONS[pivot.id].z=newZ;
   ROTATIONS[pivot.id].x=newX;
   ROTATIONS[pivot.id].y=newY;
+
   pivot.addEventListener("animationcomplete__dynamic"+pivot.id,function(){
-    console.log("END animationcomplete__dynamic"+pivot.id);
-    console.log(ROTATIONS[pivot.id]);
+    //rebuildFaces
   },{once:true});
 }
