@@ -121,7 +121,7 @@ AFRAME.registerComponent('rubik-cube-param',{
                       var oldY = cube.object3D.rotation.y;
                       console.log(cube.object3D.rotation.z);
                       console.log(newZ);
-                      cube.setAttribute("animation__dynamic","property:rotation;round:true; enabled:true;elasticity:200;dur: 1000; from:"+oldX+" "+oldY+" "+oldZ+"; to: "+oldX+" "+oldY+" "+newZ);
+                      cube.setAttribute("animation__dynamic","property:rotation; enabled:true;elasticity:200;dur: 1000; from:"+oldX+" "+oldY+" "+oldZ+"; to: "+oldX+" "+oldY+" "+newZ);
                       e.stopPropagation();
                       e.preventDefault()
                     },false);
