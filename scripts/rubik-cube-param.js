@@ -112,9 +112,9 @@ AFRAME.registerComponent('rubik-cube-param',{
                     newBlock.appendChild(newPlane);
                     
                     //events
-                    newBlock.addEventListener("click", (e) => {
-                      var cube = document.querySelector('#rubik0');
-                      cube.setAttribute("animation","property:rotation; to: 0 0 0");
+                    newPlane.addEventListener("click", (e) => {
+                      var cube = document.querySelector('#rubik'+idx);
+                      cube.setAttribute("animation","property:rotation; to: 0 "+(cube.object3D.position.y+90)+" 0");
                       e.stopPropagation();
                       e.preventDefault()
                       console.log(this);
