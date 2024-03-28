@@ -309,8 +309,8 @@ function rotateFace(block){
     if(rotationFace.trim()==labelLEFT || rotationFace.trim()==labelRIGHT)
     {
       //swap Axis
-      //pivot.setAttribute("axisY", targetZ);
-      //pivot.setAttribute("axisZ",targetY);
+      pivot.setAttribute("axisY", targetZ);
+      pivot.setAttribute("axisZ",targetY);
 
       if(rotationDir.x == labelDOWN && rotationDir.z == "") {
         rotationDir.x = "";
