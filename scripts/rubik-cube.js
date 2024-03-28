@@ -41,6 +41,7 @@ function buildCubeFaces(el){
                   newPivot.setAttribute('id','pivot_'+r+'_'+i+'_'+j);
                   newBlock.setAttribute("face","");
                   newBlock.setAttribute("faceDir",{x:0,y:0,z:0});
+                  console.log(newBlock.getAttribute("faceDir"));
                   newBlock.setAttribute('id','block_'+r+'_'+i+'_'+j);
                   newBlock.setAttribute('class',"block");
                   newBlock.setAttribute('position',positionx+" "+positiony+ " "+positionz);
