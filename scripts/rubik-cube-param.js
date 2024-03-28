@@ -62,7 +62,7 @@ AFRAME.registerComponent('rubik-cube-param',{
                     //BACK
                     else if(r==0 && axis==2 && direction==1) 
                     {
-                      newPlane.setAttribute('material','shader:flat; src: url(../../../assets/texture/tileC_'+(2-i)+'_'+j+'.png)');
+                      newPlane.setAttribute('material','shader:flat; side: double; src: url(../../../assets/texture/tileC_'+(2-i)+'_'+j+'.png)');
                       rotation = "0 0 0";
                     }
                     else {
