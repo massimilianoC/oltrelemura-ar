@@ -101,17 +101,17 @@ function buildCubeFaces(el){
                   
                   //rotation events
                   newPlane.addEventListener("click", (e) => {
-                    console.log(e);
-                    if (e.detail === 1) {
+                    var mouseEvent = e.detail.mouseEvent;
+                    if (mouseEvent.detail === 1) {
                       console.log("1 click " + e.detail);
-                    } else if (e.detail === 2) {
+                    } else if (mouseEvent.detail === 2) {
                       console.log("2 click " + e.detail);
                     }
                     console.log(newPlane.id);
-                    rotateFace(newBlock,e.detail);
-                    e.stopPropagation();
-                    e.preventDefault()
-                  },false);
+                    rotateFace(newBlock,mouseEvent.detail);
+                    mouseEvent.stopPropagation();
+                    mouseEvent.preventDefault()
+                  },{once:true});
                   faceCounter++;
               }           
           }
