@@ -181,7 +181,7 @@ function rotateFace(block){
   if(block.id=="block_0_0_0") console.log("ROTATE "+rotationFace);
 
   siblings.forEach(el => {
-    if(block.id=="block_0_0_0") console.log(el.getAttribute("face"));
+    if(el.id=="block_0_0_0") console.log(el.getAttribute("face"));
 
     var pivot = el.parentElement;
 
@@ -237,8 +237,8 @@ function rotateFace(block){
       }
     }
     
-    if(block.id=="block_0_0_0") console.log(oldX,oldY,oldZ);
-    if(block.id=="block_0_0_0") console.log(newX,newY,newZ);
+    if(el.id=="block_0_0_0") console.log(oldX,oldY,oldZ);
+    if(el.id=="block_0_0_0") console.log(newX,newY,newZ);
     pivot.setAttribute("animation__dynamic"+pivot.id,"property:rotation; enabled:true;elasticity:200;dur: 1000; from:"+oldX+" "+oldY+" "+oldZ+"; to: "+newX+" "+newY+" "+newZ);
   
     ROTATIONS[pivot.id].z=newZ;
