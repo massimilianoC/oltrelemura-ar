@@ -129,10 +129,10 @@ function getRandomInt(min, max) {
 }
 
 function rotateFace(block,direction){
+  var pivot = block.parentElement;
   if(!ROTATIONS[pivot.id]){
     ROTATIONS[pivot.id]={x:0,y:0,z:0}
   }
-  var pivot = block.parentElement;
   pivot.removeAttribute("animation__dynamic"+pivot.id);
   var oldZ = ROTATIONS[pivot.id].z;
   var oldX = ROTATIONS[pivot.id].x;
