@@ -39,6 +39,8 @@ AFRAME.registerComponent('rubik-cube-param',{
   const PIVOT_FRONT = [];
   const PIVOT_BACK = [];
 
+  const LAST_ROTATION = [];
+
   function buildCubeFaces(idx,el){
     var newElement = document.createElement('a-entity');
     let groupCounter = 0;
@@ -113,24 +115,10 @@ AFRAME.registerComponent('rubik-cube-param',{
                     
                     //events
                     newPlane.addEventListener("click", (e) => {
-                      var cube = document.querySelector('#rubik'+idx);
-                      cube.removeAttribute("animation__dynamic"+idx);
-                      var newZ= cube.object3D.rotation.z+90;
-                      var oldZ = cube.object3D.rotation.z;
-                      var oldX = cube.object3D.rotation.x;
-                      var oldY = cube.object3D.rotation.y;
-                      console.log(cube.object3D.rotation);
-                      console.log(newZ);
-                      cube.setAttribute("animation__dynamic"+idx,"property:rotation; enabled:true;elasticity:200;dur: 1000; from:"+oldX+" "+oldY+" "+oldZ+"; to: "+oldX+" "+oldY+" "+newZ);
-                      cube.addEventListener("animationcomplete__dynamic"+idx,function(){
-                        console.log("END animationcomplete__dynamic"+idx);
-                        cube.object3D.rotation.set(oldX,oldY,newZ);
-                        console.log(cube.object3D.rotation);
-                      },{once:true});
+                      rotateParent(idx);
                       e.stopPropagation();
                       e.preventDefault()
                     },false);
-
                     faceCounter++;
                 }           
             }
@@ -289,4 +277,24 @@ AFRAME.registerComponent('rubik-cube-param',{
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function rotateParent(idx){
+    if(LAST_ROTATION.length<3) {
+      LAST_ROTATION.push({x:0,y:0,z:0});
+      LAST_ROTATION.push({x:0,y:0,z:0});
+      LAST_ROTATION.push({x:0,y:0,z:0});
+    }
+    var cube = document.querySelector('#rubik'+idx);
+    cube.removeAttribute("animation__dynamic"+idx);
+    var newZ= LAST_ROTATION[idx].z+90;
+    var oldZ = LAST_ROTATION[idx].z;
+    var oldX = LAST_ROTATION[idx].x;
+    var oldY = LAST_ROTATION[idx].y;
+    cube.setAttribute("animation__dynamic"+idx,"property:rotation; enabled:true;elasticity:200;dur: 1000; from:"+oldX+" "+oldY+" "+oldZ+"; to: "+oldX+" "+oldY+" "+newZ);
+    LAST_ROTATION[idx].z=newZ;
+    cube.addEventListener("animationcomplete__dynamic"+idx,function(){
+      console.log("END animationcomplete__dynamic"+idx);
+      console.log(LAST_ROTATION[idx]);
+    },{once:true});
 }
