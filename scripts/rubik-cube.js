@@ -171,9 +171,11 @@ function getRandomInt(min, max) {
 function rotateFace(block){
 
   var currentFaces = block.getAttribute("face").trim().split(' ');
-  console.log(currentFaces);
-  var siblings = document.querySelectorAll("a-box[face*='"+currentFaces[0]+"']");
-  console.log(siblings);
+  var rotationFace = currentFaces[0];
+  var siblings = document.querySelectorAll("a-box[face*='"+rotationFace+"']");
+  console.log("BLOCK IN "+currentFaces);
+  console.log("ROTATE "+rotationFace);
+  console.log("SIBLINGS "+siblings.length);
   var direction = 0;
 
   siblings.forEach(el => {
@@ -190,9 +192,9 @@ function rotateFace(block){
     var oldZ = ROTATIONS[pivot.id].z;
     var oldX = ROTATIONS[pivot.id].x;
     var oldY = ROTATIONS[pivot.id].y;
-    var newX = (oldX + (direction==0? 90 : 0))%360;
-    var newY = oldY;
-    var newZ = (oldZ + (direction==1? 90 : 0))%360;
+    var newX = (oldX + ((rotationFace.trim()==labelLEFT)? 90 : 0))%360;
+    var newY = (oldY + ((rotationFace.trim()==labelDOWN)? 90 : 0))%360;
+    var newZ = (oldZ + ((rotationFace.trim()==labelFRONT)? 90 : 0))%360;
     
     pivot.setAttribute("animation__dynamic"+pivot.id,"property:rotation; enabled:true;elasticity:200;dur: 1000; from:"+oldX+" "+oldY+" "+oldZ+"; to: "+newX+" "+newY+" "+newZ);
   
