@@ -44,7 +44,7 @@ function buildCubeFaces(el){
 
                   var newPlane = document.createElement('a-plane');
                   newPlane.setAttribute('position',position);
-                  newPlane.setAttribute("id","face_"+idx+"_"+i+"_"+j+"_"+axis+"_"+direction);
+                  newPlane.setAttribute("id","face_"+r+"_"+i+"_"+j+"_"+axis+"_"+direction);
 
                   //UP
                   if(i==2 && axis==1 && direction==0) 
@@ -141,11 +141,11 @@ function rotateFace(block,direction){
   var newY = oldY + 90;
   var newZ = oldZ + 90;
   pivot.setAttribute("animation__dynamic"+pivot.id,"property:rotation; enabled:true;elasticity:200;dur: 1000; from:"+oldX+" "+oldY+" "+oldZ+"; to: "+newX+" "+newY+" "+newZ);
-  ROTATIONS[idx].z=newZ;
-  ROTATIONS[idx].x=newX;
-  ROTATIONS[idx].y=newY;
+  ROTATIONS[r].z=newZ;
+  ROTATIONS[r].x=newX;
+  ROTATIONS[r].y=newY;
   pivot.addEventListener("animationcomplete__dynamic"+pivot.id,function(){
     console.log("END animationcomplete__dynamic"+pivot.id);
-    console.log(ROTATIONS[idx]);
+    console.log(ROTATIONS[r]);
   },{once:true});
 }
