@@ -228,6 +228,27 @@ function rotateFace(block){
         rotationDir.z = "";
         console.log("rotate",rotationDir.x,rotationDir.y,rotationDir.z);
       }
+
+      //corners
+      if(rotationDir.y == labelLEFT && rotationDir.z == labelFRONT) {
+        rotationDir.y = labelRIGHT;
+        console.log("rotate",rotationDir.x,rotationDir.y,rotationDir.z);
+      }
+
+      if(rotationDir.y == labelLEFT && rotationDir.z == labelBACK) {
+        rotationDir.z = labelFRONT;
+        console.log("rotate",rotationDir.x,rotationDir.y,rotationDir.z);
+      }
+
+      if(rotationDir.y == labelRIGHT && rotationDir.z == labelFRONT) {
+        rotationDir.z = labelBACK;
+        console.log("rotate",rotationDir.x,rotationDir.y,rotationDir.z);
+      }
+
+      if(rotationDir.y == labelRIGHT && rotationDir.z == labelBACK) {
+        rotationDir.y = labelLEFT;
+        console.log("rotate",rotationDir.x,rotationDir.y,rotationDir.z);
+      }
     }
 
     if(rotationFace.trim()==labelLEFT || rotationFace.trim()==labelRIGHT)
@@ -255,6 +276,27 @@ function rotateFace(block){
         rotationDir.z = "";
         console.log("rotate",rotationDir.x,rotationDir.y,rotationDir.z);
       }
+
+      //corners
+      if(rotationDir.x == labelDOWN && rotationDir.z == labelFRONT) {
+        rotationDir.x = labelUP;
+        console.log("rotate",rotationDir.x,rotationDir.y,rotationDir.z);
+      }
+
+      if(rotationDir.x == labelDOWN && rotationDir.z == labelBACK) {
+        rotationDir.z = labelFRONT;
+        console.log("rotate",rotationDir.x,rotationDir.y,rotationDir.z);
+      }
+
+      if(rotationDir.x == labelUP && rotationDir.z == labelFRONT) {
+        rotationDir.z = labelBACK;
+        console.log("rotate",rotationDir.x,rotationDir.y,rotationDir.z);
+      }
+
+      if(rotationDir.x == labelUP && rotationDir.z == labelBACK) {
+        rotationDir.x = labelDOWN;
+        console.log("rotate",rotationDir.x,rotationDir.y,rotationDir.z);
+      }
     }
 
     if(rotationFace.trim()==labelFRONT || rotationFace.trim()==labelBACK)
@@ -280,6 +322,27 @@ function rotateFace(block){
       if(rotationDir.x == "" && rotationDir.y == labelLEFT) {
         rotationDir.x = labelDOWN;
         rotationDir.y = "";
+        console.log("rotate",rotationDir.x,rotationDir.y,rotationDir.z);
+      }
+
+      //corners
+      if(rotationDir.y == labelLEFT && rotationDir.x == labelDOWN) {
+        rotationDir.y = labelRIGHT;
+        console.log("rotate",rotationDir.x,rotationDir.y,rotationDir.z);
+      }
+
+      if(rotationDir.y == labelLEFT && rotationDir.x == labelUP) {
+        rotationDir.x = labelDOWN;
+        console.log("rotate",rotationDir.x,rotationDir.y,rotationDir.z);
+      }
+
+      if(rotationDir.y == labelRIGHT && rotationDir.x == labelDOWN) {
+        rotationDir.x = labelUP;
+        console.log("rotate",rotationDir.x,rotationDir.y,rotationDir.z);
+      }
+
+      if(rotationDir.y == labelRIGHT && rotationDir.x == labelUP) {
+        rotationDir.y = labelLEFT;
         console.log("rotate",rotationDir.x,rotationDir.y,rotationDir.z);
       }
     }
