@@ -299,16 +299,16 @@ function rotateFace(block){
       } else
       //corners
       if(rotationDir.y == labelLEFT && rotationDir.x == labelDOWN) {
-        rotationDir.x = labelUP;
-      } else
-      if(rotationDir.y == labelLEFT && rotationDir.x == labelUP) {
         rotationDir.y = labelRIGHT;
       } else
+      if(rotationDir.y == labelLEFT && rotationDir.x == labelUP) {
+        rotationDir.x = labelDOWN;
+      } else
       if(rotationDir.y == labelRIGHT && rotationDir.x == labelDOWN) {
-        rotationDir.y = labelLEFT;
+        rotationDir.x = labelUP;
       } else
       if(rotationDir.y == labelRIGHT && rotationDir.x == labelUP) {
-        rotationDir.x = labelDOWN;
+        rotationDir.y = labelLEFT;
       } 
     }
 
