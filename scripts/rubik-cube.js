@@ -180,7 +180,7 @@ function rotateFace(block){
   var currentFaces = block.getAttribute("face").trim().split(' ');
   var rotationFace = currentFaces[0];
   var siblings = document.querySelectorAll("a-box[face*='"+rotationFace+"']");
-  console.log(el.id)
+  console.log(block.id)
   console.log("BLOCK IN "+currentFaces);
   console.log("ROTATE "+rotationFace);
 
@@ -291,7 +291,7 @@ function rotateFace(block){
         el.setAttribute("face",(el.getAttribute("face")+" "+labelDOWN).trim());
       }
     }
-    
+
     el.setAttribute("faceDir",rotationDir);
 
     console.log(el.id,rotationDir);
