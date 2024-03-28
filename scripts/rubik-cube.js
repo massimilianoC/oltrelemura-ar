@@ -202,11 +202,12 @@ function rotateFace(block){
     var targetX = pivot.getAttribute("axisX");
     var targetY = pivot.getAttribute("axisY");
     var targetZ = pivot.getAttribute("axisZ");
-    console.log(targetX,targetY,targetZ);
+    
 
     //ruota asse X
     if(rotationFace.trim()==labelLEFT || rotationFace.trim()==labelRIGHT)
     {
+      console.log(targetX);
       if(targetX=="X"){
         newX +=  90;
       }else if(targetX=="Y"){
@@ -238,6 +239,8 @@ function rotateFace(block){
       }
     }
     
+    console.log(oldX,oldY,oldZ);
+    console.log(newX,newY,newZ);
     pivot.setAttribute("animation__dynamic"+pivot.id,"property:rotation; enabled:true;elasticity:200;dur: 1000; from:"+oldX+" "+oldY+" "+oldZ+"; to: "+newX+" "+newY+" "+newZ);
   
     ROTATIONS[pivot.id].z=newZ;
