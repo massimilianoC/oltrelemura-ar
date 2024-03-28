@@ -205,6 +205,6 @@ function rotateFace(block){
     pivot.addEventListener("animationcomplete__dynamic"+pivot.id,function(){
       console.log(ROTATIONS[pivot.id]);
       //TODO -> rebuildFaces
-    },{once:true});
+    },false);
   }); 
 }
