@@ -101,6 +101,7 @@ function buildCubeFaces(el){
                   
                   //rotation events
                   newPlane.addEventListener("click", (e) => {
+                    console.log(e);
                     if (e.detail === 1) {
                       console.log("1 click " + e.detail);
                     } else if (e.detail === 2) {
