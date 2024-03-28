@@ -25,9 +25,14 @@ function buildCubeFaces(el){
       let columnCounter = 0;
       for (let j = 0; j < 3; j++) {
           let newPivot = document.createElement('a-entity');
+          
           newPivot.setAttribute("axisx","X");
           newPivot.setAttribute("axisY","Y");
           newPivot.setAttribute("axisZ","Z");
+
+          newPivot.setAttribute("dirX","0");
+          newPivot.setAttribute("dirY","0");
+          newPivot.setAttribute("dirZ","0");
 
           let newBlock = document.createElement('a-box');
           let faceCounter = 0;
@@ -252,7 +257,7 @@ function rotateFace(block){
     
     if(el.id=="block_0_0_0") console.log(oldX,oldY,oldZ);
     if(el.id=="block_0_0_0") console.log(newX,newY,newZ);
-    
+
     pivotX.setAttribute("animation__dynamicx"+pivot.id,"property:rotation;dur: 1000; from:"+oldX+" 0 0; to: "+newX+" 0 0");
     pivotY.setAttribute("animation__dynamicy"+pivot.id,"property:rotation;dur: 1000; from:0 "+oldY+" 0; to: 0 "+newY+" 0");
     pivotZ.setAttribute("animation__dynamicz"+pivot.id,"property:rotation;dur: 1000; from:0 0 "+oldZ+"; to: 0 0 "+newZ);
@@ -304,8 +309,8 @@ function rotateFace(block){
     if(rotationFace.trim()==labelLEFT || rotationFace.trim()==labelRIGHT)
     {
       //swap Axis
-      pivot.setAttribute("axisY", targetZ);
-      pivot.setAttribute("axisZ",targetY);
+      //pivot.setAttribute("axisY", targetZ);
+      //pivot.setAttribute("axisZ",targetY);
 
       if(rotationDir.x == labelDOWN && rotationDir.z == "") {
         rotationDir.x = "";
