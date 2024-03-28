@@ -175,7 +175,7 @@ function rotateFace(block,direction){
   console.log(pivot.id);
   var currentFaces = block.getAttribute("face").trim().split(' ');
   console.log(currentFaces);
-  var sibling  = document.querySelectorAll("a-box[face*="+currentFaces[0]+"]");
+  var sibling  = document.querySelectorAll("a-box[face*='"+currentFaces[0]+"']");
   console.log(sibling);
 
   if(!ROTATIONS[pivot.id]){
