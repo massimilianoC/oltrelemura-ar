@@ -39,12 +39,12 @@ AFRAME.registerComponent('rubik-cube-param',{
                     //DOWN
                     else if(i==0 && axis==1 && direction==1) 
                     {
-                      newPlane.setAttribute('material','shader:flat ; src: url(../../../assets/texture/tileA_'+(2-r)+'_'+j+'.png)');
+                      newPlane.setAttribute('material','shader:flat ; src: url(../../../assets/texture/tileB_'+(2-r)+'_'+j+'.png)');
                     }
                      //LEFT
                     else if(j==0 && axis==0 && direction==0) 
                     {
-                      newPlane.setAttribute('material','shader:flat ; src: url(../../../assets/texture/tileA_'+(2-i)+'_'+r+'.png)');
+                      newPlane.setAttribute('material','shader:flat ; src: url(../../../assets/texture/tileC_'+(2-i)+'_'+r+'.png)');
                       rotation = "0 -90 0";
                     }
                      //RIGHT
@@ -56,13 +56,13 @@ AFRAME.registerComponent('rubik-cube-param',{
                     //FRONT
                     else if(r==2 && axis==2 && direction==0) 
                     {
-                      newPlane.setAttribute('material','shader:flat ; src: url(../../../assets/texture/tileA_'+(2-i)+'_'+j+'.png)');
+                      newPlane.setAttribute('material','shader:flat ; src: url(../../../assets/texture/tileB_'+(2-i)+'_'+j+'.png)');
                       rotation = "0 0 0";
                     }
                     //BACK
                     else if(r==0 && axis==2 && direction==1) 
                     {
-                      newPlane.setAttribute('material','shader:flat; side: double ; src: url(../../../assets/texture/tileA_'+(2-i)+'_'+j+'.png)');
+                      newPlane.setAttribute('material','shader:flat; src: url(../../../assets/texture/tileC_'+(2-i)+'_'+j+'.png)');
                       rotation = "0 0 0";
                     }
                     else {
