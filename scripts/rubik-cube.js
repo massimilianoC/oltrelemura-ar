@@ -207,33 +207,33 @@ function rotateFace(block){
     if(rotationFace.trim()==labelLEFT || rotationFace.trim()==labelRIGHT)
     {
       if(targetX=="X"){
-        newX = oldX + 90;
+        newX = (oldX + 90)%360;
       }else if(targetX=="Y"){
-        newY = oldY + 90;
+        newY = (oldY + 90)%360;
       }else if(targetX=="Z"){
-        newZ = oldZ + 90;
+        newZ = (oldZ + 90)%360;
       }
     }else
     //ruota asse Y
     if(rotationFace.trim()==labelDOWN || rotationFace.trim()==labelUP)
     {
       if(targetY=="Y"){
-        newY = oldY + 90;
+        newY = (oldY + 90)%360;
       }else if(targetY=="X"){
-        newX = oldX + 90;
+        newX = (oldX + 90)%360;
       }else if(targetY=="Z"){
-        newZ = oldZ+ 90;
+        newZ = (oldZ+ 90)%360;
       }
     }else    
     //ruota asse Z
     if(rotationFace.trim()==labelFRONT || rotationFace.trim()==labelBACK)
     {
       if(targetZ=="Z"){
-        newZ = oldZ + 90;
+        newZ = (oldZ + 90)%360;
       }else if(targetZ=="X"){
-        newZ = oldZ+ 90;
+        newZ = (oldZ+ 90)%360;
       }else if(targetZ=="Y"){
-        newY =  oldY + 90;
+        newY =  (oldY + 90)%360;
       }
     }
     
