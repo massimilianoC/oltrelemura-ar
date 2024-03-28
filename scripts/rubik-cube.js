@@ -200,7 +200,7 @@ function rotateFace(block){
     ROTATIONS[pivot.id].y=newY;
 
     var rotationDir = {x:el.getAttribute("faceX"),y:el.getAttribute("faceY"),z:el.getAttribute("faceZ")}
-    console.log("START",el.id,el.getAttribute("face"));
+    if(el.id=="block_2_2_0") console.log("START",el.id,el.getAttribute("face"));
     el.setAttribute("face","");
 
     if(rotationFace.trim()==labelDOWN || rotationFace.trim()==labelUP)
@@ -208,46 +208,38 @@ function rotateFace(block){
       if(rotationDir.y == labelLEFT && rotationDir.z == "") {
         rotationDir.y = "";
         rotationDir.z = labelFRONT;
-        console.log("rotate",rotationDir.x,rotationDir.y,rotationDir.z);
       }
 
       if(rotationDir.y == labelRIGHT && rotationDir.z == "") {
         rotationDir.y = "";
         rotationDir.z = labelBACK;
-        console.log("rotate",rotationDir.x,rotationDir.y,rotationDir.z);
       }
 
       if(rotationDir.y == "" && rotationDir.z == labelFRONT) {
         rotationDir.y = labelRIGHT;
         rotationDir.z = "";
-        console.log("rotate",rotationDir.x,rotationDir.y,rotationDir.z);
       }
 
       if(rotationDir.y == "" && rotationDir.z == labelBACK) {
         rotationDir.y = labelLEFT;
         rotationDir.z = "";
-        console.log("rotate",rotationDir.x,rotationDir.y,rotationDir.z);
       }
 
       //corners
       if(rotationDir.y == labelLEFT && rotationDir.z == labelFRONT) {
         rotationDir.y = labelRIGHT;
-        console.log("rotate",rotationDir.x,rotationDir.y,rotationDir.z);
       }
 
       if(rotationDir.y == labelLEFT && rotationDir.z == labelBACK) {
         rotationDir.z = labelFRONT;
-        console.log("rotate",rotationDir.x,rotationDir.y,rotationDir.z);
       }
 
       if(rotationDir.y == labelRIGHT && rotationDir.z == labelFRONT) {
         rotationDir.z = labelBACK;
-        console.log("rotate",rotationDir.x,rotationDir.y,rotationDir.z);
       }
 
       if(rotationDir.y == labelRIGHT && rotationDir.z == labelBACK) {
         rotationDir.y = labelLEFT;
-        console.log("rotate",rotationDir.x,rotationDir.y,rotationDir.z);
       }
     }
 
@@ -256,46 +248,38 @@ function rotateFace(block){
       if(rotationDir.x == labelDOWN && rotationDir.z == "") {
         rotationDir.x = "";
         rotationDir.z = labelBACK;
-        console.log("rotate",rotationDir.x,rotationDir.y,rotationDir.z);
       }
 
       if(rotationDir.x == labelUP && rotationDir.z == "") {
         rotationDir.x = "";
         rotationDir.z = labelFRONT;
-        console.log("rotate",rotationDir.x,rotationDir.y,rotationDir.z);
       }
 
       if(rotationDir.x == " "&& rotationDir.z == labelFRONT) {
         rotationDir.x = labelDOWN;
         rotationDir.z = "";
-        console.log("rotate",rotationDir.x,rotationDir.y,rotationDir.z);
       }
 
       if(rotationDir.x == "" && rotationDir.z == labelBACK) {
         rotationDir.x = labelUP;
         rotationDir.z = "";
-        console.log("rotate",rotationDir.x,rotationDir.y,rotationDir.z);
       }
 
       //corners
       if(rotationDir.x == labelDOWN && rotationDir.z == labelFRONT) {
         rotationDir.x = labelUP;
-        console.log("rotate",rotationDir.x,rotationDir.y,rotationDir.z);
       }
 
       if(rotationDir.x == labelDOWN && rotationDir.z == labelBACK) {
         rotationDir.z = labelFRONT;
-        console.log("rotate",rotationDir.x,rotationDir.y,rotationDir.z);
       }
 
       if(rotationDir.x == labelUP && rotationDir.z == labelFRONT) {
         rotationDir.z = labelBACK;
-        console.log("rotate",rotationDir.x,rotationDir.y,rotationDir.z);
       }
 
       if(rotationDir.x == labelUP && rotationDir.z == labelBACK) {
         rotationDir.x = labelDOWN;
-        console.log("rotate",rotationDir.x,rotationDir.y,rotationDir.z);
       }
     }
 
@@ -304,46 +288,38 @@ function rotateFace(block){
       if(rotationDir.x == labelDOWN && rotationDir.y == "") {
         rotationDir.x = "";
         rotationDir.y = labelRIGHT;
-        console.log("rotate",rotationDir.x,rotationDir.y,rotationDir.z);
       }
 
       if(rotationDir.x == labelUP && rotationDir.y == "") {
         rotationDir.x = "";
         rotationDir.y = labelLEFT;
-        console.log("rotate",rotationDir.x,rotationDir.y,rotationDir.z);
       }
 
       if(rotationDir.x == "" && rotationDir.y == labelRIGHT) {
         rotationDir.x = labelUP;
         rotationDir.y = "";
-        console.log("rotate",rotationDir.x,rotationDir.y,rotationDir.z);
       }
 
       if(rotationDir.x == "" && rotationDir.y == labelLEFT) {
         rotationDir.x = labelDOWN;
         rotationDir.y = "";
-        console.log("rotate",rotationDir.x,rotationDir.y,rotationDir.z);
       }
 
       //corners
       if(rotationDir.y == labelLEFT && rotationDir.x == labelDOWN) {
         rotationDir.y = labelRIGHT;
-        console.log("rotate",rotationDir.x,rotationDir.y,rotationDir.z);
       }
 
       if(rotationDir.y == labelLEFT && rotationDir.x == labelUP) {
         rotationDir.x = labelDOWN;
-        console.log("rotate",rotationDir.x,rotationDir.y,rotationDir.z);
       }
 
       if(rotationDir.y == labelRIGHT && rotationDir.x == labelDOWN) {
         rotationDir.x = labelUP;
-        console.log("rotate",rotationDir.x,rotationDir.y,rotationDir.z);
       }
 
       if(rotationDir.y == labelRIGHT && rotationDir.x == labelUP) {
         rotationDir.y = labelLEFT;
-        console.log("rotate",rotationDir.x,rotationDir.y,rotationDir.z);
       }
     }
 
@@ -353,7 +329,7 @@ function rotateFace(block){
 
     el.setAttribute("face",el.getAttribute("faceX")+" "+el.getAttribute("faceY")+" "+el.getAttribute("faceZ"));
 
-    console.log("END",el.id,el.getAttribute("face"));
+    if(el.id=="block_2_2_0") console.log("END",el.id,el.getAttribute("face"));
     pivot.addEventListener("animationcomplete__dynamic"+pivot.id,function(){
       //animation ended
     },false);
