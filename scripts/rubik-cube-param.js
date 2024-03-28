@@ -114,11 +114,12 @@ AFRAME.registerComponent('rubik-cube-param',{
                     //events
                     newPlane.addEventListener("click", (e) => {
                       var cube = document.querySelector('#rubik'+idx);
+                      cube.removeAttribute("animation__dynamic");
                       console.log(cube.object3D.position.z);
                       var newZ= cube.object3D.position.z+90;
                       var oldX = cube.object3D.position.x;
                       var oldY = cube.object3D.position.y;
-                      cube.setAttribute("animation","property:rotation; to: "+oldX+" "+oldY+" "+(newZ));
+                      cube.setAttribute("animation__dynamic","property:rotation; to: "+oldX+" "+oldY+" "+(newZ));
                       e.stopPropagation();
                       e.preventDefault()
                     },false);
