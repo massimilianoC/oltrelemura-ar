@@ -283,17 +283,14 @@ function rotateFace(block){
         rotationDir.x = "";
         rotationDir.y = labelRIGHT;
       } else
-
       if(rotationDir.x == labelUP && rotationDir.y == "") {
         rotationDir.x = "";
         rotationDir.y = labelLEFT;
       } else
-
       if(rotationDir.x == "" && rotationDir.y == labelRIGHT) {
         rotationDir.x = labelUP;
         rotationDir.y = "";
       } else
-
       if(rotationDir.x == "" && rotationDir.y == labelLEFT) {
         rotationDir.x = labelDOWN;
         rotationDir.y = "";
