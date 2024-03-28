@@ -207,39 +207,39 @@ function rotateFace(block){
     if(rotationFace.trim()==labelLEFT || rotationFace.trim()==labelRIGHT)
     {
       if(targetX=="X"){
-        newX = (oldX + 90)%360;
+        newX = oldX + 90;
       }else if(targetX=="Y"){
-        newY = (oldY + 90)%360;
+        newY = oldY + 90;
       }else if(targetX=="Z"){
-        newZ = (oldZ + 90)%360;
+        newZ = oldZ + 90;
       }
     }else
     //ruota asse Y
     if(rotationFace.trim()==labelDOWN || rotationFace.trim()==labelUP)
     {
       if(targetY=="Y"){
-        newY = (oldY + 90)%360;
+        newY = oldY + 90;
       }else if(targetY=="X"){
-        newX = (oldX + 90)%360;
+        newX = oldX + 90;
       }else if(targetY=="Z"){
-        newZ = (oldZ+ 90)%360;
+        newZ = oldZ+ 90;
       }
     }else    
     //ruota asse Z
     if(rotationFace.trim()==labelFRONT || rotationFace.trim()==labelBACK)
     {
       if(targetZ=="Z"){
-        newZ = (oldZ + 90)%360;
+        newZ = oldZ + 90;
       }else if(targetZ=="X"){
-        newX = (oldX+ 90)%360;
+        newX = oldX+ 90;
       }else if(targetZ=="Y"){
-        newY =  (oldY + 90)%360;
+        newY =  oldY + 90;
       }
     }
     
     if(el.id=="block_0_0_0") console.log(oldX,oldY,oldZ);
     if(el.id=="block_0_0_0") console.log(newX,newY,newZ);
-    pivot.setAttribute("animation__dynamic"+pivot.id,"property:rotation; enabled:true;elasticity:200;dur: 1000; from:"+oldX+" "+oldY+" "+oldZ+"; to: "+newX+" "+newY+" "+newZ);
+    pivot.setAttribute("animation__dynamic"+pivot.id,"property:rotation;dur: 1000; from:"+oldX+" "+oldY+" "+oldZ+"; to: "+newX+" "+newY+" "+newZ);
   
     ROTATIONS[pivot.id].z=newZ;
     ROTATIONS[pivot.id].x=newX;
