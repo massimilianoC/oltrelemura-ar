@@ -208,38 +208,46 @@ function rotateFace(block){
       if(rotationDir.y == labelLEFT && rotationDir.z == "") {
         rotationDir.y = "";
         rotationDir.z = labelFRONT;
+        console.log("DOWN");
       }
 
       if(rotationDir.y == labelRIGHT && rotationDir.z == "") {
         rotationDir.y = "";
         rotationDir.z = labelBACK;
+        console.log("DOWN");
       }
 
       if(rotationDir.y == "" && rotationDir.z == labelFRONT) {
         rotationDir.y = labelRIGHT;
         rotationDir.z = "";
+        console.log("DOWN");
       }
 
       if(rotationDir.y == "" && rotationDir.z == labelBACK) {
         rotationDir.y = labelLEFT;
         rotationDir.z = "";
+        console.log("DOWN");
       }
 
       //corners
       if(rotationDir.y == labelLEFT && rotationDir.z == labelFRONT) {
         rotationDir.y = labelRIGHT;
+        console.log("CORNER DOWN");
       }
 
       if(rotationDir.y == labelLEFT && rotationDir.z == labelBACK) {
         rotationDir.z = labelFRONT;
+        console.log("CORNER DOWN");
       }
 
       if(rotationDir.y == labelRIGHT && rotationDir.z == labelFRONT) {
         rotationDir.z = labelBACK;
+        console.log("CORNER DOWN");
       }
 
       if(rotationDir.y == labelRIGHT && rotationDir.z == labelBACK) {
         rotationDir.y = labelLEFT;
+        console.log("CORNER DOWN");
       }
     }
 
