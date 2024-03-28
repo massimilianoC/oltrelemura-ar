@@ -40,6 +40,7 @@ function buildCubeFaces(el){
                   
                   newPivot.setAttribute('id','pivot_'+r+'_'+i+'_'+j);
                   newBlock.setAttribute("face","");
+                  newBlock.setAttribute("faceDir",{x:0,y:0,z:0});
                   newBlock.setAttribute('id','block_'+r+'_'+i+'_'+j);
                   newBlock.setAttribute('class',"block");
                   newBlock.setAttribute('position',positionx+" "+positiony+ " "+positionz);
@@ -112,36 +113,48 @@ function buildCubeFaces(el){
               }           
           }
 
-          //FACES VECTORS
+          //INIT FACES VECTORS
           //UP
           if(i==2) 
           {
             newBlock.setAttribute("face",(newBlock.getAttribute("face")+" "+labelUP).trim());
+            var currentDir = newBlock.getAttribute("faceDir");
+            newBlock.setAttribute("faceDir",{x:1,y:currentDir.y,z:currentDir.z});
           }
           //DOWN
           if(i==0) 
           {
             newBlock.setAttribute("face",(newBlock.getAttribute("face")+" "+labelDOWN).trim());
+            var currentDir = newBlock.getAttribute("faceDir");
+            newBlock.setAttribute("faceDir",{x:-1,y:currentDir.y,z:currentDir.z});
           }
            //LEFT
           if(j==0) 
           {
             newBlock.setAttribute("face",(newBlock.getAttribute("face")+" "+labelLEFT).trim());
+            var currentDir = newBlock.getAttribute("faceDir");
+            newBlock.setAttribute("faceDir",{x:currentDir.x,y:-1,z:currentDir.z});
           }
            //RIGHT
           if(j==2) 
           {
             newBlock.setAttribute("face",(newBlock.getAttribute("face")+" "+labelRIGHT).trim());
+            var currentDir = newBlock.getAttribute("faceDir");
+            newBlock.setAttribute("faceDir",{x:currentDir.x,y:1,z:currentDir.z});
           }
           //FRONT
           if(r==2) 
           {
             newBlock.setAttribute("face",(newBlock.getAttribute("face")+" "+labelFRONT).trim());
+            var currentDir = newBlock.getAttribute("faceDir");
+            newBlock.setAttribute("faceDir",{x:currentDir.x,y:currentDir.y,z:1});
           }
           //BACK
           if(r==0) 
           {
             newBlock.setAttribute("face",(newBlock.getAttribute("face")+" "+labelBACK).trim());
+            var currentDir = newBlock.getAttribute("faceDir");
+            newBlock.setAttribute("faceDir",{x:currentDir.x,y:currentDir.y,z:-1});
           }
           
           newPivot.appendChild(newBlock);
@@ -169,23 +182,15 @@ function rotateFace(block){
   var siblings = document.querySelectorAll("a-box[face*='"+rotationFace+"']");
   console.log("BLOCK IN "+currentFaces);
   console.log("ROTATE "+rotationFace);
-  //console.log("SIBLINGS "+siblings.length);
-  var direction = 0;
 
   siblings.forEach(el => {
     var pivot = el.parentElement;
-    //console.log(el.id);
-    //console.log(pivot.id);
-
     if(!ROTATIONS[pivot.id]){
-      ROTATIONS[pivot.id]={x:0,y:0,z:0}
-    }
-  
+      ROTATIONS[pivot.id]={x:0,y:0,z:0}}
     pivot.removeAttribute("animation__dynamic"+pivot.id);
-    
     var oldZ = ROTATIONS[pivot.id].z;
     var oldX = ROTATIONS[pivot.id].x;
-    var oldY = ROTATIONS[pivot.id].y;
+    var oldY = ROTATIONS[pivot.id].y;   
     var newX = (oldX + ((rotationFace.trim()==labelLEFT) || (rotationFace.trim()==labelRIGHT)? 90 : 0));
     var newY = (oldY + ((rotationFace.trim()==labelDOWN) ||(rotationFace.trim()==labelUP) ? 90 : 0));
     var newZ = (oldZ + ((rotationFace.trim()==labelFRONT) || (rotationFace.trim()==labelBACK)? 90 : 0));
@@ -196,9 +201,92 @@ function rotateFace(block){
     ROTATIONS[pivot.id].x=newX;
     ROTATIONS[pivot.id].y=newY;
 
+    var rotationDir = block.getAttribute("faceDir");
+    block.setAttribute("face","");
+
+    if(rotationFace.trim()==labelDOWN || rotationFace.trim()==labelUP)
+    {
+      if(rotationDir.y == -1 && rotationDir.z == 0) {
+        rotationDir.y = 0;
+        rotationDir.z = 1;
+        newBlock.setAttribute("face",(newBlock.getAttribute("face")+" "+labelFRONT).trim());
+      }
+
+      if(rotationDir.y == 1 && rotationDir.z == 0) {
+        rotationDir.y = 0;
+        rotationDir.z = -1;
+        newBlock.setAttribute("face",(newBlock.getAttribute("face")+" "+labelBACK).trim());
+      }
+
+      if(rotationDir.y == 0 && rotationDir.z == 1) {
+        rotationDir.y = 1;
+        rotationDir.z = 0;
+        newBlock.setAttribute("face",(newBlock.getAttribute("face")+" "+labelRIGHT).trim());
+      }
+
+      if(rotationDir.y == 0 && rotationDir.z == -1) {
+        rotationDir.y = -1;
+        rotationDir.z = 0;
+        newBlock.setAttribute("face",(newBlock.getAttribute("face")+" "+labelLEFT).trim());
+      }
+    }
+
+    if(rotationFace.trim()==labelLEFT || rotationFace.trim()==labelRIGHT)
+    {
+      if(rotationDir.x == -1 && rotationDir.z == 0) {
+        rotationDir.x = 0;
+        rotationDir.z = -1;
+        newBlock.setAttribute("face",(newBlock.getAttribute("face")+" "+labelBACK).trim());
+      }
+
+      if(rotationDir.x == 1 && rotationDir.z == 0) {
+        rotationDir.x = 0;
+        rotationDir.z = 1;
+        newBlock.setAttribute("face",(newBlock.getAttribute("face")+" "+labelFRONT).trim());
+      }
+
+      if(rotationDir.x == 0 && rotationDir.z == 1) {
+        rotationDir.x = -1;
+        rotationDir.z = 0;
+        newBlock.setAttribute("face",(newBlock.getAttribute("face")+" "+labelDOWN).trim());
+      }
+
+      if(rotationDir.x == 0 && rotationDir.z == -1) {
+        rotationDir.x = 1;
+        rotationDir.z = 0;
+        newBlock.setAttribute("face",(newBlock.getAttribute("face")+" "+labelUP).trim());
+      }
+    }
+
+    if(rotationFace.trim()==labelFRONT || rotationFace.trim()==labelBACK)
+    {
+      if(rotationDir.x == -1 && rotationDir.y == 0) {
+        rotationDir.x = 0;
+        rotationDir.y = 1;
+        newBlock.setAttribute("face",(newBlock.getAttribute("face")+" "+labelRIGHT).trim());
+      }
+
+      if(rotationDir.x == 1 && rotationDir.y == 0) {
+        rotationDir.x = 0;
+        rotationDir.y = -1;
+        newBlock.setAttribute("face",(newBlock.getAttribute("face")+" "+labelLEFT).trim());
+      }
+
+      if(rotationDir.x == 0 && rotationDir.y == 1) {
+        rotationDir.x = 1;
+        rotationDir.y = 0;
+        newBlock.setAttribute("face",(newBlock.getAttribute("face")+" "+labelUP).trim());
+      }
+
+      if(rotationDir.x == 0 && rotationDir.y == -1) {
+        rotationDir.x = -1;
+        rotationDir.y = 0;
+        newBlock.setAttribute("face",(newBlock.getAttribute("face")+" "+labelDOWN).trim());
+      }
+    }
+
     pivot.addEventListener("animationcomplete__dynamic"+pivot.id,function(){
-      //console.log(ROTATIONS[pivot.id]);
-      //TODO -> rebuildFaces
+      //animation ended
     },false);
   }); 
 }
