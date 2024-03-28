@@ -101,8 +101,13 @@ function buildCubeFaces(el){
                   
                   //rotation events
                   newPlane.addEventListener("click", (e) => {
+                    if (e.detail === 1) {
+                      console.log("1 click " + e.detail);
+                    } else if (e.detail === 2) {
+                      console.log("2 click " + e.detail);
+                    }
                     console.log(newPlane.id);
-                    rotateFace(newBlock,direction);
+                    rotateFace(newBlock,e.detail);
                     e.stopPropagation();
                     e.preventDefault()
                   },false);
@@ -128,6 +133,7 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+//direction 1 -> Z // direction 2 -> X
 function rotateFace(block,direction){
   var pivot = block.parentElement;
   console.log(block.id);
@@ -142,9 +148,9 @@ function rotateFace(block,direction){
   var oldZ = ROTATIONS[pivot.id].z;
   var oldX = ROTATIONS[pivot.id].x;
   var oldY = ROTATIONS[pivot.id].y;
-  var newX = oldX + 90;
-  var newY = oldY + 90;
-  var newZ = oldZ + 90;
+  var newX = oldX + (direction==2? 90 : 0);
+  var newY = oldY;
+  var newZ = oldZ + (direction==1? 90 : 0);
   
   pivot.setAttribute("animation__dynamic"+pivot.id,"property:rotation; enabled:true;elasticity:200;dur: 1000; from:"+oldX+" "+oldY+" "+oldZ+"; to: "+newX+" "+newY+" "+newZ);
  
