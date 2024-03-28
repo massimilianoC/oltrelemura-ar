@@ -329,7 +329,7 @@ function rotateFace(block){
 
     el.setAttribute("face",el.getAttribute("faceX")+" "+el.getAttribute("faceY")+" "+el.getAttribute("faceZ"));
 
-    if(el.id=="block_2_2_0") console.log("END",el.id,el.getAttribute("face"));
+    if(el.id=="block_2_0_0") console.log("END",el.id,el.getAttribute("face"));
     pivot.addEventListener("animationcomplete__dynamic"+pivot.id,function(){
       //animation ended
     },false);
