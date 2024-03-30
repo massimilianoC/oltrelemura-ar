@@ -137,7 +137,7 @@ function rotateParent(idx){
         let i=0;
         faces.forEach(face => {
           face.setAttribute("animation__fadeOut"+i,"property:opacity; enabled:true;from:1;to:0;dur: 100;delay:"+i*10);
-          face.setAttribute("animation__fadeOutMaterial"+i,"property:material.opacity; enabled:true;from:1;to:0;dur: 100;delay:"+i*10);
+          face.setAttribute("animation__fadeOutMaterial"+i,"property:visible; enabled:true;from:true;to:false;dur: 100;delay:"+i*200);
           i++;
         });
 
