@@ -155,6 +155,9 @@ function rotateParent(idx){
         });
 
         var restart = document.querySelector("#restartButton");
+        restart.addEventListener("click", () => {
+              window.location.reload();
+        }, {once:true});
         restart.setAttribute("visible","true");
         restart.setAttribute("animation__fadeinRestart","property:opacity; enabled:true;from:0;to:1;delay: 2000; dur: 1000");
 
