@@ -29,39 +29,46 @@ AFRAME.registerComponent('rubik-cube-param',{
                     var position = axis==0 ? positionSign+"0.5 0 0" : axis==1 ? "0 "+ positionSign+"0.5 0" : "0 0 "+positionSign+"0.5";
                     var rotation = axis==1 ? rotationSing+"90 0 0" : axis==0 ? "0 "+ rotationSing+"90 0" : "0 0 "+rotationSing+"90";
                     newPlane.setAttribute('position',position);
-                    
+                    newPlane.setAttribute("class","face");
+
                     //UP
                     if(i==2 && axis==1 && direction==0) 
                     {
                       newPlane.setAttribute('material','shader:flat ; src: url(../../../assets/texture/tileA_'+r+'_'+j+'.png)');
+                      newPlane.setAttribute("class","clickable face up texture");
                     }
                     //DOWN
                     else if(i==0 && axis==1 && direction==1) 
                     {
                       newPlane.setAttribute('material','shader:flat ; src: url(../../../assets/texture/tileB_'+(2-r)+'_'+j+'.png)');
+                      newPlane.setAttribute("class","clickable face down texture");
                     }
                      //LEFT
                     else if(j==0 && axis==0 && direction==0) 
                     {
                       newPlane.setAttribute('material','shader:flat ; src: url(../../../assets/texture/tileC_'+(2-i)+'_'+r+'.png)');
+                      newPlane.setAttribute("class","clickable face left texture");
                       rotation = "0 -90 0";
                     }
                      //RIGHT
                     else if(j==2 && axis==0 && direction==1) 
                     {
                       newPlane.setAttribute('material','shader:flat ; src: url(../../../assets/texture/tileA_'+(2-i)+'_'+(2-r)+'.png)');
+                      newPlane.setAttribute("class","clickable face right texture");
                       rotation = "0 90 0";
                     }
                     //FRONT
                     else if(r==2 && axis==2 && direction==0) 
                     {
                       newPlane.setAttribute('material','shader:flat ; src: url(../../../assets/texture/tileB_'+(2-i)+'_'+j+'.png)');
+                      newPlane.setAttribute("class","clickable face front texture");
                       rotation = "0 0 0";
                     }
                     //BACK
                     else if(r==0 && axis==2 && direction==1) 
                     {
                       newPlane.setAttribute('material','shader:flat; side: double; src: url(../../../assets/texture/tileC_'+(2-i)+'_'+j+'.png)');
+                      newPlane.setAttribute("class","clickable face back texture");
                       rotation = "0 0 0";
                     }
                     else {
@@ -69,7 +76,6 @@ AFRAME.registerComponent('rubik-cube-param',{
                     }
 
                     newPlane.setAttribute("id","face_"+idx+"_"+i+"_"+j+"_"+axis+"_"+direction);
-                    newPlane.setAttribute("class","clickable face");
                     newPlane.setAttribute('rotation',rotation);
                     newBlock.appendChild(newPlane);
                     
@@ -137,6 +143,11 @@ function rotateParent(idx){
         let i=0;
         faces.forEach(face => {
           face.setAttribute("animation__fadeOut"+i,"property:opacity; enabled:true;from:1;to:0;dur: 100;delay:"+i*10);
+          i++;
+        });
+
+        var facesTexture = document.querySelectorAll('.face.texture');
+        facesTexture.forEach(face => {
           face.setAttribute("animation__fadeOutMaterial"+i,"property:visible; enabled:true;from:true;to:false;dur: 100;delay:"+i*200);
           i++;
         });
