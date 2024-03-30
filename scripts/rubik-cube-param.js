@@ -156,16 +156,16 @@ function rotateParent(idx){
         let j=0;
         var facesTexture = document.querySelectorAll('.face.texture');
         facesTexture.forEach(face => {
-          face.setAttribute("animation__fadeOutMaterial"+i,"property:visible; enabled:true;from:true;to:false;dur: 100;delay:"+j*50);
+          face.setAttribute("animation__fadeOutMaterial"+i,"property:visible; enabled:true;from:true;to:false;dur: 200;delay:"+j*100);
           j++;
         });
 
         var restart = document.querySelector("#restartButton");
-        restart.addEventListener("click", () => {
-              window.location.reload();
-        }, {once:true});
         restart.setAttribute("visible","true");
         restart.setAttribute("animation__fadeinRestart","property:opacity; enabled:true;from:0;to:1;delay: 2000; dur: 1000");
+        restart.addEventListener("click", () => {
+          window.location.reload();
+         }, {once:true});
 
       }
 
