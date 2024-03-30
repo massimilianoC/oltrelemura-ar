@@ -14,7 +14,6 @@ AFRAME.registerComponent('rubik-cube-param',{
     var newElement = document.createElement('a-entity');
     let groupCounter = 0;
     var r = idx;
-    //for (let r = 0; r < 3; r++) {
       let rowCounter = 0;
       for (let i = 0; i < 3; i++) {
         let columnCounter = 0;
@@ -100,7 +99,6 @@ AFRAME.registerComponent('rubik-cube-param',{
         rowCounter++;
       }
       groupCounter++;
-    //}
     newElement.setAttribute('id','faces');
     el.appendChild(newElement);
   }
@@ -126,8 +124,16 @@ function rotateParent(idx){
     var oldY = LAST_ROTATION[idx].y;
     cube.setAttribute("animation__dynamic"+idx,"property:rotation; enabled:true;elasticity:200;dur: 1000; from:"+oldX+" "+oldY+" "+oldZ+"; to: "+oldX+" "+oldY+" "+newZ);
     LAST_ROTATION[idx].z=newZ;
+
     cube.addEventListener("animationcomplete__dynamic"+idx,function(){
       console.log("END animationcomplete__dynamic"+idx);
       console.log(LAST_ROTATION[idx]);
-    },{once:true});
+
+      if(LAST_ROTATION[0]==(-1*LAST_ROTATION[1]) && LAST_ROTATION[0]==LAST_ROTATION[2])
+      {
+        var root = document.querySelector('#diceRoot');
+        root.setAttribute("animation__end","property:opacity; from: 1; to: 0; dur: 5000");
+      }
+
+    },false);
 }
