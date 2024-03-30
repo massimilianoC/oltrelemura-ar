@@ -89,6 +89,7 @@ AFRAME.registerComponent('rubik-cube-param',{
             newBlock.setAttribute('class',"block");
             newBlock.setAttribute('position',positionx+" "+positiony+ " "+positionz);
             newBlock.setAttribute('scale',"0.1 0.1 0.1");
+            newBlock.setAttribute('opacity',"0");
             newBlock.setAttribute('width',"0.1");
             newBlock.setAttribute('height',"0.1");
             newBlock.setAttribute('depth',"0.1");
@@ -132,12 +133,14 @@ function rotateParent(idx){
       if((LAST_ROTATION[0].z%360 == 0) && (LAST_ROTATION[1].z%360 == 0) && (LAST_ROTATION[2].z%360 == 0))
       {
         console.log("END animations");
-        var cube0 = document.querySelector('#rubik'+idx);
-        var cube1 = document.querySelector('#rubik'+idx);
-        var cube2 = document.querySelector('#rubik'+idx);
-        cube0.setAttribute("animation__end0","property:opacity; from: 1; to: 0; delay:1000; dur: 5000");
-        cube1.setAttribute("animation__end1","property:opacity; from: 1; to: 0; delay:500; dur: 5000");
-        cube2.setAttribute("animation__end2","property:opacity; from: 1; to: 0; dur: 5000");
+        var blocks = document.querySelectorAll('.block');
+        var faces = document.querySelectorAll('.face');
+        let i=0;
+        faces.forEach(face => {
+          face.setAttribute("animation__fadeOut"+i,"property:opacity; enabled:true;from:1;to:0;dur: 500;delay:"+i*100);
+          i++;
+        });
+
       }
 
     },{once:true})
