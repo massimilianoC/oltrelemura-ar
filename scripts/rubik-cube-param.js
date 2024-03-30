@@ -133,11 +133,10 @@ function rotateParent(idx){
       if((LAST_ROTATION[0].z%360 == 0) && (LAST_ROTATION[1].z%360 == 0) && (LAST_ROTATION[2].z%360 == 0))
       {
         console.log("END animations");
-        var blocks = document.querySelectorAll('.block');
         var faces = document.querySelectorAll('.face');
         let i=0;
         faces.forEach(face => {
-          face.setAttribute("animation__fadeOut"+i,"property:opacity; enabled:true;from:1;to:0;dur: 500;delay:"+i*100);
+          face.setAttribute("animation__fadeOut"+i,"property:opacity; enabled:true;from:1;to:0;dur: 100;delay:"+i*10);
           i++;
         });
 
