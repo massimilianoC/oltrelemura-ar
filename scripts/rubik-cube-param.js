@@ -131,8 +131,13 @@ function rotateParent(idx){
 
       if(LAST_ROTATION[0].z!= 90 && LAST_ROTATION[0].z==LAST_ROTATION[1].z && LAST_ROTATION[0].z==LAST_ROTATION[2].z)
       {
-        var root = document.querySelector('#diceRoot');
-        root.setAttribute("animation__end","property:opacity; from: 1; to: 0; dur: 5000");
+        console.log("END animations");
+        var cube0 = document.querySelector('#rubik'+idx);
+        var cube1 = document.querySelector('#rubik'+idx);
+        var cube2 = document.querySelector('#rubik'+idx);
+        cube0.setAttribute("animation__end0","property:opacity; from: 1; to: 0; delay:1000; dur: 5000");
+        cube1.setAttribute("animation__end1","property:opacity; from: 1; to: 0; delay:500; dur: 5000");
+        cube2.setAttribute("animation__end2","property:opacity; from: 1; to: 0; dur: 5000");
       }
 
     },false);
