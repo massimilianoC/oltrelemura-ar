@@ -143,6 +143,7 @@ function rotateParent(idx){
         let i=0;
         faces.forEach(face => {
           face.setAttribute("animation__fadeOut"+i,"property:opacity; enabled:true;from:1;to:0;dur: 100;delay:"+i*10);
+          faces.removeEventListener("click");
           i++;
         });
 
