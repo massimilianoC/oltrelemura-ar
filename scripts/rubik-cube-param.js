@@ -129,7 +129,7 @@ function rotateParent(idx){
       console.log("END animationcomplete__dynamic"+idx);
       console.log(LAST_ROTATION[0]),LAST_ROTATION[1],LAST_ROTATION[2];
 
-      if(LAST_ROTATION[0]==(-1*LAST_ROTATION[1]) && LAST_ROTATION[0]==LAST_ROTATION[2])
+      if(LAST_ROTATION[0].z!= 90 && LAST_ROTATION[0].z==(-1*LAST_ROTATION[1].z) && LAST_ROTATION[0].z==LAST_ROTATION[2].z)
       {
         var root = document.querySelector('#diceRoot');
         root.setAttribute("animation__end","property:opacity; from: 1; to: 0; dur: 5000");
