@@ -127,9 +127,9 @@ function rotateParent(idx){
 
     cube.addEventListener("animationcomplete__dynamic"+idx,function(){
       console.log("END animationcomplete__dynamic"+idx);
-      console.log(LAST_ROTATION[0]),LAST_ROTATION[1],LAST_ROTATION[2];
+      console.log(LAST_ROTATION[0],LAST_ROTATION[1],LAST_ROTATION[2]);
 
-      if(LAST_ROTATION[0].z!= 90 && LAST_ROTATION[0].z==LAST_ROTATION[1].z && LAST_ROTATION[0].z==LAST_ROTATION[2].z)
+      if((LAST_ROTATION[0].z%360 == 0) && (LAST_ROTATION[1].z%360 == 0) && (LAST_ROTATION[2].z%360 == 0))
       {
         console.log("END animations");
         var cube0 = document.querySelector('#rubik'+idx);
@@ -140,5 +140,5 @@ function rotateParent(idx){
         cube2.setAttribute("animation__end2","property:opacity; from: 1; to: 0; dur: 5000");
       }
 
-    },false);
+    },{once:true})
 }
