@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="../../../css/global.css" />
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
         const startButton = document.querySelector("#debug-start-button");
         const sceneEl = document.querySelector('a-scene');
           let arSystem;
@@ -36,6 +37,12 @@
             console.log("event target found");
           });
 
+          var buttonPlay = document.querySelector("#play");
+
+          buttonPlay.addEventListener("click", () => {
+            sceneEl.setAttribute("animation-timeline__1","timeline: #animationTimeline; loop: false");
+            buttonPlay.setAttribute("visible","false");
+          }, {once:true});
 
         setTimeout(() => {
 
@@ -68,7 +75,7 @@
     </script>
   </head>
   <body>
-    <div style="position: fixed; bottom: 0; text-align: center; z-index: 1000">
+    <div style="position: fixed; bottom: 0; text-align: center; z-index: 1000; display: none">
       <button id="debug-start-button">Start</button>
       <button id="debug-pause-button" style="display: none;">Pause</button>
       <button id="debug-pause-keep-video-button" style="display: none;">Pause (keep video)</button>
@@ -77,9 +84,8 @@
     </div>
     
     <a-scene 
-    animation-timeline__1="timeline: #animationTimeline; loop: false"
     webxr="optionalFeatures: hit-test, local-floor;" ar-hit-test="target:#dice;"
-    mindar-image="imageTargetSrc: ../../../model/blur.mind; autoStart: false; filterMinCF:0.001; filterBeta: 0.01; warmupTolerance: 1; missTolerance: 1" 
+    mindar-image="imageTargetSrc: ../../../model/blur.mind; autoStart: true; filterMinCF:0.001; filterBeta: 0.01; warmupTolerance: 1; missTolerance: 1" 
     color-space="sRGB" 
     renderer="colorManagement: true, physicallyCorrectLights" 
     vr-mode-ui="enabled: false" 
@@ -262,6 +268,9 @@
       </a-assets>
 
       <a-entity id="ar-target" mindar-image-target="targetIndex: 0">
+
+        <a-image visible="true" id="playButton" class="clickable" src="#play" position="0 0 0" height="0.2" width="0.2" ></a-image>
+        <a-image visible="false" id="restartButton" class="clickable" src="#restart" position="0 0 0" height="0.2" width="0.2" ></a-image>
 
         <a-video id="video1" src="#opera-mp4" visible="false" class="clickable video" width="1" height="0.552" position="0 0 0.001" scale="1.001 1.001 1.001"></a-video>  
 
