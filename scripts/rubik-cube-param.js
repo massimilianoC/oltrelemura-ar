@@ -127,7 +127,7 @@ function rotateParent(idx){
 
     cube.addEventListener("animationcomplete__dynamic"+idx,function(){
       console.log("END animationcomplete__dynamic"+idx);
-      console.log(LAST_ROTATION[idx]);
+      console.log(LAST_ROTATION[0]),LAST_ROTATION[1],LAST_ROTATION[2];
 
       if(LAST_ROTATION[0]==(-1*LAST_ROTATION[1]) && LAST_ROTATION[0]==LAST_ROTATION[2])
       {

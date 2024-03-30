@@ -82,7 +82,7 @@
         </a-timeline-group>
 
         <a-timeline-animation select="#text2" name="delay1"></a-timeline-animation>
-        <a-timeline-animation select="#plane4" name="opacityoff"></a-timeline-animation>
+        <a-timeline-animation select="#plane4" name="opacityoffslow"></a-timeline-animation>
         <!-- -->
 
         <!--#text1-->
@@ -192,7 +192,8 @@
           animation__toggleon="property: visible; from: false; to: true; dur: 1; autoplay: false"
           animation__toggleoff="property: visible; from: true; to: false; dur: 1; autoplay: false" 
           animation__opacityon="property: opacity; to: 1; dur: 1000; autoplay: false" 
-          animation__opacityoff="property: opacity; to: 0; dur: 1000; autoplay: false">
+          animation__opacityoff="property: opacity; to: 0; dur: 1000; autoplay: false"
+          animation__opacityoffslow="property: opacity; from:1;to: 0; dur: 2000; autoplay: false">
       </a-mixin>
 
       <a-mixin id="delay" animation__delay1="property: visible; dur: 500; autoplay: false"></a-mixin>
