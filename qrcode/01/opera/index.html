@@ -41,6 +41,12 @@
             buttonPlay.setAttribute("visible","false");
           }, {once:true});
 
+          var restart = document.querySelector("#restartButton");
+
+          restart.addEventListener("click", () => {
+                window.location.reload();
+          }, {once:true});
+
         setTimeout(() => {
 
           const btn = document.querySelector('.clickable.video');
@@ -102,7 +108,6 @@
           <a-timeline-animation select="#plane1" name="toggleon"></a-timeline-animation>
         </a-timeline-group>
 
-        <a-timeline-animation select="#plane1" name="delay1"></a-timeline-animation>
         <a-timeline-animation select="#plane1" name="delay1"></a-timeline-animation>
 
         <a-timeline-group>
@@ -276,7 +281,7 @@
       <a-entity id="ar-target" mindar-image-target="targetIndex: 0">
 
         <a-image visible="true" id="playButton" class="clickable" src="#play" position="0 0 0.2" height="0.17" width="0.17" ></a-image>
-        <a-image visible="false" id="restartButton" class="clickable" src="#restart" position="0 0 0.2" height="0.17" width="0.17" ></a-image>
+        <a-image visible="false" id="restartButton" opacity="0" class="clickable" src="#restart" position="0 0 0.2" height="0.17" width="0.17" ></a-image>
 
         <a-video id="video1" src="#opera-mp4" visible="false" class="clickable video" width="1" height="0.552" position="0 0 0.001" scale="1.001 1.001 1.001"></a-video>  
 

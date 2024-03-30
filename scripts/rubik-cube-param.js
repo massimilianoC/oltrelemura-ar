@@ -153,6 +153,10 @@ function rotateParent(idx){
           j++;
         });
 
+        var restart = document.querySelector("#restartButton");
+        restart.setAttribute("visible","true");
+        restart.setAttribute("animation__fadeinRestart","property:opacity; enabled:true;from:0;to:1;delay: 2000; dur: 1000");
+
       }
 
     },{once:true})
