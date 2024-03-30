@@ -146,10 +146,11 @@ function rotateParent(idx){
           i++;
         });
 
+        let j=0;
         var facesTexture = document.querySelectorAll('.face.texture');
         facesTexture.forEach(face => {
-          face.setAttribute("animation__fadeOutMaterial"+i,"property:visible; enabled:true;from:true;to:false;dur: 100;delay:"+i*200);
-          i++;
+          face.setAttribute("animation__fadeOutMaterial"+i,"property:visible; enabled:true;from:true;to:false;dur: 100;delay:"+j*50);
+          j++;
         });
 
       }
