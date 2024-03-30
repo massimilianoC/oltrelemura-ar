@@ -12,48 +12,74 @@
     <script>
       document.addEventListener("DOMContentLoaded", function() {
        
+        const sceneEl = document.querySelector('a-scene');
+          let arSystem;
+          sceneEl.addEventListener('loaded', function () {
+	          arSystem = sceneEl.systems["mindar-image-system"];
+	        });
+
+          startButton.addEventListener('click', () => {
+            console.log("start");
+            arSystem.start(); // start AR 
+          });
+
+                  // arReady event triggered when ready
+          sceneEl.addEventListener("arReady", (event) => {
+            // console.log("MindAR is ready")
+          });
+          // arError event triggered when something went wrong. Mostly browser compatbility issue
+          sceneEl.addEventListener("arError", (event) => {
+            // console.log("MindAR failed to start")
+          });
+          // detect target found
+          example1.addEventListener("targetFound", event => {
+            console.log("event target found");
+          });
+
+
         setTimeout(() => {
-              const btn = document.querySelector('.clickable.video');
-              const faces = document.querySelectorAll('.clickable.face');
 
-              function playDefaultVideo(){
-                const video = document.querySelector('#opera-mp4');
-                const videoParticle = document.querySelector('#particle');
-                video.play();
-                videoParticle.play();
-              }
+          const btn = document.querySelector('.clickable.video');
+          const faces = document.querySelectorAll('.clickable.face');
 
-              console.log(faces);
+          function playDefaultVideo(){
+            const video = document.querySelector('#opera-mp4');
+            const videoParticle = document.querySelector('#particle');
+            video.play();
+            videoParticle.play();
+          }
 
-              for (let i = 0; i < faces.length; i++) {
-                console.log(faces[i]);
-                faces[i].addEventListener("click", (e) => {
-                  console.log(e);
-                  document.querySelector('#rubik0').emit('layer1'); 
-              });
-            }
+          console.log(faces);
 
-              btn.addEventListener('click', () => {
-                playDefaultVideo();
-              });
-            });
-          }, "5000");
+          for (let i = 0; i < faces.length; i++) {
+            console.log(faces[i]);
+            faces[i].addEventListener("click", (e) => {
+              console.log(e);
+              document.querySelector('#rubik0').emit('layer1'); 
+          });
+        }
+
+          btn.addEventListener('click', () => {
+            playDefaultVideo();
+          });
+        });
+      }, "5000");
         
     </script>
   </head>
   <body>
-    <div style="position: absolute; z-index: 1000; display: none;">
+    <div style="position: fixed; bottom: 0; text-align: center; z-index: 1000">
       <button id="debug-start-button">Start</button>
-      <button id="debug-pause-button">Pause</button>
-      <button id="debug-pause-keep-video-button">Pause (keep video)</button>
-      <button id="debug-unpause-button">UnPause</button>
-      <button id="debug-stop-button">Stop</button>
+      <button id="debug-pause-button" style="display: none;">Pause</button>
+      <button id="debug-pause-keep-video-button" style="display: none;">Pause (keep video)</button>
+      <button id="debug-unpause-button" style=" display: none;">UnPause</button>
+      <button id="debug-stop-button" style="display: none;">Stop</button>
     </div>
     
     <a-scene 
     animation-timeline__1="timeline: #animationTimeline; loop: false"
     webxr="optionalFeatures: hit-test, local-floor;" ar-hit-test="target:#dice;"
-    mindar-image="imageTargetSrc: ../../../model/blur.mind; autoStart: true; filterMinCF:0.001; filterBeta: 0.01; warmupTolerance: 1; missTolerance: 1" 
+    mindar-image="imageTargetSrc: ../../../model/blur.mind; autoStart: false; filterMinCF:0.001; filterBeta: 0.01; warmupTolerance: 1; missTolerance: 1" 
     color-space="sRGB" 
     renderer="colorManagement: true, physicallyCorrectLights" 
     vr-mode-ui="enabled: false" 
