@@ -37,7 +37,7 @@
             console.log("event target found");
           });
 
-          var buttonPlay = document.querySelector("#play");
+          var buttonPlay = document.querySelector("#playButton");
 
           buttonPlay.addEventListener("click", () => {
             sceneEl.setAttribute("animation-timeline__1","timeline: #animationTimeline; loop: false");
@@ -251,6 +251,8 @@
       <!-- -->
       <!-- Assets -->
         <img id="opera" src="../../../assets/opera/emm.gif" />
+        <img id="play" src="../../../assets/play.png" />
+        <img id="restart" src="../../../assets/power.png" />
         <video id="opera-mp4" autoplay loop="true" src="../../../assets/opera/LoopEMM.mp4">
         </video>
         <video id="particle" autoplay loop="true" webkit-playsinline playsinline crossorigin="anonymous">
