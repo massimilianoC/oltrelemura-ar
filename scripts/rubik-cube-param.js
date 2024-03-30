@@ -171,7 +171,7 @@ function rotateParent(idx){
          link.setAttribute("visible","true");
          link.setAttribute("animation__fadeinLink","property:opacity; enabled:true;from:0;to:1;delay: 2000; dur: 1000");
          link.addEventListener("click", () => {
-          window.open("https://oltrelemura.gradarainnova.com/qrcode/01/poster/","_self")
+          window.open("https://oltrelemura.gradarainnova.com/qrcode/01/poster/","_blank")
           }, {once:true});
 
       }
